@@ -80,16 +80,26 @@ const Index = () => {
         <PullToRefresh onRefresh={handleRefresh} className="flex-1 overflow-y-auto">
           <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
-              <RewardRedemption />
+              <div className="md:col-span-1">
+                <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
+              </div>
+              <div className="md:col-span-1">
+                <RewardRedemption />
+              </div>
             </div>
-            <FeaturedOffers isLoading={isLoading} />
-            <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+            <div className="mt-8">
+              <FeaturedOffers isLoading={isLoading} />
+            </div>
+            <div className="mt-8">
+              <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+            </div>
           </main>
         </PullToRefresh>
       </div>
       <Footer />
-      <FloatingActionButton />
+      <div className="fixed bottom-16 right-4 z-10">
+        <FloatingActionButton />
+      </div>
     </div>
   );
 };
