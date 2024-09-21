@@ -2,18 +2,16 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
-import Shimmer from './Shimmer';
 
 const RewardOverview = ({ isLoading, user, handleEarnReward }) => {
   if (isLoading) {
     return (
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle><Shimmer width="200px" height="24px" /></CardTitle>
+          <CardTitle>Loading...</CardTitle>
         </CardHeader>
         <CardContent>
-          <Shimmer width="100%" height="20px" className="mb-4" />
-          <Shimmer width="100%" height="24px" />
+          <div className="h-4 bg-gray-200 rounded animate-pulse"></div>
         </CardContent>
       </Card>
     );
