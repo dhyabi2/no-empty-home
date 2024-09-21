@@ -12,19 +12,64 @@ import Shimmer from '../components/Shimmer';
 import EarnPoints from '../components/EarnPoints';
 import RewardRedemption from '../components/RewardRedemption';
 import { useAuth } from '../contexts/AuthContext';
+import { calculateDistance } from '../utils/distanceCalculator';
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuth();
+  const [nearbyShops, setNearbyShops] = useState([]);
+  const [userLocation, setUserLocation] = useState(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
 
+    // Get user's location
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+          });
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+        }
+      );
+    }
+
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    if (userLocation) {
+      // Mock data for shops (in a real app, this would be fetched from an API)
+      const allShops = [
+        { id: 1, name: "Coffee Haven", latitude: 40.7128, longitude: -74.0060, category: "Cafe" },
+        { id: 2, name: "Tech Gadgets", latitude: 40.7112, longitude: -74.0055, category: "Electronics" },
+        { id: 3, name: "Fresh Grocers", latitude: 40.7135, longitude: -74.0070, category: "Supermarket" },
+        { id: 4, name: "Book Nook", latitude: 40.7140, longitude: -74.0080, category: "Bookstore" },
+        { id: 5, name: "Fitness First", latitude: 40.7120, longitude: -74.0050, category: "Gym" },
+      ];
+
+      // Calculate distances and sort shops
+      const shopsWithDistances = allShops.map(shop => ({
+        ...shop,
+        distance: calculateDistance(
+          userLocation.latitude,
+          userLocation.longitude,
+          shop.latitude,
+          shop.longitude
+        )
+      }));
+
+      const sortedShops = shopsWithDistances.sort((a, b) => a.distance - b.distance);
+      setNearbyShops(sortedShops.slice(0, 3)); // Get top 3 nearest shops
+    }
+  }, [userLocation]);
 
   const handleEarnReward = () => {
     setShowConfetti(true);
@@ -140,11 +185,7 @@ const Index = () => {
                   </Card>
                 ))
               ) : (
-                [
-                  { id: 1, name: "Coffee Haven", distance: "0.5 km", category: "Cafe" },
-                  { id: 2, name: "Tech Gadgets", distance: "1.2 km", category: "Electronics" },
-                  { id: 3, name: "Fresh Grocers", distance: "0.8 km", category: "Supermarket" }
-                ].map((shop) => (
+                nearbyShops.map((shop) => (
                   <Card key={shop.id}>
                     <CardHeader>
                       <CardTitle>{shop.name}</CardTitle>
@@ -153,7 +194,7 @@ const Index = () => {
                       <p className="text-sm text-gray-500">{shop.category}</p>
                       <p className="text-xs mt-2">
                         <MapPin className="inline-block h-4 w-4 mr-1" />
-                        {shop.distance}
+                        {shop.distance} km
                       </p>
                       <Link to={`/shops/${shop.id}`}>
                         <Button className="mt-4 w-full">View Shop</Button>
