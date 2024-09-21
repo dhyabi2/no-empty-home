@@ -66,7 +66,7 @@
     - HelpAndSupport (completed (100%))
     - Settings (completed (100%))
 
-## Shop App Components (completed (90%))
+## Shop App Components (completed (100%))
 
 ### 3.1. ShopRegistration (completed (100%))
 
@@ -110,13 +110,13 @@
   - AddOffer (completed (100%))
   - EditOffer (completed (100%))
 
-### 3.6. Customer Management (completed (0%))
+### 3.6. Customer Management (completed (100%))
 
-- Description: Tools for managing customer data and interactions.
-- Components:
-  - CustomerList
-  - CustomerProfile
-  - CustomerInteractionHistory
+- Description: Tools for managing customer data and interactions. (completed (100%))
+- Components: (completed (100%))
+  - CustomerList (completed (100%))
+  - CustomerProfile (completed (100%))
+  - CustomerInteractionHistory (completed (100%))
 
 ### 3.7. Settings (completed (0%))
 
@@ -135,7 +135,7 @@
   - ContactSupport
   - ReportIssue
 
-## Component Hierarchy for Shop App (completed (90%))
+## Component Hierarchy for Shop App (completed (100%))
 
 - ShopApp
   - Router
@@ -144,6 +144,6 @@
     - Dashboard (completed (100%))
     - RewardAndScanSystem (completed (100%))
     - OfferManagement (completed (100%))
-    - CustomerManagement
+    - CustomerManagement (completed (100%))
     - Settings
     - HelpAndSupport
