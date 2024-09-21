@@ -41,15 +41,15 @@
   - FavoritesList (completed (100%))
   - EmptyState (completed (100%))
 
-### 2.11. Help & Support (completed (0%))
+### 2.11. Help & Support (completed (100%))
 
-- Description: Provides help resources and contact options. (completed (0%))
-- Components: (completed (0%))
-  - HelpTopics (completed (0%))
-  - ContactSupport (completed (0%))
-  - SupportForm (completed (0%))
+- Description: Provides help resources and contact options. (completed (100%))
+- Components: (completed (100%))
+  - HelpTopics (completed (100%))
+  - ContactSupport (completed (100%))
+  - SupportForm (completed (100%))
 
-## Component Hierarchy for Consumer App (completed (90%))
+## Component Hierarchy for Consumer App (completed (100%))
 
 - App (completed (100%))
   - Router (completed (100%))
@@ -63,8 +63,8 @@
     - Notifications (completed (100%))
     - Search (completed (100%))
     - Favorites (completed (100%))
-    - HelpAndSupport (completed (0%))
-    - Settings (completed (0%))
+    - HelpAndSupport (completed (100%))
+    - Settings (completed (100%))
 
 ## Shop App Components (completed (0%))
 
