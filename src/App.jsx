@@ -8,11 +8,19 @@ import { navItems } from "./nav-items";
 import PageTransition from "./components/PageTransition";
 import SplashScreen from "./components/SplashScreen";
 import Onboarding from "./components/Onboarding";
+import { AuthProvider, useAuth } from './contexts/AuthContext';
+import Login from './components/Login';
 
 const queryClient = new QueryClient();
 
 const AnimatedRoutes = () => {
   const location = useLocation();
+  const { user } = useAuth();
+
+  if (!user) {
+    return <Login />;
+  }
+
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
@@ -58,15 +66,17 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        {showSplash ? (
-          <SplashScreen onFinish={handleSplashFinish} />
-        ) : showOnboarding ? (
-          <Onboarding onComplete={handleOnboardingComplete} />
-        ) : (
-          <BrowserRouter>
-            <AnimatedRoutes />
-          </BrowserRouter>
-        )}
+        <AuthProvider>
+          {showSplash ? (
+            <SplashScreen onFinish={handleSplashFinish} />
+          ) : showOnboarding ? (
+            <Onboarding onComplete={handleOnboardingComplete} />
+          ) : (
+            <BrowserRouter>
+              <AnimatedRoutes />
+            </BrowserRouter>
+          )}
+        </AuthProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
