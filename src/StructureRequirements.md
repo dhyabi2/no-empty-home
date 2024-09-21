@@ -25,12 +25,14 @@
   - NotificationsHeader (completed (100%))
     - Title ("Notifications") and an option to mark all as read. (completed (100%))
 
-### 2.9. Search (completed (0%))
+### 2.9. Search (completed (100%))
 
-- Description: Allows users to search for shops or offers. (completed (0%))
-- Components: (completed (0%))
-  - SearchBar (completed (0%))
-  - SearchResults (completed (0%))
+- Description: Allows users to search for shops or offers. (completed (100%))
+- Components: (completed (100%))
+  - SearchBar (completed (100%))
+  - SearchResults (completed (100%))
+    - Tabs for Shops and Offers (completed (100%))
+    - ResultItem for each shop or offer (completed (100%))
 
 ### 2.10. Favorites (completed (0%))
 
@@ -47,7 +49,7 @@
   - ContactSupport (completed (0%))
   - SupportForm (completed (0%))
 
-## Component Hierarchy for Consumer App (completed (70%))
+## Component Hierarchy for Consumer App (completed (80%))
 
 - App (completed (100%))
   - Router (completed (100%))
@@ -59,7 +61,8 @@
     - Offers (completed (100%))
     - Profile (completed (100%))
     - Notifications (completed (100%))
-    - Search (completed (0%))
+    - Search (completed (100%))
+    - Favorites (completed (0%))
     - HelpAndSupport (completed (0%))
     - Settings (completed (0%))
 
