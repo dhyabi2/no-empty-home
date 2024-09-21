@@ -14,6 +14,15 @@ import FloatingActionButton from '../components/FloatingActionButton';
 import RewardOverview from '../components/RewardOverview';
 import FeaturedOffers from '../components/FeaturedOffers';
 import NearbyShops from '../components/NearbyShops';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Calendar } from "@/components/ui/calendar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Bell, Gift, MapPin, Star, Zap } from "lucide-react";
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -22,8 +31,10 @@ const Index = () => {
   const [nearbyShops, setNearbyShops] = useState([]);
   const [userLocation, setUserLocation] = useState(null);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState("overview");
+  const [recentActivity, setRecentActivity] = useState([]);
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
 
-  // Task 1: Use useCallback for event handlers
   const handleEarnReward = useCallback(() => {
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
@@ -38,13 +49,11 @@ const Index = () => {
     setIsSideNavOpen(prev => !prev);
   }, []);
 
-  // Task 2: Optimize useEffect dependencies
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
-  // Task 3: Use navigator.geolocation only once
   useEffect(() => {
     if (navigator.geolocation && !userLocation) {
       navigator.geolocation.getCurrentPosition(
@@ -57,7 +66,6 @@ const Index = () => {
     }
   }, [userLocation]);
 
-  // Task 4: Memoize expensive calculations
   const memoizedNearbyShops = React.useMemo(() => {
     if (!userLocation) return [];
 
@@ -78,21 +86,17 @@ const Index = () => {
     })).sort((a, b) => a.distance - b.distance).slice(0, 3);
   }, [userLocation]);
 
-  // Task 5: Update nearbyShops only when memoizedNearbyShops changes
   useEffect(() => {
     setNearbyShops(memoizedNearbyShops);
   }, [memoizedNearbyShops]);
 
-  // Task 6: Implement lazy loading for components
   const LazyConfetti = React.lazy(() => import('../components/Confetti'));
 
-  // Task 7: Use React.memo for child components
   const MemoizedRewardOverview = React.memo(RewardOverview);
   const MemoizedRewardRedemption = React.memo(RewardRedemption);
   const MemoizedFeaturedOffers = React.memo(FeaturedOffers);
   const MemoizedNearbyShops = React.memo(NearbyShops);
 
-  // Task 8: Implement error boundary
   class ErrorBoundary extends React.Component {
     constructor(props) {
       super(props);
@@ -116,10 +120,6 @@ const Index = () => {
     }
   }
 
-  // Task 9: Implement windowing for long lists (if needed)
-  // This would typically be done in the FeaturedOffers or NearbyShops components
-
-  // Task 10: Use passive event listeners for scroll events
   useEffect(() => {
     const handleScroll = () => {
       // Scroll handling logic here
@@ -127,6 +127,22 @@ const Index = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    // Simulated data for recent activity
+    setRecentActivity([
+      { id: 1, action: "Earned 50 points", timestamp: "2 hours ago" },
+      { id: 2, action: "Redeemed reward", timestamp: "1 day ago" },
+      { id: 3, action: "Visited Coffee Haven", timestamp: "3 days ago" },
+    ]);
+
+    // Simulated data for upcoming events
+    setUpcomingEvents([
+      { id: 1, title: "Double Points Day", date: "2024-04-15" },
+      { id: 2, title: "New Reward Launch", date: "2024-04-20" },
+      { id: 3, title: "Member Exclusive Sale", date: "2024-04-25" },
+    ]);
   }, []);
 
   return (
@@ -142,27 +158,135 @@ const Index = () => {
           <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)} />
           <PullToRefresh onRefresh={handleRefresh} className="flex-1 overflow-y-auto">
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card className="md:col-span-2">
+                  <CardHeader>
+                    <CardTitle className="text-2xl font-bold">Welcome back, {user?.name || 'User'}!</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Tabs value={activeTab} onValueChange={setActiveTab}>
+                      <TabsList className="grid w-full grid-cols-3">
+                        <TabsTrigger value="overview">Overview</TabsTrigger>
+                        <TabsTrigger value="rewards">Rewards</TabsTrigger>
+                        <TabsTrigger value="activity">Activity</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="overview">
+                        <div className="space-y-4">
+                          <MemoizedRewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
+                          <Progress value={75} className="w-full" />
+                          <p className="text-sm text-gray-500">75% progress to next tier</p>
+                        </div>
+                      </TabsContent>
+                      <TabsContent value="rewards">
+                        <MemoizedRewardRedemption />
+                      </TabsContent>
+                      <TabsContent value="activity">
+                        <ScrollArea className="h-[200px]">
+                          {recentActivity.map((activity, index) => (
+                            <div key={activity.id} className="flex justify-between items-center py-2">
+                              <span>{activity.action}</span>
+                              <Badge variant="secondary">{activity.timestamp}</Badge>
+                            </div>
+                          ))}
+                        </ScrollArea>
+                      </TabsContent>
+                    </Tabs>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Quick Actions</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-2 gap-4">
+                      <Button variant="outline" className="flex flex-col items-center justify-center h-24">
+                        <Gift className="h-6 w-6 mb-2" />
+                        Redeem
+                      </Button>
+                      <Button variant="outline" className="flex flex-col items-center justify-center h-24">
+                        <MapPin className="h-6 w-6 mb-2" />
+                        Find Shops
+                      </Button>
+                      <Button variant="outline" className="flex flex-col items-center justify-center h-24">
+                        <Star className="h-6 w-6 mb-2" />
+                        Favorites
+                      </Button>
+                      <Button variant="outline" className="flex flex-col items-center justify-center h-24">
+                        <Zap className="h-6 w-6 mb-2" />
+                        Earn Points
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+              <Separator />
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="md:col-span-1">
-                  <MemoizedRewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
-                </div>
-                <div className="md:col-span-1">
-                  <MemoizedRewardRedemption />
-                </div>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Featured Offers</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <MemoizedFeaturedOffers isLoading={isLoading} />
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Nearby Shops</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <MemoizedNearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+                  </CardContent>
+                </Card>
               </div>
-              <div className="mt-8">
-                <MemoizedFeaturedOffers isLoading={isLoading} />
-              </div>
-              <div className="mt-8">
-                <MemoizedNearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+              <Separator />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <Card className="md:col-span-2">
+                  <CardHeader>
+                    <CardTitle>Upcoming Events</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <Calendar
+                      mode="single"
+                      selected={new Date()}
+                      className="rounded-md border"
+                    />
+                    <ScrollArea className="h-[200px] mt-4">
+                      {upcomingEvents.map((event) => (
+                        <div key={event.id} className="flex justify-between items-center py-2">
+                          <span>{event.title}</span>
+                          <Badge>{new Date(event.date).toLocaleDateString()}</Badge>
+                        </div>
+                      ))}
+                    </ScrollArea>
+                  </CardContent>
+                </Card>
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Leaderboard</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ScrollArea className="h-[300px]">
+                      {[1, 2, 3, 4, 5].map((rank) => (
+                        <div key={rank} className="flex items-center space-x-4 py-2">
+                          <span className="font-bold">{rank}</span>
+                          <Avatar>
+                            <AvatarFallback>U{rank}</AvatarFallback>
+                          </Avatar>
+                          <div className="flex-1">
+                            <p className="font-medium">User {rank}</p>
+                            <p className="text-sm text-gray-500">{1000 - rank * 100} points</p>
+                          </div>
+                        </div>
+                      ))}
+                    </ScrollArea>
+                  </CardContent>
+                </Card>
               </div>
             </main>
           </PullToRefresh>
         </div>
         <Footer />
-        <div className="fixed bottom-16 right-4 z-10">
-          <FloatingActionButton />
-        </div>
+        <FloatingActionButton />
       </div>
     </ErrorBoundary>
   );
