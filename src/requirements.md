@@ -14,7 +14,7 @@
 10. Add a collapsible header on scroll for better content visibility (Completed Percentage: 100%)
 11. Implement skeleton screens for improved perceived loading times (Completed Percentage: 100%)
 12. Create a custom keyboard for entering reward codes (Completed Percentage: 100%)
-13. Implement a carousel for featured offers on the home screen (Completed Percentage: 0%)
+13. Implement a carousel for featured offers on the home screen (Completed Percentage: 100%)
 14. Add a floating search bar that expands on tap (Completed Percentage: 0%)
 15. Create an expandable FAB menu for multiple quick actions (Completed Percentage: 0%)
 
