@@ -1,7 +1,8 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Gift, Star } from "lucide-react";
+import { MapPin, Gift, Star, Bell, Search, User, HelpCircle } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -10,15 +11,26 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <h1 className="text-2xl font-bold text-gray-900">Loyalty App</h1>
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="icon">
-              <MapPin className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Gift className="h-5 w-5" />
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Star className="h-5 w-5" />
-            </Button>
+            <Link to="/search">
+              <Button variant="ghost" size="icon">
+                <Search className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/notifications">
+              <Button variant="ghost" size="icon">
+                <Bell className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/favorites">
+              <Button variant="ghost" size="icon">
+                <Star className="h-5 w-5" />
+              </Button>
+            </Link>
+            <Link to="/profile">
+              <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+              </Button>
+            </Link>
           </div>
         </div>
       </header>
@@ -59,9 +71,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
           <nav>
             <ul className="flex space-x-4">
-              <li><Button variant="link">Home</Button></li>
-              <li><Button variant="link">Offers</Button></li>
-              <li><Button variant="link">Profile</Button></li>
+              <li><Link to="/"><Button variant="link">Home</Button></Link></li>
+              <li><Link to="/search"><Button variant="link">Search</Button></Link></li>
+              <li><Link to="/notifications"><Button variant="link">Notifications</Button></Link></li>
+              <li><Link to="/favorites"><Button variant="link">Favorites</Button></Link></li>
+              <li><Link to="/profile"><Button variant="link">Profile</Button></Link></li>
+              <li><Link to="/help-support"><Button variant="link">Help & Support</Button></Link></li>
             </ul>
           </nav>
         </div>
