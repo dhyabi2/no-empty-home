@@ -9,11 +9,13 @@ import SideNav from '../components/SideNav';
 import { motion } from 'framer-motion';
 import Confetti from '../components/Confetti';
 import Shimmer from '../components/Shimmer';
+import EarnPoints from '../components/EarnPoints';
+import { useAuth } from '../contexts/AuthContext';
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
-  const [points, setPoints] = useState(1250);
   const [isLoading, setIsLoading] = useState(true);
+  const { user } = useAuth();
 
   useEffect(() => {
     // Simulate loading delay
@@ -25,7 +27,6 @@ const Index = () => {
   }, []);
 
   const handleEarnReward = () => {
-    setPoints(prevPoints => prevPoints + 100);
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
   };
@@ -59,7 +60,7 @@ const Index = () => {
                       ease: "easeInOut",
                     }}
                   >
-                    {points} points
+                    {user.points} points
                   </motion.p>
                 )}
                 {isLoading ? (
@@ -73,6 +74,7 @@ const Index = () => {
                 <Button className="mt-4" onClick={handleEarnReward} disabled={isLoading}>
                   Simulate Earning Reward
                 </Button>
+                <EarnPoints />
               </CardContent>
             </Card>
           </section>

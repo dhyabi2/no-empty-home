@@ -40,7 +40,7 @@
 
 1. Implement user authentication system (Completed Percentage: 100%)
 2. Create onboarding flow for new users (Completed Percentage: 100%)
-3. Develop point accumulation system (Completed Percentage: 0%)
+3. Develop point accumulation system (Completed Percentage: 100%)
 4. Implement reward redemption process (Completed Percentage: 0%)
 5. Create shop listing page with filtering options (Completed Percentage: 0%)
 6. Develop individual shop profile pages (Completed Percentage: 0%)

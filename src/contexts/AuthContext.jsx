@@ -14,8 +14,9 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = (userData) => {
-    setUser(userData);
-    localStorage.setItem('user', JSON.stringify(userData));
+    const userWithPoints = { ...userData, points: 0 };
+    setUser(userWithPoints);
+    localStorage.setItem('user', JSON.stringify(userWithPoints));
   };
 
   const logout = () => {
@@ -23,8 +24,16 @@ export const AuthProvider = ({ children }) => {
     localStorage.removeItem('user');
   };
 
+  const earnPoints = (points) => {
+    setUser(prevUser => {
+      const updatedUser = { ...prevUser, points: prevUser.points + points };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      return updatedUser;
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout }}>
+    <AuthContext.Provider value={{ user, login, logout, earnPoints }}>
       {children}
     </AuthContext.Provider>
   );
