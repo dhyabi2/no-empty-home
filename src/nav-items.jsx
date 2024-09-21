@@ -1,10 +1,11 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
 import Favorites from "./pages/Favorites.jsx";
 import Profile from "./pages/Profile.jsx";
 import HelpSupport from "./pages/HelpSupport.jsx";
+import ShopListing from "./pages/ShopListing.jsx";
 
 /**
  * Central place for defining the navigation items. Used for navigation components and routing.
@@ -45,5 +46,11 @@ export const navItems = [
     to: "/help-support",
     icon: <HelpCircleIcon className="h-4 w-4" />,
     page: <HelpSupport />,
+  },
+  {
+    title: "Shops",
+    to: "/shops",
+    icon: <ShoppingBagIcon className="h-4 w-4" />,
+    page: <ShopListing />,
   },
 ];
