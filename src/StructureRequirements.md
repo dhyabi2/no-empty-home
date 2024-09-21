@@ -118,14 +118,14 @@
   - CustomerProfile (completed (100%))
   - CustomerInteractionHistory (completed (100%))
 
-### 3.7. Settings (completed (0%))
+### 3.7. Settings (completed (100%))
 
-- Description: Various settings for the shop account.
-- Components:
-  - BusinessProfile
-  - RewardSettings
-  - NotificationSettings
-  - AccountSettings
+- Description: Various settings for the shop account. (completed (100%))
+- Components: (completed (100%))
+  - BusinessProfile (completed (100%))
+  - RewardSettings (completed (100%))
+  - NotificationSettings (completed (100%))
+  - AccountSettings (completed (100%))
 
 ### 3.8. Help & Support (completed (0%))
 
@@ -145,5 +145,5 @@
     - RewardAndScanSystem (completed (100%))
     - OfferManagement (completed (100%))
     - CustomerManagement (completed (100%))
-    - Settings
+    - Settings (completed (100%))
     - HelpAndSupport
