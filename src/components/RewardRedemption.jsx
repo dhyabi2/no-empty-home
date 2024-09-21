@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAuth } from '../contexts/AuthContext';
+import CustomKeyboard from './CustomKeyboard';
 
 const RewardRedemption = () => {
   const { user, redeemPoints } = useAuth();
   const [selectedReward, setSelectedReward] = useState(null);
+  const [showKeyboard, setShowKeyboard] = useState(false);
 
   const rewards = [
     { id: 1, name: "Free Coffee", points: 100 },
@@ -15,12 +17,18 @@ const RewardRedemption = () => {
 
   const handleRedemption = () => {
     if (selectedReward && user.points >= selectedReward.points) {
-      redeemPoints(selectedReward.points);
-      alert(`You have successfully redeemed ${selectedReward.name}!`);
-      setSelectedReward(null);
+      setShowKeyboard(true);
     } else {
       alert("Not enough points to redeem this reward.");
     }
+  };
+
+  const handleEnterCode = (code) => {
+    // In a real app, you'd validate the code here
+    redeemPoints(selectedReward.points);
+    alert(`You have successfully redeemed ${selectedReward.name} with code: ${code}`);
+    setSelectedReward(null);
+    setShowKeyboard(false);
   };
 
   return (
@@ -43,7 +51,7 @@ const RewardRedemption = () => {
             </Button>
           ))}
         </div>
-        {selectedReward && (
+        {selectedReward && !showKeyboard && (
           <Button
             onClick={handleRedemption}
             className="mt-4 w-full"
@@ -51,6 +59,14 @@ const RewardRedemption = () => {
           >
             Redeem {selectedReward.name}
           </Button>
+        )}
+        {showKeyboard && (
+          <div className="mt-4">
+            <CustomKeyboard
+              onEnter={handleEnterCode}
+              onClear={() => setShowKeyboard(false)}
+            />
+          </div>
         )}
       </CardContent>
     </Card>
