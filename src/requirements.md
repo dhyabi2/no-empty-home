@@ -13,13 +13,28 @@
 9. Implement breadcrumb navigation for improved user orientation (Completed Percentage: 100%)
 10. Add links from notification items to relevant offer or shop pages (Completed Percentage: 100%)
 
-## UI Enhancement and Animation Tasks (Completed)
+## UI Enhancement and Animation Tasks
 
 1. Add subtle fade-in animation for page transitions (Completed Percentage: 100%)
 2. Implement a pulsating effect for the reward points display (Completed Percentage: 100%)
 3. Create a confetti animation for when users earn rewards (Completed Percentage: 100%)
 4. Design an animated logo for the splash screen (Completed Percentage: 100%)
 5. Add a shimmer effect for loading states (Completed Percentage: 100%)
+6. Implement haptic feedback for interactive elements (Completed Percentage: 100%)
+7. Implement a dark mode toggle with system preference detection (Completed Percentage: 100%)
+8. Create custom animations for transitions between screens (Completed Percentage: 100%)
+9. Implement infinite scrolling for long lists (e.g., offers, shops) (Completed Percentage: 0%)
+10. Add a collapsible header on scroll for better content visibility (Completed Percentage: 0%)
+11. Implement skeleton screens for improved perceived loading times (Completed Percentage: 0%)
+12. Create a custom keyboard for entering reward codes (Completed Percentage: 0%)
+13. Implement a carousel for featured offers on the home screen (Completed Percentage: 0%)
+14. Add a floating search bar that expands on tap (Completed Percentage: 0%)
+15. Create an expandable FAB menu for multiple quick actions (Completed Percentage: 0%)
+16. Implement a custom tab bar with icons and labels (Completed Percentage: 0%)
+17. Add a progress indicator for multi-step processes (e.g., onboarding) (Completed Percentage: 0%)
+18. Create a scrollable header with parallax effect (Completed Percentage: 0%)
+19. Implement swipeable cards for offers and shops (Completed Percentage: 0%)
+20. Add a shake gesture to trigger a specific action (e.g., refresh) (Completed Percentage: 0%)
 
 ## Consumer App Tasks (Completed)
 
@@ -57,7 +72,7 @@
 4. Implement swipe gestures for navigating between pages (Completed Percentage: 100%)
 5. Add haptic feedback for interactive elements (Completed Percentage: 100%)
 6. Implement a dark mode toggle with system preference detection (Completed Percentage: 100%)
-7. Create custom animations for transitions between screens (Completed Percentage: 0%)
+7. Create custom animations for transitions between screens (Completed Percentage: 100%)
 8. Implement infinite scrolling for long lists (e.g., offers, shops) (Completed Percentage: 0%)
 9. Add a collapsible header on scroll for better content visibility (Completed Percentage: 0%)
 10. Implement skeleton screens for improved perceived loading times (Completed Percentage: 0%)
