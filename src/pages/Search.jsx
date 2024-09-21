@@ -32,19 +32,21 @@ const Search = () => {
           </TabsList>
           <TabsContent value="shops">
             <div className="space-y-4">
-              {[1, 2, 3].map((shop) => (
-                <Card key={shop}>
+              {[
+                { name: "Coffee Haven", address: "123 Main St, City", description: "Best coffee in town" },
+                { name: "Tech Gadgets", address: "456 Elm St, City", description: "Latest electronics and gadgets" },
+                { name: "Fresh Grocers", address: "789 Oak St, City", description: "Fresh produce and groceries" }
+              ].map((shop, index) => (
+                <Card key={index}>
                   <CardHeader>
-                    <CardTitle className="text-lg">Shop {shop}</CardTitle>
+                    <CardTitle className="text-lg">{shop.name}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-gray-500 mb-2">
                       <MapPin className="inline-block h-4 w-4 mr-1" />
-                      123 Main St, City, Country
+                      {shop.address}
                     </p>
-                    <p className="text-sm mb-2">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    </p>
+                    <p className="text-sm mb-2">{shop.description}</p>
                     <Button variant="outline" size="sm">View Details</Button>
                   </CardContent>
                 </Card>
@@ -53,18 +55,22 @@ const Search = () => {
           </TabsContent>
           <TabsContent value="offers">
             <div className="space-y-4">
-              {[1, 2, 3].map((offer) => (
-                <Card key={offer}>
+              {[
+                { title: "50% Off Coffee", shop: "Coffee Haven", expiry: "31 Mar 2024" },
+                { title: "Buy 1 Get 1 Free", shop: "Tech Gadgets", expiry: "15 Apr 2024" },
+                { title: "20% Off Groceries", shop: "Fresh Grocers", expiry: "30 Apr 2024" }
+              ].map((offer, index) => (
+                <Card key={index}>
                   <CardHeader>
-                    <CardTitle className="text-lg">Offer {offer}</CardTitle>
+                    <CardTitle className="text-lg">{offer.title}</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-gray-500 mb-2">
                       <Tag className="inline-block h-4 w-4 mr-1" />
-                      50% off on selected items
+                      {offer.shop}
                     </p>
                     <p className="text-sm mb-2">
-                      Valid until: 31 Dec 2023
+                      Valid until: {offer.expiry}
                     </p>
                     <Button variant="outline" size="sm">View Offer</Button>
                   </CardContent>
