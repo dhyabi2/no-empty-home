@@ -66,10 +66,6 @@ const Index = () => {
     setTimeout(() => setIsLoading(false), 1000);
   };
 
-  const handleScanQR = () => {
-    console.log("Scanning QR code...");
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {showConfetti && <Confetti />}
@@ -85,7 +81,7 @@ const Index = () => {
           </main>
         </PullToRefresh>
         <Footer />
-        <FloatingActionButton onClick={handleScanQR} />
+        <FloatingActionButton />
       </div>
     </div>
   );
