@@ -34,12 +34,12 @@
     - Tabs for Shops and Offers (completed (100%))
     - ResultItem for each shop or offer (completed (100%))
 
-### 2.10. Favorites (completed (0%))
+### 2.10. Favorites (completed (100%))
 
-- Description: Users can view and manage their favorite shops or offers. (completed (0%))
-- Components: (completed (0%))
-  - FavoritesList (completed (0%))
-  - EmptyState (completed (0%))
+- Description: Users can view and manage their favorite shops or offers. (completed (100%))
+- Components: (completed (100%))
+  - FavoritesList (completed (100%))
+  - EmptyState (completed (100%))
 
 ### 2.11. Help & Support (completed (0%))
 
@@ -49,7 +49,7 @@
   - ContactSupport (completed (0%))
   - SupportForm (completed (0%))
 
-## Component Hierarchy for Consumer App (completed (80%))
+## Component Hierarchy for Consumer App (completed (90%))
 
 - App (completed (100%))
   - Router (completed (100%))
@@ -62,7 +62,7 @@
     - Profile (completed (100%))
     - Notifications (completed (100%))
     - Search (completed (100%))
-    - Favorites (completed (0%))
+    - Favorites (completed (100%))
     - HelpAndSupport (completed (0%))
     - Settings (completed (0%))
 
