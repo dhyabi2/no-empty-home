@@ -26,7 +26,7 @@
 ### 1. Project Setup (Completed Percentage: 100%)
 ### 2. Common Components (Completed Percentage: 100%)
 ### 3. SplashScreen Component (Completed Percentage: 100%)
-### 4. Onboarding Components (Completed Percentage: 0%)
+### 4. Onboarding Components (Completed Percentage: 100%)
 ### 5. Authentication Components (Completed Percentage: 100%)
 ### 6. MainDashboard Component (Completed Percentage: 100%)
 ### 7. Offers Components (Completed Percentage: 100%)
@@ -36,15 +36,15 @@
 ### 11. Favorites Components (Completed Percentage: 100%)
 ### 12. Help & Support Components (Completed Percentage: 100%)
 
-## Additional Requirements (0% completed)
+## Additional Requirements
 
-1. Implement user authentication system
-2. Create onboarding flow for new users
-3. Develop point accumulation system
-4. Implement reward redemption process
-5. Create shop listing page with filtering options
-6. Develop individual shop profile pages
-7. Implement geolocation-based shop recommendations
-8. Create offer listing page with sorting options
-9. Develop individual offer detail pages
-10. Implement push notification system
+1. Implement user authentication system (Completed Percentage: 0%)
+2. Create onboarding flow for new users (Completed Percentage: 100%)
+3. Develop point accumulation system (Completed Percentage: 0%)
+4. Implement reward redemption process (Completed Percentage: 0%)
+5. Create shop listing page with filtering options (Completed Percentage: 0%)
+6. Develop individual shop profile pages (Completed Percentage: 0%)
+7. Implement geolocation-based shop recommendations (Completed Percentage: 0%)
+8. Create offer listing page with sorting options (Completed Percentage: 0%)
+9. Develop individual offer detail pages (Completed Percentage: 0%)
+10. Implement push notification system (Completed Percentage: 0%)
