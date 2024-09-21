@@ -127,13 +127,13 @@
   - NotificationSettings (completed (100%))
   - AccountSettings (completed (100%))
 
-### 3.8. Help & Support (completed (0%))
+### 3.8. Help & Support (completed (100%))
 
 - Description: Resources and contact options for shop owners.
 - Components:
-  - FAQSection
-  - ContactSupport
-  - ReportIssue
+  - FAQSection (completed (100%))
+  - ContactSupport (completed (100%))
+  - ReportIssue (completed (100%))
 
 ## Component Hierarchy for Shop App (completed (100%))
 
@@ -146,4 +146,4 @@
     - OfferManagement (completed (100%))
     - CustomerManagement (completed (100%))
     - Settings (completed (100%))
-    - HelpAndSupport
+    - HelpAndSupport (completed (100%))
