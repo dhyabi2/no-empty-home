@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ArrowLeft, ChevronRight } from "lucide-react";
 import ThemeToggle from './ThemeToggle';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
@@ -61,20 +62,33 @@ const Header = () => {
               <li><Link to="/help-support"><Button variant="ghost"><HelpCircleIcon className="h-4 w-4 mr-2" />Help</Button></Link></li>
             </ul>
             <div className="ml-4 relative">
-              <Button variant="ghost" size="icon" onClick={handleSearchClick}>
-                <SearchIcon className="h-5 w-5" />
-              </Button>
-              {isSearchExpanded && (
-                <form onSubmit={handleSearchSubmit} className="absolute right-0 top-full mt-2 bg-background shadow-md rounded-md p-2">
-                  <Input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-64"
-                  />
-                </form>
-              )}
+              <AnimatePresence>
+                {isSearchExpanded ? (
+                  <motion.form
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: 'auto', opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    onSubmit={handleSearchSubmit}
+                    className="flex items-center"
+                  >
+                    <Input
+                      type="text"
+                      placeholder="Search..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-64"
+                    />
+                    <Button type="submit" variant="ghost" size="icon" className="ml-2">
+                      <SearchIcon className="h-5 w-5" />
+                    </Button>
+                  </motion.form>
+                ) : (
+                  <Button variant="ghost" size="icon" onClick={handleSearchClick}>
+                    <SearchIcon className="h-5 w-5" />
+                  </Button>
+                )}
+              </AnimatePresence>
             </div>
             <ThemeToggle />
           </nav>
