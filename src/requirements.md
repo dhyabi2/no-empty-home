@@ -52,8 +52,8 @@
 ## New Mobile App Enhancement Tasks
 
 1. Implement a bottom navigation bar for easy access to main sections (Completed Percentage: 100%)
-2. Add pull-to-refresh functionality on scrollable pages (Completed Percentage: 0%)
-3. Create a floating action button for quick actions (e.g., scan QR code) (Completed Percentage: 0%)
+2. Add pull-to-refresh functionality on scrollable pages (Completed Percentage: 100%)
+3. Create a floating action button for quick actions (e.g., scan QR code) (Completed Percentage: 100%)
 4. Implement swipe gestures for navigating between pages (Completed Percentage: 0%)
 5. Add haptic feedback for interactive elements (Completed Percentage: 0%)
 6. Implement a dark mode toggle with system preference detection (Completed Percentage: 0%)

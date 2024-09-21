@@ -13,6 +13,8 @@ import EarnPoints from '../components/EarnPoints';
 import RewardRedemption from '../components/RewardRedemption';
 import { useAuth } from '../contexts/AuthContext';
 import { calculateDistance } from '../utils/distanceCalculator';
+import PullToRefresh from 'react-pull-to-refresh';
+import FloatingActionButton from '../components/FloatingActionButton';
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -60,19 +62,33 @@ const Index = () => {
     setTimeout(() => setShowConfetti(false), 5000);
   };
 
+  const handleRefresh = () => {
+    // Simulate a refresh action
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 1000);
+  };
+
+  const handleScanQR = () => {
+    // Implement QR code scanning logic here
+    console.log("Scanning QR code...");
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex">
       {showConfetti && <Confetti />}
       <SideNav />
       <div className="flex-1 ml-64">
         <Header />
-        <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
-          <RewardRedemption />
-          <FeaturedOffers isLoading={isLoading} />
-          <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
-        </main>
+        <PullToRefresh onRefresh={handleRefresh}>
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
+            <RewardRedemption />
+            <FeaturedOffers isLoading={isLoading} />
+            <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+          </main>
+        </PullToRefresh>
         <Footer />
+        <FloatingActionButton onClick={handleScanQR} />
       </div>
     </div>
   );
