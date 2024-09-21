@@ -10,6 +10,7 @@ import SplashScreen from "./components/SplashScreen";
 import Onboarding from "./components/Onboarding";
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import Login from './components/Login';
+import BottomNavigation from './components/BottomNavigation';
 
 const queryClient = new QueryClient();
 
@@ -42,7 +43,6 @@ const App = () => {
   const [onboardingCompleted, setOnboardingCompleted] = useState(false);
 
   useEffect(() => {
-    // Check if onboarding has been completed before
     const completed = localStorage.getItem('onboardingCompleted');
     if (completed) {
       setOnboardingCompleted(true);
@@ -73,7 +73,10 @@ const App = () => {
             <Onboarding onComplete={handleOnboardingComplete} />
           ) : (
             <BrowserRouter>
-              <AnimatedRoutes />
+              <div className="pb-16"> {/* Add padding to the bottom to accommodate the navigation bar */}
+                <AnimatedRoutes />
+              </div>
+              <BottomNavigation />
             </BrowserRouter>
           )}
         </AuthProvider>
