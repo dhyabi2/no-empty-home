@@ -19,7 +19,7 @@
 2. Implement a pulsating effect for the reward points display (Completed Percentage: 100%)
 3. Create a confetti animation for when users earn rewards (Completed Percentage: 100%)
 4. Design an animated logo for the splash screen (Completed Percentage: 0%)
-5. Add a shimmer effect for loading states (Completed Percentage: 0%)
+5. Add a shimmer effect for loading states (Completed Percentage: 100%)
 
 ## Consumer App Tasks
 
