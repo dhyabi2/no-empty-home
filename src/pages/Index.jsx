@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -6,14 +6,10 @@ import Footer from '../components/Footer';
 import SideNav from '../components/SideNav';
 import Confetti from '../components/Confetti';
 import EarnPoints from '../components/EarnPoints';
-import RewardRedemption from '../components/RewardRedemption';
 import { useAuth } from '../contexts/AuthContext';
 import { calculateDistance } from '../utils/distanceCalculator';
 import PullToRefresh from 'react-pull-to-refresh';
 import FloatingActionButton from '../components/FloatingActionButton';
-import RewardOverview from '../components/RewardOverview';
-import FeaturedOffers from '../components/FeaturedOffers';
-import NearbyShops from '../components/NearbyShops';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -23,6 +19,12 @@ import { Progress } from "@/components/ui/progress";
 import { Calendar } from "@/components/ui/calendar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Bell, Gift, MapPin, Star, Zap, Activity, Award, TrendingUp } from "lucide-react";
+
+// Lazy load components
+const RewardOverview = lazy(() => import('../components/RewardOverview'));
+const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
+const FeaturedOffers = lazy(() => import('../components/FeaturedOffers'));
+const NearbyShops = lazy(() => import('../components/NearbyShops'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -93,31 +95,39 @@ const Index = () => {
   }, [memoizedNearbyShops]);
 
   useEffect(() => {
-    setRecentActivity([
-      { id: 1, action: "Earned 50 points", timestamp: "2 hours ago" },
-      { id: 2, action: "Redeemed reward", timestamp: "1 day ago" },
-      { id: 3, action: "Visited Coffee Haven", timestamp: "3 days ago" },
-    ]);
+    const fetchData = async () => {
+      // Simulating API calls with setTimeout
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setRecentActivity([
+        { id: 1, action: "Earned 50 points", timestamp: "2 hours ago" },
+        { id: 2, action: "Redeemed reward", timestamp: "1 day ago" },
+        { id: 3, action: "Visited Coffee Haven", timestamp: "3 days ago" },
+      ]);
 
-    setUpcomingEvents([
-      { id: 1, title: "Double Points Day", date: "2024-04-15" },
-      { id: 2, title: "New Reward Launch", date: "2024-04-20" },
-      { id: 3, title: "Member Exclusive Sale", date: "2024-04-25" },
-    ]);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setUpcomingEvents([
+        { id: 1, title: "Double Points Day", date: "2024-04-15" },
+        { id: 2, title: "New Reward Launch", date: "2024-04-20" },
+        { id: 3, title: "Member Exclusive Sale", date: "2024-04-25" },
+      ]);
 
-    setLeaderboard([
-      { id: 1, name: "User 1", points: 1000, avatar: "U1" },
-      { id: 2, name: "User 2", points: 950, avatar: "U2" },
-      { id: 3, name: "User 3", points: 900, avatar: "U3" },
-      { id: 4, name: "User 4", points: 850, avatar: "U4" },
-      { id: 5, name: "User 5", points: 800, avatar: "U5" },
-    ]);
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setLeaderboard([
+        { id: 1, name: "User 1", points: 1000, avatar: "U1" },
+        { id: 2, name: "User 2", points: 950, avatar: "U2" },
+        { id: 3, name: "User 3", points: 900, avatar: "U3" },
+        { id: 4, name: "User 4", points: 850, avatar: "U4" },
+        { id: 5, name: "User 5", points: 800, avatar: "U5" },
+      ]);
 
-    setQuickStats({
-      totalPoints: 1250,
-      visitsThisMonth: 8,
-      rewardsRedeemed: 3,
-    });
+      setQuickStats({
+        totalPoints: 1250,
+        visitsThisMonth: 8,
+        rewardsRedeemed: 3,
+      });
+    };
+
+    fetchData();
   }, []);
 
   return (
@@ -154,7 +164,7 @@ const Index = () => {
   );
 };
 
-const WelcomeSection = ({ user, quickStats }) => (
+const WelcomeSection = React.memo(({ user, quickStats }) => (
   <Card className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
     <CardContent className="py-6">
       <h1 className="text-3xl font-bold mb-4">Welcome back, {user?.name || 'User'}!</h1>
@@ -174,9 +184,9 @@ const WelcomeSection = ({ user, quickStats }) => (
       </div>
     </CardContent>
   </Card>
-);
+));
 
-const MainContentSection = ({ isLoading, user, handleEarnReward, activeTab, setActiveTab, recentActivity }) => (
+const MainContentSection = React.memo(({ isLoading, user, handleEarnReward, activeTab, setActiveTab, recentActivity }) => (
   <Card className="md:col-span-2">
     <CardContent>
       <Tabs value={activeTab} onValueChange={setActiveTab}>
@@ -187,13 +197,17 @@ const MainContentSection = ({ isLoading, user, handleEarnReward, activeTab, setA
         </TabsList>
         <TabsContent value="overview">
           <div className="space-y-4">
-            <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
+            </Suspense>
             <Progress value={75} className="w-full" />
             <p className="text-sm text-gray-500">75% progress to next tier</p>
           </div>
         </TabsContent>
         <TabsContent value="rewards">
-          <RewardRedemption />
+          <Suspense fallback={<div>Loading...</div>}>
+            <RewardRedemption />
+          </Suspense>
         </TabsContent>
         <TabsContent value="activity">
           <ScrollArea className="h-[200px]">
@@ -208,9 +222,9 @@ const MainContentSection = ({ isLoading, user, handleEarnReward, activeTab, setA
       </Tabs>
     </CardContent>
   </Card>
-);
+));
 
-const QuickActionsSection = () => (
+const QuickActionsSection = React.memo(() => (
   <Card>
     <CardHeader>
       <CardTitle>Quick Actions</CardTitle>
@@ -236,16 +250,18 @@ const QuickActionsSection = () => (
       </div>
     </CardContent>
   </Card>
-);
+));
 
-const OffersAndShopsSection = ({ isLoading, nearbyShops }) => (
+const OffersAndShopsSection = React.memo(({ isLoading, nearbyShops }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
     <Card>
       <CardHeader>
         <CardTitle>Featured Offers</CardTitle>
       </CardHeader>
       <CardContent>
-        <FeaturedOffers isLoading={isLoading} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <FeaturedOffers isLoading={isLoading} />
+        </Suspense>
       </CardContent>
     </Card>
     <Card>
@@ -253,13 +269,15 @@ const OffersAndShopsSection = ({ isLoading, nearbyShops }) => (
         <CardTitle>Nearby Shops</CardTitle>
       </CardHeader>
       <CardContent>
-        <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+        </Suspense>
       </CardContent>
     </Card>
   </div>
-);
+));
 
-const EventsAndLeaderboardSection = ({ upcomingEvents, leaderboard }) => (
+const EventsAndLeaderboardSection = React.memo(({ upcomingEvents, leaderboard }) => (
   <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
     <Card className="md:col-span-2">
       <CardHeader>
@@ -303,6 +321,6 @@ const EventsAndLeaderboardSection = ({ upcomingEvents, leaderboard }) => (
       </CardContent>
     </Card>
   </div>
-);
+));
 
 export default Index;
