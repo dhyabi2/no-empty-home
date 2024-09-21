@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import SideNav from '../components/SideNav';
 import { motion } from 'framer-motion';
 import Confetti from '../components/Confetti';
-import Shimmer from '../components/Shimmer';
+import Skeleton from '../components/Skeleton';
 import EarnPoints from '../components/EarnPoints';
 import RewardRedemption from '../components/RewardRedemption';
 import { useAuth } from '../contexts/AuthContext';
@@ -63,13 +63,11 @@ const Index = () => {
   };
 
   const handleRefresh = () => {
-    // Simulate a refresh action
     setIsLoading(true);
     setTimeout(() => setIsLoading(false), 1000);
   };
 
   const handleScanQR = () => {
-    // Implement QR code scanning logic here
     console.log("Scanning QR code...");
   };
 
@@ -103,7 +101,7 @@ const RewardOverview = ({ isLoading, user, handleEarnReward }) => (
       </CardHeader>
       <CardContent>
         {isLoading ? (
-          <Shimmer height="24px" width="150px" />
+          <Skeleton className="h-8 w-32 mb-2" />
         ) : (
           <motion.p
             className="text-3xl font-bold mb-2"
@@ -121,7 +119,7 @@ const RewardOverview = ({ isLoading, user, handleEarnReward }) => (
           </motion.p>
         )}
         {isLoading ? (
-          <Shimmer height="16px" width="200px" />
+          <Skeleton className="h-4 w-48 mb-2" />
         ) : (
           <p className="text-sm text-gray-500">Next reward: 250 points away</p>
         )}
@@ -145,12 +143,12 @@ const FeaturedOffers = ({ isLoading }) => (
         [...Array(3)].map((_, index) => (
           <Card key={index}>
             <CardHeader>
-              <Shimmer height="24px" width="80%" />
+              <Skeleton className="h-6 w-3/4" />
             </CardHeader>
             <CardContent>
-              <Shimmer height="16px" width="60%" className="mb-2" />
-              <Shimmer height="16px" width="40%" className="mb-4" />
-              <Shimmer height="36px" width="100%" />
+              <Skeleton className="h-4 w-1/2 mb-2" />
+              <Skeleton className="h-4 w-1/3 mb-4" />
+              <Skeleton className="h-10 w-full" />
             </CardContent>
           </Card>
         ))
@@ -194,12 +192,12 @@ const NearbyShops = ({ isLoading, nearbyShops }) => (
         [...Array(3)].map((_, index) => (
           <Card key={index}>
             <CardHeader>
-              <Shimmer height="24px" width="80%" />
+              <Skeleton className="h-6 w-3/4" />
             </CardHeader>
             <CardContent>
-              <Shimmer height="16px" width="60%" className="mb-2" />
-              <Shimmer height="16px" width="40%" className="mb-4" />
-              <Shimmer height="36px" width="100%" />
+              <Skeleton className="h-4 w-1/2 mb-2" />
+              <Skeleton className="h-4 w-1/3 mb-4" />
+              <Skeleton className="h-10 w-full" />
             </CardContent>
           </Card>
         ))
