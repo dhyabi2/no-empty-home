@@ -66,7 +66,7 @@
     - HelpAndSupport (completed (100%))
     - Settings (completed (100%))
 
-## Shop App Components (completed (80%))
+## Shop App Components (completed (90%))
 
 ### 3.1. ShopRegistration (completed (100%))
 
@@ -102,13 +102,13 @@
   - ScanResult (completed (100%))
   - RewardConfiguration (completed (100%))
 
-### 3.5. Offer Management (completed (0%))
+### 3.5. Offer Management (completed (100%))
 
-- Description: Interface for creating and managing offers.
-- Components:
-  - OffersList
-  - AddOffer
-  - EditOffer
+- Description: Interface for creating and managing offers. (completed (100%))
+- Components: (completed (100%))
+  - OffersList (completed (100%))
+  - AddOffer (completed (100%))
+  - EditOffer (completed (100%))
 
 ### 3.6. Customer Management (completed (0%))
 
@@ -135,7 +135,7 @@
   - ContactSupport
   - ReportIssue
 
-## Component Hierarchy for Shop App (completed (80%))
+## Component Hierarchy for Shop App (completed (90%))
 
 - ShopApp
   - Router
@@ -143,7 +143,7 @@
     - Authentication (completed (100%))
     - Dashboard (completed (100%))
     - RewardAndScanSystem (completed (100%))
-    - OfferManagement
+    - OfferManagement (completed (100%))
     - CustomerManagement
     - Settings
     - HelpAndSupport
