@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -7,18 +7,32 @@ import { Tag, Clock } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 const OfferListing = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState('expiry');
+  const [offers, setOffers] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(1);
 
-  const offers = [
-    { id: 1, title: "50% Off Coffee", shop: "Coffee Haven", expires: "2024-04-30", category: "Food & Drink" },
-    { id: 2, title: "Buy 1 Get 1 Free", shop: "Tech Gadgets", expires: "2024-05-15", category: "Electronics" },
-    { id: 3, title: "20% Off Books", shop: "Bookworm's Paradise", expires: "2024-05-01", category: "Books" },
-    { id: 4, title: "Free Gym Trial", shop: "Fitness First", expires: "2024-04-25", category: "Fitness" },
-    { id: 5, title: "30% Off Groceries", shop: "Fresh Mart", expires: "2024-05-10", category: "Groceries" },
-  ];
+  const fetchOffers = () => {
+    // Simulated API call
+    const newOffers = [
+      { id: offers.length + 1, title: `Offer ${offers.length + 1}`, shop: `Shop ${offers.length + 1}`, expires: "2024-05-31", category: "Category" },
+      { id: offers.length + 2, title: `Offer ${offers.length + 2}`, shop: `Shop ${offers.length + 2}`, expires: "2024-06-15", category: "Category" },
+      { id: offers.length + 3, title: `Offer ${offers.length + 3}`, shop: `Shop ${offers.length + 3}`, expires: "2024-06-30", category: "Category" },
+    ];
+    setOffers([...offers, ...newOffers]);
+    setPage(page + 1);
+    if (offers.length >= 30) {
+      setHasMore(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchOffers();
+  }, []);
 
   const filteredOffers = offers.filter(offer => 
     offer.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -62,29 +76,37 @@ const OfferListing = () => {
           </Select>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {sortedOffers.map((offer) => (
-            <Card key={offer.id}>
-              <CardHeader>
-                <CardTitle>{offer.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-gray-500 mb-2">{offer.shop}</p>
-                <p className="text-sm mb-2">
-                  <Tag className="inline-block h-4 w-4 mr-1" />
-                  {offer.category}
-                </p>
-                <p className="text-sm mb-4">
-                  <Clock className="inline-block h-4 w-4 mr-1" />
-                  Expires: {new Date(offer.expires).toLocaleDateString()}
-                </p>
-                <Link to={`/offers/${offer.id}`}>
-                  <Button className="w-full">View Offer</Button>
-                </Link>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+        <InfiniteScroll
+          dataLength={sortedOffers.length}
+          next={fetchOffers}
+          hasMore={hasMore}
+          loader={<h4>Loading...</h4>}
+          endMessage={<p className="text-center mt-4">No more offers to load.</p>}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {sortedOffers.map((offer) => (
+              <Card key={offer.id}>
+                <CardHeader>
+                  <CardTitle>{offer.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-sm text-gray-500 mb-2">{offer.shop}</p>
+                  <p className="text-sm mb-2">
+                    <Tag className="inline-block h-4 w-4 mr-1" />
+                    {offer.category}
+                  </p>
+                  <p className="text-sm mb-4">
+                    <Clock className="inline-block h-4 w-4 mr-1" />
+                    Expires: {new Date(offer.expires).toLocaleDateString()}
+                  </p>
+                  <Link to={`/offers/${offer.id}`}>
+                    <Button className="w-full">View Offer</Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </InfiniteScroll>
       </main>
 
       <Footer />
