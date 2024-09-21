@@ -66,7 +66,7 @@
     - HelpAndSupport (completed (100%))
     - Settings (completed (100%))
 
-## Shop App Components (completed (40%))
+## Shop App Components (completed (60%))
 
 ### 3.1. ShopRegistration (completed (100%))
 
@@ -85,14 +85,14 @@
   - ForgotPassword (completed (100%))
   - ResetPassword (completed (100%))
 
-### 3.3. Dashboard (completed (0%))
+### 3.3. Dashboard (completed (100%))
 
-- Description: Main interface for shop owners to manage their account.
-- Components:
-  - DashboardHeader
-  - DashboardStats
-  - QuickActions
-  - RecentActivity
+- Description: Main interface for shop owners to manage their account. (completed (100%))
+- Components: (completed (100%))
+  - DashboardHeader (completed (100%))
+  - DashboardStats (completed (100%))
+  - QuickActions (completed (100%))
+  - RecentActivity (completed (100%))
 
 ### 3.4. Reward & Scan System (completed (0%))
 
@@ -135,13 +135,13 @@
   - ContactSupport
   - ReportIssue
 
-## Component Hierarchy for Shop App (completed (40%))
+## Component Hierarchy for Shop App (completed (60%))
 
 - ShopApp
   - Router
     - ShopRegistration (completed (100%))
     - Authentication (completed (100%))
-    - Dashboard
+    - Dashboard (completed (100%))
     - RewardAndScanSystem
     - OfferManagement
     - CustomerManagement
