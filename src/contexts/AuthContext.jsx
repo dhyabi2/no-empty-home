@@ -6,7 +6,6 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check if user is stored in localStorage
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
       setUser(JSON.parse(storedUser));
@@ -32,8 +31,16 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
+  const redeemPoints = (points) => {
+    setUser(prevUser => {
+      const updatedUser = { ...prevUser, points: prevUser.points - points };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      return updatedUser;
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, earnPoints }}>
+    <AuthContext.Provider value={{ user, login, logout, earnPoints, redeemPoints }}>
       {children}
     </AuthContext.Provider>
   );

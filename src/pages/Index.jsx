@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 import Confetti from '../components/Confetti';
 import Shimmer from '../components/Shimmer';
 import EarnPoints from '../components/EarnPoints';
+import RewardRedemption from '../components/RewardRedemption';
 import { useAuth } from '../contexts/AuthContext';
 
 const Index = () => {
@@ -18,7 +19,6 @@ const Index = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -77,6 +77,11 @@ const Index = () => {
                 <EarnPoints />
               </CardContent>
             </Card>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-xl font-semibold mb-4">Redeem Rewards</h2>
+            <RewardRedemption />
           </section>
 
           <section className="mb-8">
