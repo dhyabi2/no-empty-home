@@ -66,12 +66,12 @@
   - NotificationItem (completed (100%))
   - NotificationsHeader (completed (100%))
 
-### 2.9. Favorites (completed (0%))
+### 2.9. Favorites (completed (100%))
 
-- Description: Users can view and manage their favorite shops or offers. (completed (0%))
-- Components: (completed (0%))
-  - FavoritesList (completed (0%))
-  - EmptyState (completed (0%))
+- Description: Users can view and manage their favorite shops or offers. (completed (100%))
+- Components: (completed (100%))
+  - FavoritesList (completed (100%))
+  - EmptyState (completed (100%))
 
 ### 2.10. Help & Support (completed (0%))
 
