@@ -74,14 +74,14 @@
 - **12.2. Implement ContactSupport Component (Completed Percentage: 100%)**
 - **12.3. Develop SupportForm Component (Completed Percentage: 100%)**
 
-### **13. Settings Components (Completed Percentage: 0%)**
+### **13. Settings Components (Completed Percentage: 100%)**
 
-- **13.1. Build SettingsMenu Component (Completed Percentage: 0%)**
-- **13.2. Implement LanguageSettings Component (Completed Percentage: 0%)**
-- **13.3. Develop NotificationPreferences Component (Completed Percentage: 0%)**
-- **13.4. Create PrivacySettings Component (Completed Percentage: 0%)**
-- **13.5. Build ReportProblem Component (Completed Percentage: 0%)**
-- **13.6. Implement TermsAndPrivacy Component (Completed Percentage: 0%)**
+- **13.1. Build SettingsMenu Component (Completed Percentage: 100%)**
+- **13.2. Implement LanguageSettings Component (Completed Percentage: 100%)**
+- **13.3. Develop NotificationPreferences Component (Completed Percentage: 100%)**
+- **13.4. Create PrivacySettings Component (Completed Percentage: 100%)**
+- **13.5. Build ReportProblem Component (Completed Percentage: 100%)**
+- **13.6. Implement TermsAndPrivacy Component (Completed Percentage: 100%)**
 
 ### **14. Localization Implementation (Completed Percentage: 0%)**
 
