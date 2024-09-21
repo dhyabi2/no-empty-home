@@ -6,6 +6,7 @@ import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, Arr
 const Header = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
+  const isHomePage = location.pathname === '/';
 
   return (
     <header className="bg-white shadow-sm">
@@ -15,12 +16,14 @@ const Header = () => {
             <Link to="/" className="text-2xl font-bold text-gray-900 mr-4">
               Loyalty App
             </Link>
-            <Link to="/">
-              <Button variant="ghost" size="sm">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                Back to Home
-              </Button>
-            </Link>
+            {!isHomePage && (
+              <Link to="/">
+                <Button variant="ghost" size="sm">
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to Home
+                </Button>
+              </Link>
+            )}
           </div>
           <nav>
             <ul className="flex space-x-4">
