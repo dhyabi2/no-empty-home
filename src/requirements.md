@@ -13,13 +13,13 @@
 9. Implement breadcrumb navigation for improved user orientation (Completed Percentage: 100%)
 10. Add links from notification items to relevant offer or shop pages (Completed Percentage: 100%)
 
-## UI Enhancement and Animation Tasks (All at 0% Completion)
+## UI Enhancement and Animation Tasks
 
-1. Add subtle fade-in animation for page transitions
-2. Implement a pulsating effect for the reward points display
-3. Create a confetti animation for when users earn rewards
-4. Design an animated logo for the splash screen
-5. Add a shimmer effect for loading states
+1. Add subtle fade-in animation for page transitions (Completed Percentage: 100%)
+2. Implement a pulsating effect for the reward points display (Completed Percentage: 0%)
+3. Create a confetti animation for when users earn rewards (Completed Percentage: 0%)
+4. Design an animated logo for the splash screen (Completed Percentage: 0%)
+5. Add a shimmer effect for loading states (Completed Percentage: 0%)
 
 ## Consumer App Tasks
 
