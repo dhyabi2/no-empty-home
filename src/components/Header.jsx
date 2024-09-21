@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ArrowLeft, ChevronRight } from "lucide-react";
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
   const isHomePage = location.pathname === '/';
@@ -19,6 +22,18 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleSearchClick = () => {
+    setIsSearchExpanded(!isSearchExpanded);
+  };
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    // Implement search functionality here
+    console.log('Searching for:', searchTerm);
+    setIsSearchExpanded(false);
+    setSearchTerm('');
+  };
 
   return (
     <header className={`bg-background text-foreground shadow-sm sticky top-0 z-50 transition-all duration-300 ${isCollapsed ? 'py-2' : 'py-4'}`}>
@@ -40,12 +55,27 @@ const Header = () => {
           <nav className="flex items-center">
             <ul className={`flex space-x-4 transition-all duration-300 ${isCollapsed ? 'hidden sm:flex' : ''}`}>
               <li><Link to="/"><Button variant="ghost"><HomeIcon className="h-4 w-4 mr-2" />Home</Button></Link></li>
-              <li><Link to="/search"><Button variant="ghost"><SearchIcon className="h-4 w-4 mr-2" />Search</Button></Link></li>
               <li><Link to="/notifications"><Button variant="ghost"><BellIcon className="h-4 w-4 mr-2" />Notifications</Button></Link></li>
               <li><Link to="/favorites"><Button variant="ghost"><StarIcon className="h-4 w-4 mr-2" />Favorites</Button></Link></li>
               <li><Link to="/profile"><Button variant="ghost"><UserIcon className="h-4 w-4 mr-2" />Profile</Button></Link></li>
               <li><Link to="/help-support"><Button variant="ghost"><HelpCircleIcon className="h-4 w-4 mr-2" />Help</Button></Link></li>
             </ul>
+            <div className="ml-4 relative">
+              <Button variant="ghost" size="icon" onClick={handleSearchClick}>
+                <SearchIcon className="h-5 w-5" />
+              </Button>
+              {isSearchExpanded && (
+                <form onSubmit={handleSearchSubmit} className="absolute right-0 top-full mt-2 bg-background shadow-md rounded-md p-2">
+                  <Input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-64"
+                  />
+                </form>
+              )}
+            </div>
             <ThemeToggle />
           </nav>
         </div>
