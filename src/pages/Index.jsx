@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Gift } from "lucide-react";
@@ -7,10 +7,21 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SideNav from '../components/SideNav';
 import { motion } from 'framer-motion';
+import Confetti from '../components/Confetti';
 
 const Index = () => {
+  const [showConfetti, setShowConfetti] = useState(false);
+  const [points, setPoints] = useState(1250);
+
+  const handleEarnReward = () => {
+    setPoints(prevPoints => prevPoints + 100);
+    setShowConfetti(true);
+    setTimeout(() => setShowConfetti(false), 5000);
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex">
+      {showConfetti && <Confetti />}
       <SideNav />
       <div className="flex-1 ml-64">
         <Header />
@@ -34,12 +45,15 @@ const Index = () => {
                     ease: "easeInOut",
                   }}
                 >
-                  1,250 points
+                  {points} points
                 </motion.p>
                 <p className="text-sm text-gray-500">Next reward: 250 points away</p>
                 <div className="mt-4 bg-gray-200 h-2 rounded-full">
                   <div className="bg-blue-500 h-2 rounded-full w-4/5"></div>
                 </div>
+                <Button className="mt-4" onClick={handleEarnReward}>
+                  Simulate Earning Reward
+                </Button>
               </CardContent>
             </Card>
           </section>
