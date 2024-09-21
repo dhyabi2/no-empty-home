@@ -49,14 +49,14 @@
   - SearchResults (completed (100%))
   - ResultItem (completed (100%))
 
-### 2.7. Profile (completed (0%))
+### 2.7. Profile (completed (100%))
 
-- Description: User profile and account settings. (completed (0%))
-- Components: (completed (0%))
-  - ProfileHeader (completed (0%))
-  - ProfileDetails (completed (0%))
-  - AccountActions (completed (0%))
-  - SettingsLinks (completed (0%))
+- Description: User profile and account settings. (completed (100%))
+- Components: (completed (100%))
+  - ProfileHeader (completed (100%))
+  - ProfileDetails (completed (100%))
+  - AccountActions (completed (100%))
+  - SettingsLinks (completed (100%))
 
 ### 2.8. Notifications (completed (0%))
 
