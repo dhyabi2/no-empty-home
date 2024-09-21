@@ -18,14 +18,14 @@
 1. Add subtle fade-in animation for page transitions (Completed Percentage: 100%)
 2. Implement a pulsating effect for the reward points display (Completed Percentage: 100%)
 3. Create a confetti animation for when users earn rewards (Completed Percentage: 100%)
-4. Design an animated logo for the splash screen (Completed Percentage: 0%)
+4. Design an animated logo for the splash screen (Completed Percentage: 100%)
 5. Add a shimmer effect for loading states (Completed Percentage: 100%)
 
 ## Consumer App Tasks
 
 ### 1. Project Setup (Completed Percentage: 100%)
 ### 2. Common Components (Completed Percentage: 100%)
-### 3. SplashScreen Component (Completed Percentage: 0%)
+### 3. SplashScreen Component (Completed Percentage: 100%)
 ### 4. Onboarding Components (Completed Percentage: 0%)
 ### 5. Authentication Components (Completed Percentage: 100%)
 ### 6. MainDashboard Component (Completed Percentage: 100%)
