@@ -9,6 +9,7 @@ import PageTransition from "./components/PageTransition";
 import SplashScreen from "./components/SplashScreen";
 import Onboarding from "./components/Onboarding";
 import { AuthProvider, useAuth } from './contexts/AuthContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 import Login from './components/Login';
 import BottomNavigation from './components/BottomNavigation';
 
@@ -91,20 +92,22 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <AuthProvider>
-          {showSplash ? (
-            <SplashScreen onFinish={handleSplashFinish} />
-          ) : showOnboarding ? (
-            <Onboarding onComplete={handleOnboardingComplete} />
-          ) : (
-            <BrowserRouter>
-              <div className="pb-16">
-                <AnimatedRoutes />
-              </div>
-              <BottomNavigation />
-            </BrowserRouter>
-          )}
-        </AuthProvider>
+        <ThemeProvider>
+          <AuthProvider>
+            {showSplash ? (
+              <SplashScreen onFinish={handleSplashFinish} />
+            ) : showOnboarding ? (
+              <Onboarding onComplete={handleOnboardingComplete} />
+            ) : (
+              <BrowserRouter>
+                <div className="pb-16">
+                  <AnimatedRoutes />
+                </div>
+                <BottomNavigation />
+              </BrowserRouter>
+            )}
+          </AuthProvider>
+        </ThemeProvider>
       </TooltipProvider>
     </QueryClientProvider>
   );
