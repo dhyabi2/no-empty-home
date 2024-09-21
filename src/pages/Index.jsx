@@ -21,6 +21,7 @@ const Index = () => {
   const { user } = useAuth();
   const [nearbyShops, setNearbyShops] = useState([]);
   const [userLocation, setUserLocation] = useState(null);
+  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -66,23 +67,29 @@ const Index = () => {
     setTimeout(() => setIsLoading(false), 1000);
   };
 
+  const toggleSideNav = () => {
+    setIsSideNavOpen(!isSideNavOpen);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 flex">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       {showConfetti && <Confetti />}
-      <SideNav />
-      <div className="flex-1 ml-64">
-        <Header />
-        <PullToRefresh onRefresh={handleRefresh}>
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
-            <RewardRedemption />
+      <Header onMenuClick={toggleSideNav} />
+      <div className="flex flex-1 overflow-hidden">
+        <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)} />
+        <PullToRefresh onRefresh={handleRefresh} className="flex-1 overflow-y-auto">
+          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
+              <RewardRedemption />
+            </div>
             <FeaturedOffers isLoading={isLoading} />
             <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
           </main>
         </PullToRefresh>
-        <Footer />
-        <FloatingActionButton />
       </div>
+      <Footer />
+      <FloatingActionButton />
     </div>
   );
 };
