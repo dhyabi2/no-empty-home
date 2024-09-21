@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { MapPin, Star } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const ShopListing = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -69,7 +70,9 @@ const ShopListing = () => {
                   <MapPin className="inline-block h-4 w-4 mr-1" />
                   {shop.distance}
                 </p>
-                <Button className="w-full">View Shop</Button>
+                <Link to={`/shops/${shop.id}`}>
+                  <Button className="w-full">View Shop</Button>
+                </Link>
               </CardContent>
             </Card>
           ))}

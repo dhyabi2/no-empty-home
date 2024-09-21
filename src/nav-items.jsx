@@ -6,6 +6,7 @@ import Favorites from "./pages/Favorites.jsx";
 import Profile from "./pages/Profile.jsx";
 import HelpSupport from "./pages/HelpSupport.jsx";
 import ShopListing from "./pages/ShopListing.jsx";
+import ShopProfile from "./pages/ShopProfile.jsx";
 
 /**
  * Central place for defining the navigation items. Used for navigation components and routing.
@@ -52,5 +53,11 @@ export const navItems = [
     to: "/shops",
     icon: <ShoppingBagIcon className="h-4 w-4" />,
     page: <ShopListing />,
+  },
+  {
+    title: "Shop Profile",
+    to: "/shops/:id",
+    icon: <ShoppingBagIcon className="h-4 w-4" />,
+    page: <ShopProfile />,
   },
 ];
