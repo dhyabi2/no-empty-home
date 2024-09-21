@@ -2,14 +2,61 @@
 
 ## Consumer App Components
 
-### 2.7. Profile (completed (100%))
+### 2.1. Home Page (completed (100%))
 
-- Description: User profile and account settings. (completed (100%))
+- Description: Main landing page for the app. (completed (100%))
 - Components: (completed (100%))
-  - ProfileHeader (completed (100%))
-  - ProfileDetails (completed (100%))
-  - AccountActions (completed (100%))
-  - SettingsLinks (completed (100%))
+  - Header with navigation icons (completed (100%))
+  - Reward Overview section (completed (100%))
+  - Featured Offers section (completed (100%))
+  - Nearby Shops section (completed (100%))
+  - Footer with navigation links (completed (100%))
+
+### 2.2. Reward Overview (completed (100%))
+
+- Description: Displays user's current rewards and progress. (completed (100%))
+- Components: (completed (100%))
+  - Current points display (completed (100%))
+  - Progress bar to next reward (completed (100%))
+  - Next reward information (completed (100%))
+
+### 2.3. Featured Offers (completed (100%))
+
+- Description: Highlights current promotional offers. (completed (100%))
+- Components: (completed (100%))
+  - Offer cards with title, shop name, and expiry (completed (100%))
+  - Redeem button for each offer (completed (100%))
+
+### 2.4. Nearby Shops (completed (100%))
+
+- Description: Shows shops in the vicinity of the user. (completed (100%))
+- Components: (completed (100%))
+  - Shop cards with name, category, and distance (completed (100%))
+  - View Offers button for each shop (completed (100%))
+
+### 2.5. Navigation (completed (100%))
+
+- Description: Allows users to navigate between different sections of the app. (completed (100%))
+- Components: (completed (100%))
+  - Header icons for quick access (completed (100%))
+  - Footer links for all main sections (completed (100%))
+
+### 2.6. Search (completed (0%))
+
+- Description: Allows users to search for shops or offers. (completed (0%))
+- Components: (completed (0%))
+  - SearchBar (completed (0%))
+  - SearchResults (completed (0%))
+  - ResultItem (completed (0%))
+
+### 2.7. Profile (completed (0%))
+
+- Description: User profile and account settings. (completed (0%))
+- Components: (completed (0%))
+  - ProfileHeader (completed (0%))
+  - ProfileDetails (completed (0%))
+  - AccountActions (completed (0%))
+  - SettingsLinks (completed (0%))
 
 ### 2.8. Notifications (completed (0%))
 
@@ -19,22 +66,14 @@
   - NotificationItem (completed (0%))
   - NotificationsHeader (completed (0%))
 
-### 2.9. Search (completed (0%))
-
-- Description: Allows users to search for shops or offers. (completed (0%))
-- Components: (completed (0%))
-  - SearchBar (completed (0%))
-  - SearchResults (completed (0%))
-  - ResultItem (completed (0%))
-
-### 2.10. Favorites (completed (0%))
+### 2.9. Favorites (completed (0%))
 
 - Description: Users can view and manage their favorite shops or offers. (completed (0%))
 - Components: (completed (0%))
   - FavoritesList (completed (0%))
   - EmptyState (completed (0%))
 
-### 2.11. Help & Support (completed (0%))
+### 2.10. Help & Support (completed (0%))
 
 - Description: Provides help resources and contact options. (completed (0%))
 - Components: (completed (0%))
