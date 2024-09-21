@@ -8,6 +8,7 @@ import HelpSupport from "./pages/HelpSupport.jsx";
 import ShopListing from "./pages/ShopListing.jsx";
 import ShopProfile from "./pages/ShopProfile.jsx";
 import OfferListing from "./pages/OfferListing.jsx";
+import OfferDetail from "./pages/OfferDetail.jsx";
 
 export const navItems = [
   {
@@ -63,5 +64,11 @@ export const navItems = [
     to: "/offers",
     icon: <TagIcon className="h-4 w-4" />,
     page: <OfferListing />,
+  },
+  {
+    title: "Offer Detail",
+    to: "/offers/:id",
+    icon: <TagIcon className="h-4 w-4" />,
+    page: <OfferDetail />,
   },
 ];
