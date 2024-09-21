@@ -1,25 +1,14 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Gift, Star, Bell, Search, User, HelpCircle } from "lucide-react";
+import { MapPin, Gift } from "lucide-react";
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <Link to="/">
-            <h1 className="text-2xl font-bold text-gray-900">Loyalty App</h1>
-          </Link>
-          <nav>
-            <ul className="flex space-x-4">
-              <li><Link to="/"><Button variant="ghost">Home</Button></Link></li>
-              <li><Link to="/profile"><Button variant="ghost">Profile</Button></Link></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section className="mb-8">
@@ -89,21 +78,6 @@ const Index = () => {
           </div>
         </section>
       </main>
-
-      <footer className="bg-white shadow-sm mt-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <nav>
-            <ul className="flex space-x-4">
-              <li><Link to="/"><Button variant="link">Home</Button></Link></li>
-              <li><Link to="/search"><Button variant="link">Search</Button></Link></li>
-              <li><Link to="/notifications"><Button variant="link">Notifications</Button></Link></li>
-              <li><Link to="/favorites"><Button variant="link">Favorites</Button></Link></li>
-              <li><Link to="/profile"><Button variant="link">Profile</Button></Link></li>
-              <li><Link to="/help-support"><Button variant="link">Help & Support</Button></Link></li>
-            </ul>
-          </nav>
-        </div>
-      </footer>
     </div>
   );
 };
