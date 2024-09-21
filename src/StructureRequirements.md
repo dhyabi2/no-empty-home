@@ -66,6 +66,84 @@
     - HelpAndSupport (completed (100%))
     - Settings (completed (100%))
 
-## Shop App Components (completed (0%))
+## Shop App Components (completed (20%))
 
-[... Rest of the content remains unchanged ...]
+### 3.1. ShopRegistration (completed (100%))
+
+- Description: Allows shop owners to register their business. (completed (100%))
+- Components: (completed (100%))
+  - RegistrationForm (completed (100%))
+    - Fields: Shop Name, Owner Name, Email, Password, Confirm Password, CR Number, Location (completed (100%))
+  - UploadLogo (completed (100%))
+  - TermsAgreement (completed (100%))
+
+### 3.2. Authentication (completed (0%))
+
+- Description: Handles shop owner login and password recovery.
+- Components:
+  - LoginForm
+  - ForgotPassword
+  - ResetPassword
+
+### 3.3. Dashboard (completed (0%))
+
+- Description: Main interface for shop owners to manage their account.
+- Components:
+  - DashboardHeader
+  - DashboardStats
+  - QuickActions
+  - RecentActivity
+
+### 3.4. Reward & Scan System (completed (0%))
+
+- Description: Allows shop owners to scan customer codes and manage rewards.
+- Components:
+  - ScanBarcodeScreen
+  - ScanResult
+  - RewardConfiguration
+
+### 3.5. Offer Management (completed (0%))
+
+- Description: Interface for creating and managing offers.
+- Components:
+  - OffersList
+  - AddOffer
+  - EditOffer
+
+### 3.6. Customer Management (completed (0%))
+
+- Description: Tools for managing customer data and interactions.
+- Components:
+  - CustomerList
+  - CustomerProfile
+  - CustomerInteractionHistory
+
+### 3.7. Settings (completed (0%))
+
+- Description: Various settings for the shop account.
+- Components:
+  - BusinessProfile
+  - RewardSettings
+  - NotificationSettings
+  - AccountSettings
+
+### 3.8. Help & Support (completed (0%))
+
+- Description: Resources and contact options for shop owners.
+- Components:
+  - FAQSection
+  - ContactSupport
+  - ReportIssue
+
+## Component Hierarchy for Shop App (completed (20%))
+
+- ShopApp
+  - Router
+    - ShopRegistration (completed (100%))
+    - Authentication
+    - Dashboard
+    - RewardAndScanSystem
+    - OfferManagement
+    - CustomerManagement
+    - Settings
+    - HelpAndSupport
