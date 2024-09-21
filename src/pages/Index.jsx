@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import SideNav from '../components/SideNav';
+import { motion } from 'framer-motion';
 
 const Index = () => {
   return (
@@ -21,7 +22,20 @@ const Index = () => {
                 <CardTitle>Your Rewards</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-3xl font-bold mb-2">1,250 points</p>
+                <motion.p
+                  className="text-3xl font-bold mb-2"
+                  animate={{
+                    scale: [1, 1.05, 1],
+                    opacity: [1, 0.8, 1],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                >
+                  1,250 points
+                </motion.p>
                 <p className="text-sm text-gray-500">Next reward: 250 points away</p>
                 <div className="mt-4 bg-gray-200 h-2 rounded-full">
                   <div className="bg-blue-500 h-2 rounded-full w-4/5"></div>
