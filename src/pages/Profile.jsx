@@ -26,7 +26,7 @@ const Profile = () => {
             <div className="flex items-center space-x-4 mb-6">
               <Avatar className="h-24 w-24">
                 <AvatarImage src="https://github.com/shadcn.png" alt="User" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>JD</AvatarFallback>
               </Avatar>
               <div>
                 <h2 className="text-2xl font-bold">John Doe</h2>
