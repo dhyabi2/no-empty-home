@@ -5,17 +5,17 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { HelpCircle, Mail, Phone, MessageSquare } from "lucide-react";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const HelpSupport = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Help & Support</h1>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">Help & Support</h1>
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <section>
             <h2 className="text-xl font-semibold mb-4">Frequently Asked Questions</h2>
@@ -89,6 +89,8 @@ const HelpSupport = () => {
           </section>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };

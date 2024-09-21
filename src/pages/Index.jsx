@@ -4,13 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MapPin, Gift } from "lucide-react";
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <section className="mb-8">
           <h2 className="text-xl font-semibold mb-4">Reward Overview</h2>
           <Card>
@@ -78,6 +79,8 @@ const Index = () => {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 };

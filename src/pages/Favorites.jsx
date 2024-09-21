@@ -2,17 +2,17 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, MapPin, Tag } from "lucide-react";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Favorites = () => {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Favorites</h1>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">Favorites</h1>
+
         <div className="space-y-4">
           <Card>
             <CardHeader>
@@ -78,6 +78,8 @@ const Favorites = () => {
           </Card>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };

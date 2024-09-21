@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Search as SearchIcon, MapPin, Tag } from "lucide-react";
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,26 +41,24 @@ const Search = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center">
-            <Input
-              type="text"
-              placeholder="Search shops or offers..."
-              className="flex-grow mr-2"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Button onClick={handleSearch}>
-              <SearchIcon className="h-4 w-4 mr-2" />
-              Search
-            </Button>
-          </div>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex items-center mb-6">
+          <Input
+            type="text"
+            placeholder="Search shops or offers..."
+            className="flex-grow mr-2"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Button onClick={handleSearch}>
+            <SearchIcon className="h-4 w-4 mr-2" />
+            Search
+          </Button>
+        </div>
+
         <Tabs defaultValue="shops">
           <TabsList className="mb-4">
             <TabsTrigger value="shops">Shops</TabsTrigger>
@@ -110,6 +110,8 @@ const Search = () => {
           </TabsContent>
         </Tabs>
       </main>
+
+      <Footer />
     </div>
   );
 };
