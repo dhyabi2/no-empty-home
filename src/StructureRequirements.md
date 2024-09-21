@@ -66,7 +66,7 @@
     - HelpAndSupport (completed (100%))
     - Settings (completed (100%))
 
-## Shop App Components (completed (20%))
+## Shop App Components (completed (40%))
 
 ### 3.1. ShopRegistration (completed (100%))
 
@@ -77,13 +77,13 @@
   - UploadLogo (completed (100%))
   - TermsAgreement (completed (100%))
 
-### 3.2. Authentication (completed (0%))
+### 3.2. Authentication (completed (100%))
 
-- Description: Handles shop owner login and password recovery.
-- Components:
-  - LoginForm
-  - ForgotPassword
-  - ResetPassword
+- Description: Handles shop owner login and password recovery. (completed (100%))
+- Components: (completed (100%))
+  - LoginForm (completed (100%))
+  - ForgotPassword (completed (100%))
+  - ResetPassword (completed (100%))
 
 ### 3.3. Dashboard (completed (0%))
 
@@ -135,12 +135,12 @@
   - ContactSupport
   - ReportIssue
 
-## Component Hierarchy for Shop App (completed (20%))
+## Component Hierarchy for Shop App (completed (40%))
 
 - ShopApp
   - Router
     - ShopRegistration (completed (100%))
-    - Authentication
+    - Authentication (completed (100%))
     - Dashboard
     - RewardAndScanSystem
     - OfferManagement
