@@ -66,7 +66,7 @@
     - HelpAndSupport (completed (100%))
     - Settings (completed (100%))
 
-## Shop App Components (completed (60%))
+## Shop App Components (completed (80%))
 
 ### 3.1. ShopRegistration (completed (100%))
 
@@ -94,13 +94,13 @@
   - QuickActions (completed (100%))
   - RecentActivity (completed (100%))
 
-### 3.4. Reward & Scan System (completed (0%))
+### 3.4. Reward & Scan System (completed (100%))
 
-- Description: Allows shop owners to scan customer codes and manage rewards.
-- Components:
-  - ScanBarcodeScreen
-  - ScanResult
-  - RewardConfiguration
+- Description: Allows shop owners to scan customer codes and manage rewards. (completed (100%))
+- Components: (completed (100%))
+  - ScanBarcodeScreen (completed (100%))
+  - ScanResult (completed (100%))
+  - RewardConfiguration (completed (100%))
 
 ### 3.5. Offer Management (completed (0%))
 
@@ -135,14 +135,14 @@
   - ContactSupport
   - ReportIssue
 
-## Component Hierarchy for Shop App (completed (60%))
+## Component Hierarchy for Shop App (completed (80%))
 
 - ShopApp
   - Router
     - ShopRegistration (completed (100%))
     - Authentication (completed (100%))
     - Dashboard (completed (100%))
-    - RewardAndScanSystem
+    - RewardAndScanSystem (completed (100%))
     - OfferManagement
     - CustomerManagement
     - Settings
