@@ -2,111 +2,101 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch";
-import { User, Bell, Lock, Trash2 } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Edit, LogOut } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import PushNotificationSystem from '../components/PushNotificationSystem';
 
 const Profile = () => {
-  const handleEditProfile = () => {
-    alert('Profile updated successfully!');
-  };
-
-  const handleChangePassword = () => {
-    alert('Password changed successfully!');
-  };
-
-  const handleUpdateNotifications = () => {
-    alert('Notification preferences updated!');
-  };
-
-  const handleDeleteAccount = () => {
-    alert('Account deletion process initiated. Please check your email for further instructions.');
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Profile Settings</h1>
-        
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle>Edit Profile</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="John Doe" />
-            </div>
-            <div>
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" defaultValue="john@example.com" />
-            </div>
-            <Button onClick={handleEditProfile}>
-              <User className="mr-2 h-4 w-4" />
-              Update Profile
-            </Button>
-          </CardContent>
-        </Card>
-        
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle>Change Password</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <Label htmlFor="current-password">Current Password</Label>
-              <Input id="current-password" type="password" />
-            </div>
-            <div>
-              <Label htmlFor="new-password">New Password</Label>
-              <Input id="new-password" type="password" />
-            </div>
-            <Button onClick={handleChangePassword}>
-              <Lock className="mr-2 h-4 w-4" />
-              Change Password
-            </Button>
-          </CardContent>
-        </Card>
-        
-        <Card className="mb-6">
-          <CardHeader>
-            <CardTitle>Notification Preferences</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="email-notifications">Email Notifications</Label>
-              <Switch id="email-notifications" />
-            </div>
-            <div className="flex items-center justify-between">
-              <Label htmlFor="push-notifications">Push Notifications</Label>
-              <Switch id="push-notifications" />
-            </div>
-            <Button onClick={handleUpdateNotifications}>
-              <Bell className="mr-2 h-4 w-4" />
-              Update Preferences
-            </Button>
-          </CardContent>
-        </Card>
-        
-        <Card>
-          <CardHeader>
-            <CardTitle>Delete Account</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="mb-4 text-red-600">Warning: This action cannot be undone.</p>
-            <Button variant="destructive" onClick={handleDeleteAccount}>
-              <Trash2 className="mr-2 h-4 w-4" />
-              Delete Account
-            </Button>
-          </CardContent>
-        </Card>
+
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-bold text-gray-900">Profile</h1>
+          <Button variant="outline" size="icon">
+            <Edit className="h-4 w-4" />
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <ProfileDetails />
+          <AccountActions />
+          <SettingsLinks />
+          <PushNotificationSystem />
+        </div>
       </main>
+
       <Footer />
     </div>
   );
 };
+
+const ProfileDetails = () => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Profile Details</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="flex items-center space-x-4 mb-6">
+        <Avatar className="h-24 w-24">
+          <AvatarImage src="https://github.com/shadcn.png" alt="User" />
+          <AvatarFallback>JD</AvatarFallback>
+        </Avatar>
+        <div>
+          <h2 className="text-2xl font-bold">John Doe</h2>
+          <p className="text-gray-500">john.doe@example.com</p>
+        </div>
+      </div>
+      <div className="space-y-4">
+        <div>
+          <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+          <Input id="name" defaultValue="John Doe" className="mt-1" />
+        </div>
+        <div>
+          <label htmlFor="mobile" className="block text-sm font-medium text-gray-700">Mobile Number</label>
+          <Input id="mobile" defaultValue="+1 234 567 8900" className="mt-1" />
+        </div>
+        <div>
+          <label htmlFor="dob" className="block text-sm font-medium text-gray-700">Date of Birth</label>
+          <Input id="dob" type="date" defaultValue="1990-01-01" className="mt-1" />
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const AccountActions = () => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Account Actions</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="space-y-4">
+        <Button className="w-full">Change Password</Button>
+        <Button variant="destructive" className="w-full">
+          <LogOut className="mr-2 h-4 w-4" /> Logout
+        </Button>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const SettingsLinks = () => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Settings</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <ul className="space-y-2">
+        <li><Button variant="link">Language Settings</Button></li>
+        <li><Button variant="link">Notification Preferences</Button></li>
+        <li><Button variant="link">Privacy Settings</Button></li>
+      </ul>
+    </CardContent>
+  </Card>
+);
 
 export default Profile;

@@ -26,14 +26,6 @@ const ShopProfile = () => {
     alert('Opening maps app for directions');
   };
 
-  const handleCallShop = () => {
-    alert(`Calling ${shop.phone}`);
-  };
-
-  const handleVisitWebsite = () => {
-    alert(`Opening ${shop.website}`);
-  };
-
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
@@ -70,14 +62,6 @@ const ShopProfile = () => {
               <Button onClick={handleGetDirections} className="w-full">
                 <MapPin className="mr-2 h-4 w-4" />
                 Get Directions
-              </Button>
-              <Button onClick={handleCallShop} className="w-full">
-                <Phone className="mr-2 h-4 w-4" />
-                Call Shop
-              </Button>
-              <Button onClick={handleVisitWebsite} className="w-full">
-                <Globe className="mr-2 h-4 w-4" />
-                Visit Website
               </Button>
             </div>
           </CardContent>
