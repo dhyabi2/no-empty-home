@@ -19,9 +19,9 @@
 | Facebook Share | Social Sharing | Share to Facebook | No (external link) | 100% |
 | Twitter Share | Social Sharing | Share to Twitter | No (external link) | 100% |
 | LinkedIn Share | Social Sharing | Share to LinkedIn | No (external link) | 100% |
-| Scan to Earn Points | Virtual Loyalty Card | Open scanner interface | No | 0% |
+| Scan to Earn Points | Virtual Loyalty Card | Open scanner interface | No | 100% |
 | View Point History | Virtual Loyalty Card | Navigate to points history | Yes | 100% |
-| Edit Profile | Profile Page | Open profile edit interface | No | 0% |
+| Edit Profile | Profile Page | Open profile edit interface | No | 100% |
 | Settings | More Page | Navigate to settings page | Yes | 100% |
 | Help & Support | More Page | Navigate to help page | Yes | 100% |
 | About Us | More Page | Navigate to about page | Yes | 100% |
@@ -29,16 +29,16 @@
 | Log Out | More Page | Log out user | No (returns to login) | 100% |
 | Search Shops/Offers | Search Page | Filter results | No (updates results) | 100% |
 | View Offer Details | Offer Listing | Navigate to offer details | Yes | 100% |
-| Redeem Offer | Offer Details | Open redemption interface | No | 0% |
+| Redeem Offer | Offer Details | Open redemption interface | No | 100% |
 | Add to Favorites | Shop/Offer Details | Add to user's favorites | No (updates UI) | 100% |
 | Remove from Favorites | Favorites Page | Remove from favorites | No (updates UI) | 100% |
 | Mark All as Read | Notifications | Mark all notifications as read | No (updates UI) | 100% |
 | Delete Notification | Notifications | Remove notification | No (updates UI) | 100% |
-| Submit Feedback | Feedback Page | Send feedback | No (shows confirmation) | 0% |
-| Join Event | Exclusive Events | Register for event | No (updates UI) | 0% |
-| Redeem Birthday Reward | Birthday Rewards | Claim birthday offer | No (updates points) | 0% |
-| Transfer Points | Point Transfer | Send points to another user | No (updates points) | 0% |
-| Donate Points | Point Donation | Donate points to charity | No (updates points) | 0% |
+| Submit Feedback | Feedback Page | Send feedback | No (shows confirmation) | 100% |
+| Join Event | Exclusive Events | Register for event | No (updates UI) | 100% |
+| Redeem Birthday Reward | Birthday Rewards | Claim birthday offer | No (updates points) | 100% |
+| Transfer Points | Point Transfer | Send points to another user | No (updates points) | 100% |
+| Donate Points | Point Donation | Donate points to charity | No (updates points) | 100% |
 | Bid on Reward | Reward Auctions | Place bid on reward | No (updates auction) | 0% |
 | Customize Reward | Reward Customization | Modify reward options | No (updates reward) | 0% |
 | Subscribe to Reward | Reward Subscription | Set up recurring reward | No (updates subscription) | 0% |
@@ -46,7 +46,7 @@
 | Compare Rewards | Reward Comparison | Open comparison interface | Yes | 0% |
 | Add to Wishlist | Reward Details | Add reward to wishlist | No (updates UI) | 100% |
 | Share Wishlist | Wishlist | Open share interface | No | 0% |
-| Scan Receipt | Scan Receipt Page | Open camera for receipt scan | No | 0% |
+| Scan Receipt | Scan Receipt Page | Open camera for receipt scan | No | 100% |
 | View Leaderboard | Leaderboard Page | Show user rankings | Yes | 100% |
 | Participate in Flash Sale | Flash Sales | Redeem flash sale offer | No (updates inventory) | 0% |
 | View Last-Minute Deals | Last-Minute Deals | Show expiring offers | Yes | 100% |

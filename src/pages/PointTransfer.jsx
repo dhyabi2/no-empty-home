@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { ArrowRightLeft } from "lucide-react";
+import { Label } from "@/components/ui/label";
+import { ArrowRight } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -12,8 +13,8 @@ const PointTransfer = () => {
 
   const handleTransfer = (e) => {
     e.preventDefault();
-    // In a real app, this would handle the actual transfer logic
-    alert(`Transferred ${pointsToTransfer} points to ${recipientEmail}`);
+    alert(`Transferring ${pointsToTransfer} points to ${recipientEmail}`);
+    // Reset form
     setRecipientEmail('');
     setPointsToTransfer('');
   };
@@ -21,39 +22,39 @@ const PointTransfer = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Point Transfer</h1>
+      <main className="flex-grow max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Card>
           <CardHeader>
-            <CardTitle className="flex items-center">
-              <ArrowRightLeft className="mr-2 h-5 w-5" />
-              Transfer Points
-            </CardTitle>
+            <CardTitle className="text-2xl font-bold">Transfer Points</CardTitle>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleTransfer} className="space-y-4">
               <div>
-                <label htmlFor="recipientEmail" className="block text-sm font-medium text-gray-700">Recipient's Email</label>
+                <Label htmlFor="recipientEmail">Recipient's Email</Label>
                 <Input
                   id="recipientEmail"
                   type="email"
                   value={recipientEmail}
                   onChange={(e) => setRecipientEmail(e.target.value)}
+                  placeholder="Enter recipient's email"
                   required
                 />
               </div>
               <div>
-                <label htmlFor="pointsToTransfer" className="block text-sm font-medium text-gray-700">Points to Transfer</label>
+                <Label htmlFor="pointsToTransfer">Points to Transfer</Label>
                 <Input
                   id="pointsToTransfer"
                   type="number"
                   value={pointsToTransfer}
                   onChange={(e) => setPointsToTransfer(e.target.value)}
-                  required
+                  placeholder="Enter amount of points"
                   min="1"
+                  required
                 />
               </div>
-              <Button type="submit" className="w-full">Transfer Points</Button>
+              <Button type="submit" className="w-full">
+                Transfer Points <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
             </form>
           </CardContent>
         </Card>

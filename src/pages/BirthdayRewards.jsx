@@ -1,53 +1,69 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Gift, Calendar, ChevronRight } from "lucide-react";
+import { Gift, Calendar, Star } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Link } from 'react-router-dom';
 
 const BirthdayRewards = () => {
   const birthdayRewards = [
-    { id: 1, title: "Free Birthday Coffee", description: "Enjoy a free coffee on your birthday", shop: "Coffee Haven" },
-    { id: 2, title: "20% Off Birthday Purchase", description: "Get 20% off any purchase on your birthday", shop: "Fashion Boutique" },
-    { id: 3, title: "Birthday Dessert", description: "Complimentary dessert with any meal on your birthday", shop: "Gourmet Restaurant" },
+    {
+      id: 1,
+      title: "Free Birthday Coffee",
+      description: "Enjoy a complimentary coffee of your choice on your birthday!",
+      points: 0,
+    },
+    {
+      id: 2,
+      title: "Birthday Discount",
+      description: "Get 20% off on any purchase during your birthday month.",
+      points: 100,
+    },
+    {
+      id: 3,
+      title: "Exclusive Birthday Gift",
+      description: "Receive a special gift from our premium collection.",
+      points: 500,
+    },
   ];
+
+  const handleRedeemReward = (rewardId) => {
+    alert(`You have redeemed the birthday reward with ID: ${rewardId}`);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Birthday Rewards</h1>
+      <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-3xl font-bold mb-6">Birthday Rewards</h1>
         <Card className="mb-6">
-          <CardHeader>
-            <CardTitle className="flex items-center">
-              <Calendar className="mr-2 h-5 w-5" />
-              Your Birthday
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-lg font-semibold">September 15</p>
-            <p className="text-sm text-gray-500">Make sure to claim your birthday rewards!</p>
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <Calendar className="mr-2 h-6 w-6 text-primary" />
+                <span className="text-lg font-semibold">Your Birthday: May 15</span>
+              </div>
+              <Star className="h-8 w-8 text-yellow-400" />
+            </div>
           </CardContent>
         </Card>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {birthdayRewards.map((reward) => (
             <Card key={reward.id}>
               <CardHeader>
                 <CardTitle className="flex items-center">
-                  <Gift className="mr-2 h-5 w-5" />
+                  <Gift className="mr-2 h-5 w-5 text-primary" />
                   {reward.title}
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-500 mb-2">{reward.description}</p>
-                <p className="text-sm font-semibold mb-4">{reward.shop}</p>
-                <Link to={`/rewards/${reward.id}`}>
-                  <Button className="w-full">
-                    View Details
-                    <ChevronRight className="ml-2 h-4 w-4" />
+                <p className="text-sm text-gray-600 mb-4">{reward.description}</p>
+                <div className="flex justify-between items-center">
+                  <span className="font-semibold">{reward.points} points</span>
+                  <Button onClick={() => handleRedeemReward(reward.id)}>
+                    Redeem
                   </Button>
-                </Link>
+                </div>
               </CardContent>
             </Card>
           ))}
