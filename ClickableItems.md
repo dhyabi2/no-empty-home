@@ -56,8 +56,6 @@
 | Get Directions | Shop Profile | Open maps app | No (external app) | 100% |
 | Call Shop | Shop Profile | Initiate phone call | No (external app) | 0% |
 | Visit Shop Website | Shop Profile | Open shop website | No (external link) | 0% |
-| Filter Rewards | Reward Categories | Apply category filter | No (updates results) | 100% |
-| Sort Offers | Offer Listing | Change offer sort order | No (updates results) | 100% |
 | Apply Coupon | Checkout | Apply discount to purchase | No (updates total) | 0% |
 | Complete Purchase | Checkout | Finalize transaction | No (shows confirmation) | 0% |
 | Track Order | Order History | View order status | Yes | 0% |
