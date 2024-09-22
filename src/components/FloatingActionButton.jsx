@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { QrCode, Plus, Camera, Gift, MapPin } from "lucide-react";
+import { Plus, QrCode, Camera, Gift, MapPin, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingActionButton = () => {
@@ -16,7 +16,7 @@ const FloatingActionButton = () => {
   ];
 
   return (
-    <div className="fixed bottom-20 right-4">
+    <div className="fixed bottom-20 right-4 z-50">
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -28,9 +28,9 @@ const FloatingActionButton = () => {
             {actions.map((action, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
                 transition={{ delay: index * 0.1 }}
               >
                 <Button
@@ -50,7 +50,12 @@ const FloatingActionButton = () => {
         className="rounded-full p-4 shadow-lg"
         onClick={toggleMenu}
       >
-        <Plus className={`h-6 w-6 transition-transform ${isOpen ? 'rotate-45' : ''}`} />
+        <motion.div
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Plus className="h-6 w-6" />}
+        </motion.div>
       </Button>
     </div>
   );
