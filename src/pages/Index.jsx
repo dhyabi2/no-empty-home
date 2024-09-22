@@ -2,7 +2,6 @@ import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
 import SideNav from '../components/SideNav';
 import Confetti from '../components/Confetti';
 import EarnPoints from '../components/EarnPoints';
@@ -62,30 +61,6 @@ const Index = () => {
       );
     }
   }, [userLocation]);
-
-  const memoizedNearbyShops = React.useMemo(() => {
-    if (!userLocation) return [];
-
-    const allShops = [
-      { id: 1, name: "Coffee Haven", latitude: 40.7128, longitude: -74.0060, category: "Cafe" },
-      { id: 2, name: "Tech Gadgets", latitude: 40.7112, longitude: -74.0055, category: "Electronics" },
-      { id: 3, name: "Fresh Grocers", latitude: 40.7135, longitude: -74.0070, category: "Supermarket" },
-    ];
-
-    return allShops.map(shop => ({
-      ...shop,
-      distance: calculateDistance(
-        userLocation.latitude,
-        userLocation.longitude,
-        shop.latitude,
-        shop.longitude
-      )
-    })).sort((a, b) => a.distance - b.distance).slice(0, 3);
-  }, [userLocation]);
-
-  useEffect(() => {
-    setNearbyShops(memoizedNearbyShops);
-  }, [memoizedNearbyShops]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -223,22 +198,30 @@ const QuickActionsSection = React.memo(() => (
     </CardHeader>
     <CardContent>
       <div className="grid grid-cols-2 gap-4">
-        <Button variant="outline" className="flex flex-col items-center justify-center h-24">
-          <Gift className="h-6 w-6 mb-2" />
-          Redeem
-        </Button>
-        <Button variant="outline" className="flex flex-col items-center justify-center h-24">
-          <MapPin className="h-6 w-6 mb-2" />
-          Find Shops
-        </Button>
-        <Button variant="outline" className="flex flex-col items-center justify-center h-24">
-          <Star className="h-6 w-6 mb-2" />
-          Favorites
-        </Button>
-        <Button variant="outline" className="flex flex-col items-center justify-center h-24">
-          <Zap className="h-6 w-6 mb-2" />
-          Earn Points
-        </Button>
+        <Link to="/redeem">
+          <Button variant="outline" className="flex flex-col items-center justify-center h-24 w-full">
+            <Gift className="h-6 w-6 mb-2" />
+            Redeem
+          </Button>
+        </Link>
+        <Link to="/shops">
+          <Button variant="outline" className="flex flex-col items-center justify-center h-24 w-full">
+            <MapPin className="h-6 w-6 mb-2" />
+            Find Shops
+          </Button>
+        </Link>
+        <Link to="/favorites">
+          <Button variant="outline" className="flex flex-col items-center justify-center h-24 w-full">
+            <Star className="h-6 w-6 mb-2" />
+            Favorites
+          </Button>
+        </Link>
+        <Link to="/earn-points">
+          <Button variant="outline" className="flex flex-col items-center justify-center h-24 w-full">
+            <Zap className="h-6 w-6 mb-2" />
+            Earn Points
+          </Button>
+        </Link>
       </div>
     </CardContent>
   </Card>
