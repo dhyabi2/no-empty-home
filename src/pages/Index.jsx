@@ -13,86 +13,86 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap, Cake } from "lucide-react";
 
-const RewardOverview = lazy(() => import('../components/RewardOverview'));
-const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
-const FeaturedOffers = lazy(() => import('../components/FeaturedOffers'));
-const NearbyShops = lazy(() => import('../components/NearbyShops'));
-const RewardConcierge = lazy(() => import('../components/RewardConcierge'));
-const RewardTrivia = lazy(() => import('../components/RewardTrivia'));
-const RewardPlanner = lazy(() => import('../components/RewardPlanner'));
-const RewardShowcase = lazy(() => import('../components/RewardShowcase'));
-const RewardGifting = lazy(() => import('../components/RewardGifting'));
-const PointExpirationReminder = lazy(() => import('../components/PointExpirationReminder'));
+const LazyComponents = {
+  RewardOverview: lazy(() => import('../components/RewardOverview')),
+  RewardRedemption: lazy(() => import('../components/RewardRedemption')),
+  FeaturedOffers: lazy(() => import('../components/FeaturedOffers')),
+  NearbyShops: lazy(() => import('../components/NearbyShops')),
+  RewardConcierge: lazy(() => import('../components/RewardConcierge')),
+  RewardTrivia: lazy(() => import('../components/RewardTrivia')),
+  RewardPlanner: lazy(() => import('../components/RewardPlanner')),
+  RewardShowcase: lazy(() => import('../components/RewardShowcase')),
+  RewardGifting: lazy(() => import('../components/RewardGifting')),
+  PointExpirationReminder: lazy(() => import('../components/PointExpirationReminder')),
+};
 
 const Index = () => {
-  const [showConfetti, setShowConfetti] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [state, setState] = useState({
+    showConfetti: false,
+    isLoading: true,
+    isSideNavOpen: false,
+    quickStats: {},
+    recentActivity: [],
+    upcomingEvents: [],
+    leaderboard: [],
+    nearbyShops: [],
+    flashSales: [],
+  });
+
   const { user } = useAuth();
-  const [nearbyShops, setNearbyShops] = useState([]);
-  const [isSideNavOpen, setIsSideNavOpen] = useState(false);
-  const [recentActivity, setRecentActivity] = useState([]);
-  const [upcomingEvents, setUpcomingEvents] = useState([]);
-  const [leaderboard, setLeaderboard] = useState([]);
-  const [quickStats, setQuickStats] = useState({});
-  const [flashSales, setFlashSales] = useState([]);
 
   useEffect(() => {
     // Simulating data loading
     setTimeout(() => {
-      setIsLoading(false);
-      setQuickStats({
-        totalPoints: 1250,
-        rewardsRedeemed: 5,
-        shopsVisited: 8
-      });
-      setRecentActivity([
-        { title: "Earned 50 points", description: "Purchase at Coffee Shop", time: "2 hours ago" },
-        { title: "Redeemed reward", description: "Free coffee", time: "1 day ago" },
-        { title: "Visited new shop", description: "Bookstore XYZ", time: "3 days ago" }
-      ]);
-      setUpcomingEvents([
-        { title: "Double Points Weekend", date: "This weekend" },
-        { title: "New Reward Launch", date: "Next Monday" },
-        { title: "VIP Shopping Night", date: "Next Friday" }
-      ]);
-      setLeaderboard([
-        { name: "John D.", points: 2500, avatar: "/avatar1.png" },
-        { name: "Sarah M.", points: 2300, avatar: "/avatar2.png" },
-        { name: "Mike R.", points: 2100, avatar: "/avatar3.png" }
-      ]);
-      setNearbyShops([
-        { id: 1, name: "Coffee Haven", distance: "0.5 km", category: "Cafe" },
-        { id: 2, name: "Book Nook", distance: "1.2 km", category: "Bookstore" },
-        { id: 3, name: "Fitness First", distance: "2.0 km", category: "Gym" }
-      ]);
-      setFlashSales([
-        { id: 1, title: "50% Off Coffee Maker", shop: "ElectroMart", endTime: "2024-03-25T18:00:00" },
-        { id: 2, title: "Buy 1 Get 1 Free Books", shop: "Bookworm's Paradise", endTime: "2024-03-26T12:00:00" },
-      ]);
+      setState(prevState => ({
+        ...prevState,
+        isLoading: false,
+        quickStats: {
+          totalPoints: 1250,
+          rewardsRedeemed: 5,
+          shopsVisited: 8
+        },
+        recentActivity: [
+          { title: "Earned 50 points", description: "Purchase at Coffee Shop", time: "2 hours ago" },
+          { title: "Redeemed reward", description: "Free coffee", time: "1 day ago" },
+          { title: "Visited new shop", description: "Bookstore XYZ", time: "3 days ago" }
+        ],
+        upcomingEvents: [
+          { title: "Double Points Weekend", date: "This weekend" },
+          { title: "New Reward Launch", date: "Next Monday" },
+          { title: "VIP Shopping Night", date: "Next Friday" }
+        ],
+        leaderboard: [
+          { name: "John D.", points: 2500, avatar: "/avatar1.png" },
+          { name: "Sarah M.", points: 2300, avatar: "/avatar2.png" },
+          { name: "Mike R.", points: 2100, avatar: "/avatar3.png" }
+        ],
+        nearbyShops: [
+          { id: 1, name: "Coffee Haven", distance: "0.5 km", category: "Cafe" },
+          { id: 2, name: "Book Nook", distance: "1.2 km", category: "Bookstore" },
+          { id: 3, name: "Fitness First", distance: "2.0 km", category: "Gym" }
+        ],
+        flashSales: [
+          { id: 1, title: "50% Off Coffee Maker", shop: "ElectroMart", endTime: "2024-03-25T18:00:00" },
+          { id: 2, title: "Buy 1 Get 1 Free Books", shop: "Bookworm's Paradise", endTime: "2024-03-26T12:00:00" },
+        ],
+      }));
     }, 1500);
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      <Header onMenuClick={() => setIsSideNavOpen(true)} />
-      {showConfetti && <Confetti />}
+      <Header onMenuClick={() => setState(prevState => ({ ...prevState, isSideNavOpen: true }))} />
+      {state.showConfetti && <Confetti />}
       <div className="flex flex-1 overflow-hidden">
-        <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)} />
+        <SideNav isOpen={state.isSideNavOpen} onClose={() => setState(prevState => ({ ...prevState, isSideNavOpen: false }))} />
         <main className="flex-1 overflow-y-auto">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
-            <WelcomeSection user={user} quickStats={quickStats} />
+            <WelcomeSection user={user} quickStats={state.quickStats} />
             <Separator />
-            <MainContent
-              isLoading={isLoading}
-              user={user}
-              recentActivity={recentActivity}
-              nearbyShops={nearbyShops}
-              upcomingEvents={upcomingEvents}
-              leaderboard={leaderboard}
-              flashSales={flashSales}
-            />
+            <MainContent state={state} user={user} />
           </div>
         </main>
       </div>
@@ -125,7 +125,7 @@ const QuickStat = ({ icon, label, value }) => (
   </div>
 );
 
-const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, upcomingEvents, leaderboard, flashSales }) => (
+const MainContent = React.memo(({ state, user }) => (
   <>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <Card className="col-span-2">
@@ -142,20 +142,20 @@ const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, 
         <CardContent>
           <TabsContent value="overview">
             <Suspense fallback={<div>Loading...</div>}>
-              <RewardOverview isLoading={isLoading} user={user} handleEarnReward={() => {}} />
+              <LazyComponents.RewardOverview isLoading={state.isLoading} user={user} handleEarnReward={() => {}} />
             </Suspense>
           </TabsContent>
           <TabsContent value="redeem">
             <Suspense fallback={<div>Loading...</div>}>
-              <RewardRedemption />
+              <LazyComponents.RewardRedemption />
             </Suspense>
           </TabsContent>
           <TabsContent value="activity">
-            <ActivityFeed activities={recentActivity} />
+            <ActivityFeed activities={state.recentActivity} />
           </TabsContent>
           <TabsContent value="gift">
             <Suspense fallback={<div>Loading...</div>}>
-              <RewardGifting />
+              <LazyComponents.RewardGifting />
             </Suspense>
           </TabsContent>
         </CardContent>
@@ -163,11 +163,11 @@ const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, 
       <QuickActionsSection />
     </div>
     <Separator />
-    <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
+    <OffersAndShopsSection isLoading={state.isLoading} nearbyShops={state.nearbyShops} />
     <Separator />
-    <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
+    <EventsAndLeaderboardSection upcomingEvents={state.upcomingEvents} leaderboard={state.leaderboard} />
     <Separator />
-    <FlashSalesSection flashSales={flashSales} />
+    <FlashSalesSection flashSales={state.flashSales} />
     <Separator />
     <AdditionalFeatures />
   </>
@@ -183,6 +183,7 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><MapPin className="mr-2 h-4 w-4" /> Find Nearby Shops</Button>
       <Button className="w-full"><Bell className="mr-2 h-4 w-4" /> View Notifications</Button>
       <Button className="w-full"><Calendar className="mr-2 h-4 w-4" /> Exclusive Events</Button>
+      <Button className="w-full"><Cake className="mr-2 h-4 w-4" /> Birthday Rewards</Button>
       <EarnPoints />
     </CardContent>
   </Card>
@@ -191,10 +192,10 @@ const QuickActionsSection = React.memo(() => (
 const OffersAndShopsSection = React.memo(({ isLoading, nearbyShops }) => (
   <div className="space-y-8">
     <Suspense fallback={<div>Loading Offers...</div>}>
-      <FeaturedOffers isLoading={isLoading} />
+      <LazyComponents.FeaturedOffers isLoading={isLoading} />
     </Suspense>
     <Suspense fallback={<div>Loading Shops...</div>}>
-      <NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
+      <LazyComponents.NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
     </Suspense>
   </div>
 ));
@@ -297,21 +298,11 @@ const FlashSalesSection = React.memo(({ flashSales }) => (
 
 const AdditionalFeatures = React.memo(() => (
   <div className="space-y-8">
-    <Suspense fallback={<div>Loading Reward Concierge...</div>}>
-      <RewardConcierge />
-    </Suspense>
-    <Suspense fallback={<div>Loading Reward Trivia...</div>}>
-      <RewardTrivia />
-    </Suspense>
-    <Suspense fallback={<div>Loading Reward Planner...</div>}>
-      <RewardPlanner />
-    </Suspense>
-    <Suspense fallback={<div>Loading Reward Showcase...</div>}>
-      <RewardShowcase />
-    </Suspense>
-    <Suspense fallback={<div>Loading Point Expiration Reminder...</div>}>
-      <PointExpirationReminder />
-    </Suspense>
+    {Object.entries(LazyComponents).map(([name, Component]) => (
+      <Suspense key={name} fallback={<div>Loading {name}...</div>}>
+        <Component />
+      </Suspense>
+    ))}
   </div>
 ));
 
