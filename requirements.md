@@ -43,7 +43,7 @@
 58. Create a "Nearby Offers" map view with geolocation (Completed Percentage: 100%)
 59. Implement a "Scan Receipt" feature for point collection (Completed Percentage: 100%)
 60. Develop a "Favorite Shops" page for quick access (Completed Percentage: 100%)
-61. Next-to-do: Create a "Point Expiration" reminder system (Completed Percentage: 0%)
+61. Create a "Point Expiration" reminder system (Completed Percentage: 100%)
 62. Next-to-do: Implement a "Reward Customization" feature for personalized gifts (Completed Percentage: 0%)
 63. Next-to-do: Develop a "Flash Sales" page for limited-time offers (Completed Percentage: 0%)
 64. Next-to-do: Create a "Birthday Rewards" system for special occasions (Completed Percentage: 0%)

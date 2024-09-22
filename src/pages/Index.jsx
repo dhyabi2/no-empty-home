@@ -24,6 +24,7 @@ const RewardTrivia = lazy(() => import('../components/RewardTrivia'));
 const RewardPlanner = lazy(() => import('../components/RewardPlanner'));
 const RewardShowcase = lazy(() => import('../components/RewardShowcase'));
 const RewardGifting = lazy(() => import('../components/RewardGifting'));
+const PointExpirationReminder = lazy(() => import('../components/PointExpirationReminder'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -274,6 +275,9 @@ const AdditionalFeatures = React.memo(() => (
     </Suspense>
     <Suspense fallback={<div>Loading Reward Showcase...</div>}>
       <RewardShowcase />
+    </Suspense>
+    <Suspense fallback={<div>Loading Point Expiration Reminder...</div>}>
+      <PointExpirationReminder />
     </Suspense>
   </div>
 ));
