@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Bell, Gift, MapPin, Star, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake } from "lucide-react";
 
 const LazyComponents = {
   RewardOverview: lazy(() => import('../components/RewardOverview')),
@@ -181,6 +181,7 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><ArrowRightLeft className="mr-2 h-4 w-4" /> Point Transfer</Button>
       <Button className="w-full"><Gavel className="mr-2 h-4 w-4" /> Reward Auctions</Button>
       <Button className="w-full"><Gift className="mr-2 h-4 w-4" /> Surprise Rewards</Button>
+      <Button className="w-full"><Handshake className="mr-2 h-4 w-4" /> Partner Rewards</Button>
       <EarnPoints />
     </CardContent>
   </Card>

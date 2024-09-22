@@ -54,7 +54,7 @@
 69. Create a "Point Transfer" feature between accounts (Completed Percentage: 100%)
 70. Implement a "Reward Auctions" system for unique items (Completed Percentage: 100%)
 71. Implement a "Surprise Rewards" feature for random bonuses (Completed Percentage: 100%)
-72. Next-to-do: Create a "Partner Rewards" page for cross-brand promotions (Completed Percentage: 0%)
+72. Create a "Partner Rewards" page for cross-brand promotions (Completed Percentage: 100%)
 73. Next-to-do: Implement a "Reward Levels" system within each shop (Completed Percentage: 0%)
 74. Next-to-do: Develop a "Point Donation" feature for charitable causes (Completed Percentage: 0%)
 75. Next-to-do: Create a "Reward Wishlist" sharing feature (Completed Percentage: 0%)
