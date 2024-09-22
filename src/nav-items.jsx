@@ -28,6 +28,7 @@ import PointBoosters from "./pages/PointBoosters.jsx";
 import RewardBundles from "./pages/RewardBundles.jsx";
 import PointTransfer from "./pages/PointTransfer.jsx";
 import RewardAuctions from "./pages/RewardAuctions.jsx";
+import SurpriseRewards from "./pages/SurpriseRewards.jsx";
 
 const createNavItem = (title, path, icon, component) => ({
   title,
@@ -66,4 +67,5 @@ export const navItems = [
   createNavItem("Reward Bundles", "/reward-bundles", Package, <RewardBundles />),
   createNavItem("Point Transfer", "/point-transfer", ArrowRightLeft, <PointTransfer />),
   createNavItem("Reward Auctions", "/reward-auctions", Gavel, <RewardAuctions />),
+  createNavItem("Surprise Rewards", "/surprise-rewards", Gift, <SurpriseRewards />),
 ];

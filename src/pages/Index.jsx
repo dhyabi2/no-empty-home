@@ -180,6 +180,7 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><Package className="mr-2 h-4 w-4" /> Reward Bundles</Button>
       <Button className="w-full"><ArrowRightLeft className="mr-2 h-4 w-4" /> Point Transfer</Button>
       <Button className="w-full"><Gavel className="mr-2 h-4 w-4" /> Reward Auctions</Button>
+      <Button className="w-full"><Gift className="mr-2 h-4 w-4" /> Surprise Rewards</Button>
       <EarnPoints />
     </CardContent>
   </Card>
