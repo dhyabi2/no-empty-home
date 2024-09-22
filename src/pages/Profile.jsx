@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Edit, LogOut } from "lucide-react";
+import { Edit, LogOut, Upload, Key, Globe, Trash } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PushNotificationSystem from '../components/PushNotificationSystem';
@@ -75,7 +75,18 @@ const AccountActions = () => (
     </CardHeader>
     <CardContent>
       <div className="space-y-4">
-        <Button className="w-full">Change Password</Button>
+        <Button className="w-full" onClick={() => alert("Changing password...")}>
+          <Key className="mr-2 h-4 w-4" /> Change Password
+        </Button>
+        <Button className="w-full" onClick={() => alert("Uploading profile picture...")}>
+          <Upload className="mr-2 h-4 w-4" /> Upload Profile Picture
+        </Button>
+        <Button className="w-full" onClick={() => alert("Updating email...")}>
+          <Globe className="mr-2 h-4 w-4" /> Update Email
+        </Button>
+        <Button className="w-full" variant="destructive" onClick={() => alert("Deleting account...")}>
+          <Trash className="mr-2 h-4 w-4" /> Delete Account
+        </Button>
         <Button variant="destructive" className="w-full">
           <LogOut className="mr-2 h-4 w-4" /> Logout
         </Button>
@@ -91,9 +102,9 @@ const SettingsLinks = () => (
     </CardHeader>
     <CardContent>
       <ul className="space-y-2">
-        <li><Button variant="link">Language Settings</Button></li>
-        <li><Button variant="link">Notification Preferences</Button></li>
-        <li><Button variant="link">Privacy Settings</Button></li>
+        <li><Button variant="link" onClick={() => alert("Opening language settings...")}>Language Settings</Button></li>
+        <li><Button variant="link" onClick={() => alert("Opening notification preferences...")}>Notification Preferences</Button></li>
+        <li><Button variant="link" onClick={() => alert("Opening privacy settings...")}>Privacy Settings</Button></li>
       </ul>
     </CardContent>
   </Card>
