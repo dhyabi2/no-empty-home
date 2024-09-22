@@ -12,15 +12,15 @@ const Checkout = () => {
   const handleApplyCoupon = () => {
     if (coupon === 'DISCOUNT10') {
       setTotal(prevTotal => prevTotal * 0.9);
-      alert('Coupon applied successfully!');
+      alert('تم تطبيق الكوبون بنجاح!');
     } else {
-      alert('Invalid coupon code.');
+      alert('رمز الكوبون غير صالح.');
     }
   };
 
   const handleCompletePurchase = () => {
-    alert('Purchase completed successfully!');
-    // In a real app, this would navigate to a confirmation page
+    alert('تم إكمال الشراء بنجاح!');
+    // في التطبيق الحقيقي، سيتم التوجيه إلى صفحة التأكيد
   };
 
   return (
@@ -29,23 +29,23 @@ const Checkout = () => {
       <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Checkout</CardTitle>
+            <CardTitle>الدفع</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
               <div>
-                <p className="text-lg font-semibold">Total: ${total.toFixed(2)}</p>
+                <p className="text-lg font-semibold">الإجمالي: ${total.toFixed(2)}</p>
               </div>
               <div className="flex space-x-2">
                 <Input
-                  placeholder="Enter coupon code"
+                  placeholder="أدخل رمز الكوبون"
                   value={coupon}
                   onChange={(e) => setCoupon(e.target.value)}
                 />
-                <Button onClick={handleApplyCoupon}>Apply Coupon</Button>
+                <Button onClick={handleApplyCoupon}>تطبيق الكوبون</Button>
               </div>
               <Button onClick={handleCompletePurchase} className="w-full">
-                Complete Purchase
+                إكمال الشراء
               </Button>
             </div>
           </CardContent>

@@ -6,7 +6,7 @@
 | AboutUs | Completed | 100% |
 | AugmentedRealityRewards | Completed | 100% |
 | BirthdayRewards | Completed | 100% |
-| Checkout | Not Started | 0% |
+| Checkout | Completed | 100% |
 | CustomerManagement | Not Started | 0% |
 | ExclusiveEvents | Not Started | 0% |
 | Favorites | Not Started | 0% |
@@ -72,9 +72,10 @@
 2. AboutUs - Completed
 3. AugmentedRealityRewards - Completed
 4. BirthdayRewards - Completed
-5. Profile
-6. RedeemPoints
-7. OfferListing
+5. Checkout - Completed
+6. Profile
+7. RedeemPoints
+8. OfferListing
 
 Start with these high-priority pages and then proceed with the rest in any order.
 
