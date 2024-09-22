@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Share2, Copy, Facebook, Twitter, WhatsApp } from "lucide-react";
+import { Share2, Copy, Facebook, Twitter, MessageCircle } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -60,7 +60,7 @@ const WishlistSharing = () => {
                 تويتر
               </Button>
               <Button onClick={() => shareToSocialMedia('WhatsApp')} className="flex-1">
-                <WhatsApp className="h-4 w-4 mr-2" />
+                <MessageCircle className="h-4 w-4 mr-2" />
                 واتساب
               </Button>
             </div>
