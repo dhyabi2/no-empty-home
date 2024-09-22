@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
@@ -6,17 +6,14 @@ import SideNav from '../components/SideNav';
 import Confetti from '../components/Confetti';
 import EarnPoints from '../components/EarnPoints';
 import { useAuth } from '../contexts/AuthContext';
-import { calculateDistance } from '../utils/distanceCalculator';
 import FloatingActionButton from '../components/FloatingActionButton';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
-import { Calendar } from "@/components/ui/calendar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Zap, Activity, Award, TrendingUp } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Activity } from "lucide-react";
 
 const RewardOverview = lazy(() => import('../components/RewardOverview'));
 const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
@@ -26,13 +23,13 @@ const RewardConcierge = lazy(() => import('../components/RewardConcierge'));
 const RewardTrivia = lazy(() => import('../components/RewardTrivia'));
 const RewardPlanner = lazy(() => import('../components/RewardPlanner'));
 const RewardShowcase = lazy(() => import('../components/RewardShowcase'));
+const RewardGifting = lazy(() => import('../components/RewardGifting'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const { user } = useAuth();
   const [nearbyShops, setNearbyShops] = useState([]);
-  const [userLocation, setUserLocation] = useState(null);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
   const [recentActivity, setRecentActivity] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
@@ -61,6 +58,11 @@ const Index = () => {
         { name: "John D.", points: 2500, avatar: "/avatar1.png" },
         { name: "Sarah M.", points: 2300, avatar: "/avatar2.png" },
         { name: "Mike R.", points: 2100, avatar: "/avatar3.png" }
+      ]);
+      setNearbyShops([
+        { id: 1, name: "Coffee Haven", distance: "0.5 km", category: "Cafe" },
+        { id: 2, name: "Book Nook", distance: "1.2 km", category: "Bookstore" },
+        { id: 3, name: "Fitness First", distance: "2.0 km", category: "Gym" }
       ]);
     }, 1500);
   }, []);
@@ -125,6 +127,7 @@ const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, 
               <TabsTrigger value="overview">Overview</TabsTrigger>
               <TabsTrigger value="redeem">Redeem</TabsTrigger>
               <TabsTrigger value="activity">Activity</TabsTrigger>
+              <TabsTrigger value="gift">Gift</TabsTrigger>
             </TabsList>
           </Tabs>
         </CardHeader>
@@ -141,6 +144,11 @@ const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, 
           </TabsContent>
           <TabsContent value="activity">
             <ActivityFeed activities={recentActivity} />
+          </TabsContent>
+          <TabsContent value="gift">
+            <Suspense fallback={<div>Loading...</div>}>
+              <RewardGifting />
+            </Suspense>
           </TabsContent>
         </CardContent>
       </Card>
@@ -182,51 +190,58 @@ const OffersAndShopsSection = React.memo(({ isLoading, nearbyShops }) => (
 
 const EventsAndLeaderboardSection = React.memo(({ upcomingEvents, leaderboard }) => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <Card>
-      <CardHeader>
-        <CardTitle>Upcoming Events</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Calendar />
-        <ScrollArea className="h-[200px] mt-4">
-          {upcomingEvents.map((event, index) => (
-            <div key={index} className="mb-4 last:mb-0">
-              <h3 className="font-semibold">{event.title}</h3>
-              <p className="text-sm text-gray-500">{event.date}</p>
-            </div>
-          ))}
-        </ScrollArea>
-      </CardContent>
-    </Card>
-    <Card>
-      <CardHeader>
-        <CardTitle>Leaderboard</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <ScrollArea className="h-[300px]">
-          {leaderboard.map((user, index) => (
-            <div key={index} className="flex items-center mb-4 last:mb-0">
-              <Badge variant={index < 3 ? "default" : "secondary"} className="mr-2">
-                {index + 1}
-              </Badge>
-              <Avatar className="h-8 w-8 mr-2">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback>{user.name[0]}</AvatarFallback>
-              </Avatar>
-              <div className="flex-grow">
-                <p className="font-semibold">{user.name}</p>
-                <p className="text-sm text-gray-500">{user.points} points</p>
-              </div>
-            </div>
-          ))}
-        </ScrollArea>
-      </CardContent>
-    </Card>
+    <UpcomingEvents events={upcomingEvents} />
+    <LeaderboardSection leaderboard={leaderboard} />
   </div>
 ));
 
+const UpcomingEvents = ({ events }) => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Upcoming Events</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <ScrollArea className="h-[200px]">
+        {events.map((event, index) => (
+          <div key={index} className="mb-4 last:mb-0">
+            <h3 className="font-semibold">{event.title}</h3>
+            <p className="text-sm text-gray-500">{event.date}</p>
+          </div>
+        ))}
+      </ScrollArea>
+    </CardContent>
+  </Card>
+);
+
+const LeaderboardSection = ({ leaderboard }) => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Leaderboard</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <ScrollArea className="h-[200px]">
+        {leaderboard.map((user, index) => (
+          <div key={index} className="flex items-center mb-4 last:mb-0">
+            <Badge variant={index < 3 ? "default" : "secondary"} className="mr-2">
+              {index + 1}
+            </Badge>
+            <Avatar className="h-8 w-8 mr-2">
+              <AvatarImage src={user.avatar} alt={user.name} />
+              <AvatarFallback>{user.name[0]}</AvatarFallback>
+            </Avatar>
+            <div className="flex-grow">
+              <p className="font-semibold">{user.name}</p>
+              <p className="text-sm text-gray-500">{user.points} points</p>
+            </div>
+          </div>
+        ))}
+      </ScrollArea>
+    </CardContent>
+  </Card>
+);
+
 const ActivityFeed = ({ activities }) => (
-  <ScrollArea className="h-[300px]">
+  <ScrollArea className="h-[200px]">
     {activities.map((activity, index) => (
       <div key={index} className="flex items-start mb-4 last:mb-0">
         <div className="mr-4">

@@ -38,7 +38,7 @@
 53. Develop a "Feedback" page for users to rate shops and offers (Completed Percentage: 100%)
 54. Implement a "Wishlist" feature for saving desired rewards (Completed Percentage: 100%)
 55. Create a "Leaderboard" page to showcase top point earners (Completed Percentage: 100%)
-56. Next-to-do: Implement a "Reward Gifting" feature between users (Completed Percentage: 0%)
+56. Implement a "Reward Gifting" feature between users (Completed Percentage: 100%)
 57. Next-to-do: Develop an "Exclusive Events" page for loyalty program members (Completed Percentage: 0%)
 58. Next-to-do: Create a "Nearby Offers" map view with geolocation (Completed Percentage: 0%)
 59. Next-to-do: Implement a "Scan Receipt" feature for point collection (Completed Percentage: 0%)

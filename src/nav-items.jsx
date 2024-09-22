@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -14,6 +14,7 @@ import PointsHistory from "./pages/PointsHistory.jsx";
 import Feedback from "./pages/Feedback.jsx";
 import Wishlist from "./pages/Wishlist.jsx";
 import Leaderboard from "./pages/Leaderboard.jsx";
+import RewardGiftingPage from "./pages/RewardGiftingPage.jsx";
 
 export const navItems = [
   {
@@ -105,5 +106,11 @@ export const navItems = [
     to: "/leaderboard",
     icon: <Award className="h-4 w-4" />,
     page: <Leaderboard />,
+  },
+  {
+    title: "Reward Gifting",
+    to: "/reward-gifting",
+    icon: <Gift className="h-4 w-4" />,
+    page: <RewardGiftingPage />,
   },
 ];
