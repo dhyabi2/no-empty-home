@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -30,6 +30,7 @@ const Header = ({ onMenuClick }) => {
   const [isSearchExpanded, setIsSearchExpanded] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
+  const navigate = useNavigate();
   const pathnames = location.pathname.split('/').filter((x) => x);
   const isHomePage = location.pathname === '/';
   const { user } = useAuth();
@@ -50,10 +51,13 @@ const Header = ({ onMenuClick }) => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // Implement search functionality here
     console.log('Searching for:', searchTerm);
     setIsSearchExpanded(false);
     setSearchTerm('');
+  };
+
+  const handleBackClick = () => {
+    navigate(-1);
   };
 
   return (
@@ -61,27 +65,20 @@ const Header = ({ onMenuClick }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <Button variant="ghost" size="icon" onClick={onMenuClick} className="mr-2 lg:hidden">
-              <Menu className="h-6 w-6" />
-            </Button>
-            <Link to="/" className={`text-2xl font-bold text-foreground mr-4 transition-all duration-300 ${isCollapsed ? 'text-xl' : 'text-2xl'}`}>
+            {!isHomePage && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={handleBackClick}
+                className="mr-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+              >
+                <ArrowLeft className="h-4 w-4" />
+              </Button>
+            )}
+            <Link to="/" className={`text-2xl font-bold text-foreground transition-all duration-300 ${isCollapsed ? 'text-xl' : 'text-2xl'}`}>
               Loyalty App
             </Link>
-            {!isHomePage && (
-              <Link to="/">
-                <Button variant="ghost" size="sm">
-                  <ArrowLeft className="h-4 w-4 mr-2" />
-                  Back to Home
-                </Button>
-              </Link>
-            )}
           </div>
-          <nav className="hidden lg:flex items-center space-x-4">
-            <Link to="/"><Button variant="ghost"><HomeIcon className="h-4 w-4 mr-2" />Home</Button></Link>
-            <Link to="/notifications"><Button variant="ghost"><BellIcon className="h-4 w-4 mr-2" />Notifications</Button></Link>
-            <Link to="/favorites"><Button variant="ghost"><StarIcon className="h-4 w-4 mr-2" />Favorites</Button></Link>
-            <Link to="/help-support"><Button variant="ghost"><HelpCircleIcon className="h-4 w-4 mr-2" />Help</Button></Link>
-          </nav>
           <div className="flex items-center space-x-4">
             <AnimatePresence>
               {isSearchExpanded ? (
@@ -143,7 +140,7 @@ const Header = ({ onMenuClick }) => {
             </DropdownMenu>
           </div>
         </div>
-        {!isCollapsed && (
+        {!isCollapsed && !isHomePage && (
           <div className="mt-2">
             <nav className="flex" aria-label="Breadcrumb">
               <ol className="inline-flex items-center space-x-1 md:space-x-3">
