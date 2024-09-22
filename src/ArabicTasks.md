@@ -27,29 +27,29 @@
 | PartnerRewards | Completed | 100% |
 | PointBoosters | Completed | 100% |
 | PointDonation | Completed | 100% |
-| PointsHistory | Not Started | 0% |
-| PointTransfer | Not Started | 0% |
-| Profile | Not Started | 0% |
-| RedeemPoints | Not Started | 0% |
-| RewardAndScanSystem | Not Started | 0% |
-| RewardAuctions | Not Started | 0% |
-| RewardBundles | Not Started | 0% |
-| RewardCategories | Not Started | 0% |
+| PointsHistory | Completed | 100% |
+| PointTransfer | Completed | 100% |
+| Profile | Completed | 100% |
+| RedeemPoints | Completed | 100% |
+| RewardAndScanSystem | Completed | 100% |
+| RewardAuctions | Completed | 100% |
+| RewardBundles | Completed | 100% |
+| RewardCategories | Completed | 100% |
 | RewardComparison | Not Started | 0% |
 | RewardCustomization | Not Started | 0% |
 | RewardGiftingPage | Not Started | 0% |
 | RewardPlanner | Not Started | 0% |
 | RewardRatings | Not Started | 0% |
 | RewardSharing | Not Started | 0% |
-| RewardShowcase | Not Started | 0% |
+| RewardShowcase | Completed | 100% |
 | RewardSubscription | Not Started | 0% |
 | ScanReceipt | Not Started | 0% |
 | Search | Not Started | 0% |
 | Settings | Not Started | 0% |
-| ShopAuthentication |  Not Started | 0% |
+| ShopAuthentication | Not Started | 0% |
 | ShopDashboard | Not Started | 0% |
 | ShopListing | Not Started | 0% |
-| ShopProfile | Not Started | 0% |
+| ShopProfile | Completed | 100% |
 | ShopRegistration | Not Started | 0% |
 | ShopSettings | Not Started | 0% |
 | SurpriseRewards | Not Started | 0% |
@@ -93,9 +93,14 @@
 23. PartnerRewards - Completed
 24. PointBoosters - Completed
 25. PointDonation - Completed
-26. Profile
-27. RedeemPoints
-28. PointsHistory
+26. Profile - Completed
+27. RedeemPoints - Completed
+28. PointsHistory - Completed
+29. PointTransfer - Completed
+30. RewardAndScanSystem - Completed
+31. RewardAuctions - Completed
+32. RewardBundles - Completed
+33. RewardCategories - Completed
 
 Start with these high-priority pages and then proceed with the rest in any order.
 

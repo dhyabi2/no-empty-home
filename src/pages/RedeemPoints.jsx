@@ -1,90 +1,93 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useAuth } from '../contexts/AuthContext';
+import { Input } from "@/components/ui/input";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Gift, Search, Filter } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { Gift, ArrowRight } from "lucide-react";
 
 const RedeemPoints = () => {
-  const { user, redeemPoints } = useAuth();
-  const [selectedReward, setSelectedReward] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [category, setCategory] = useState('');
 
   const rewards = [
-    { id: 1, name: "Free Coffee", points: 100, icon: "☕" },
-    { id: 2, name: "10% Discount", points: 200, icon: "🏷️" },
-    { id: 3, name: "Free Pastry", points: 150, icon: "🥐" },
-    { id: 4, name: "Priority Queue", points: 50, icon: "🚀" },
-    { id: 5, name: "Exclusive Event Access", points: 500, icon: "🎉" },
+    { id: 1, name: "قسيمة خصم 50 ريال", points: 500, category: "تسوق" },
+    { id: 2, name: "تذكرة سينما", points: 750, category: "ترفيه" },
+    { id: 3, name: "وجبة مجانية", points: 1000, category: "مطاعم" },
+    { id: 4, name: "خصم 20% على الإقامة", points: 2000, category: "سفر" },
+    { id: 5, name: "جهاز لوحي", points: 5000, category: "إلكترونيات" },
+    { id: 6, name: "عضوية نادي رياضي لمدة شهر", points: 3000, category: "رياضة" },
   ];
 
-  const handleRedemption = () => {
-    if (selectedReward && user.points >= selectedReward.points) {
-      redeemPoints(selectedReward.points);
-      alert(`You have successfully redeemed ${selectedReward.name}!`);
-      setSelectedReward(null);
-    } else {
-      alert("Not enough points to redeem this reward.");
-    }
-  };
+  const filteredRewards = rewards.filter(reward => 
+    reward.name.toLowerCase().includes(searchTerm.toLowerCase()) &&
+    (category === '' || reward.category === category)
+  );
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Redeem Your Points</h1>
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">استبدال النقاط</h1>
+        
         <Card className="mb-6">
-          <CardContent className="pt-6">
-            <p className="text-xl font-semibold">Your current points: {user?.points || 0}</p>
+          <CardHeader>
+            <CardTitle>رصيد النقاط الحالي</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-4xl font-bold">5,250</p>
+            <p className="text-sm text-gray-500">نقطة متاحة للاستبدال</p>
           </CardContent>
         </Card>
+
+        <div className="flex flex-col md:flex-row gap-4 mb-6">
+          <div className="flex-grow">
+            <Input
+              placeholder="ابحث عن المكافآت..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full"
+              icon={<Search className="h-5 w-5 text-gray-500" />}
+            />
+          </div>
+          <Select value={category} onValueChange={setCategory}>
+            <SelectTrigger className="w-full md:w-[200px]">
+              <SelectValue placeholder="تصفية حسب الفئة" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="">جميع الفئات</SelectItem>
+              <SelectItem value="تسوق">تسوق</SelectItem>
+              <SelectItem value="ترفيه">ترفيه</SelectItem>
+              <SelectItem value="مطاعم">مطاعم</SelectItem>
+              <SelectItem value="سفر">سفر</SelectItem>
+              <SelectItem value="إلكترونيات">إلكترونيات</SelectItem>
+              <SelectItem value="رياضة">رياضة</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rewards.map((reward) => (
-            <Card 
-              key={reward.id} 
-              className={`cursor-pointer transition-all ${selectedReward?.id === reward.id ? 'ring-2 ring-primary' : ''}`}
-              onClick={() => setSelectedReward(reward)}
-            >
+          {filteredRewards.map((reward) => (
+            <Card key={reward.id}>
               <CardHeader>
-                <CardTitle className="flex items-center justify-between">
-                  <span>{reward.name}</span>
-                  <span className="text-2xl">{reward.icon}</span>
-                </CardTitle>
+                <CardTitle>{reward.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-lg font-semibold">{reward.points} points</p>
-                <Button 
-                  className="mt-4 w-full"
-                  disabled={user?.points < reward.points}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setSelectedReward(reward);
-                  }}
-                >
-                  Select
+                <p className="text-2xl font-bold mb-2">{reward.points} نقطة</p>
+                <p className="text-sm text-gray-500 mb-4">{reward.category}</p>
+                <Button className="w-full">
+                  <Gift className="h-5 w-5 ml-2" />
+                  استبدال
                 </Button>
               </CardContent>
             </Card>
           ))}
         </div>
-        {selectedReward && (
-          <Card className="mt-8">
-            <CardHeader>
-              <CardTitle>Confirm Redemption</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="mb-4">You are about to redeem: <strong>{selectedReward.name}</strong> for <strong>{selectedReward.points} points</strong></p>
-              <Button onClick={handleRedemption} className="w-full">
-                <Gift className="mr-2 h-4 w-4" /> Redeem Now
-              </Button>
-            </CardContent>
-          </Card>
+
+        {filteredRewards.length === 0 && (
+          <p className="text-center text-gray-500 mt-6">لا توجد مكافآت متطابقة مع معايير البحث.</p>
         )}
-        <div className="mt-8 text-center">
-          <Button variant="link" className="text-primary">
-            View Redemption History <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-        </div>
       </main>
       <Footer />
     </div>

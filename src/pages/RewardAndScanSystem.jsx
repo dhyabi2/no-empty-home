@@ -1,105 +1,106 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Barcode, CheckCircle, Settings } from "lucide-react";
+import { QrCode, Camera, Clock, Gift } from "lucide-react";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const RewardAndScanSystem = () => {
+  const [scanMode, setScanMode] = useState('qr'); // 'qr' or 'manual'
+  const [manualCode, setManualCode] = useState('');
+
+  const handleScan = () => {
+    // هنا سيتم تنفيذ عملية المسح الفعلية
+    alert('تم بدء عملية المسح');
+  };
+
+  const handleManualSubmit = (e) => {
+    e.preventDefault();
+    // هنا سيتم التحقق من الرمز المدخل يدويًا
+    alert(`تم إدخال الرمز: ${manualCode}`);
+    setManualCode('');
+  };
+
+  const recentScans = [
+    { id: 1, shop: "متجر الإلكترونيات", date: "2024-03-15", points: 50 },
+    { id: 2, shop: "سوبر ماركت الرخاء", date: "2024-03-10", points: 30 },
+    { id: 3, shop: "مطعم اللذائذ", date: "2024-03-05", points: 25 },
+  ];
+
   return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Reward & Scan System</h1>
-          <Button variant="outline">
-            <Settings className="h-4 w-4 mr-2" />
-            Configure Rewards
-          </Button>
-        </div>
-      </header>
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">نظام المكافآت والمسح</h1>
+        
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle>مسح للحصول على المكافآت</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex justify-center space-x-4 mb-4">
+              <Button
+                variant={scanMode === 'qr' ? 'default' : 'outline'}
+                onClick={() => setScanMode('qr')}
+              >
+                <QrCode className="h-5 w-5 ml-2" />
+                مسح رمز QR
+              </Button>
+              <Button
+                variant={scanMode === 'manual' ? 'default' : 'outline'}
+                onClick={() => setScanMode('manual')}
+              >
+                إدخال الرمز يدويًا
+              </Button>
+            </div>
+            
+            {scanMode === 'qr' ? (
+              <div className="text-center">
+                <div className="bg-gray-200 h-64 flex items-center justify-center mb-4 rounded-lg">
+                  <Camera className="h-16 w-16 text-gray-400" />
+                </div>
+                <Button onClick={handleScan}>بدء المسح</Button>
+              </div>
+            ) : (
+              <form onSubmit={handleManualSubmit} className="space-y-4">
+                <Input
+                  placeholder="أدخل رمز المكافأة"
+                  value={manualCode}
+                  onChange={(e) => setManualCode(e.target.value)}
+                />
+                <Button type="submit" className="w-full">تحقق من الرمز</Button>
+              </form>
+            )}
+          </CardContent>
+        </Card>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Tabs defaultValue="scan">
-          <TabsList className="mb-4">
-            <TabsTrigger value="scan">Scan Barcode</TabsTrigger>
-            <TabsTrigger value="result">Scan Result</TabsTrigger>
-            <TabsTrigger value="config">Reward Configuration</TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="scan">
-            <Card>
-              <CardHeader>
-                <CardTitle>Scan Customer Barcode</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex justify-center">
-                  <Barcode className="h-32 w-32 text-gray-400" />
-                </div>
-                <p className="text-center text-sm text-gray-500">
-                  Position the barcode within the frame to scan
-                </p>
-                <Button className="w-full">
-                  Scan Barcode
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="result">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <CheckCircle className="h-6 w-6 text-green-500 mr-2" />
-                  Scan Successful
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <Label>Customer Name</Label>
-                  <Input value="John Doe" readOnly />
-                </div>
-                <div>
-                  <Label>Points Earned</Label>
-                  <Input value="50" readOnly />
-                </div>
-                <div>
-                  <Label>Total Points</Label>
-                  <Input value="1250" readOnly />
-                </div>
-                <Button className="w-full">
-                  Confirm and Add Points
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-
-          <TabsContent value="config">
-            <Card>
-              <CardHeader>
-                <CardTitle>Reward Configuration</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div>
-                  <Label>Points per Purchase</Label>
-                  <Input type="number" placeholder="Enter points per purchase" />
-                </div>
-                <div>
-                  <Label>Minimum Purchase Amount</Label>
-                  <Input type="number" placeholder="Enter minimum purchase amount" />
-                </div>
-                <div>
-                  <Label>Points Expiry (in days)</Label>
-                  <Input type="number" placeholder="Enter points expiry in days" />
-                </div>
-                <Button className="w-full">
-                  Save Configuration
-                </Button>
-              </CardContent>
-            </Card>
-          </TabsContent>
-        </Tabs>
+        <Card>
+          <CardHeader>
+            <CardTitle>عمليات المسح الأخيرة</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-4">
+              {recentScans.map((scan) => (
+                <li key={scan.id} className="flex justify-between items-center border-b pb-2">
+                  <div>
+                    <p className="font-semibold">{scan.shop}</p>
+                    <p className="text-sm text-gray-500 flex items-center">
+                      <Clock className="h-4 w-4 ml-1" />
+                      {scan.date}
+                    </p>
+                  </div>
+                  <div className="flex items-center">
+                    <Gift className="h-5 w-5 ml-1 text-primary" />
+                    <span className="font-bold">{scan.points} نقطة</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
       </main>
+      <Footer />
     </div>
   );
 };
