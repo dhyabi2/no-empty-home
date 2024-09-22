@@ -7,6 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -34,6 +35,31 @@ const Profile = () => {
     if (profileData.avatar) score += 25;
     if (profileData.interests.length > 0) score += 25;
     return score;
+  };
+
+  const handleUploadProfilePicture = () => {
+    alert("Profile picture uploaded successfully!");
+    // In a real app, this would trigger a file upload process
+  };
+
+  const handleChangePassword = () => {
+    alert("Password changed successfully!");
+    // In a real app, this would update the user's password
+  };
+
+  const handleUpdateEmail = () => {
+    alert("Email updated successfully!");
+    // In a real app, this would update the user's email
+  };
+
+  const handleDeleteAccount = () => {
+    alert("Account deleted successfully!");
+    // In a real app, this would delete the user's account
+  };
+
+  const handleEditPaymentMethod = () => {
+    alert("Payment method updated successfully!");
+    // In a real app, this would update the user's payment method
   };
 
   return (
@@ -112,6 +138,30 @@ const Profile = () => {
               ))}
             </div>
           </div>
+        </div>
+
+        <div className="space-y-2">
+          <Button className="w-full" onClick={handleUploadProfilePicture}>Upload Profile Picture</Button>
+          <Button className="w-full" onClick={handleChangePassword}>Change Password</Button>
+          <Button className="w-full" onClick={handleUpdateEmail}>Update Email</Button>
+          <Button className="w-full" onClick={handleEditPaymentMethod}>Edit Payment Method</Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="destructive" className="w-full">Delete Account</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleDeleteAccount}>Delete Account</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         </div>
 
         <Button className="w-full">Save Changes</Button>

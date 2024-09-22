@@ -165,3 +165,8 @@
 | Mute All Sounds | Settings | Disable app audio | No (updates audio settings) | 100% |
 | Set Quiet Hours | Notification Settings | Define do-not-disturb period | No (updates notification schedule) | 100% |
 | Customize Notifications | Notification Settings | Select notification types | No (updates preferences) | 100% |
+| Upload Profile Picture | Profile Edit | Choose new avatar image | No (updates avatar) | 100% |
+| Change Password | Profile Settings | Update account password | No (updates security) | 100% |
+| Update Email | Profile Settings | Modify account email | No (updates account) | 100% |
+| Delete Account | Profile Settings | Permanently remove account | No (deletes account) | 100% |
+| Edit Payment Method | Profile Settings | Modify payment info | No (updates payment) | 100% |
