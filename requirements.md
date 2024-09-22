@@ -57,7 +57,7 @@
 72. Create a "Partner Rewards" page for cross-brand promotions (Completed Percentage: 100%)
 73. Implement a "Reward Levels" system within each shop (Completed Percentage: 100%)
 74. Develop a "Point Donation" feature for charitable causes (Completed Percentage: 100%)
-75. Next-to-do: Create a "Reward Wishlist" sharing feature (Completed Percentage: 0%)
+75. Create a "Reward Wishlist" sharing feature (Completed Percentage: 100%)
 76. Next-to-do: Implement a "Last-Minute Deals" page for expiring offers (Completed Percentage: 0%)
 77. Next-to-do: Develop a "Reward Subscription" service for recurring benefits (Completed Percentage: 0%)
 78. Next-to-do: Develop a "Reward Ratings" system for user feedback (Completed Percentage: 0%)

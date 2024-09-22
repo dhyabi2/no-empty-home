@@ -31,6 +31,7 @@ import RewardAuctions from "./pages/RewardAuctions.jsx";
 import SurpriseRewards from "./pages/SurpriseRewards.jsx";
 import PartnerRewards from "./pages/PartnerRewards.jsx";
 import PointDonation from "./pages/PointDonation.jsx";
+import WishlistSharing from "./pages/WishlistSharing.jsx";
 
 const createNavItem = (title, path, icon, component) => ({
   title,
@@ -72,4 +73,5 @@ export const navItems = [
   createNavItem("Surprise Rewards", "/surprise-rewards", Gift, <SurpriseRewards />),
   createNavItem("Partner Rewards", "/partner-rewards", Handshake, <PartnerRewards />),
   createNavItem("Point Donation", "/point-donation", Heart, <PointDonation />),
+  createNavItem("Wishlist Sharing", "/wishlist-sharing", Share2, <WishlistSharing />),
 ];
