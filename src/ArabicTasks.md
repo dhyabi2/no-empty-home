@@ -19,14 +19,14 @@
 | Leaderboard | Completed | 100% |
 | More | Completed | 100% |
 | NearbyOffers | Completed | 100% |
-| Notifications | Not Started | 0% |
-| OfferDetail | Not Started | 0% |
-| OfferListing | Not Started | 0% |
-| OfferManagement | Not Started | 0% |
-| OrderHistory | Not Started | 0% |
-| PartnerRewards | Not Started | 0% |
-| PointBoosters | Not Started | 0% |
-| PointDonation | Not Started | 0% |
+| Notifications | Completed | 100% |
+| OfferDetail | Completed | 100% |
+| OfferListing | Completed | 100% |
+| OfferManagement | Completed | 100% |
+| OrderHistory | Completed | 100% |
+| PartnerRewards | Completed | 100% |
+| PointBoosters | Completed | 100% |
+| PointDonation | Completed | 100% |
 | PointsHistory | Not Started | 0% |
 | PointTransfer | Not Started | 0% |
 | Profile | Not Started | 0% |
@@ -46,7 +46,7 @@
 | ScanReceipt | Not Started | 0% |
 | Search | Not Started | 0% |
 | Settings | Not Started | 0% |
-| ShopAuthentication | Not Started | 0% |
+| ShopAuthentication |  Not Started | 0% |
 | ShopDashboard | Not Started | 0% |
 | ShopListing | Not Started | 0% |
 | ShopProfile | Not Started | 0% |
@@ -85,9 +85,17 @@
 15. Leaderboard - Completed
 16. More - Completed
 17. NearbyOffers - Completed
-18. Profile
-19. RedeemPoints
-20. OfferListing
+18. Notifications - Completed
+19. OfferDetail - Completed
+20. OfferListing - Completed
+21. OfferManagement - Completed
+22. OrderHistory - Completed
+23. PartnerRewards - Completed
+24. PointBoosters - Completed
+25. PointDonation - Completed
+26. Profile
+27. RedeemPoints
+28. PointsHistory
 
 Start with these high-priority pages and then proceed with the rest in any order.
 

@@ -2,72 +2,95 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Heart } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Heart, Gift } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const PointDonation = () => {
   const [selectedCharity, setSelectedCharity] = useState('');
-  const [pointsToDonate, setPointsToDonate] = useState('');
+  const [donationAmount, setDonationAmount] = useState('');
 
   const charities = [
-    { id: 1, name: "Save the Children" },
-    { id: 2, name: "World Wildlife Fund" },
-    { id: 3, name: "Red Cross" },
+    { id: 1, name: "جمعية رعاية الأطفال" },
+    { id: 2, name: "مؤسسة مكافحة السرطان" },
+    { id: 3, name: "جمعية حماية البيئة" },
+    { id: 4, name: "مؤسسة التعليم للجميع" },
   ];
 
-  const handleDonation = (e) => {
-    e.preventDefault();
-    alert(`Donating ${pointsToDonate} points to ${selectedCharity}`);
-    // Reset form
-    setSelectedCharity('');
-    setPointsToDonate('');
+  const handleDonation = () => {
+    if (selectedCharity && donationAmount) {
+      alert(`تم التبرع بـ ${donationAmount} نقطة لصالح ${selectedCharity} بنجاح!`);
+      setSelectedCharity('');
+      setDonationAmount('');
+    } else {
+      alert('الرجاء اختيار جمعية خيرية وإدخال عدد النقاط للتبرع.');
+    }
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Card>
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">التبرع بالنقاط</h1>
+        <Card className="mb-6">
           <CardHeader>
-            <CardTitle className="text-2xl font-bold">Donate Points</CardTitle>
+            <CardTitle className="flex items-center">
+              <Heart className="h-6 w-6 ml-2 text-red-500" />
+              تبرع بنقاطك لدعم قضية نبيلة
+            </CardTitle>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleDonation} className="space-y-4">
+            <p className="text-gray-600 mb-4">يمكنك التبرع بنقاطك لدعم الجمعيات الخيرية والمساهمة في إحداث تغيير إيجابي في المجتمع.</p>
+            <div className="space-y-4">
               <div>
-                <Label htmlFor="charity">Select Charity</Label>
-                <select
-                  id="charity"
-                  value={selectedCharity}
-                  onChange={(e) => setSelectedCharity(e.target.value)}
-                  className="w-full mt-1 p-2 border rounded-md"
-                  required
-                >
-                  <option value="">Choose a charity</option>
-                  {charities.map((charity) => (
-                    <option key={charity.id} value={charity.name}>
-                      {charity.name}
-                    </option>
-                  ))}
-                </select>
+                <label htmlFor="charity" className="block text-sm font-medium text-gray-700 mb-1">
+                  اختر الجمعية الخيرية
+                </label>
+                <Select value={selectedCharity} onValueChange={setSelectedCharity}>
+                  <SelectTrigger id="charity">
+                    <SelectValue placeholder="اختر جمعية خيرية" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {charities.map((charity) => (
+                      <SelectItem key={charity.id} value={charity.name}>
+                        {charity.name}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
               </div>
               <div>
-                <Label htmlFor="pointsToDonate">Points to Donate</Label>
+                <label htmlFor="points" className="block text-sm font-medium text-gray-700 mb-1">
+                  عدد النقاط للتبرع
+                </label>
                 <Input
-                  id="pointsToDonate"
+                  id="points"
                   type="number"
-                  value={pointsToDonate}
-                  onChange={(e) => setPointsToDonate(e.target.value)}
-                  placeholder="Enter amount of points"
-                  min="1"
-                  required
+                  placeholder="أدخل عدد النقاط"
+                  value={donationAmount}
+                  onChange={(e) => setDonationAmount(e.target.value)}
                 />
               </div>
-              <Button type="submit" className="w-full">
-                Donate Points <Heart className="ml-2 h-4 w-4" />
+              <Button onClick={handleDonation} className="w-full">
+                <Gift className="ml-2 h-5 w-5" />
+                تبرع الآن
               </Button>
-            </form>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>تأثير تبرعاتك</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600 mb-4">تساهم تبرعاتك في دعم مشاريع مهمة وإحداث فرق حقيقي في حياة الآخرين.</p>
+            <ul className="list-disc list-inside space-y-2 text-gray-600">
+              <li>توفير الطعام والمأوى للمحتاجين</li>
+              <li>دعم البحوث الطبية ومكافحة الأمراض</li>
+              <li>تمويل مشاريع التعليم في المناطق المحرومة</li>
+              <li>المساهمة في حماية البيئة والحياة البرية</li>
+            </ul>
           </CardContent>
         </Card>
       </main>
