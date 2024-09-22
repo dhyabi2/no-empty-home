@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -11,6 +11,7 @@ import OfferListing from "./pages/OfferListing.jsx";
 import OfferDetail from "./pages/OfferDetail.jsx";
 import RedeemPoints from "./pages/RedeemPoints.jsx";
 import PointsHistory from "./pages/PointsHistory.jsx";
+import Feedback from "./pages/Feedback.jsx";
 
 export const navItems = [
   {
@@ -84,5 +85,11 @@ export const navItems = [
     to: "/points-history",
     icon: <HistoryIcon className="h-4 w-4" />,
     page: <PointsHistory />,
+  },
+  {
+    title: "Feedback",
+    to: "/feedback",
+    icon: <MessageSquare className="h-4 w-4" />,
+    page: <Feedback />,
   },
 ];
