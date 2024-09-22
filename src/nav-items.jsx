@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -16,6 +16,7 @@ import Wishlist from "./pages/Wishlist.jsx";
 import Leaderboard from "./pages/Leaderboard.jsx";
 import RewardGiftingPage from "./pages/RewardGiftingPage.jsx";
 import ExclusiveEvents from "./pages/ExclusiveEvents.jsx";
+import NearbyOffers from "./pages/NearbyOffers.jsx";
 
 export const navItems = [
   {
@@ -119,5 +120,11 @@ export const navItems = [
     to: "/exclusive-events",
     icon: <Calendar className="h-4 w-4" />,
     page: <ExclusiveEvents />,
+  },
+  {
+    title: "Nearby Offers",
+    to: "/nearby-offers",
+    icon: <MapPin className="h-4 w-4" />,
+    page: <NearbyOffers />,
   },
 ];
