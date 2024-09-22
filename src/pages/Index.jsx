@@ -13,7 +13,7 @@ import SocialSharing from '../components/SocialSharing';
 import GamifiedChallenges from '../components/GamifiedChallenges';
 import VirtualLoyaltyCard from '../components/VirtualLoyaltyCard';
 import { Link } from 'react-router-dom';
-import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake } from "lucide-react";
+import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake, Heart } from "lucide-react";
 
 const QuickAccessLink = ({ to, icon: Icon, label }) => (
   <Link to={to} className="flex items-center p-2 hover:bg-gray-100 rounded">
@@ -89,7 +89,7 @@ const Index = () => {
                   <QuickAccessLink to="/checkout" icon={ShoppingCart} label="Checkout" />
                   <QuickAccessLink to="/customer-management" icon={Users} label="Manage Customers" />
                   <QuickAccessLink to="/order-history" icon={Clock} label="Order History" />
-                  <QuickAccessLink to="/point-donation" icon={Gift} label="Donate Points" />
+                  <QuickAccessLink to="/point-donation" icon={Heart} label="Donate Points" />
                   <QuickAccessLink to="/point-transfer" icon={Repeat} label="Transfer Points" />
                   <QuickAccessLink to="/reward-and-scan-system" icon={Scan} label="Reward & Scan" />
                   <QuickAccessLink to="/scan-receipt" icon={CreditCard} label="Scan Receipt" />
