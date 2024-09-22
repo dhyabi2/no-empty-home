@@ -1,45 +1,36 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Repeat } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const RewardSubscription = () => {
   const subscriptions = [
-    { id: 1, name: "Monthly Coffee Pack", price: 500, period: "Monthly" },
-    { id: 2, name: "Quarterly Dining Experience", price: 1500, period: "Quarterly" },
-    { id: 3, name: "Annual VIP Status", price: 5000, period: "Yearly" },
+    { id: 1, name: "Basic", price: "$9.99/month", benefits: ["10% bonus points", "Early access to sales"] },
+    { id: 2, name: "Premium", price: "$19.99/month", benefits: ["20% bonus points", "Free shipping", "Exclusive rewards"] },
+    { id: 3, name: "VIP", price: "$29.99/month", benefits: ["30% bonus points", "Priority customer service", "Monthly surprise gift"] },
   ];
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Reward Subscriptions</h1>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {subscriptions.map((subscription) => (
-            <Card key={subscription.id}>
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">Reward Subscriptions</h1>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {subscriptions.map((sub) => (
+            <Card key={sub.id}>
               <CardHeader>
-                <CardTitle>{subscription.name}</CardTitle>
+                <CardTitle>{sub.name}</CardTitle>
+                <Badge>{sub.price}</Badge>
               </CardHeader>
               <CardContent>
-                <p className="mb-4">{subscription.price} points per {subscription.period.toLowerCase()}</p>
-                <Select className="mb-4">
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select duration" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="3">3 {subscription.period}s</SelectItem>
-                    <SelectItem value="6">6 {subscription.period}s</SelectItem>
-                    <SelectItem value="12">12 {subscription.period}s</SelectItem>
-                  </SelectContent>
-                </Select>
-                <Button className="w-full" onClick={() => alert(`Subscribed to ${subscription.name}`)}>
-                  <Repeat className="mr-2 h-4 w-4" />
-                  Subscribe
-                </Button>
+                <ul className="list-disc list-inside mb-4">
+                  {sub.benefits.map((benefit, index) => (
+                    <li key={index}>{benefit}</li>
+                  ))}
+                </ul>
+                <Button className="w-full">Subscribe</Button>
               </CardContent>
             </Card>
           ))}

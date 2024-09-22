@@ -13,7 +13,7 @@ import SocialSharing from '../components/SocialSharing';
 import GamifiedChallenges from '../components/GamifiedChallenges';
 import VirtualLoyaltyCard from '../components/VirtualLoyaltyCard';
 import { Link } from 'react-router-dom';
-import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake, Heart } from "lucide-react";
+import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake, Heart, Glasses } from "lucide-react";
 
 const QuickAccessLink = ({ to, icon: Icon, label }) => (
   <Link to={to} className="flex items-center p-2 hover:bg-gray-100 rounded">
@@ -65,6 +65,8 @@ const Index = () => {
                   <QuickAccessLink to="/reward-showcase" icon={Trophy} label="Reward Showcase" />
                   <QuickAccessLink to="/reward-subscription" icon={Repeat} label="Reward Subscriptions" />
                   <QuickAccessLink to="/surprise-rewards" icon={Sparkles} label="Surprise Rewards" />
+                  <QuickAccessLink to="/reward-planner" icon={BarChart2} label="Reward Planner" />
+                  <QuickAccessLink to="/augmented-reality-rewards" icon={Glasses} label="AR Rewards" />
                 </TabsContent>
                 <TabsContent value="shops" className="grid grid-cols-2 gap-2">
                   <QuickAccessLink to="/favorite-shops" icon={Star} label="Favorite Shops" />
