@@ -3,7 +3,7 @@
 | Page Name | Status | Completion % |
 |-----------|--------|--------------|
 | Index (Homepage) | Completed | 100% |
-| AboutUs | Not Started | 0% |
+| AboutUs | Completed | 100% |
 | AugmentedRealityRewards | Not Started | 0% |
 | BirthdayRewards | Not Started | 0% |
 | Checkout | Not Started | 0% |
@@ -69,10 +69,10 @@
 ## Priority Order
 
 1. Index (Homepage) - Completed
-2. Profile
-3. RedeemPoints
-4. OfferListing
-5. ShopListing
+2. AboutUs - Completed
+3. Profile
+4. RedeemPoints
+5. OfferListing
 
 Start with these high-priority pages and then proceed with the rest in any order.
 

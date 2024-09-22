@@ -8,31 +8,31 @@ const AboutUs = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">About Us</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-6">من نحن</h1>
         <Card>
           <CardHeader>
-            <CardTitle>Our Mission</CardTitle>
+            <CardTitle>مهمتنا</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>At Loyalty App, our mission is to connect businesses with their customers through innovative reward programs. We strive to create a platform that benefits both merchants and consumers, fostering loyalty and enhancing the shopping experience.</p>
+            <p>في تطبيق الولاء، مهمتنا هي ربط الشركات بعملائهم من خلال برامج مكافآت مبتكرة. نسعى جاهدين لإنشاء منصة تفيد كلاً من التجار والمستهلكين، وتعزز الولاء وتحسن تجربة التسوق.</p>
           </CardContent>
         </Card>
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>Our Story</CardTitle>
+            <CardTitle>قصتنا</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Founded in 2024, Loyalty App was born from the idea that loyalty programs should be simple, engaging, and rewarding. Our team of dedicated professionals works tirelessly to bring you the best loyalty experience possible.</p>
+            <p>تأسس تطبيق الولاء في عام 2024، وُلد من فكرة أن برامج الولاء يجب أن تكون بسيطة وجذابة ومجزية. يعمل فريقنا من المهنيين المتفانين بلا كلل لتقديم أفضل تجربة ولاء ممكنة لك.</p>
           </CardContent>
         </Card>
         <Card className="mt-6">
           <CardHeader>
-            <CardTitle>Contact Us</CardTitle>
+            <CardTitle>اتصل بنا</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Email: support@loyaltyapp.com</p>
-            <p>Phone: (555) 123-4567</p>
-            <p>Address: 123 Loyalty Street, Rewardsville, RW 12345</p>
+            <p>البريد الإلكتروني: support@loyaltyapp.com</p>
+            <p>الهاتف: (555) 123-4567</p>
+            <p>العنوان: 123 شارع الولاء، مدينة المكافآت، RW 12345</p>
           </CardContent>
         </Card>
       </main>
