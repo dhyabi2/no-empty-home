@@ -47,7 +47,7 @@
 62. Implement a "Reward Customization" feature for personalized gifts (Completed Percentage: 100%)
 63. Develop a "Flash Sales" page for limited-time offers (Completed Percentage: 100%)
 64. Create a "Birthday Rewards" system for special occasions (Completed Percentage: 100%)
-65. Next-to-do: Implement a "Reward Sharing" feature on social media (Completed Percentage: 0%)
+65. Implement a "Reward Sharing" feature on social media (Completed Percentage: 100%)
 66. Next-to-do: Create a "Reward Categories" page for easy browsing (Completed Percentage: 0%)
 67. Next-to-do: Implement a "Point Boosters" feature for accelerated earning (Completed Percentage: 0%)
 68. Next-to-do: Develop a "Reward Bundles" feature for packaged deals (Completed Percentage: 0%)

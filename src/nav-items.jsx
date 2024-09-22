@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2 } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -22,6 +22,7 @@ import FavoriteShops from "./pages/FavoriteShops.jsx";
 import RewardCustomization from "./pages/RewardCustomization.jsx";
 import FlashSales from "./pages/FlashSales.jsx";
 import BirthdayRewards from "./pages/BirthdayRewards.jsx";
+import RewardSharing from "./pages/RewardSharing.jsx";
 
 export const navItems = [
   {
@@ -161,5 +162,11 @@ export const navItems = [
     to: "/birthday-rewards",
     icon: <Cake className="h-4 w-4" />,
     page: <BirthdayRewards />,
+  },
+  {
+    title: "Reward Sharing",
+    to: "/reward-sharing",
+    icon: <Share2 className="h-4 w-4" />,
+    page: <RewardSharing />,
   },
 ];
