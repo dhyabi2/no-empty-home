@@ -7,40 +7,37 @@ import Footer from '../components/Footer';
 
 const FlashSales = () => {
   const flashSales = [
-    { id: 1, name: "50% Off All Coffees", shop: "Coffee Haven", endsIn: "2 hours" },
-    { id: 2, name: "Buy 1 Get 1 Free Pizzas", shop: "Pizza Palace", endsIn: "1 hour" },
-    { id: 3, name: "70% Off Selected Books", shop: "Bookworm's Paradise", endsIn: "30 minutes" },
+    { id: 1, title: "خصم 50% على القهوة", shop: "كوفي هافن", endTime: "12:00 م" },
+    { id: 2, title: "اشترِ واحدة واحصل على الثانية مجانًا", shop: "بيتزا بلاس", endTime: "2:00 م" },
+    { id: 3, title: "خصم 30% على جميع الكتب", shop: "مكتبة المعرفة", endTime: "4:00 م" },
   ];
-
-  const handleParticipate = (id) => {
-    alert(`You've participated in the flash sale with ID: ${id}`);
-  };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <Zap className="h-8 w-8 text-yellow-500 mr-2" />
-          Flash Sales
-        </h1>
-        {flashSales.map(sale => (
-          <Card key={sale.id} className="mb-4">
-            <CardHeader>
-              <CardTitle>{sale.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-2">{sale.shop}</p>
-              <p className="text-sm text-red-500 flex items-center mb-4">
-                <Clock className="h-4 w-4 mr-1" />
-                Ends in: {sale.endsIn}
-              </p>
-              <Button onClick={() => handleParticipate(sale.id)}>
-                Participate Now
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">عروض فلاش</h1>
+        <p className="text-gray-600 mb-6">احصل على صفقات حصرية لفترة محدودة!</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {flashSales.map((sale) => (
+            <Card key={sale.id}>
+              <CardHeader>
+                <CardTitle className="flex items-center">
+                  <Zap className="ml-2 h-5 w-5 text-yellow-400" />
+                  {sale.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-2">{sale.shop}</p>
+                <div className="flex items-center text-red-500 mb-4">
+                  <Clock className="ml-2 h-4 w-4" />
+                  <span>ينتهي في {sale.endTime}</span>
+                </div>
+                <Button className="w-full">احصل على العرض</Button>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </main>
       <Footer />
     </div>

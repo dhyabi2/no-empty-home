@@ -10,9 +10,9 @@
 | CustomerManagement | Completed | 100% |
 | ExclusiveEvents | Completed | 100% |
 | Favorites | Completed | 100% |
-| Feedback | Not Started | 0% |
-| FirstShopVisit | Not Started | 0% |
-| FlashSales | Not Started | 0% |
+| Feedback | Completed | 100% |
+| FirstShopVisit | Completed | 100% |
+| FlashSales | Completed | 100% |
 | HelpAndSupport | Not Started | 0% |
 | HelpSupport | Not Started | 0% |
 | LastMinuteDeals | Not Started | 0% |
