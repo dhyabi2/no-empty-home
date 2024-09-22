@@ -45,7 +45,7 @@
 60. Develop a "Favorite Shops" page for quick access (Completed Percentage: 100%)
 61. Create a "Point Expiration" reminder system (Completed Percentage: 100%)
 62. Implement a "Reward Customization" feature for personalized gifts (Completed Percentage: 100%)
-63. Next-to-do: Develop a "Flash Sales" page for limited-time offers (Completed Percentage: 0%)
+63. Develop a "Flash Sales" page for limited-time offers (Completed Percentage: 100%)
 64. Next-to-do: Create a "Birthday Rewards" system for special occasions (Completed Percentage: 0%)
 65. Next-to-do: Implement a "Reward Sharing" feature on social media (Completed Percentage: 0%)
 66. Next-to-do: Create a "Reward Categories" page for easy browsing (Completed Percentage: 0%)

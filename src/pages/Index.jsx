@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Activity, Calendar } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap } from "lucide-react";
 
 const RewardOverview = lazy(() => import('../components/RewardOverview'));
 const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
@@ -36,6 +36,7 @@ const Index = () => {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [leaderboard, setLeaderboard] = useState([]);
   const [quickStats, setQuickStats] = useState({});
+  const [flashSales, setFlashSales] = useState([]);
 
   useEffect(() => {
     // Simulating data loading
@@ -66,6 +67,10 @@ const Index = () => {
         { id: 2, name: "Book Nook", distance: "1.2 km", category: "Bookstore" },
         { id: 3, name: "Fitness First", distance: "2.0 km", category: "Gym" }
       ]);
+      setFlashSales([
+        { id: 1, title: "50% Off Coffee Maker", shop: "ElectroMart", endTime: "2024-03-25T18:00:00" },
+        { id: 2, title: "Buy 1 Get 1 Free Books", shop: "Bookworm's Paradise", endTime: "2024-03-26T12:00:00" },
+      ]);
     }, 1500);
   }, []);
 
@@ -86,6 +91,7 @@ const Index = () => {
               nearbyShops={nearbyShops}
               upcomingEvents={upcomingEvents}
               leaderboard={leaderboard}
+              flashSales={flashSales}
             />
           </div>
         </main>
@@ -119,7 +125,7 @@ const QuickStat = ({ icon, label, value }) => (
   </div>
 );
 
-const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, upcomingEvents, leaderboard }) => (
+const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, upcomingEvents, leaderboard, flashSales }) => (
   <>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <Card className="col-span-2">
@@ -160,6 +166,8 @@ const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, 
     <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
     <Separator />
     <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
+    <Separator />
+    <FlashSalesSection flashSales={flashSales} />
     <Separator />
     <AdditionalFeatures />
   </>
@@ -261,6 +269,31 @@ const ActivityFeed = ({ activities }) => (
     ))}
   </ScrollArea>
 );
+
+const FlashSalesSection = React.memo(({ flashSales }) => (
+  <Card>
+    <CardHeader>
+      <CardTitle className="flex items-center">
+        <Zap className="mr-2 h-5 w-5" />
+        Flash Sales
+      </CardTitle>
+    </CardHeader>
+    <CardContent>
+      <ScrollArea className="h-[200px]">
+        {flashSales.map((sale, index) => (
+          <div key={index} className="mb-4 last:mb-0">
+            <h3 className="font-semibold">{sale.title}</h3>
+            <p className="text-sm text-gray-500">{sale.shop}</p>
+            <p className="text-xs text-gray-400">Ends: {new Date(sale.endTime).toLocaleString()}</p>
+          </div>
+        ))}
+      </ScrollArea>
+      <Button className="w-full mt-4">
+        <Link to="/flash-sales">View All Flash Sales</Link>
+      </Button>
+    </CardContent>
+  </Card>
+));
 
 const AdditionalFeatures = React.memo(() => (
   <div className="space-y-8">
