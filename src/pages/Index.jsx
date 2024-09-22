@@ -75,27 +75,14 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
             <WelcomeSection user={user} quickStats={quickStats} />
             <Separator />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <MainContentSection
-                isLoading={isLoading}
-                user={user}
-                handleEarnReward={() => {}}
-                recentActivity={recentActivity}
-              />
-              <QuickActionsSection />
-            </div>
-            <Separator />
-            <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
-            <Separator />
-            <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
-            <Separator />
-            <RewardShowcaseSection />
-            <Separator />
-            <RewardPlannerSection />
-            <Separator />
-            <RewardTriviaSection />
-            <Separator />
-            <RewardConciergeSection />
+            <MainContent
+              isLoading={isLoading}
+              user={user}
+              recentActivity={recentActivity}
+              nearbyShops={nearbyShops}
+              upcomingEvents={upcomingEvents}
+              leaderboard={leaderboard}
+            />
           </div>
         </main>
       </div>
@@ -128,32 +115,44 @@ const QuickStat = ({ icon, label, value }) => (
   </div>
 );
 
-const MainContentSection = React.memo(({ isLoading, user, handleEarnReward, recentActivity }) => (
-  <Card className="col-span-2">
-    <CardHeader>
-      <Tabs defaultValue="overview">
-        <TabsList>
-          <TabsTrigger value="overview">Overview</TabsTrigger>
-          <TabsTrigger value="redeem">Redeem</TabsTrigger>
-          <TabsTrigger value="activity">Activity</TabsTrigger>
-        </TabsList>
-      </TabsHeader>
-    <CardContent>
-      <TabsContent value="overview">
-        <Suspense fallback={<div>Loading...</div>}>
-          <RewardOverview isLoading={isLoading} user={user} handleEarnReward={handleEarnReward} />
-        </Suspense>
-      </TabsContent>
-      <TabsContent value="redeem">
-        <Suspense fallback={<div>Loading...</div>}>
-          <RewardRedemption />
-        </Suspense>
-      </TabsContent>
-      <TabsContent value="activity">
-        <ActivityFeed activities={recentActivity} />
-      </TabsContent>
-    </CardContent>
-  </Card>
+const MainContent = React.memo(({ isLoading, user, recentActivity, nearbyShops, upcomingEvents, leaderboard }) => (
+  <>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <Card className="col-span-2">
+        <CardHeader>
+          <Tabs defaultValue="overview">
+            <TabsList>
+              <TabsTrigger value="overview">Overview</TabsTrigger>
+              <TabsTrigger value="redeem">Redeem</TabsTrigger>
+              <TabsTrigger value="activity">Activity</TabsTrigger>
+            </TabsList>
+          </Tabs>
+        </CardHeader>
+        <CardContent>
+          <TabsContent value="overview">
+            <Suspense fallback={<div>Loading...</div>}>
+              <RewardOverview isLoading={isLoading} user={user} handleEarnReward={() => {}} />
+            </Suspense>
+          </TabsContent>
+          <TabsContent value="redeem">
+            <Suspense fallback={<div>Loading...</div>}>
+              <RewardRedemption />
+            </Suspense>
+          </TabsContent>
+          <TabsContent value="activity">
+            <ActivityFeed activities={recentActivity} />
+          </TabsContent>
+        </CardContent>
+      </Card>
+      <QuickActionsSection />
+    </div>
+    <Separator />
+    <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
+    <Separator />
+    <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
+    <Separator />
+    <AdditionalFeatures />
+  </>
 ));
 
 const QuickActionsSection = React.memo(() => (
@@ -245,29 +244,21 @@ const ActivityFeed = ({ activities }) => (
   </ScrollArea>
 );
 
-const RewardConciergeSection = React.memo(() => (
-  <Suspense fallback={<div>Loading Reward Concierge...</div>}>
-    <RewardConcierge />
-  </Suspense>
-));
-
-const RewardTriviaSection = React.memo(() => (
-  <Suspense fallback={<div>Loading Reward Trivia...</div>}>
-    <RewardTrivia />
-  </Suspense>
-));
-
-const RewardPlannerSection = React.memo(() => (
-  <Suspense fallback={<div>Loading Reward Planner...</div>}>
-    <RewardPlanner />
-  </Suspense>
-));
-
-
-const RewardShowcaseSection = React.memo(() => (
-  <Suspense fallback={<div>Loading Reward Showcase...</div>}>
-    <RewardShowcase />
-  </Suspense>
+const AdditionalFeatures = React.memo(() => (
+  <div className="space-y-8">
+    <Suspense fallback={<div>Loading Reward Concierge...</div>}>
+      <RewardConcierge />
+    </Suspense>
+    <Suspense fallback={<div>Loading Reward Trivia...</div>}>
+      <RewardTrivia />
+    </Suspense>
+    <Suspense fallback={<div>Loading Reward Planner...</div>}>
+      <RewardPlanner />
+    </Suspense>
+    <Suspense fallback={<div>Loading Reward Showcase...</div>}>
+      <RewardShowcase />
+    </Suspense>
+  </div>
 ));
 
 export default Index;
