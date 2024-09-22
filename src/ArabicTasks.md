@@ -4,7 +4,7 @@
 |-----------|--------|--------------|
 | Index (Homepage) | Completed | 100% |
 | AboutUs | Completed | 100% |
-| AugmentedRealityRewards | Not Started | 0% |
+| AugmentedRealityRewards | Completed | 100% |
 | BirthdayRewards | Not Started | 0% |
 | Checkout | Not Started | 0% |
 | CustomerManagement | Not Started | 0% |
@@ -70,9 +70,10 @@
 
 1. Index (Homepage) - Completed
 2. AboutUs - Completed
-3. Profile
-4. RedeemPoints
-5. OfferListing
+3. AugmentedRealityRewards - Completed
+4. Profile
+5. RedeemPoints
+6. OfferListing
 
 Start with these high-priority pages and then proceed with the rest in any order.
 
