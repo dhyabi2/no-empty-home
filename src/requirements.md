@@ -81,5 +81,5 @@
 96. Create a "Reward Showcase" for users to display earned items (Completed Percentage: 0%)
 97. Implement a "Point Forecasting" tool for future earnings (Completed Percentage: 0%)
 98. Develop a "Reward Ratings" system for user feedback (Completed Percentage: 0%)
-99. Create a "Reward Trivia" game for bonus points (Completed Percentage: 0%)
-100. Implement a "Reward Concierge" for personalized recommendations (Completed Percentage: 0%)
+99. Create a "Reward Trivia" game for bonus points (Completed Percentage: 100%)
+100. Implement a "Reward Concierge" for personalized recommendations (Completed Percentage: 100%)

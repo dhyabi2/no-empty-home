@@ -23,6 +23,7 @@ const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
 const FeaturedOffers = lazy(() => import('../components/FeaturedOffers'));
 const NearbyShops = lazy(() => import('../components/NearbyShops'));
 const RewardConcierge = lazy(() => import('../components/RewardConcierge'));
+const RewardTrivia = lazy(() => import('../components/RewardTrivia'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -118,6 +119,8 @@ const Index = () => {
             <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
             <Separator />
             <RewardConciergeSection />
+            <Separator />
+            <RewardTriviaSection />
           </div>
         </main>
       </div>
@@ -296,6 +299,12 @@ const EventsAndLeaderboardSection = React.memo(({ upcomingEvents, leaderboard })
 const RewardConciergeSection = React.memo(() => (
   <Suspense fallback={<div>Loading Reward Concierge...</div>}>
     <RewardConcierge />
+  </Suspense>
+));
+
+const RewardTriviaSection = React.memo(() => (
+  <Suspense fallback={<div>Loading Reward Trivia...</div>}>
+    <RewardTrivia />
   </Suspense>
 ));
 
