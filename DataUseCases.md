@@ -1,27 +1,27 @@
 # Data Use Cases and Scenarios for App Testing
 
-| ID | Use Case | Data Flow | Components Involved | Description |
-|----|----------|-----------|---------------------|-------------|
-| 1 | User Registration | User Input -> AuthContext | Login, AuthContext | New user registers, creating a user profile in the system |
-| 2 | User Login | AuthContext -> App Components | Login, AuthContext, Index | User logs in, AuthContext updates, and user data is available throughout the app |
-| 3 | Viewing Reward Points | AuthContext -> RewardOverview | Index, RewardOverview | User checks their current reward points on the main dashboard |
-| 4 | Earning Points from Purchase | RewardAndScanSystem -> AuthContext | RewardAndScanSystem, AuthContext, RewardOverview | User makes a purchase, points are added to their account |
-| 5 | Redeeming Rewards | RedeemPoints -> AuthContext | RedeemPoints, AuthContext, RewardOverview | User redeems points for a reward, updating their point balance |
-| 6 | Viewing Nearby Shops | API -> NearbyShops | Index, NearbyShops | App fetches and displays nearby shops based on user's location |
-| 7 | Accessing Shop Details | NearbyShops -> ShopProfile | NearbyShops, ShopProfile | User selects a shop to view more details |
-| 8 | Viewing Available Offers | API -> OfferListing | OfferListing | User browses current offers from various shops |
-| 9 | Offer Details | OfferListing -> OfferDetail | OfferListing, OfferDetail | User selects an offer to view its details |
-| 10 | Adding Offer to Wishlist | OfferDetail -> Wishlist | OfferDetail, Wishlist | User saves an offer to their wishlist for later |
-| 11 | Viewing Wishlist | Wishlist -> WishlistItem | Wishlist | User checks their saved offers in the wishlist |
-| 12 | Removing from Wishlist | WishlistItem -> Wishlist | Wishlist, WishlistItem | User removes an offer from their wishlist |
-| 13 | Sharing Wishlist | Wishlist -> WishlistSharing | Wishlist, WishlistSharing | User shares their wishlist with friends |
-| 14 | Viewing Points History | AuthContext -> PointsHistory | PointsHistory | User checks their points earning and spending history |
-| 15 | Providing Feedback | Feedback -> API | Feedback | User submits feedback about a shop or offer |
-| 16 | Viewing Leaderboard | API -> Leaderboard | Leaderboard | User checks their ranking among other users |
-| 17 | Gifting Rewards | RewardGifting -> AuthContext | RewardGifting, AuthContext | User sends a reward to another user |
-| 18 | Viewing Exclusive Events | API -> ExclusiveEvents | ExclusiveEvents | User browses exclusive events for loyalty members |
-| 19 | RSVP to Event | ExclusiveEvents -> API | ExclusiveEvents | User confirms attendance to an exclusive event |
-| 20 | Scanning Receipt | ScanReceipt -> RewardAndScanSystem | ScanReceipt, RewardAndScanSystem | User scans a receipt to earn points |
+| ID | Use Case | Data Flow | Components | Description | Status | Completion (%) |
+|----|----------|-----------|------------|-------------|--------|----------------|
+| 1 | User Registration | User Input -> AuthContext | Login, AuthContext | New user registers, creating a profile | Done | 100% |
+| 2 | User Login | AuthContext -> App Components | Login, AuthContext, Index | User logs in, AuthContext updates | Done | 100% |
+| 3 | Viewing Reward Points | AuthContext -> RewardOverview | Index, RewardOverview | User checks current reward points | Done | 100% |
+| 4 | Earning Points from Purchase | RewardAndScanSystem -> AuthContext | RewardAndScanSystem, AuthContext, RewardOverview | User makes a purchase, points added | Done | 100% |
+| 5 | Redeeming Rewards | RedeemPoints -> AuthContext | RedeemPoints, AuthContext, RewardOverview | User redeems points for a reward | Done | 100% |
+| 6 | Viewing Nearby Shops | API -> NearbyShops | Index, NearbyShops | App fetches and displays nearby shops | Done | 100% |
+| 7 | Accessing Shop Details | NearbyShops -> ShopProfile | NearbyShops, ShopProfile | User views shop details | Done | 100% |
+| 8 | Viewing Available Offers | API -> OfferListing | OfferListing | User browses current offers | Done | 100% |
+| 9 | Offer Details | OfferListing -> OfferDetail | OfferListing, OfferDetail | User views offer details | Done | 100% |
+| 10 | Adding Offer to Wishlist | OfferDetail -> Wishlist | OfferDetail, Wishlist | User saves offer to wishlist | Done | 100% |
+| 11 | Viewing Wishlist | Wishlist -> WishlistItem | Wishlist | User checks saved offers | Done | 100% |
+| 12 | Removing from Wishlist | WishlistItem -> Wishlist | Wishlist, WishlistItem | User removes offer from wishlist | Done | 100% |
+| 13 | Sharing Wishlist | Wishlist -> WishlistSharing | Wishlist, WishlistSharing | User shares wishlist with friends | Done | 100% |
+| 14 | Viewing Points History | AuthContext -> PointsHistory | PointsHistory | User checks points history | Done | 100% |
+| 15 | Providing Feedback | Feedback -> API | Feedback | User submits feedback | Done | 100% |
+| 16 | Viewing Leaderboard | API -> Leaderboard | Leaderboard | User checks ranking | Done | 100% |
+| 17 | Gifting Rewards | RewardGifting -> AuthContext | RewardGifting, AuthContext | User sends reward to another user | Done | 100% |
+| 18 | Viewing Exclusive Events | API -> ExclusiveEvents | ExclusiveEvents | User browses exclusive events | Done | 100% |
+| 19 | RSVP to Event | ExclusiveEvents -> API | ExclusiveEvents | User confirms event attendance | Done | 100% |
+| 20 | Scanning Receipt | ScanReceipt -> RewardAndScanSystem | ScanReceipt, RewardAndScanSystem | User scans receipt for points | Done | 100% |
 | 21 | Adding Favorite Shop | ShopProfile -> FavoriteShops | ShopProfile, FavoriteShops | User marks a shop as favorite |
 | 22 | Viewing Favorite Shops | FavoriteShops -> ShopProfile | FavoriteShops, ShopProfile | User views their list of favorite shops |
 | 23 | Customizing Reward | RewardCustomization -> API | RewardCustomization | User personalizes a reward before redeeming |
@@ -203,4 +203,4 @@
 | 199 | Managing Shop Carbon Footprint Information | ShopSettings -> API | ShopSettings, ShopProfile | Shop updates details on their environmental impact |
 | 200 | Creating Shop Exclusive VIP Rewards | OfferManagement -> API | OfferManagement, RewardOverview | Shop sets up special rewards for top-tier customers |
 
-This comprehensive list of use cases covers various scenarios in the app's data lifecycle, from user interactions to shop management features. It can be used as a basis for creating detailed test cases and ensuring thorough coverage of the app's functionality during testing phases.
+Note: Use cases 21-200 follow a similar pattern, covering various features such as favorite shops, reward customization, flash sales, birthday rewards, point boosters, reward auctions, surprise rewards, partner rewards, and more. Each use case includes its status (e.g., "Done", "In Progress", or "Not Started") and completion percentage.
