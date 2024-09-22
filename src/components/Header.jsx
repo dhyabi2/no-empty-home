@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   HomeIcon,
   BellIcon,
-  SearchIcon,
-  StarIcon,
   UserIcon,
   HelpCircleIcon,
   ArrowLeft,
@@ -27,8 +24,6 @@ import { useAuth } from '../contexts/AuthContext';
 
 const Header = ({ onMenuClick }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
-  const [isSearchExpanded, setIsSearchExpanded] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   const pathnames = location.pathname.split('/').filter((x) => x);
@@ -44,17 +39,6 @@ const Header = ({ onMenuClick }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const handleSearchClick = () => {
-    setIsSearchExpanded(!isSearchExpanded);
-  };
-
-  const handleSearchSubmit = (e) => {
-    e.preventDefault();
-    console.log('Searching for:', searchTerm);
-    setIsSearchExpanded(false);
-    setSearchTerm('');
-  };
 
   const handleBackClick = () => {
     navigate(-1);
@@ -80,35 +64,6 @@ const Header = ({ onMenuClick }) => {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="relative">
-              <AnimatePresence>
-                {isSearchExpanded ? (
-                  <motion.form
-                    initial={{ width: 0, opacity: 0 }}
-                    animate={{ width: '100%', opacity: 1 }}
-                    exit={{ width: 0, opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                    onSubmit={handleSearchSubmit}
-                    className="flex items-center absolute right-0 top-0"
-                  >
-                    <Input
-                      type="text"
-                      placeholder="Search..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-64"
-                    />
-                    <Button type="submit" variant="ghost" size="icon" className="ml-2">
-                      <SearchIcon className="h-5 w-5" />
-                    </Button>
-                  </motion.form>
-                ) : (
-                  <Button variant="ghost" size="icon" onClick={handleSearchClick}>
-                    <SearchIcon className="h-5 w-5" />
-                  </Button>
-                )}
-              </AnimatePresence>
-            </div>
             <ThemeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
