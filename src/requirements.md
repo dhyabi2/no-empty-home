@@ -34,7 +34,7 @@
 ## New Requirements
 
 51. Create a "Redeem Points" page with available rewards (Completed Percentage: 100%)
-52. Implement a "Points History" page showing transaction details (Completed Percentage: 0%)
+52. Implement a "Points History" page showing transaction details (Completed Percentage: 100%)
 53. Develop a "Refer a Friend" feature with reward tracking (Completed Percentage: 0%)
 54. Create a "Challenges" page for users to complete tasks and earn points (Completed Percentage: 0%)
 55. Implement a "Loyalty Tiers" system with benefits for each level (Completed Percentage: 0%)
