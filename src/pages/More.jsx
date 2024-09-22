@@ -10,8 +10,8 @@ const More = () => {
   const moreItems = [
     { icon: Settings, label: 'Settings', path: '/settings' },
     { icon: HelpCircle, label: 'Help & Support', path: '/help-support' },
-    { icon: Info, label: 'About Us', path: '/about' },
-    { icon: FileText, label: 'Terms & Conditions', path: '/terms' },
+    { icon: Info, label: 'About Us', path: '/about-us' },
+    { icon: FileText, label: 'Terms & Conditions', path: '/terms-and-conditions' },
   ];
 
   return (
