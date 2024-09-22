@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Share2, Facebook, Twitter, WhatsApp, Copy } from "lucide-react";
+import { Share2, Facebook, Twitter, MessageCircle, Copy } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -44,7 +44,7 @@ const RewardSharing = () => {
                 تويتر
               </Button>
               <Button onClick={() => handleShare('WhatsApp')} className="flex-1">
-                <WhatsApp className="mr-2 h-4 w-4" />
+                <MessageCircle className="mr-2 h-4 w-4" />
                 واتساب
               </Button>
             </div>
