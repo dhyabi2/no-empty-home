@@ -1,47 +1,62 @@
 import React from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, Tag } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { MapPin, Navigation, Coffee, ShoppingBag, Utensils } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const NearbyOffers = () => {
-  // Dummy data for nearby offers
-  const nearbyOffers = [
-    { id: 1, title: "50% Off Coffee", shop: "Coffee Haven", distance: "0.5 km" },
-    { id: 2, title: "Buy 1 Get 1 Free Pastry", shop: "Bakery Delight", distance: "0.8 km" },
-    { id: 3, title: "20% Off Books", shop: "Bookworm's Paradise", distance: "1.2 km" },
+  const offers = [
+    { id: 1, title: "خصم 20% على القهوة", shop: "كافيه السعادة", distance: "0.5 كم", category: "مقهى", icon: <Coffee className="h-6 w-6" /> },
+    { id: 2, title: "اشترِ قطعة واحصل على الثانية مجانًا", shop: "متجر الأزياء", distance: "0.8 كم", category: "تسوق", icon: <ShoppingBag className="h-6 w-6" /> },
+    { id: 3, title: "خصم 15% على وجبات الغداء", shop: "مطعم اللذيذ", distance: "1.2 كم", category: "مطعم", icon: <Utensils className="h-6 w-6" /> },
   ];
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Nearby Offers</h1>
-        <div className="mb-6">
-          <div className="bg-gray-300 h-64 rounded-lg flex items-center justify-center">
-            <p className="text-gray-600">Map View Placeholder</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {nearbyOffers.map((offer) => (
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">العروض القريبة</h1>
+        
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <MapPin className="h-6 w-6 mr-2" />
+              موقعك الحالي
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-gray-600">شارع الملك فهد، الرياض، المملكة العربية السعودية</p>
+            <Button className="mt-4">
+              <Navigation className="h-4 w-4 mr-2" />
+              تحديث الموقع
+            </Button>
+          </CardContent>
+        </Card>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {offers.map((offer) => (
             <Card key={offer.id}>
               <CardHeader>
-                <CardTitle>{offer.title}</CardTitle>
+                <CardTitle className="flex items-center">
+                  {offer.icon}
+                  <span className="mr-2">{offer.title}</span>
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-sm text-gray-500 mb-2">
-                  <Tag className="inline-block h-4 w-4 mr-1" />
-                  {offer.shop}
-                </p>
-                <p className="text-sm mb-4">
-                  <MapPin className="inline-block h-4 w-4 mr-1" />
+                <p className="text-gray-600 mb-2">{offer.shop}</p>
+                <p className="text-sm text-gray-500 mb-4 flex items-center">
+                  <MapPin className="h-4 w-4 mr-1" />
                   {offer.distance}
                 </p>
-                <Button className="w-full">View Offer</Button>
+                <Button className="w-full">عرض التفاصيل</Button>
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-8 text-center">
+          <Button variant="outline">تحميل المزيد من العروض</Button>
         </div>
       </main>
       <Footer />

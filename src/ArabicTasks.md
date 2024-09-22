@@ -13,12 +13,12 @@
 | Feedback | Completed | 100% |
 | FirstShopVisit | Completed | 100% |
 | FlashSales | Completed | 100% |
-| HelpAndSupport | Not Started | 0% |
-| HelpSupport | Not Started | 0% |
-| LastMinuteDeals | Not Started | 0% |
-| Leaderboard | Not Started | 0% |
-| More | Not Started | 0% |
-| NearbyOffers | Not Started | 0% |
+| HelpAndSupport | Completed | 100% |
+| HelpSupport | Completed | 100% |
+| LastMinuteDeals | Completed | 100% |
+| Leaderboard | Completed | 100% |
+| More | Completed | 100% |
+| NearbyOffers | Completed | 100% |
 | Notifications | Not Started | 0% |
 | OfferDetail | Not Started | 0% |
 | OfferListing | Not Started | 0% |
@@ -76,9 +76,18 @@
 6. CustomerManagement - Completed
 7. ExclusiveEvents - Completed
 8. Favorites - Completed
-9. Profile
-10. RedeemPoints
-11. OfferListing
+9. Feedback - Completed
+10. FirstShopVisit - Completed
+11. FlashSales - Completed
+12. HelpAndSupport - Completed
+13. HelpSupport - Completed
+14. LastMinuteDeals - Completed
+15. Leaderboard - Completed
+16. More - Completed
+17. NearbyOffers - Completed
+18. Profile
+19. RedeemPoints
+20. OfferListing
 
 Start with these high-priority pages and then proceed with the rest in any order.
 
