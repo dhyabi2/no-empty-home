@@ -1,52 +1,69 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Share2, Facebook, Twitter, Instagram } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Share2, Facebook, Twitter, WhatsApp, Copy } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const RewardSharing = () => {
-  const dummyReward = {
-    id: 1,
-    title: "Free Coffee",
-    description: "Enjoy a free coffee at any participating cafe",
-    points: 100,
-  };
+  const [shareLink, setShareLink] = useState('https://example.com/reward/123');
 
   const handleShare = (platform) => {
-    // In a real app, this would open a sharing dialog or API
-    console.log(`Sharing reward on ${platform}`);
+    // Here you would implement the actual sharing logic
+    alert(`تم المشاركة على ${platform}`);
+  };
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(shareLink).then(() => {
+      alert('تم نسخ الرابط إلى الحافظة');
+    });
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Share Your Reward</h1>
-        <Card>
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">مشاركة المكافأة</h1>
+        <Card className="mb-6">
           <CardHeader>
             <CardTitle className="flex items-center">
-              <Share2 className="mr-2" />
-              {dummyReward.title}
+              <Share2 className="mr-2 h-6 w-6" />
+              شارك مكافأتك
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-gray-600 mb-4">{dummyReward.description}</p>
-            <p className="font-semibold mb-6">Points: {dummyReward.points}</p>
-            <div className="space-y-4">
-              <Button className="w-full" onClick={() => handleShare('Facebook')}>
+            <p className="mb-4">شارك هذه المكافأة مع أصدقائك وعائلتك!</p>
+            <div className="flex space-x-4 mb-6">
+              <Button onClick={() => handleShare('Facebook')} className="flex-1">
                 <Facebook className="mr-2 h-4 w-4" />
-                Share on Facebook
+                فيسبوك
               </Button>
-              <Button className="w-full" onClick={() => handleShare('Twitter')}>
+              <Button onClick={() => handleShare('Twitter')} className="flex-1">
                 <Twitter className="mr-2 h-4 w-4" />
-                Share on Twitter
+                تويتر
               </Button>
-              <Button className="w-full" onClick={() => handleShare('Instagram')}>
-                <Instagram className="mr-2 h-4 w-4" />
-                Share on Instagram
+              <Button onClick={() => handleShare('WhatsApp')} className="flex-1">
+                <WhatsApp className="mr-2 h-4 w-4" />
+                واتساب
               </Button>
             </div>
+            <div className="flex items-center">
+              <Input value={shareLink} readOnly className="flex-grow mr-2" />
+              <Button onClick={copyToClipboard}>
+                <Copy className="h-4 w-4" />
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>إحصائيات المشاركة</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="mb-2">عدد المشاركات: 15</p>
+            <p className="mb-2">عدد الاستردادات: 5</p>
+            <p>النقاط المكتسبة من المشاركة: 250</p>
           </CardContent>
         </Card>
       </main>

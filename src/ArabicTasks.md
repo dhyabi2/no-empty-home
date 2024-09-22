@@ -35,12 +35,12 @@
 | RewardAuctions | Completed | 100% |
 | RewardBundles | Completed | 100% |
 | RewardCategories | Completed | 100% |
-| RewardComparison | Not Started | 0% |
-| RewardCustomization | Not Started | 0% |
-| RewardGiftingPage | Not Started | 0% |
-| RewardPlanner | Not Started | 0% |
-| RewardRatings | Not Started | 0% |
-| RewardSharing | Not Started | 0% |
+| RewardComparison | Completed | 100% |
+| RewardCustomization | Completed | 100% |
+| RewardGiftingPage | Completed | 100% |
+| RewardPlanner | Completed | 100% |
+| RewardRatings | Completed | 100% |
+| RewardSharing | Completed | 100% |
 | RewardShowcase | Completed | 100% |
 | RewardSubscription | Not Started | 0% |
 | ScanReceipt | Not Started | 0% |
@@ -101,6 +101,13 @@
 31. RewardAuctions - Completed
 32. RewardBundles - Completed
 33. RewardCategories - Completed
+34. RewardComparison - Completed
+35. RewardCustomization - Completed
+36. RewardGiftingPage - Completed
+37. RewardPlanner - Completed
+38. RewardRatings - Completed
+39. RewardSharing - Completed
+40. RewardShowcase - Completed
 
 Start with these high-priority pages and then proceed with the rest in any order.
 
