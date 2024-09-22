@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -27,174 +27,43 @@ import RewardCategories from "./pages/RewardCategories.jsx";
 import PointBoosters from "./pages/PointBoosters.jsx";
 import RewardBundles from "./pages/RewardBundles.jsx";
 import PointTransfer from "./pages/PointTransfer.jsx";
+import RewardAuctions from "./pages/RewardAuctions.jsx";
+
+const createNavItem = (title, path, icon, component) => ({
+  title,
+  to: path,
+  icon: <icon className="h-4 w-4" />,
+  page: component,
+});
 
 export const navItems = [
-  {
-    title: "Home",
-    to: "/",
-    icon: <HomeIcon className="h-4 w-4" />,
-    page: <Index />,
-  },
-  {
-    title: "Notifications",
-    to: "/notifications",
-    icon: <BellIcon className="h-4 w-4" />,
-    page: <Notifications />,
-  },
-  {
-    title: "Search",
-    to: "/search",
-    icon: <SearchIcon className="h-4 w-4" />,
-    page: <Search />,
-  },
-  {
-    title: "Favorites",
-    to: "/favorites",
-    icon: <StarIcon className="h-4 w-4" />,
-    page: <Favorites />,
-  },
-  {
-    title: "Profile",
-    to: "/profile",
-    icon: <UserIcon className="h-4 w-4" />,
-    page: <Profile />,
-  },
-  {
-    title: "Help & Support",
-    to: "/help-support",
-    icon: <HelpCircleIcon className="h-4 w-4" />,
-    page: <HelpSupport />,
-  },
-  {
-    title: "Shops",
-    to: "/shops",
-    icon: <ShoppingBagIcon className="h-4 w-4" />,
-    page: <ShopListing />,
-  },
-  {
-    title: "Shop Profile",
-    to: "/shops/:id",
-    icon: <ShoppingBagIcon className="h-4 w-4" />,
-    page: <ShopProfile />,
-  },
-  {
-    title: "Offers",
-    to: "/offers",
-    icon: <TagIcon className="h-4 w-4" />,
-    page: <OfferListing />,
-  },
-  {
-    title: "Offer Detail",
-    to: "/offers/:id",
-    icon: <TagIcon className="h-4 w-4" />,
-    page: <OfferDetail />,
-  },
-  {
-    title: "Redeem Points",
-    to: "/redeem-points",
-    icon: <StarIcon className="h-4 w-4" />,
-    page: <RedeemPoints />,
-  },
-  {
-    title: "Points History",
-    to: "/points-history",
-    icon: <HistoryIcon className="h-4 w-4" />,
-    page: <PointsHistory />,
-  },
-  {
-    title: "Feedback",
-    to: "/feedback",
-    icon: <MessageSquare className="h-4 w-4" />,
-    page: <Feedback />,
-  },
-  {
-    title: "Wishlist",
-    to: "/wishlist",
-    icon: <Heart className="h-4 w-4" />,
-    page: <Wishlist />,
-  },
-  {
-    title: "Leaderboard",
-    to: "/leaderboard",
-    icon: <Award className="h-4 w-4" />,
-    page: <Leaderboard />,
-  },
-  {
-    title: "Reward Gifting",
-    to: "/reward-gifting",
-    icon: <Gift className="h-4 w-4" />,
-    page: <RewardGiftingPage />,
-  },
-  {
-    title: "Exclusive Events",
-    to: "/exclusive-events",
-    icon: <Calendar className="h-4 w-4" />,
-    page: <ExclusiveEvents />,
-  },
-  {
-    title: "Nearby Offers",
-    to: "/nearby-offers",
-    icon: <MapPin className="h-4 w-4" />,
-    page: <NearbyOffers />,
-  },
-  {
-    title: "Scan Receipt",
-    to: "/scan-receipt",
-    icon: <Camera className="h-4 w-4" />,
-    page: <ScanReceipt />,
-  },
-  {
-    title: "Favorite Shops",
-    to: "/favorite-shops",
-    icon: <Bookmark className="h-4 w-4" />,
-    page: <FavoriteShops />,
-  },
-  {
-    title: "Reward Customization",
-    to: "/reward-customization",
-    icon: <Edit className="h-4 w-4" />,
-    page: <RewardCustomization />,
-  },
-  {
-    title: "Flash Sales",
-    to: "/flash-sales",
-    icon: <Zap className="h-4 w-4" />,
-    page: <FlashSales />,
-  },
-  {
-    title: "Birthday Rewards",
-    to: "/birthday-rewards",
-    icon: <Cake className="h-4 w-4" />,
-    page: <BirthdayRewards />,
-  },
-  {
-    title: "Reward Sharing",
-    to: "/reward-sharing",
-    icon: <Share2 className="h-4 w-4" />,
-    page: <RewardSharing />,
-  },
-  {
-    title: "Reward Categories",
-    to: "/reward-categories",
-    icon: <Grid className="h-4 w-4" />,
-    page: <RewardCategories />,
-  },
-  {
-    title: "Point Boosters",
-    to: "/point-boosters",
-    icon: <Bolt className="h-4 w-4" />,
-    page: <PointBoosters />,
-  },
-  {
-    title: "Reward Bundles",
-    to: "/reward-bundles",
-    icon: <Package className="h-4 w-4" />,
-    page: <RewardBundles />,
-  },
-  {
-    title: "Point Transfer",
-    to: "/point-transfer",
-    icon: <ArrowRightLeft className="h-4 w-4" />,
-    page: <PointTransfer />,
-  },
+  createNavItem("Home", "/", HomeIcon, <Index />),
+  createNavItem("Notifications", "/notifications", BellIcon, <Notifications />),
+  createNavItem("Search", "/search", SearchIcon, <Search />),
+  createNavItem("Favorites", "/favorites", StarIcon, <Favorites />),
+  createNavItem("Profile", "/profile", UserIcon, <Profile />),
+  createNavItem("Help & Support", "/help-support", HelpCircleIcon, <HelpSupport />),
+  createNavItem("Shops", "/shops", ShoppingBagIcon, <ShopListing />),
+  createNavItem("Shop Profile", "/shops/:id", ShoppingBagIcon, <ShopProfile />),
+  createNavItem("Offers", "/offers", TagIcon, <OfferListing />),
+  createNavItem("Offer Detail", "/offers/:id", TagIcon, <OfferDetail />),
+  createNavItem("Redeem Points", "/redeem-points", StarIcon, <RedeemPoints />),
+  createNavItem("Points History", "/points-history", HistoryIcon, <PointsHistory />),
+  createNavItem("Feedback", "/feedback", MessageSquare, <Feedback />),
+  createNavItem("Wishlist", "/wishlist", Heart, <Wishlist />),
+  createNavItem("Leaderboard", "/leaderboard", Award, <Leaderboard />),
+  createNavItem("Reward Gifting", "/reward-gifting", Gift, <RewardGiftingPage />),
+  createNavItem("Exclusive Events", "/exclusive-events", Calendar, <ExclusiveEvents />),
+  createNavItem("Nearby Offers", "/nearby-offers", MapPin, <NearbyOffers />),
+  createNavItem("Scan Receipt", "/scan-receipt", Camera, <ScanReceipt />),
+  createNavItem("Favorite Shops", "/favorite-shops", Bookmark, <FavoriteShops />),
+  createNavItem("Reward Customization", "/reward-customization", Edit, <RewardCustomization />),
+  createNavItem("Flash Sales", "/flash-sales", Zap, <FlashSales />),
+  createNavItem("Birthday Rewards", "/birthday-rewards", Cake, <BirthdayRewards />),
+  createNavItem("Reward Sharing", "/reward-sharing", Share2, <RewardSharing />),
+  createNavItem("Reward Categories", "/reward-categories", Grid, <RewardCategories />),
+  createNavItem("Point Boosters", "/point-boosters", Bolt, <PointBoosters />),
+  createNavItem("Reward Bundles", "/reward-bundles", Package, <RewardBundles />),
+  createNavItem("Point Transfer", "/point-transfer", ArrowRightLeft, <PointTransfer />),
+  createNavItem("Reward Auctions", "/reward-auctions", Gavel, <RewardAuctions />),
 ];

@@ -11,23 +11,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel } from "lucide-react";
 
 const LazyComponents = {
   RewardOverview: lazy(() => import('../components/RewardOverview')),
   RewardRedemption: lazy(() => import('../components/RewardRedemption')),
   FeaturedOffers: lazy(() => import('../components/FeaturedOffers')),
   NearbyShops: lazy(() => import('../components/NearbyShops')),
-  RewardConcierge: lazy(() => import('../components/RewardConcierge')),
-  RewardTrivia: lazy(() => import('../components/RewardTrivia')),
-  RewardPlanner: lazy(() => import('../components/RewardPlanner')),
-  RewardShowcase: lazy(() => import('../components/RewardShowcase')),
   RewardGifting: lazy(() => import('../components/RewardGifting')),
-  PointExpirationReminder: lazy(() => import('../components/PointExpirationReminder')),
-  PointBoosters: lazy(() => import('../components/PointBoosters')),
-  RewardBundles: lazy(() => import('../pages/RewardBundles'))
 };
 
 const Index = () => {
@@ -46,7 +37,6 @@ const Index = () => {
   const { user } = useAuth();
 
   useEffect(() => {
-    // Simulating data loading
     setTimeout(() => {
       setState(prevState => ({
         ...prevState,
@@ -170,8 +160,6 @@ const MainContent = React.memo(({ state, user }) => (
     <EventsAndLeaderboardSection upcomingEvents={state.upcomingEvents} leaderboard={state.leaderboard} />
     <Separator />
     <FlashSalesSection flashSales={state.flashSales} />
-    <Separator />
-    <AdditionalFeatures />
   </>
 ));
 
@@ -191,11 +179,10 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><Bolt className="mr-2 h-4 w-4" /> Point Boosters</Button>
       <Button className="w-full"><Package className="mr-2 h-4 w-4" /> Reward Bundles</Button>
       <Button className="w-full"><ArrowRightLeft className="mr-2 h-4 w-4" /> Point Transfer</Button>
+      <Button className="w-full"><Gavel className="mr-2 h-4 w-4" /> Reward Auctions</Button>
       <EarnPoints />
     </CardContent>
   </Card>
 ));
-
-// ... (remaining components stay the same)
 
 export default Index;
