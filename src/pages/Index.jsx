@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Activity } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Activity, Calendar } from "lucide-react";
 
 const RewardOverview = lazy(() => import('../components/RewardOverview'));
 const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
@@ -52,7 +52,8 @@ const Index = () => {
       ]);
       setUpcomingEvents([
         { title: "Double Points Weekend", date: "This weekend" },
-        { title: "New Reward Launch", date: "Next Monday" }
+        { title: "New Reward Launch", date: "Next Monday" },
+        { title: "VIP Shopping Night", date: "Next Friday" }
       ]);
       setLeaderboard([
         { name: "John D.", points: 2500, avatar: "/avatar1.png" },
@@ -172,6 +173,7 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><Gift className="mr-2 h-4 w-4" /> Redeem Points</Button>
       <Button className="w-full"><MapPin className="mr-2 h-4 w-4" /> Find Nearby Shops</Button>
       <Button className="w-full"><Bell className="mr-2 h-4 w-4" /> View Notifications</Button>
+      <Button className="w-full"><Calendar className="mr-2 h-4 w-4" /> Exclusive Events</Button>
       <EarnPoints />
     </CardContent>
   </Card>
