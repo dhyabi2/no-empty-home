@@ -3,10 +3,30 @@
 This list contains 100 items that are not yet implemented but can be used to showcase the app with dummy data and create a connected flow for demonstration purposes.
 
 1. User Registration
+   - Required: User input form, email verification system, database integration
+   - Missing: Password strength checker, social media sign-up options
+   - Completion: 0%
+
 2. User Profile Creation
+   - Required: Profile information form, avatar upload functionality, interests selection
+   - Missing: Profile completeness indicator, gamification elements for profile setup
+   - Completion: 0%
+
 3. Initial Onboarding Tutorial
+   - Required: Step-by-step guide, interactive UI elements, progress tracking
+   - Missing: Skip option, personalized recommendations based on user inputs
+   - Completion: 0%
+
 4. Welcome Reward Claim
+   - Required: Reward display, claim button, points addition logic
+   - Missing: Animation for reward reveal, share option for claimed reward
+   - Completion: 0%
+
 5. First Shop Visit
+   - Required: Shop details page, check-in functionality, points earning logic
+   - Missing: Augmented reality shop tour, personalized shop recommendations
+   - Completion: 0%
+
 6. First Purchase
 7. First Points Earned
 8. Reward Tier Explanation
