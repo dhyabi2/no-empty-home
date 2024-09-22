@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap, Cake, Share2, Grid } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap, Cake, Share2, Grid, Bolt } from "lucide-react";
 
 const LazyComponents = {
   RewardOverview: lazy(() => import('../components/RewardOverview')),
@@ -26,6 +26,7 @@ const LazyComponents = {
   RewardShowcase: lazy(() => import('../components/RewardShowcase')),
   RewardGifting: lazy(() => import('../components/RewardGifting')),
   PointExpirationReminder: lazy(() => import('../components/PointExpirationReminder')),
+  PointBoosters: lazy(() => import('../components/PointBoosters')),
 };
 
 const Index = () => {
@@ -186,6 +187,7 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><Cake className="mr-2 h-4 w-4" /> Birthday Rewards</Button>
       <Button className="w-full"><Share2 className="mr-2 h-4 w-4" /> Share Rewards</Button>
       <Button className="w-full"><Grid className="mr-2 h-4 w-4" /> Reward Categories</Button>
+      <Button className="w-full"><Bolt className="mr-2 h-4 w-4" /> Point Boosters</Button>
       <EarnPoints />
     </CardContent>
   </Card>

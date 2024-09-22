@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -24,6 +24,7 @@ import FlashSales from "./pages/FlashSales.jsx";
 import BirthdayRewards from "./pages/BirthdayRewards.jsx";
 import RewardSharing from "./pages/RewardSharing.jsx";
 import RewardCategories from "./pages/RewardCategories.jsx";
+import PointBoosters from "./pages/PointBoosters.jsx";
 
 export const navItems = [
   {
@@ -175,5 +176,11 @@ export const navItems = [
     to: "/reward-categories",
     icon: <Grid className="h-4 w-4" />,
     page: <RewardCategories />,
+  },
+  {
+    title: "Point Boosters",
+    to: "/point-boosters",
+    icon: <Bolt className="h-4 w-4" />,
+    page: <PointBoosters />,
   },
 ];
