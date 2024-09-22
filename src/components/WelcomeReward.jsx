@@ -2,39 +2,33 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Gift, Share2 } from "lucide-react";
-import Confetti from 'react-confetti';
 
 const WelcomeReward = () => {
+  const handleClaim = () => {
+    alert("Welcome reward claimed!");
+  };
+
+  const handleShare = () => {
+    alert("Sharing welcome reward!");
+  };
+
   return (
-    <Card className="w-full max-w-md mx-auto">
+    <Card className="mb-6">
       <CardHeader>
-        <CardTitle className="flex items-center justify-between">
-          <span>Welcome Reward</span>
-          <Gift className="h-6 w-6 text-primary" />
+        <CardTitle className="flex items-center">
+          <Gift className="mr-2" />
+          Welcome Reward
         </CardTitle>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold">Congratulations!</h2>
-          <p className="text-gray-600">You've earned a welcome reward of</p>
-          <p className="text-3xl font-bold text-primary mt-2">500 Points</p>
-        </div>
-        <div className="flex justify-center space-x-4">
-          <Button className="flex-1">
-            <Gift className="mr-2 h-4 w-4" />
-            Claim Reward
-          </Button>
-          <Button variant="outline" className="flex-1">
+      <CardContent>
+        <p className="mb-4">Claim your welcome bonus of 100 points!</p>
+        <div className="flex space-x-2">
+          <Button onClick={handleClaim}>Claim Reward</Button>
+          <Button variant="outline" onClick={handleShare}>
             <Share2 className="mr-2 h-4 w-4" />
             Share
           </Button>
         </div>
-        <Confetti
-          width={window.innerWidth}
-          height={window.innerHeight}
-          recycle={false}
-          numberOfPieces={200}
-        />
       </CardContent>
     </Card>
   );

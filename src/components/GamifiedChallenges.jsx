@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Trophy, Calendar, Target } from "lucide-react";
+import { Trophy, Calendar, Target, X } from "lucide-react";
 
 const GamifiedChallenges = () => {
+  const [selectedChallenge, setSelectedChallenge] = useState(null);
+
   const challenges = [
     {
       id: 1,
@@ -36,6 +38,14 @@ const GamifiedChallenges = () => {
     },
   ];
 
+  const handleViewDetails = (challenge) => {
+    setSelectedChallenge(challenge);
+  };
+
+  const handleCloseDetails = () => {
+    setSelectedChallenge(null);
+  };
+
   return (
     <Card>
       <CardHeader>
@@ -64,7 +74,7 @@ const GamifiedChallenges = () => {
                   <span className="text-sm text-gray-500">Reward: {challenge.reward}</span>
                 </div>
                 <Progress value={(challenge.progress / challenge.total) * 100} className="mb-2" />
-                <Button className="w-full">
+                <Button className="w-full" onClick={() => handleViewDetails(challenge)}>
                   <Target className="mr-2 h-4 w-4" />
                   View Details
                 </Button>
@@ -73,6 +83,27 @@ const GamifiedChallenges = () => {
           ))}
         </div>
       </CardContent>
+      {selectedChallenge && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+          <Card className="w-full max-w-md">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                <span>{selectedChallenge.name}</span>
+                <Button variant="ghost" size="icon" onClick={handleCloseDetails}>
+                  <X className="h-4 w-4" />
+                </Button>
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-4">{selectedChallenge.description}</p>
+              <p className="mb-2">Progress: {selectedChallenge.progress}/{selectedChallenge.total}</p>
+              <Progress value={(selectedChallenge.progress / selectedChallenge.total) * 100} className="mb-4" />
+              <p className="font-semibold">Reward: {selectedChallenge.reward}</p>
+              <p className="text-sm text-gray-500 mt-2">Keep going! You're making great progress.</p>
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </Card>
   );
 };

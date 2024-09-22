@@ -11,14 +11,14 @@
 | Redeem (Featured Offer) | Home Page | Open redemption interface | Yes | 100% |
 | View All Offers | Home Page | Navigate to all offers page | Yes | 100% |
 | Claim Reward | Welcome Reward | Claim welcome points | No (just updates points) | 100% |
-| Share (Welcome Reward) | Welcome Reward | Open share interface | No | 0% |
+| Share (Welcome Reward) | Welcome Reward | Open share interface | No | 100% |
 | View Shop (Nearby Shops) | Home Page | Navigate to shop profile | Yes | 100% |
 | View Reward Levels (Shop) | Shop Profile | Show reward levels | Yes | 100% |
 | Activate (Point Booster) | Point Boosters | Activate point multiplier | No (just updates UI) | 100% |
-| View Details (Challenge) | Gamified Challenges | Show challenge details | No | 0% |
-| Facebook Share | Social Sharing | Share to Facebook | No (external link) | 0% |
-| Twitter Share | Social Sharing | Share to Twitter | No (external link) | 0% |
-| LinkedIn Share | Social Sharing | Share to LinkedIn | No (external link) | 0% |
+| View Details (Challenge) | Gamified Challenges | Show challenge details | Yes | 100% |
+| Facebook Share | Social Sharing | Share to Facebook | No (external link) | 100% |
+| Twitter Share | Social Sharing | Share to Twitter | No (external link) | 100% |
+| LinkedIn Share | Social Sharing | Share to LinkedIn | No (external link) | 100% |
 | Scan to Earn Points | Virtual Loyalty Card | Open scanner interface | No | 0% |
 | View Point History | Virtual Loyalty Card | Navigate to points history | Yes | 100% |
 | Edit Profile | Profile Page | Open profile edit interface | No | 0% |

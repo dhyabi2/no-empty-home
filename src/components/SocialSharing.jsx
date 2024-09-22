@@ -17,8 +17,25 @@ const SocialSharing = () => {
   };
 
   const handleShare = (platform) => {
-    // In a real app, this would open the native share dialog or link to the platform
-    console.log(`Sharing on ${platform}`);
+    const message = `Check out my latest reward on the Loyalty App: ${dummyReward.name}!`;
+    let url;
+
+    switch (platform) {
+      case 'facebook':
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(message)}`;
+        break;
+      case 'twitter':
+        url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}&url=${encodeURIComponent(window.location.href)}`;
+        break;
+      case 'linkedin':
+        url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(dummyReward.name)}&summary=${encodeURIComponent(message)}`;
+        break;
+      default:
+        console.error('Invalid platform');
+        return;
+    }
+
+    window.open(url, '_blank');
   };
 
   return (
@@ -49,6 +66,10 @@ const SocialSharing = () => {
                 <Twitter className="mr-2 h-4 w-4" />
                 Tweet
               </Button>
+              <Button size="sm" onClick={() => handleShare('linkedin')}>
+                <Linkedin className="mr-2 h-4 w-4" />
+                Share
+              </Button>
             </div>
           </div>
           <div>
@@ -61,13 +82,17 @@ const SocialSharing = () => {
               </CardContent>
             </Card>
             <div className="flex space-x-2 mt-2">
-              <Button size="sm" onClick={() => handleShare('linkedin')}>
-                <Linkedin className="mr-2 h-4 w-4" />
+              <Button size="sm" onClick={() => handleShare('facebook')}>
+                <Facebook className="mr-2 h-4 w-4" />
                 Share
               </Button>
               <Button size="sm" onClick={() => handleShare('twitter')}>
                 <Twitter className="mr-2 h-4 w-4" />
                 Tweet
+              </Button>
+              <Button size="sm" onClick={() => handleShare('linkedin')}>
+                <Linkedin className="mr-2 h-4 w-4" />
+                Share
               </Button>
             </div>
           </div>
