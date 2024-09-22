@@ -180,7 +180,9 @@ const Index = () => {
           )}
         </div>
       </main>
-      <BottomNavigation />
+      <div className="fixed bottom-0 left-0 right-0">
+        <BottomNavigation />
+      </div>
       <FloatingActionButton />
     </div>
   );
