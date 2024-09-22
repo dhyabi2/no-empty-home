@@ -25,6 +25,7 @@ const NearbyShops = lazy(() => import('../components/NearbyShops'));
 const RewardConcierge = lazy(() => import('../components/RewardConcierge'));
 const RewardTrivia = lazy(() => import('../components/RewardTrivia'));
 const RewardPlanner = lazy(() => import('../components/RewardPlanner'));
+const RewardShowcase = lazy(() => import('../components/RewardShowcase'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -87,6 +88,8 @@ const Index = () => {
             <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
             <Separator />
             <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
+            <Separator />
+            <RewardShowcaseSection />
             <Separator />
             <RewardPlannerSection />
             <Separator />
@@ -257,6 +260,13 @@ const RewardTriviaSection = React.memo(() => (
 const RewardPlannerSection = React.memo(() => (
   <Suspense fallback={<div>Loading Reward Planner...</div>}>
     <RewardPlanner />
+  </Suspense>
+));
+
+
+const RewardShowcaseSection = React.memo(() => (
+  <Suspense fallback={<div>Loading Reward Showcase...</div>}>
+    <RewardShowcase />
   </Suspense>
 ));
 
