@@ -80,33 +80,35 @@ const Header = ({ onMenuClick }) => {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
-            <AnimatePresence>
-              {isSearchExpanded ? (
-                <motion.form
-                  initial={{ width: 0, opacity: 0 }}
-                  animate={{ width: 'auto', opacity: 1 }}
-                  exit={{ width: 0, opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                  onSubmit={handleSearchSubmit}
-                  className="flex items-center"
-                >
-                  <Input
-                    type="text"
-                    placeholder="Search..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-64"
-                  />
-                  <Button type="submit" variant="ghost" size="icon" className="ml-2">
+            <div className="relative">
+              <AnimatePresence>
+                {isSearchExpanded ? (
+                  <motion.form
+                    initial={{ width: 0, opacity: 0 }}
+                    animate={{ width: '100%', opacity: 1 }}
+                    exit={{ width: 0, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    onSubmit={handleSearchSubmit}
+                    className="flex items-center absolute right-0 top-0"
+                  >
+                    <Input
+                      type="text"
+                      placeholder="Search..."
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      className="w-64"
+                    />
+                    <Button type="submit" variant="ghost" size="icon" className="ml-2">
+                      <SearchIcon className="h-5 w-5" />
+                    </Button>
+                  </motion.form>
+                ) : (
+                  <Button variant="ghost" size="icon" onClick={handleSearchClick}>
                     <SearchIcon className="h-5 w-5" />
                   </Button>
-                </motion.form>
-              ) : (
-                <Button variant="ghost" size="icon" onClick={handleSearchClick}>
-                  <SearchIcon className="h-5 w-5" />
-                </Button>
-              )}
-            </AnimatePresence>
+                )}
+              </AnimatePresence>
+            </div>
             <ThemeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
