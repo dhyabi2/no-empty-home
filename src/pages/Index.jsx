@@ -25,7 +25,6 @@ const NearbyShops = lazy(() => import('../components/NearbyShops'));
 const RewardConcierge = lazy(() => import('../components/RewardConcierge'));
 const RewardTrivia = lazy(() => import('../components/RewardTrivia'));
 const RewardPlanner = lazy(() => import('../components/RewardPlanner'));
-const RewardShowcase = lazy(() => import('../components/RewardShowcase'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -34,11 +33,36 @@ const Index = () => {
   const [nearbyShops, setNearbyShops] = useState([]);
   const [userLocation, setUserLocation] = useState(null);
   const [isSideNavOpen, setIsSideNavOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState("overview");
   const [recentActivity, setRecentActivity] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [leaderboard, setLeaderboard] = useState([]);
   const [quickStats, setQuickStats] = useState({});
+
+  useEffect(() => {
+    // Simulating data loading
+    setTimeout(() => {
+      setIsLoading(false);
+      setQuickStats({
+        totalPoints: 1250,
+        rewardsRedeemed: 5,
+        shopsVisited: 8
+      });
+      setRecentActivity([
+        { title: "Earned 50 points", description: "Purchase at Coffee Shop", time: "2 hours ago" },
+        { title: "Redeemed reward", description: "Free coffee", time: "1 day ago" },
+        { title: "Visited new shop", description: "Bookstore XYZ", time: "3 days ago" }
+      ]);
+      setUpcomingEvents([
+        { title: "Double Points Weekend", date: "This weekend" },
+        { title: "New Reward Launch", date: "Next Monday" }
+      ]);
+      setLeaderboard([
+        { name: "John D.", points: 2500, avatar: "/avatar1.png" },
+        { name: "Sarah M.", points: 2300, avatar: "/avatar2.png" },
+        { name: "Mike R.", points: 2100, avatar: "/avatar3.png" }
+      ]);
+    }, 1500);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -55,8 +79,6 @@ const Index = () => {
                 isLoading={isLoading}
                 user={user}
                 handleEarnReward={() => {}}
-                activeTab={activeTab}
-                setActiveTab={setActiveTab}
                 recentActivity={recentActivity}
               />
               <QuickActionsSection />
@@ -66,13 +88,11 @@ const Index = () => {
             <Separator />
             <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
             <Separator />
-            <RewardConciergeSection />
+            <RewardPlannerSection />
             <Separator />
             <RewardTriviaSection />
             <Separator />
-            <RewardPlannerSection />
-            <Separator />
-            <RewardShowcaseSection />
+            <RewardConciergeSection />
           </div>
         </main>
       </div>
@@ -105,17 +125,16 @@ const QuickStat = ({ icon, label, value }) => (
   </div>
 );
 
-const MainContentSection = React.memo(({ isLoading, user, handleEarnReward, activeTab, setActiveTab, recentActivity }) => (
+const MainContentSection = React.memo(({ isLoading, user, handleEarnReward, recentActivity }) => (
   <Card className="col-span-2">
     <CardHeader>
-      <Tabs value={activeTab} onValueChange={setActiveTab}>
+      <Tabs defaultValue="overview">
         <TabsList>
           <TabsTrigger value="overview">Overview</TabsTrigger>
           <TabsTrigger value="redeem">Redeem</TabsTrigger>
           <TabsTrigger value="activity">Activity</TabsTrigger>
         </TabsList>
-      </Tabs>
-    </CardHeader>
+      </TabsHeader>
     <CardContent>
       <TabsContent value="overview">
         <Suspense fallback={<div>Loading...</div>}>
@@ -238,12 +257,6 @@ const RewardTriviaSection = React.memo(() => (
 const RewardPlannerSection = React.memo(() => (
   <Suspense fallback={<div>Loading Reward Planner...</div>}>
     <RewardPlanner />
-  </Suspense>
-));
-
-const RewardShowcaseSection = React.memo(() => (
-  <Suspense fallback={<div>Loading Reward Showcase...</div>}>
-    <RewardShowcase />
   </Suspense>
 ));
 
