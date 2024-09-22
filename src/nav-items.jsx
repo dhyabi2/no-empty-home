@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -19,6 +19,7 @@ import ExclusiveEvents from "./pages/ExclusiveEvents.jsx";
 import NearbyOffers from "./pages/NearbyOffers.jsx";
 import ScanReceipt from "./pages/ScanReceipt.jsx";
 import FavoriteShops from "./pages/FavoriteShops.jsx";
+import RewardCustomization from "./pages/RewardCustomization.jsx";
 
 export const navItems = [
   {
@@ -140,5 +141,11 @@ export const navItems = [
     to: "/favorite-shops",
     icon: <Bookmark className="h-4 w-4" />,
     page: <FavoriteShops />,
+  },
+  {
+    title: "Reward Customization",
+    to: "/reward-customization",
+    icon: <Edit className="h-4 w-4" />,
+    page: <RewardCustomization />,
   },
 ];
