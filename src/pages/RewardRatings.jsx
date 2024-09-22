@@ -1,54 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Star, ThumbsUp, ThumbsDown } from "lucide-react";
+import { Star } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const RewardRatings = () => {
-  const [rewards] = useState([
-    { id: 1, name: "Free Coffee", rating: 4.5, totalRatings: 120 },
-    { id: 2, name: "10% Discount", rating: 4.2, totalRatings: 85 },
-    { id: 3, name: "Movie Ticket", rating: 4.8, totalRatings: 200 },
-    { id: 4, name: "Gift Card", rating: 4.0, totalRatings: 150 },
-  ]);
+  const rewards = [
+    { id: 1, name: "Free Coffee", description: "Get a free coffee of your choice", currentRating: 4.5 },
+    { id: 2, name: "10% Off Meal", description: "Enjoy 10% off your next meal", currentRating: 3.8 },
+    { id: 3, name: "Movie Ticket", description: "Free movie ticket for any show", currentRating: 4.2 },
+  ];
 
-  const renderStars = (rating) => {
-    return Array(5).fill(0).map((_, index) => (
-      <Star
-        key={index}
-        className={`h-5 w-5 ${index < Math.floor(rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
-      />
-    ));
+  const StarRating = ({ rating }) => {
+    return (
+      <div className="flex">
+        {[1, 2, 3, 4, 5].map((star) => (
+          <Star
+            key={star}
+            className={`h-5 w-5 ${star <= Math.round(rating) ? 'text-yellow-400 fill-current' : 'text-gray-300'}`}
+          />
+        ))}
+      </div>
+    );
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Reward Ratings</h1>
-        <div className="space-y-4">
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">Rate Rewards</h1>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {rewards.map((reward) => (
             <Card key={reward.id}>
               <CardHeader>
                 <CardTitle>{reward.name}</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="flex items-center mb-2">
-                  {renderStars(reward.rating)}
-                  <span className="ml-2 text-gray-600">{reward.rating.toFixed(1)}</span>
+                <p className="mb-2">{reward.description}</p>
+                <div className="flex justify-between items-center mb-4">
+                  <span>Current Rating:</span>
+                  <StarRating rating={reward.currentRating} />
                 </div>
-                <p className="text-sm text-gray-500 mb-4">{reward.totalRatings} ratings</p>
-                <div className="flex space-x-2">
-                  <Button variant="outline" size="sm">
-                    <ThumbsUp className="h-4 w-4 mr-2" />
-                    Helpful
-                  </Button>
-                  <Button variant="outline" size="sm">
-                    <ThumbsDown className="h-4 w-4 mr-2" />
-                    Not Helpful
-                  </Button>
+                <div className="flex justify-between items-center mb-4">
+                  <span>Your Rating:</span>
+                  <StarRating rating={0} />
                 </div>
+                <Button className="w-full" onClick={() => alert(`Thank you for rating ${reward.name}!`)}>
+                  Submit Rating
+                </Button>
               </CardContent>
             </Card>
           ))}

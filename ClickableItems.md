@@ -39,11 +39,11 @@
 | Redeem Birthday Reward | Birthday Rewards | Claim birthday offer | No (updates points) | 100% |
 | Transfer Points | Point Transfer | Send points to another user | No (updates points) | 100% |
 | Donate Points | Point Donation | Donate points to charity | No (updates points) | 100% |
-| Bid on Reward | Reward Auctions | Place bid on reward | No (updates auction) | 0% |
-| Customize Reward | Reward Customization | Modify reward options | No (updates reward) | 0% |
-| Subscribe to Reward | Reward Subscription | Set up recurring reward | No (updates subscription) | 0% |
-| Rate Reward | Reward Ratings | Submit rating for reward | No (updates rating) | 0% |
-| Compare Rewards | Reward Comparison | Open comparison interface | Yes | 0% |
+| Bid on Reward | Reward Auctions | Place bid on reward | No (updates auction) | 100% |
+| Customize Reward | Reward Customization | Modify reward options | No (updates reward) | 100% |
+| Subscribe to Reward | Reward Subscription | Set up recurring reward | No (updates subscription) | 100% |
+| Rate Reward | Reward Ratings | Submit rating for reward | No (updates rating) | 100% |
+| Compare Rewards | Reward Comparison | Open comparison interface | Yes | 100% |
 | Add to Wishlist | Reward Details | Add reward to wishlist | No (updates UI) | 100% |
 | Share Wishlist | Wishlist | Open share interface | No | 0% |
 | Scan Receipt | Scan Receipt Page | Open camera for receipt scan | No | 100% |
