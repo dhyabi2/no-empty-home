@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Clock, Repeat, Star as StarFilled, BarChart2, Target, Trophy } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Clock, Repeat, Star as StarFilled, BarChart2, Target, Trophy, MoreHorizontal } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -38,6 +38,7 @@ import RewardRatings from "./pages/RewardRatings.jsx";
 import RewardComparison from "./pages/RewardComparison.jsx";
 import RewardPlanner from "./components/RewardPlanner.jsx";
 import RewardShowcase from "./pages/RewardShowcase.jsx";
+import More from "./pages/More.jsx";
 
 const createNavItem = (title, path, icon, component) => ({
   title,
@@ -86,4 +87,5 @@ export const navItems = [
   createNavItem("Reward Comparison", "/reward-comparison", BarChart2, <RewardComparison />),
   createNavItem("Reward Planner", "/reward-planner", Target, <RewardPlanner />),
   createNavItem("Reward Showcase", "/reward-showcase", Trophy, <RewardShowcase />),
+  createNavItem("More", "/more", MoreHorizontal, <More />),
 ];

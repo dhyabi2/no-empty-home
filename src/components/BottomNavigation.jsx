@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Search, Bell, User, Menu } from 'lucide-react';
+import { Home, Search, Bell, User, MoreHorizontal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const BottomNavigation = () => {
@@ -11,7 +11,7 @@ const BottomNavigation = () => {
     { icon: Search, label: 'Search', path: '/search' },
     { icon: Bell, label: 'Notifications', path: '/notifications' },
     { icon: User, label: 'Profile', path: '/profile' },
-    { icon: Menu, label: 'More', path: '/more' },
+    { icon: MoreHorizontal, label: 'More', path: '/more' },
   ];
 
   return (
