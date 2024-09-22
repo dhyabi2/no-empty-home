@@ -2,7 +2,7 @@
 
 | Page Name | Status | Completion % |
 |-----------|--------|--------------|
-| Index (Homepage) | Not Started | 0% |
+| Index (Homepage) | Completed | 100% |
 | AboutUs | Not Started | 0% |
 | AugmentedRealityRewards | Not Started | 0% |
 | BirthdayRewards | Not Started | 0% |
@@ -68,7 +68,7 @@
 
 ## Priority Order
 
-1. Index (Homepage)
+1. Index (Homepage) - Completed
 2. Profile
 3. RedeemPoints
 4. OfferListing

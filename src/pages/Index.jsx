@@ -37,70 +37,70 @@ const Index = () => {
   useEffect(() => {
     // Simulating fetching recent links from local storage or API
     const fetchedRecentLinks = [
-      { to: "/redeem-points", icon: Gift, label: "Redeem Points" },
-      { to: "/nearby-offers", icon: MapPin, label: "Nearby Offers" },
-      { to: "/scan-receipt", icon: Scan, label: "Scan Receipt" },
+      { to: "/redeem-points", icon: Gift, label: "استبدال النقاط" },
+      { to: "/nearby-offers", icon: MapPin, label: "العروض القريبة" },
+      { to: "/scan-receipt", icon: Scan, label: "مسح الإيصال" },
     ];
     setRecentLinks(fetchedRecentLinks);
   }, []);
 
   const quickLinkSections = [
     {
-      title: "Rewards",
+      title: "المكافآت",
       links: [
-        { to: "/redeem-points", icon: Gift, label: "Redeem Points" },
-        { to: "/birthday-rewards", icon: Cake, label: "Birthday Rewards" },
-        { to: "/exclusive-events", icon: Calendar, label: "Exclusive Events" },
-        { to: "/reward-auctions", icon: Flame, label: "Reward Auctions" },
-        { to: "/reward-bundles", icon: Package, label: "Reward Bundles" },
-        { to: "/reward-categories", icon: Tag, label: "Reward Categories" },
-        { to: "/reward-comparison", icon: BarChart2, label: "Compare Rewards" },
-        { to: "/reward-customization", icon: Edit, label: "Customize Rewards" },
-        { to: "/reward-gifting", icon: Gift, label: "Gift Rewards" },
-        { to: "/reward-ratings", icon: ThumbsUp, label: "Rate Rewards" },
-        { to: "/reward-sharing", icon: Share2, label: "Share Rewards" },
-        { to: "/reward-showcase", icon: Trophy, label: "Reward Showcase" },
-        { to: "/reward-subscription", icon: Repeat, label: "Reward Subscriptions" },
-        { to: "/surprise-rewards", icon: Sparkles, label: "Surprise Rewards" },
-        { to: "/reward-planner", icon: BarChart2, label: "Reward Planner" },
-        { to: "/augmented-reality-rewards", icon: Glasses, label: "AR Rewards" },
+        { to: "/redeem-points", icon: Gift, label: "استبدال النقاط" },
+        { to: "/birthday-rewards", icon: Cake, label: "مكافآت عيد الميلاد" },
+        { to: "/exclusive-events", icon: Calendar, label: "الفعاليات الحصرية" },
+        { to: "/reward-auctions", icon: Flame, label: "مزادات المكافآت" },
+        { to: "/reward-bundles", icon: Package, label: "حزم المكافآت" },
+        { to: "/reward-categories", icon: Tag, label: "فئات المكافآت" },
+        { to: "/reward-comparison", icon: BarChart2, label: "مقارنة المكافآت" },
+        { to: "/reward-customization", icon: Edit, label: "تخصيص المكافآت" },
+        { to: "/reward-gifting", icon: Gift, label: "إهداء المكافآت" },
+        { to: "/reward-ratings", icon: ThumbsUp, label: "تقييم المكافآت" },
+        { to: "/reward-sharing", icon: Share2, label: "مشاركة المكافآت" },
+        { to: "/reward-showcase", icon: Trophy, label: "عرض المكافآت" },
+        { to: "/reward-subscription", icon: Repeat, label: "اشتراكات المكافآت" },
+        { to: "/surprise-rewards", icon: Sparkles, label: "مكافآت مفاجئة" },
+        { to: "/reward-planner", icon: BarChart2, label: "مخطط المكافآت" },
+        { to: "/augmented-reality-rewards", icon: Glasses, label: "مكافآت الواقع المعزز" },
       ]
     },
     {
-      title: "Shops",
+      title: "المتاجر",
       links: [
-        { to: "/favorite-shops", icon: Star, label: "Favorite Shops" },
-        { to: "/first-shop-visit", icon: MapPin, label: "First Shop Visit" },
-        { to: "/shop-profile", icon: Info, label: "Shop Profile" },
-        { to: "/shop-authentication", icon: Key, label: "Shop Authentication" },
-        { to: "/shop-dashboard", icon: LayoutDashboard, label: "Shop Dashboard" },
-        { to: "/shop-registration", icon: Users, label: "Shop Registration" },
-        { to: "/shop-settings", icon: Settings, label: "Shop Settings" },
+        { to: "/favorite-shops", icon: Star, label: "المتاجر المفضلة" },
+        { to: "/first-shop-visit", icon: MapPin, label: "أول زيارة للمتجر" },
+        { to: "/shop-profile", icon: Info, label: "ملف المتجر" },
+        { to: "/shop-authentication", icon: Key, label: "مصادقة المتجر" },
+        { to: "/shop-dashboard", icon: LayoutDashboard, label: "لوحة تحكم المتجر" },
+        { to: "/shop-registration", icon: Users, label: "تسجيل المتجر" },
+        { to: "/shop-settings", icon: Settings, label: "إعدادات المتجر" },
       ]
     },
     {
-      title: "Offers",
+      title: "العروض",
       links: [
-        { to: "/nearby-offers", icon: MapPin, label: "Nearby Offers" },
-        { to: "/offer-detail", icon: Tag, label: "Offer Details" },
-        { to: "/offer-management", icon: Settings, label: "Manage Offers" },
-        { to: "/flash-sales", icon: Zap, label: "Flash Sales" },
-        { to: "/last-minute-deals", icon: Clock, label: "Last Minute Deals" },
-        { to: "/partner-rewards", icon: Handshake, label: "Partner Rewards" },
-        { to: "/point-boosters", icon: Zap, label: "Point Boosters" },
+        { to: "/nearby-offers", icon: MapPin, label: "العروض القريبة" },
+        { to: "/offer-detail", icon: Tag, label: "تفاصيل العرض" },
+        { to: "/offer-management", icon: Settings, label: "إدارة العروض" },
+        { to: "/flash-sales", icon: Zap, label: "التخفيضات السريعة" },
+        { to: "/last-minute-deals", icon: Clock, label: "صفقات اللحظة الأخيرة" },
+        { to: "/partner-rewards", icon: Handshake, label: "مكافآت الشركاء" },
+        { to: "/point-boosters", icon: Zap, label: "معززات النقاط" },
       ]
     },
     {
-      title: "Account",
+      title: "الحساب",
       links: [
-        { to: "/about-us", icon: Info, label: "About Us" },
-        { to: "/checkout", icon: ShoppingCart, label: "Checkout" },
-        { to: "/customer-management", icon: Users, label: "Manage Customers" },
-        { to: "/order-history", icon: Clock, label: "Order History" },
-        { to: "/point-donation", icon: Heart, label: "Donate Points" },
-        { to: "/point-transfer", icon: ArrowRightLeft, label: "Transfer Points" },
-        { to: "/reward-and-scan-system", icon: Scan, label: "Reward & Scan" },
-        { to: "/scan-receipt", icon: CreditCard, label: "Scan Receipt" },
+        { to: "/about-us", icon: Info, label: "من نحن" },
+        { to: "/checkout", icon: ShoppingCart, label: "الدفع" },
+        { to: "/customer-management", icon: Users, label: "إدارة العملاء" },
+        { to: "/order-history", icon: Clock, label: "سجل الطلبات" },
+        { to: "/point-donation", icon: Heart, label: "التبرع بالنقاط" },
+        { to: "/point-transfer", icon: ArrowRightLeft, label: "تحويل النقاط" },
+        { to: "/reward-and-scan-system", icon: Scan, label: "نظام المكافآت والمسح" },
+        { to: "/scan-receipt", icon: CreditCard, label: "مسح الإيصال" },
       ]
     },
   ];
@@ -109,7 +109,7 @@ const Index = () => {
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
       <main className="flex-grow container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-6">Welcome to Loyalty App</h1>
+        <h1 className="text-3xl font-bold mb-6">مرحبًا بك في تطبيق الولاء</h1>
         
         <WelcomeReward />
         
@@ -131,7 +131,7 @@ const Index = () => {
               onClick={() => setShowQuickAccess(!showQuickAccess)}
               className="w-full mb-4"
             >
-              {showQuickAccess ? "Hide Quick Access" : "Show Quick Access"}
+              {showQuickAccess ? "إخفاء الوصول السريع" : "إظهار الوصول السريع"}
             </Button>
           </motion.div>
 
@@ -143,10 +143,10 @@ const Index = () => {
             >
               <Card>
                 <CardContent className="p-6">
-                  <h2 className="text-xl font-semibold mb-4">Quick Access</h2>
+                  <h2 className="text-xl font-semibold mb-4">الوصول السريع</h2>
                   
                   <div className="mb-6">
-                    <h3 className="text-lg font-medium mb-2">Recent Links</h3>
+                    <h3 className="text-lg font-medium mb-2">الروابط الأخيرة</h3>
                     <div className="grid grid-cols-3 gap-4">
                       {recentLinks.map((link, index) => (
                         <QuickAccessLink key={index} {...link} />
