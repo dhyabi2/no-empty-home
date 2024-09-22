@@ -22,6 +22,7 @@ const RewardOverview = lazy(() => import('../components/RewardOverview'));
 const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
 const FeaturedOffers = lazy(() => import('../components/FeaturedOffers'));
 const NearbyShops = lazy(() => import('../components/NearbyShops'));
+const RewardConcierge = lazy(() => import('../components/RewardConcierge'));
 
 const Index = () => {
   const [showConfetti, setShowConfetti] = useState(false);
@@ -36,6 +37,51 @@ const Index = () => {
   const [leaderboard, setLeaderboard] = useState([]);
   const [quickStats, setQuickStats] = useState({});
 
+  useEffect(() => {
+    const fetchData = async () => {
+      // Simulating API calls
+      await Promise.all([
+        new Promise(resolve => setTimeout(() => {
+          setRecentActivity([
+            { id: 1, action: "Earned 50 points", timestamp: "2 hours ago" },
+            { id: 2, action: "Redeemed reward", timestamp: "1 day ago" },
+            { id: 3, action: "Visited Coffee Haven", timestamp: "3 days ago" },
+          ]);
+          resolve();
+        }, 500)),
+        new Promise(resolve => setTimeout(() => {
+          setUpcomingEvents([
+            { id: 1, title: "Double Points Day", date: "2024-04-15" },
+            { id: 2, title: "New Reward Launch", date: "2024-04-20" },
+            { id: 3, title: "Member Exclusive Sale", date: "2024-04-25" },
+          ]);
+          resolve();
+        }, 500)),
+        new Promise(resolve => setTimeout(() => {
+          setLeaderboard([
+            { id: 1, name: "User 1", points: 1000, avatar: "U1" },
+            { id: 2, name: "User 2", points: 950, avatar: "U2" },
+            { id: 3, name: "User 3", points: 900, avatar: "U3" },
+            { id: 4, name: "User 4", points: 850, avatar: "U4" },
+            { id: 5, name: "User 5", points: 800, avatar: "U5" },
+          ]);
+          resolve();
+        }, 500)),
+        new Promise(resolve => setTimeout(() => {
+          setQuickStats({
+            totalPoints: 1250,
+            visitsThisMonth: 8,
+            rewardsRedeemed: 3,
+          });
+          resolve();
+        }, 500)),
+      ]);
+      setIsLoading(false);
+    };
+
+    fetchData();
+  }, []);
+
   const handleEarnReward = useCallback(() => {
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
@@ -43,59 +89,6 @@ const Index = () => {
 
   const toggleSideNav = useCallback(() => {
     setIsSideNavOpen(prev => !prev);
-  }, []);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  useEffect(() => {
-    if (navigator.geolocation && !userLocation) {
-      navigator.geolocation.getCurrentPosition(
-        (position) => setUserLocation({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        }),
-        (error) => console.error("Error getting user location:", error)
-      );
-    }
-  }, [userLocation]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      // Simulating API calls with setTimeout
-      await new Promise(resolve => setTimeout(resolve, 500));
-      setRecentActivity([
-        { id: 1, action: "Earned 50 points", timestamp: "2 hours ago" },
-        { id: 2, action: "Redeemed reward", timestamp: "1 day ago" },
-        { id: 3, action: "Visited Coffee Haven", timestamp: "3 days ago" },
-      ]);
-
-      await new Promise(resolve => setTimeout(resolve, 500));
-      setUpcomingEvents([
-        { id: 1, title: "Double Points Day", date: "2024-04-15" },
-        { id: 2, title: "New Reward Launch", date: "2024-04-20" },
-        { id: 3, title: "Member Exclusive Sale", date: "2024-04-25" },
-      ]);
-
-      await new Promise(resolve => setTimeout(resolve, 500));
-      setLeaderboard([
-        { id: 1, name: "User 1", points: 1000, avatar: "U1" },
-        { id: 2, name: "User 2", points: 950, avatar: "U2" },
-        { id: 3, name: "User 3", points: 900, avatar: "U3" },
-        { id: 4, name: "User 4", points: 850, avatar: "U4" },
-        { id: 5, name: "User 5", points: 800, avatar: "U5" },
-      ]);
-
-      setQuickStats({
-        totalPoints: 1250,
-        visitsThisMonth: 8,
-        rewardsRedeemed: 3,
-      });
-    };
-
-    fetchData();
   }, []);
 
   return (
@@ -123,6 +116,8 @@ const Index = () => {
             <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
             <Separator />
             <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
+            <Separator />
+            <RewardConciergeSection />
           </div>
         </main>
       </div>
@@ -296,6 +291,12 @@ const EventsAndLeaderboardSection = React.memo(({ upcomingEvents, leaderboard })
       </CardContent>
     </Card>
   </div>
+));
+
+const RewardConciergeSection = React.memo(() => (
+  <Suspense fallback={<div>Loading Reward Concierge...</div>}>
+    <RewardConcierge />
+  </Suspense>
 ));
 
 export default Index;
