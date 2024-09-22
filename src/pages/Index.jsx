@@ -7,6 +7,7 @@ import WelcomeReward from '../components/WelcomeReward';
 import ShopVisitGameElement from '../components/ShopVisitGameElement';
 import PersonalizedShopRecommendations from '../components/PersonalizedShopRecommendations';
 import PointBoosters from '../components/PointBoosters';
+import RewardConcierge from '../components/RewardConcierge';
 import { Link } from 'react-router-dom';
 import { MapPin, Gift, Coffee, Zap } from "lucide-react";
 
@@ -25,6 +26,8 @@ const Index = () => {
           <PersonalizedShopRecommendations />
           
           <PointBoosters />
+          
+          <RewardConcierge />
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
