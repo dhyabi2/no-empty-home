@@ -15,6 +15,7 @@ import RewardConcierge from '../components/RewardConcierge';
 import SocialSharing from '../components/SocialSharing';
 import GamifiedChallenges from '../components/GamifiedChallenges';
 import VirtualLoyaltyCard from '../components/VirtualLoyaltyCard';
+import FloatingActionButton from '../components/FloatingActionButton';
 import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake, Heart, Glasses, ArrowRightLeft } from "lucide-react";
 
 const QuickAccessLink = ({ to, icon: Icon, label }) => (
@@ -31,6 +32,7 @@ const QuickAccessLink = ({ to, icon: Icon, label }) => (
 
 const Index = () => {
   const [recentLinks, setRecentLinks] = useState([]);
+  const [showQuickAccess, setShowQuickAccess] = useState(false);
 
   useEffect(() => {
     // Simulating fetching recent links from local storage or API
@@ -120,44 +122,66 @@ const Index = () => {
           <GamifiedChallenges />
           <VirtualLoyaltyCard />
           
-          <Card>
-            <CardContent className="p-6">
-              <h2 className="text-xl font-semibold mb-4">Quick Access</h2>
-              
-              <div className="mb-6">
-                <h3 className="text-lg font-medium mb-2">Recent Links</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {recentLinks.map((link, index) => (
-                    <QuickAccessLink key={index} {...link} />
-                  ))}
-                </div>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <Button
+              onClick={() => setShowQuickAccess(!showQuickAccess)}
+              className="w-full mb-4"
+            >
+              {showQuickAccess ? "Hide Quick Access" : "Show Quick Access"}
+            </Button>
+          </motion.div>
 
-              <Tabs defaultValue="rewards">
-                <TabsList className="mb-4 flex flex-wrap">
-                  {quickLinkSections.map((section) => (
-                    <TabsTrigger key={section.title} value={section.title.toLowerCase()}>
-                      {section.title}
-                    </TabsTrigger>
-                  ))}
-                </TabsList>
-                {quickLinkSections.map((section) => (
-                  <TabsContent key={section.title} value={section.title.toLowerCase()}>
-                    <ScrollArea className="h-72">
-                      <div className="grid grid-cols-3 gap-4">
-                        {section.links.map((link, index) => (
-                          <QuickAccessLink key={index} {...link} />
-                        ))}
-                      </div>
-                    </ScrollArea>
-                  </TabsContent>
-                ))}
-              </Tabs>
-            </CardContent>
-          </Card>
+          {showQuickAccess && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+            >
+              <Card>
+                <CardContent className="p-6">
+                  <h2 className="text-xl font-semibold mb-4">Quick Access</h2>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-lg font-medium mb-2">Recent Links</h3>
+                    <div className="grid grid-cols-3 gap-4">
+                      {recentLinks.map((link, index) => (
+                        <QuickAccessLink key={index} {...link} />
+                      ))}
+                    </div>
+                  </div>
+
+                  <Tabs defaultValue="rewards">
+                    <TabsList className="mb-4 flex flex-wrap">
+                      {quickLinkSections.map((section) => (
+                        <TabsTrigger key={section.title} value={section.title.toLowerCase()}>
+                          {section.title}
+                        </TabsTrigger>
+                      ))}
+                    </TabsList>
+                    {quickLinkSections.map((section) => (
+                      <TabsContent key={section.title} value={section.title.toLowerCase()}>
+                        <ScrollArea className="h-72">
+                          <div className="grid grid-cols-3 gap-4">
+                            {section.links.map((link, index) => (
+                              <QuickAccessLink key={index} {...link} />
+                            ))}
+                          </div>
+                        </ScrollArea>
+                      </TabsContent>
+                    ))}
+                  </Tabs>
+                </CardContent>
+              </Card>
+            </motion.div>
+          )}
         </div>
       </main>
       <Footer />
+      <FloatingActionButton />
     </div>
   );
 };
