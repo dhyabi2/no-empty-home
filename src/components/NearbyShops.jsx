@@ -24,7 +24,7 @@ const NearbyShops = ({ isLoading, nearbyShops }) => {
             </Card>
           ))}
         </div>
-      ) : (
+      ) : nearbyShops && nearbyShops.length > 0 ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {nearbyShops.map((shop) => (
             <Card key={shop.id}>
@@ -47,6 +47,8 @@ const NearbyShops = ({ isLoading, nearbyShops }) => {
             </Card>
           ))}
         </div>
+      ) : (
+        <p>No nearby shops found.</p>
       )}
     </section>
   );
