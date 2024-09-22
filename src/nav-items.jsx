@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -26,6 +26,7 @@ import RewardSharing from "./pages/RewardSharing.jsx";
 import RewardCategories from "./pages/RewardCategories.jsx";
 import PointBoosters from "./pages/PointBoosters.jsx";
 import RewardBundles from "./pages/RewardBundles.jsx";
+import PointTransfer from "./pages/PointTransfer.jsx";
 
 export const navItems = [
   {
@@ -189,5 +190,11 @@ export const navItems = [
     to: "/reward-bundles",
     icon: <Package className="h-4 w-4" />,
     page: <RewardBundles />,
+  },
+  {
+    title: "Point Transfer",
+    to: "/point-transfer",
+    icon: <ArrowRightLeft className="h-4 w-4" />,
+    page: <PointTransfer />,
   },
 ];

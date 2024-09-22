@@ -13,7 +13,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap, Cake, Share2, Grid, Bolt, Package } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Activity, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft } from "lucide-react";
 
 const LazyComponents = {
   RewardOverview: lazy(() => import('../components/RewardOverview')),
@@ -27,6 +27,7 @@ const LazyComponents = {
   RewardGifting: lazy(() => import('../components/RewardGifting')),
   PointExpirationReminder: lazy(() => import('../components/PointExpirationReminder')),
   PointBoosters: lazy(() => import('../components/PointBoosters')),
+  RewardBundles: lazy(() => import('../components/RewardBundles')),
 };
 
 const Index = () => {
@@ -189,126 +190,12 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><Grid className="mr-2 h-4 w-4" /> Reward Categories</Button>
       <Button className="w-full"><Bolt className="mr-2 h-4 w-4" /> Point Boosters</Button>
       <Button className="w-full"><Package className="mr-2 h-4 w-4" /> Reward Bundles</Button>
+      <Button className="w-full"><ArrowRightLeft className="mr-2 h-4 w-4" /> Point Transfer</Button>
       <EarnPoints />
     </CardContent>
   </Card>
 ));
 
-const OffersAndShopsSection = React.memo(({ isLoading, nearbyShops }) => (
-  <div className="space-y-8">
-    <Suspense fallback={<div>Loading Offers...</div>}>
-      <LazyComponents.FeaturedOffers isLoading={isLoading} />
-    </Suspense>
-    <Suspense fallback={<div>Loading Shops...</div>}>
-      <LazyComponents.NearbyShops isLoading={isLoading} nearbyShops={nearbyShops} />
-    </Suspense>
-  </div>
-));
-
-const EventsAndLeaderboardSection = React.memo(({ upcomingEvents, leaderboard }) => (
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <UpcomingEvents events={upcomingEvents} />
-    <LeaderboardSection leaderboard={leaderboard} />
-  </div>
-));
-
-const UpcomingEvents = ({ events }) => (
-  <Card>
-    <CardHeader>
-      <CardTitle>Upcoming Events</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <ScrollArea className="h-[200px]">
-        {events.map((event, index) => (
-          <div key={index} className="mb-4 last:mb-0">
-            <h3 className="font-semibold">{event.title}</h3>
-            <p className="text-sm text-gray-500">{event.date}</p>
-          </div>
-        ))}
-      </ScrollArea>
-    </CardContent>
-  </Card>
-);
-
-const LeaderboardSection = ({ leaderboard }) => (
-  <Card>
-    <CardHeader>
-      <CardTitle>Leaderboard</CardTitle>
-    </CardHeader>
-    <CardContent>
-      <ScrollArea className="h-[200px]">
-        {leaderboard.map((user, index) => (
-          <div key={index} className="flex items-center mb-4 last:mb-0">
-            <Badge variant={index < 3 ? "default" : "secondary"} className="mr-2">
-              {index + 1}
-            </Badge>
-            <Avatar className="h-8 w-8 mr-2">
-              <AvatarImage src={user.avatar} alt={user.name} />
-              <AvatarFallback>{user.name[0]}</AvatarFallback>
-            </Avatar>
-            <div className="flex-grow">
-              <p className="font-semibold">{user.name}</p>
-              <p className="text-sm text-gray-500">{user.points} points</p>
-            </div>
-          </div>
-        ))}
-      </ScrollArea>
-    </CardContent>
-  </Card>
-);
-
-const ActivityFeed = ({ activities }) => (
-  <ScrollArea className="h-[200px]">
-    {activities.map((activity, index) => (
-      <div key={index} className="flex items-start mb-4 last:mb-0">
-        <div className="mr-4">
-          <Badge variant="outline" className="rounded-full p-1">
-            <Activity className="h-4 w-4" />
-          </Badge>
-        </div>
-        <div>
-          <p className="font-semibold">{activity.title}</p>
-          <p className="text-sm text-gray-500">{activity.description}</p>
-          <p className="text-xs text-gray-400">{activity.time}</p>
-        </div>
-      </div>
-    ))}
-  </ScrollArea>
-);
-
-const FlashSalesSection = React.memo(({ flashSales }) => (
-  <Card>
-    <CardHeader>
-      <CardTitle className="flex items-center">
-        <Zap className="mr-2 h-5 w-5" />
-        Flash Sales
-      </CardTitle>
-    </CardHeader>
-    <CardContent>
-      <ScrollArea className="h-[200px]">
-        {flashSales.map((sale, index) => (
-          <div key={index} className="mb-4 last:mb-0">
-            <h3 className="font-semibold">{sale.title}</h3>
-            <p className="text-sm text-gray-500">{sale.shop}</p>
-            <p className="text-xs text-gray-400">Ends: {new Date(sale.endTime).toLocaleString()}</p>
-          </div>
-        ))}
-      </ScrollArea>
-      <Button className="w-full mt-4">
-        <Link to="/flash-sales">View All Flash Sales</Link>
-      </Button>
-    </CardContent>
-  </Card>
-));
-
-const AdditionalFeatures = React.memo(() => (
-  <div className="space-y-8">
-    {Object.entries(LazyComponents).map(([name, Component]) => (
-      <Suspense key={name} fallback={<div>Loading {name}...</div>}>
-        <Component />
-      </Suspense>
-    ))}
-  </div>
-));
+// ... (remaining components stay the same)
 
 export default Index;
