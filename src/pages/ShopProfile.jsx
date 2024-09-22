@@ -1,57 +1,71 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { MapPin, Phone, Globe, Clock } from "lucide-react";
+import { Star, MapPin, Phone, Globe, Menu } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ShopRewardLevels from '../components/ShopRewardLevels';
 
 const ShopProfile = () => {
   const shop = {
-    id: 1,
     name: "Coffee Haven",
-    category: "Cafe",
+    rating: 4.5,
     address: "123 Main St, Cityville",
     phone: "+1 234 567 8900",
-    website: "www.coffeehaven.com",
-    hours: "Mon-Fri: 7am-8pm, Sat-Sun: 8am-7pm",
+    website: "www.coffeehaven.com"
+  };
+
+  const handleLeaveReview = () => {
+    alert('Review submitted successfully!');
+  };
+
+  const handleViewMenu = () => {
+    alert('Viewing shop menu/products');
+  };
+
+  const handleGetDirections = () => {
+    alert('Opening maps app for directions');
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <Card className="mb-8">
+      <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <Card>
           <CardHeader>
             <CardTitle>{shop.name}</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm text-gray-500 mb-4">{shop.category}</p>
-            <div className="space-y-2">
-              <p className="flex items-center">
-                <MapPin className="h-4 w-4 mr-2" />
-                {shop.address}
-              </p>
-              <p className="flex items-center">
-                <Phone className="h-4 w-4 mr-2" />
-                {shop.phone}
-              </p>
-              <p className="flex items-center">
-                <Globe className="h-4 w-4 mr-2" />
-                {shop.website}
-              </p>
-              <p className="flex items-center">
-                <Clock className="h-4 w-4 mr-2" />
-                {shop.hours}
-              </p>
+            <div className="flex items-center mb-4">
+              <Star className="h-5 w-5 text-yellow-500 mr-1" />
+              <span>{shop.rating}</span>
             </div>
-            <div className="mt-6">
-              <Button>View Offers</Button>
+            <p className="flex items-center mb-2">
+              <MapPin className="h-4 w-4 mr-2" />
+              {shop.address}
+            </p>
+            <p className="flex items-center mb-2">
+              <Phone className="h-4 w-4 mr-2" />
+              {shop.phone}
+            </p>
+            <p className="flex items-center mb-4">
+              <Globe className="h-4 w-4 mr-2" />
+              {shop.website}
+            </p>
+            <div className="space-y-2">
+              <Button onClick={handleLeaveReview} className="w-full">
+                Leave a Review
+              </Button>
+              <Button onClick={handleViewMenu} className="w-full">
+                <Menu className="mr-2 h-4 w-4" />
+                View Menu/Products
+              </Button>
+              <Button onClick={handleGetDirections} className="w-full">
+                <MapPin className="mr-2 h-4 w-4" />
+                Get Directions
+              </Button>
             </div>
           </CardContent>
         </Card>
-        
-        <ShopRewardLevels shopName={shop.name} />
       </main>
       <Footer />
     </div>

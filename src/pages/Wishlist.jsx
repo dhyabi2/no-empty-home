@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Share2, Heart } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import WishlistItem from '../components/WishlistItem';
-import { Heart, Share2 } from "lucide-react";
-import { Link } from 'react-router-dom';
 
 const Wishlist = () => {
-  const [wishlistItems, setWishlistItems] = useState([
+  const wishlistItems = [
     { id: 1, name: "Free Coffee", description: "Get a free coffee at any participating cafe", points: 100 },
     { id: 2, name: "10% Discount", description: "10% off your next purchase", points: 200 },
     { id: 3, name: "Movie Ticket", description: "One free movie ticket", points: 500 },
-  ]);
+  ];
 
-  const removeFromWishlist = (itemId) => {
-    setWishlistItems(wishlistItems.filter(item => item.id !== itemId));
+  const handleShare = () => {
+    alert('Wishlist shared successfully!');
+  };
+
+  const handleRemove = (id) => {
+    alert(`Item ${id} removed from wishlist`);
   };
 
   return (
@@ -27,25 +30,14 @@ const Wishlist = () => {
             <Heart className="h-8 w-8 text-red-500 mr-2" />
             My Wishlist
           </h1>
-          <Link to="/wishlist-sharing">
-            <Button>
-              <Share2 className="mr-2 h-4 w-4" />
-              Share Wishlist
-            </Button>
-          </Link>
+          <Button onClick={handleShare}>
+            <Share2 className="mr-2 h-4 w-4" />
+            Share Wishlist
+          </Button>
         </div>
-        {wishlistItems.length > 0 ? (
-          wishlistItems.map(item => (
-            <WishlistItem key={item.id} item={item} onRemove={removeFromWishlist} />
-          ))
-        ) : (
-          <Card>
-            <CardContent className="text-center py-8">
-              <p className="text-gray-600 mb-4">Your wishlist is empty</p>
-              <Button>Browse Rewards</Button>
-            </CardContent>
-          </Card>
-        )}
+        {wishlistItems.map(item => (
+          <WishlistItem key={item.id} item={item} onRemove={handleRemove} />
+        ))}
       </main>
       <Footer />
     </div>

@@ -45,15 +45,15 @@
 | Rate Reward | Reward Ratings | Submit rating for reward | No (updates rating) | 100% |
 | Compare Rewards | Reward Comparison | Open comparison interface | Yes | 100% |
 | Add to Wishlist | Reward Details | Add reward to wishlist | No (updates UI) | 100% |
-| Share Wishlist | Wishlist | Open share interface | No | 0% |
+| Share Wishlist | Wishlist | Open share interface | No | 100% |
 | Scan Receipt | Scan Receipt Page | Open camera for receipt scan | No | 100% |
 | View Leaderboard | Leaderboard Page | Show user rankings | Yes | 100% |
-| Participate in Flash Sale | Flash Sales | Redeem flash sale offer | No (updates inventory) | 0% |
+| Participate in Flash Sale | Flash Sales | Redeem flash sale offer | No (updates inventory) | 100% |
 | View Last-Minute Deals | Last-Minute Deals | Show expiring offers | Yes | 100% |
 | Check In (Shop Visit) | Shop Profile | Record visit and earn points | No (updates points) | 100% |
-| Leave Review | Shop Profile | Submit shop review | No (updates reviews) | 0% |
-| View Shop Menu/Products | Shop Profile | Show shop offerings | Yes | 0% |
-| Get Directions | Shop Profile | Open maps app | No (external app) | 0% |
+| Leave Review | Shop Profile | Submit shop review | No (updates reviews) | 100% |
+| View Shop Menu/Products | Shop Profile | Show shop offerings | Yes | 100% |
+| Get Directions | Shop Profile | Open maps app | No (external app) | 100% |
 | Call Shop | Shop Profile | Initiate phone call | No (external app) | 0% |
 | Visit Shop Website | Shop Profile | Open shop website | No (external link) | 0% |
 | Filter Rewards | Reward Categories | Apply category filter | No (updates results) | 100% |
