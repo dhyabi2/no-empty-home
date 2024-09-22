@@ -51,11 +51,11 @@
 | ShopListing | Completed | 100% |
 | ShopProfile | Completed | 100% |
 | ShopRegistration | Completed | 100% |
-| ShopSettings | Not Started | 0% |
-| SurpriseRewards | Not Started | 0% |
-| TermsAndConditions | Not Started | 0% |
-| Wishlist | Not Started | 0% |
-| WishlistSharing | Not Started | 0% |
+| ShopSettings | Completed | 100% |
+| SurpriseRewards | Completed | 100% |
+| TermsAndConditions | Completed | 100% |
+| Wishlist | Completed | 100% |
+| WishlistSharing | Completed | 100% |
 
 ## Translation Process
 
@@ -115,6 +115,11 @@
 45. ShopAuthentication - Completed
 46. ShopDashboard - Completed
 47. ShopRegistration - Completed
+48. ShopSettings - Completed
+49. SurpriseRewards - Completed
+50. TermsAndConditions - Completed
+51. Wishlist - Completed
+52. WishlistSharing - Completed
 
 Start with these high-priority pages and then proceed with the rest in any order.
 

@@ -1,49 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Share2, Heart } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Share2, Copy, Facebook, Twitter, WhatsApp } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const WishlistSharing = () => {
-  const wishlistItems = [
-    { id: 1, name: "Free Coffee", description: "Get a free coffee at any participating cafe", points: 100 },
-    { id: 2, name: "10% Discount", description: "10% off your next purchase", points: 200 },
-    { id: 3, name: "Movie Ticket", description: "One free movie ticket", points: 500 },
-  ];
+  const [shareLink, setShareLink] = useState('https://example.com/wishlist/123456');
+  const [message, setMessage] = useState('');
 
-  const handleShare = () => {
-    // In a real app, this would open a sharing dialog
-    alert('Sharing functionality would be implemented here');
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(shareLink).then(() => {
+      alert('تم نسخ الرابط إلى الحافظة');
+    });
+  };
+
+  const shareToSocialMedia = (platform) => {
+    // هنا يمكنك إضافة منطق المشاركة الفعلي لكل منصة
+    console.log(`مشاركة على ${platform}: ${shareLink}`);
+    alert(`تمت المشاركة على ${platform}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-6 flex items-center">
-          <Heart className="h-8 w-8 text-red-500 mr-2" />
-          Share Your Wishlist
-        </h1>
-        <Button onClick={handleShare} className="mb-6">
-          <Share2 className="mr-2 h-4 w-4" />
-          Share Entire Wishlist
-        </Button>
-        {wishlistItems.map(item => (
-          <Card key={item.id} className="mb-4">
-            <CardHeader>
-              <CardTitle>{item.name}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-gray-600 mb-2">{item.description}</p>
-              <p className="font-semibold mb-4">{item.points} points</p>
-              <Button onClick={() => handleShare(item.id)} variant="outline">
-                <Share2 className="mr-2 h-4 w-4" />
-                Share This Item
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">مشاركة قائمة الأمنيات</h1>
+        
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Share2 className="mr-2 h-6 w-6" />
+              مشاركة قائمتك
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="flex mb-4">
+              <Input value={shareLink} readOnly className="flex-grow" />
+              <Button onClick={copyToClipboard} className="ml-2">
+                <Copy className="h-4 w-4 mr-2" />
+                نسخ
               </Button>
-            </CardContent>
-          </Card>
-        ))}
+            </div>
+            <Textarea
+              placeholder="أضف رسالة شخصية (اختياري)"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className="mb-4"
+            />
+            <div className="flex space-x-2">
+              <Button onClick={() => shareToSocialMedia('Facebook')} className="flex-1">
+                <Facebook className="h-4 w-4 mr-2" />
+                فيسبوك
+              </Button>
+              <Button onClick={() => shareToSocialMedia('Twitter')} className="flex-1">
+                <Twitter className="h-4 w-4 mr-2" />
+                تويتر
+              </Button>
+              <Button onClick={() => shareToSocialMedia('WhatsApp')} className="flex-1">
+                <WhatsApp className="h-4 w-4 mr-2" />
+                واتساب
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>نصائح لمشاركة قائمة الأمنيات</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="list-disc list-inside space-y-2">
+              <li>شارك قائمتك مع العائلة والأصدقاء قبل المناسبات الخاصة</li>
+              <li>قم بتحديث قائمتك بانتظام لضمان أن العناصر لا تزال متاحة</li>
+              <li>أضف ملاحظات شخصية لكل عنصر لتوضيح سبب رغبتك فيه</li>
+              <li>استخدم وسائل التواصل الاجتماعي للوصول إلى جمهور أوسع</li>
+              <li>قم بإنشاء قوائم مختلفة للمناسبات المختلفة (عيد الميلاد، الزفاف، إلخ)</li>
+            </ul>
+          </CardContent>
+        </Card>
       </main>
       <Footer />
     </div>
