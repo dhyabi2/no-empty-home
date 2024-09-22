@@ -42,7 +42,7 @@
 57. Develop an "Exclusive Events" page for loyalty program members (Completed Percentage: 100%)
 58. Create a "Nearby Offers" map view with geolocation (Completed Percentage: 100%)
 59. Implement a "Scan Receipt" feature for point collection (Completed Percentage: 100%)
-60. Next-to-do: Develop a "Favorite Shops" page for quick access (Completed Percentage: 0%)
+60. Develop a "Favorite Shops" page for quick access (Completed Percentage: 100%)
 61. Next-to-do: Create a "Point Expiration" reminder system (Completed Percentage: 0%)
 62. Next-to-do: Implement a "Reward Customization" feature for personalized gifts (Completed Percentage: 0%)
 63. Next-to-do: Develop a "Flash Sales" page for limited-time offers (Completed Percentage: 0%)
