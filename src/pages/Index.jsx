@@ -6,7 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import BottomNavigation from '../components/BottomNavigation';
 import WelcomeReward from '../components/WelcomeReward';
 import ShopVisitGameElement from '../components/ShopVisitGameElement';
 import PersonalizedShopRecommendations from '../components/PersonalizedShopRecommendations';
@@ -108,7 +108,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow container mx-auto px-4 py-8">
+      <main className="flex-grow container mx-auto px-4 py-8 pb-20">
         <h1 className="text-3xl font-bold mb-6">مرحبًا بك في تطبيق الولاء</h1>
         
         <WelcomeReward />
@@ -180,7 +180,7 @@ const Index = () => {
           )}
         </div>
       </main>
-      <Footer />
+      <BottomNavigation />
       <FloatingActionButton />
     </div>
   );
