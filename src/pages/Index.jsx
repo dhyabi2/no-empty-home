@@ -27,7 +27,7 @@ const LazyComponents = {
   RewardGifting: lazy(() => import('../components/RewardGifting')),
   PointExpirationReminder: lazy(() => import('../components/PointExpirationReminder')),
   PointBoosters: lazy(() => import('../components/PointBoosters')),
-  RewardBundles: lazy(() => import('../components/RewardBundles')),
+  RewardBundles: lazy(() => import('../pages/RewardBundles'))
 };
 
 const Index = () => {
