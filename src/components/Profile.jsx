@@ -8,6 +8,10 @@ import { Progress } from "@/components/ui/progress";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { format } from "date-fns";
+import { Calendar as CalendarIcon } from "lucide-react";
 
 const Profile = () => {
   const [profileData, setProfileData] = useState({
@@ -15,6 +19,7 @@ const Profile = () => {
     email: 'john.doe@example.com',
     avatar: 'https://api.dicebear.com/6.x/avataaars/svg?seed=John',
     interests: [],
+    birthday: new Date(),
   });
 
   const interests = ['Shopping', 'Dining', 'Entertainment', 'Travel', 'Technology'];
@@ -30,10 +35,11 @@ const Profile = () => {
 
   const profileCompleteness = () => {
     let score = 0;
-    if (profileData.name) score += 25;
-    if (profileData.email) score += 25;
-    if (profileData.avatar) score += 25;
-    if (profileData.interests.length > 0) score += 25;
+    if (profileData.name) score += 20;
+    if (profileData.email) score += 20;
+    if (profileData.avatar) score += 20;
+    if (profileData.interests.length > 0) score += 20;
+    if (profileData.birthday) score += 20;
     return score;
   };
 
@@ -60,6 +66,31 @@ const Profile = () => {
   const handleEditPaymentMethod = () => {
     alert("Payment method updated successfully!");
     // In a real app, this would update the user's payment method
+  };
+
+  const handleSetBirthday = (date) => {
+    setProfileData(prev => ({ ...prev, birthday: date }));
+    alert("Birthday set successfully!");
+  };
+
+  const handleEnableNotifications = () => {
+    alert("Notifications enabled successfully!");
+    // In a real app, this would update the user's notification preferences
+  };
+
+  const handleClearSearchHistory = () => {
+    alert("Search history cleared successfully!");
+    // In a real app, this would clear the user's search history
+  };
+
+  const handleReportIssue = () => {
+    alert("Issue reported successfully!");
+    // In a real app, this would submit a support ticket
+  };
+
+  const handleLiveChatSupport = () => {
+    alert("Live chat support initiated!");
+    // In a real app, this would open a live chat interface
   };
 
   return (
@@ -138,6 +169,25 @@ const Profile = () => {
               ))}
             </div>
           </div>
+          <div>
+            <Label>Birthday</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" className="w-full justify-start text-left font-normal mt-2">
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {profileData.birthday ? format(profileData.birthday, "PPP") : <span>Pick a date</span>}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0">
+                <Calendar
+                  mode="single"
+                  selected={profileData.birthday}
+                  onSelect={handleSetBirthday}
+                  initialFocus
+                />
+              </PopoverContent>
+            </Popover>
+          </div>
         </div>
 
         <div className="space-y-2">
@@ -145,6 +195,10 @@ const Profile = () => {
           <Button className="w-full" onClick={handleChangePassword}>Change Password</Button>
           <Button className="w-full" onClick={handleUpdateEmail}>Update Email</Button>
           <Button className="w-full" onClick={handleEditPaymentMethod}>Edit Payment Method</Button>
+          <Button className="w-full" onClick={handleEnableNotifications}>Enable Notifications</Button>
+          <Button className="w-full" onClick={handleClearSearchHistory}>Clear Search History</Button>
+          <Button className="w-full" onClick={handleReportIssue}>Report an Issue</Button>
+          <Button className="w-full" onClick={handleLiveChatSupport}>Live Chat Support</Button>
           <AlertDialog>
             <AlertDialogTrigger asChild>
               <Button variant="destructive" className="w-full">Delete Account</Button>
