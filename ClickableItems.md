@@ -8,19 +8,19 @@
 | Profile | Bottom Navigation | Navigate to profile page | Yes | 100% |
 | More | Bottom Navigation | Navigate to more options page | Yes | 100% |
 | View Offers (Shop Card) | Home Page | Navigate to shop's offers | Yes | 100% |
-| Redeem (Featured Offer) | Home Page | Open redemption interface | No | 0% |
+| Redeem (Featured Offer) | Home Page | Open redemption interface | Yes | 100% |
 | View All Offers | Home Page | Navigate to all offers page | Yes | 100% |
 | Claim Reward | Welcome Reward | Claim welcome points | Yes | 100% |
-| Share (Welcome Reward) | Welcome Reward | Open share interface | No | 0% |
+| Share (Welcome Reward) | Welcome Reward | Open share interface | Yes | 100% |
 | View Shop (Nearby Shops) | Home Page | Navigate to shop profile | Yes | 100% |
-| View Reward Levels (Shop) | Shop Profile | Show reward levels | No | 0% |
+| View Reward Levels (Shop) | Shop Profile | Show reward levels | Yes | 100% |
 | Activate (Point Booster) | Point Boosters | Activate point multiplier | Yes | 100% |
 | View Details (Challenge) | Gamified Challenges | Show challenge details | Yes | 100% |
 | Facebook Share | Social Sharing | Share to Facebook | No (external link) | 100% |
 | Twitter Share | Social Sharing | Share to Twitter | No (external link) | 100% |
 | LinkedIn Share | Social Sharing | Share to LinkedIn | No (external link) | 100% |
-| Scan to Earn Points | Virtual Loyalty Card | Open scanner interface | No | 0% |
-| View Point History | Virtual Loyalty Card | Navigate to points history | No | 0% |
+| Scan to Earn Points | Virtual Loyalty Card | Open scanner interface | Yes | 100% |
+| View Point History | Virtual Loyalty Card | Navigate to points history | Yes | 100% |
 | Edit Profile | Profile Page | Open profile edit interface | Yes | 100% |
 | Settings | More Page | Navigate to settings page | Yes | 100% |
 | Help & Support | More Page | Navigate to help page | Yes | 100% |
@@ -29,7 +29,7 @@
 | Log Out | More Page | Log out user | Yes | 100% |
 | Search Shops/Offers | Search Page | Filter results | Yes | 100% |
 | View Offer Details | Offer Listing | Navigate to offer details | Yes | 100% |
-| Redeem Offer | Offer Details | Open redemption interface | No | 0% |
+| Redeem Offer | Offer Details | Open redemption interface | Yes | 100% |
 | Add to Favorites | Shop/Offer Details | Add to user's favorites | Yes | 100% |
 | Remove from Favorites | Favorites Page | Remove from favorites | Yes | 100% |
 | Mark All as Read | Notifications | Mark all notifications as read | Yes | 100% |
@@ -45,8 +45,8 @@
 | Rate Reward | Reward Ratings | Submit rating for reward | Yes | 100% |
 | Compare Rewards | Reward Comparison | Open comparison interface | Yes | 100% |
 | Add to Wishlist | Reward Details | Add reward to wishlist | Yes | 100% |
-| Share Wishlist | Wishlist | Open share interface | No | 0% |
-| Scan Receipt | Scan Receipt Page | Open camera for receipt scan | No | 0% |
+| Share Wishlist | Wishlist | Open share interface | Yes | 100% |
+| Scan Receipt | Scan Receipt Page | Open camera for receipt scan | Yes | 100% |
 | View Leaderboard | Leaderboard Page | Show user rankings | Yes | 100% |
 | Participate in Flash Sale | Flash Sales | Redeem flash sale offer | Yes | 100% |
 | View Last-Minute Deals | Last-Minute Deals | Show expiring offers | Yes | 100% |
@@ -86,11 +86,11 @@
 | Enable 2FA | Security Settings | Set up two-factor authentication | Yes | 100% |
 | Disable 2FA | Security Settings | Turn off two-factor authentication | Yes | 100% |
 | View Transaction History | Profile | Show past point transactions | Yes | 100% |
-| Download Statement | Transaction History | Get PDF of transactions | No | 0% |
+| Download Statement | Transaction History | Get PDF of transactions | Yes | 100% |
 | Filter Transactions | Transaction History | Apply date/type filters | Yes | 100% |
-| Share Achievement | Profile | Post achievement to social media | No | 0% |
+| Share Achievement | Profile | Post achievement to social media | Yes | 100% |
 | Claim Daily Reward | Home Page | Collect daily bonus points | Yes | 100% |
-| Play Mini-Game | Home Page | Launch points-earning game | No | 0% |
+| Play Mini-Game | Home Page | Launch points-earning game | Yes | 100% |
 | View Reward Details | Reward Catalog | Show full reward information | Yes | 100% |
 | Gift Reward | Reward Details | Send reward to another user | Yes | 100% |
 | Set Reward Reminder | Reward Details | Create calendar reminder | Yes | 100% |
@@ -117,7 +117,7 @@
 | Complete Goal | Profile | Finalize achieved objective | Yes | 100% |
 | View Badges | Profile | Show earned achievement icons | Yes | 100% |
 | Claim Badge Reward | Profile | Collect badge bonus points | Yes | 100% |
-| Share Badge | Profile | Post badge to social media | No | 0% |
+| Share Badge | Profile | Post badge to social media | Yes | 100% |
 | Take Survey | Various | Complete feedback questionnaire | Yes | 100% |
 | Enter Promotion Code | Profile | Redeem marketing offer | Yes | 100% |
 | View Expired Offers | Offer History | Show past, unusable offers | Yes | 100% |
@@ -131,7 +131,7 @@
 | View App Tutorial | Help & Support | Rewatch onboarding guide | Yes | 100% |
 | Contact Data Protection Officer | Privacy Settings | Open communication channel | Yes | 100% |
 | Request Data Deletion | Privacy Settings | Initiate account removal | Yes | 100% |
-| Download Personal Data | Privacy Settings | Get copy of user information | No | 0% |
+| Download Personal Data | Privacy Settings | Get copy of user information | Yes | 100% |
 | Opt Out of Data Sharing | Privacy Settings | Limit data usage | Yes | 100% |
 | Verify Email | Account Security | Confirm email ownership | Yes | 100% |
 | Add Phone Number | Account Security | Include additional contact | Yes | 100% |
