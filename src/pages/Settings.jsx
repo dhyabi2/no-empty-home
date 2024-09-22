@@ -2,7 +2,8 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Bell, Lock, Globe, Moon, Sun, LogOut } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
@@ -10,47 +11,84 @@ const Settings = () => {
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Settings</h1>
-        <div className="space-y-6">
-          <Card>
-            <CardHeader>
-              <CardTitle>Notification Preferences</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="push-notifications">Push Notifications</Label>
-                <Switch id="push-notifications" />
-              </div>
-              <div className="flex items-center justify-between">
-                <Label htmlFor="email-notifications">Email Notifications</Label>
-                <Switch id="email-notifications" />
-              </div>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Account Settings</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <Button variant="outline" className="w-full">Change Password</Button>
-              <Button variant="outline" className="w-full">Update Email</Button>
-              <Button variant="outline" className="w-full">Manage Linked Accounts</Button>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Privacy Settings</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="data-sharing">Data Sharing</Label>
-                <Switch id="data-sharing" />
-              </div>
-              <Button variant="outline" className="w-full">Manage Data</Button>
-            </CardContent>
-          </Card>
-        </div>
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">الإعدادات</h1>
+        
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Bell className="ml-2 h-5 w-5" />
+              الإشعارات
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span>إشعارات الدفع</span>
+              <Switch />
+            </div>
+            <div className="flex items-center justify-between">
+              <span>إشعارات العروض الجديدة</span>
+              <Switch />
+            </div>
+            <div className="flex items-center justify-between">
+              <span>تذكيرات انتهاء صلاحية النقاط</span>
+              <Switch />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Lock className="ml-2 h-5 w-5" />
+              الأمان
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Button variant="outline" className="w-full">تغيير كلمة المرور</Button>
+            <Button variant="outline" className="w-full">تفعيل المصادقة الثنائية</Button>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Globe className="ml-2 h-5 w-5" />
+              اللغة
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Select defaultValue="ar">
+              <SelectTrigger>
+                <SelectValue placeholder="اختر اللغة" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="ar">العربية</SelectItem>
+                <SelectItem value="en">English</SelectItem>
+              </SelectContent>
+            </Select>
+          </CardContent>
+        </Card>
+
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle className="flex items-center">
+              <Sun className="ml-2 h-5 w-5" />
+              المظهر
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="flex items-center justify-between">
+              <span>الوضع الداكن</span>
+              <Switch />
+            </div>
+          </CardContent>
+        </Card>
+
+        <Button variant="destructive" className="w-full">
+          <LogOut className="ml-2 h-5 w-5" />
+          تسجيل الخروج
+        </Button>
       </main>
       <Footer />
     </div>

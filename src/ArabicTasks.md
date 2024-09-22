@@ -42,15 +42,15 @@
 | RewardRatings | Completed | 100% |
 | RewardSharing | Completed | 100% |
 | RewardShowcase | Completed | 100% |
-| RewardSubscription | Not Started | 0% |
-| ScanReceipt | Not Started | 0% |
-| Search | Not Started | 0% |
-| Settings | Not Started | 0% |
-| ShopAuthentication | Not Started | 0% |
-| ShopDashboard | Not Started | 0% |
-| ShopListing | Not Started | 0% |
+| RewardSubscription | Completed | 100% |
+| ScanReceipt | Completed | 100% |
+| Search | Completed | 100% |
+| Settings | Completed | 100% |
+| ShopAuthentication | Completed | 100% |
+| ShopDashboard | Completed | 100% |
+| ShopListing | Completed | 100% |
 | ShopProfile | Completed | 100% |
-| ShopRegistration | Not Started | 0% |
+| ShopRegistration | Completed | 100% |
 | ShopSettings | Not Started | 0% |
 | SurpriseRewards | Not Started | 0% |
 | TermsAndConditions | Not Started | 0% |
@@ -108,6 +108,13 @@
 38. RewardRatings - Completed
 39. RewardSharing - Completed
 40. RewardShowcase - Completed
+41. RewardSubscription - Completed
+42. ScanReceipt - Completed
+43. Search - Completed
+44. Settings - Completed
+45. ShopAuthentication - Completed
+46. ShopDashboard - Completed
+47. ShopRegistration - Completed
 
 Start with these high-priority pages and then proceed with the rest in any order.
 

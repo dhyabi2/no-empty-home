@@ -11,14 +11,14 @@ const ScanReceipt = () => {
   const navigate = useNavigate();
 
   const handleScan = () => {
-    // Simulate scanning process
+    // محاكاة عملية المسح
     setTimeout(() => {
       setScannedPoints(Math.floor(Math.random() * 50) + 10);
     }, 1500);
   };
 
   const handleConfirm = () => {
-    // In a real app, this would update the user's points
+    // في التطبيق الحقيقي، سيتم تحديث نقاط المستخدم هنا
     navigate('/profile');
   };
 
@@ -28,7 +28,7 @@ const ScanReceipt = () => {
       <main className="flex-grow max-w-md mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Card>
           <CardHeader>
-            <CardTitle>Scan Receipt</CardTitle>
+            <CardTitle>مسح الإيصال</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {scannedPoints === null ? (
@@ -37,18 +37,18 @@ const ScanReceipt = () => {
                   <Camera className="h-16 w-16 text-gray-400" />
                 </div>
                 <Button className="w-full" onClick={handleScan}>
-                  <Camera className="mr-2 h-4 w-4" /> Scan Receipt
+                  <Camera className="ml-2 h-4 w-4" /> مسح الإيصال
                 </Button>
                 <Button variant="outline" className="w-full">
-                  <Upload className="mr-2 h-4 w-4" /> Upload Receipt
+                  <Upload className="ml-2 h-4 w-4" /> رفع صورة الإيصال
                 </Button>
               </>
             ) : (
               <>
-                <p className="text-center text-lg">Points earned:</p>
+                <p className="text-center text-lg">النقاط المكتسبة:</p>
                 <p className="text-center text-3xl font-bold">{scannedPoints}</p>
                 <Button className="w-full" onClick={handleConfirm}>
-                  Confirm and Add Points
+                  تأكيد وإضافة النقاط
                 </Button>
               </>
             )}

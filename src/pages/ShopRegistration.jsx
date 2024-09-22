@@ -1,67 +1,182 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Store, MapPin, Phone, Mail, FileText, Upload } from "lucide-react";
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const ShopRegistration = () => {
-  return (
-    <div className="min-h-screen bg-gray-100">
-      <header className="bg-white shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">Shop Registration</h1>
-        </div>
-      </header>
+  const [shopData, setShopData] = useState({
+    name: '',
+    address: '',
+    phone: '',
+    email: '',
+    category: '',
+    description: '',
+  });
 
-      <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setShopData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
+
+  const handleCategoryChange = (value) => {
+    setShopData(prevData => ({
+      ...prevData,
+      category: value
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('بيانات التسجيل:', shopData);
+    alert('تم إرسال طلب التسجيل بنجاح!');
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 flex flex-col">
+      <Header />
+      <main className="flex-grow container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6">تسجيل متجر جديد</h1>
         <Card>
           <CardHeader>
-            <CardTitle>Register Your Shop</CardTitle>
+            <CardTitle>معلومات المتجر</CardTitle>
           </CardHeader>
           <CardContent>
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <Label htmlFor="shopName">Shop Name</Label>
-                <Input id="shopName" placeholder="Enter your shop name" />
-              </div>
-              <div>
-                <Label htmlFor="ownerName">Owner Name</Label>
-                <Input id="ownerName" placeholder="Enter owner's name" />
-              </div>
-              <div>
-                <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="Enter your email" />
-              </div>
-              <div>
-                <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" placeholder="Create a password" />
-              </div>
-              <div>
-                <Label htmlFor="confirmPassword">Confirm Password</Label>
-                <Input id="confirmPassword" type="password" placeholder="Confirm your password" />
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                  اسم المتجر
+                </label>
+                <div className="relative">
+                  <Store className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Input
+                    id="name"
+                    name="name"
+                    value={shopData.name}
+                    onChange={handleInputChange}
+                    placeholder="أدخل اسم المتجر"
+                    className="pl-10"
+                    required
+                  />
+                </div>
               </div>
               <div>
-                <Label htmlFor="crNumber">CR Number</Label>
-                <Input id="crNumber" placeholder="Enter your Commercial Registration number" />
+                <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">
+                  العنوان
+                </label>
+                <div className="relative">
+                  <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Input
+                    id="address"
+                    name="address"
+                    value={shopData.address}
+                    onChange={handleInputChange}
+                    placeholder="أدخل عنوان المتجر"
+                    className="pl-10"
+                    required
+                  />
+                </div>
               </div>
               <div>
-                <Label htmlFor="location">Location</Label>
-                <Input id="location" placeholder="Enter your shop's location" />
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                  رقم الهاتف
+                </label>
+                <div className="relative">
+                  <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Input
+                    id="phone"
+                    name="phone"
+                    value={shopData.phone}
+                    onChange={handleInputChange}
+                    placeholder="أدخل رقم الهاتف"
+                    className="pl-10"
+                    required
+                  />
+                </div>
               </div>
               <div>
-                <Label htmlFor="logo">Upload Logo</Label>
-                <Input id="logo" type="file" />
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  البريد الإلكتروني
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={shopData.email}
+                    onChange={handleInputChange}
+                    placeholder="أدخل البريد الإلكتروني"
+                    className="pl-10"
+                    required
+                  />
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox id="terms" />
-                <Label htmlFor="terms">I agree to the terms and conditions</Label>
+              <div>
+                <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-1">
+                  فئة المتجر
+                </label>
+                <Select value={shopData.category} onValueChange={handleCategoryChange}>
+                  <SelectTrigger id="category">
+                    <SelectValue placeholder="اختر فئة المتجر" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="clothing">ملابس</SelectItem>
+                    <SelectItem value="electronics">إلكترونيات</SelectItem>
+                    <SelectItem value="food">مطاعم</SelectItem>
+                    <SelectItem value="beauty">مستحضرات تجميل</SelectItem>
+                    <SelectItem value="other">أخرى</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
-              <Button type="submit" className="w-full">Register Shop</Button>
+              <div>
+                <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">
+                  وصف المتجر
+                </label>
+                <Textarea
+                  id="description"
+                  name="description"
+                  value={shopData.description}
+                  onChange={handleInputChange}
+                  placeholder="أدخل وصفًا موجزًا للمتجر"
+                  rows={4}
+                />
+              </div>
+              <div>
+                <label htmlFor="documents" className="block text-sm font-medium text-gray-700 mb-1">
+                  المستندات المطلوبة
+                </label>
+                <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                  <div className="space-y-1 text-center">
+                    <FileText className="mx-auto h-12 w-12 text-gray-400" />
+                    <div className="flex text-sm text-gray-600">
+                      <label htmlFor="file-upload" className="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                        <span>رفع الملفات</span>
+                        <input id="file-upload" name="file-upload" type="file" className="sr-only" multiple />
+                      </label>
+                      <p className="pl-1">أو اسحب وأفلت</p>
+                    </div>
+                    <p className="text-xs text-gray-500">
+                      PNG, JPG, PDF حتى 10MB
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <Button type="submit" className="w-full">
+                تقديم طلب التسجيل
+              </Button>
             </form>
           </CardContent>
         </Card>
       </main>
+      <Footer />
     </div>
   );
 };

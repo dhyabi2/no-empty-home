@@ -13,28 +13,28 @@ const Search = () => {
   const [searchResults, setSearchResults] = useState({ shops: [], offers: [] });
 
   const handleSearch = () => {
-    // Simulated search results
+    // نتائج بحث وهمية
     const mockShops = [
-      { id: 1, name: "Coffee Haven", address: "123 Main St, City", description: "Best coffee in town" },
-      { id: 2, name: "Tech Gadgets", address: "456 Elm St, City", description: "Latest electronics and gadgets" },
-      { id: 3, name: "Fresh Grocers", address: "789 Oak St, City", description: "Fresh produce and groceries" }
+      { id: 1, name: "كوفي هافن", address: "123 الشارع الرئيسي، المدينة", description: "أفضل قهوة في المدينة" },
+      { id: 2, name: "تك جادجتس", address: "456 شارع الدردار، المدينة", description: "أحدث الإلكترونيات والأجهزة" },
+      { id: 3, name: "سوبر ماركت الطازج", address: "789 شارع البلوط، المدينة", description: "منتجات طازجة وبقالة" }
     ];
 
     const mockOffers = [
-      { id: 1, title: "50% Off Coffee", shop: "Coffee Haven", expiry: "31 Mar 2024" },
-      { id: 2, title: "Buy 1 Get 1 Free", shop: "Tech Gadgets", expiry: "15 Apr 2024" },
-      { id: 3, title: "20% Off Groceries", shop: "Fresh Grocers", expiry: "30 Apr 2024" }
+      { id: 1, title: "خصم 50٪ على القهوة", shop: "كوفي هافن", expiry: "31 مارس 2024" },
+      { id: 2, title: "اشترِ واحدة واحصل على الثانية مجانًا", shop: "تك جادجتس", expiry: "15 أبريل 2024" },
+      { id: 3, title: "خصم 20٪ على البقالة", shop: "سوبر ماركت الطازج", expiry: "30 أبريل 2024" }
     ];
 
-    // Filter results based on search term
+    // تصفية النتائج بناءً على مصطلح البحث
     const filteredShops = mockShops.filter(shop => 
-      shop.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      shop.description.toLowerCase().includes(searchTerm.toLowerCase())
+      shop.name.includes(searchTerm) ||
+      shop.description.includes(searchTerm)
     );
 
     const filteredOffers = mockOffers.filter(offer => 
-      offer.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      offer.shop.toLowerCase().includes(searchTerm.toLowerCase())
+      offer.title.includes(searchTerm) ||
+      offer.shop.includes(searchTerm)
     );
 
     setSearchResults({ shops: filteredShops, offers: filteredOffers });
@@ -48,21 +48,21 @@ const Search = () => {
         <div className="flex items-center mb-6">
           <Input
             type="text"
-            placeholder="Search shops or offers..."
-            className="flex-grow mr-2"
+            placeholder="ابحث عن المتاجر أو العروض..."
+            className="flex-grow ml-2"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <Button onClick={handleSearch}>
-            <SearchIcon className="h-4 w-4 mr-2" />
-            Search
+            <SearchIcon className="h-4 w-4 ml-2" />
+            بحث
           </Button>
         </div>
 
         <Tabs defaultValue="shops">
           <TabsList className="mb-4">
-            <TabsTrigger value="shops">Shops</TabsTrigger>
-            <TabsTrigger value="offers">Offers</TabsTrigger>
+            <TabsTrigger value="shops">المتاجر</TabsTrigger>
+            <TabsTrigger value="offers">العروض</TabsTrigger>
           </TabsList>
           <TabsContent value="shops">
             <div className="space-y-4">
@@ -73,12 +73,12 @@ const Search = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-gray-500 mb-2">
-                      <MapPin className="inline-block h-4 w-4 mr-1" />
+                      <MapPin className="inline-block h-4 w-4 ml-1" />
                       {shop.address}
                     </p>
                     <p className="text-sm mb-2">{shop.description}</p>
                     <Link to={`/shops/${shop.id}`}>
-                      <Button variant="outline" size="sm">View Details</Button>
+                      <Button variant="outline" size="sm">عرض التفاصيل</Button>
                     </Link>
                   </CardContent>
                 </Card>
@@ -94,14 +94,14 @@ const Search = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm text-gray-500 mb-2">
-                      <Tag className="inline-block h-4 w-4 mr-1" />
+                      <Tag className="inline-block h-4 w-4 ml-1" />
                       {offer.shop}
                     </p>
                     <p className="text-sm mb-2">
-                      Valid until: {offer.expiry}
+                      صالح حتى: {offer.expiry}
                     </p>
                     <Link to={`/offers/${offer.id}`}>
-                      <Button variant="outline" size="sm">View Offer</Button>
+                      <Button variant="outline" size="sm">عرض العرض</Button>
                     </Link>
                   </CardContent>
                 </Card>
