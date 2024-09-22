@@ -8,8 +8,11 @@ import ShopVisitGameElement from '../components/ShopVisitGameElement';
 import PersonalizedShopRecommendations from '../components/PersonalizedShopRecommendations';
 import PointBoosters from '../components/PointBoosters';
 import RewardConcierge from '../components/RewardConcierge';
+import SocialSharing from '../components/SocialSharing';
+import GamifiedChallenges from '../components/GamifiedChallenges';
+import VirtualLoyaltyCard from '../components/VirtualLoyaltyCard';
 import { Link } from 'react-router-dom';
-import { MapPin, Gift, Coffee, Zap } from "lucide-react";
+import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard } from "lucide-react";
 
 const Index = () => {
   return (
@@ -28,6 +31,12 @@ const Index = () => {
           <PointBoosters />
           
           <RewardConcierge />
+          
+          <SocialSharing />
+          
+          <GamifiedChallenges />
+          
+          <VirtualLoyaltyCard />
           
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
