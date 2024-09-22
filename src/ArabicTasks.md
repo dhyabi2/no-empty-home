@@ -51,7 +51,7 @@
 | ShopListing | Completed | 100% |
 | ShopProfile | Completed | 100% |
 | ShopRegistration | Completed | 100% |
-| ShopSettings | Completed | 100% |
+| ShopSettings | Completed | 100%
 | SurpriseRewards | Completed | 100% |
 | TermsAndConditions | Completed | 100% |
 | Wishlist | Completed | 100% |
@@ -120,6 +120,13 @@
 50. TermsAndConditions - Completed
 51. Wishlist - Completed
 52. WishlistSharing - Completed
+53. ShopListing - Completed
+54. ShopProfile - Completed
+55. FirstShopVisit - Completed
+56. LastMinuteDeals - Completed
+57. Leaderboard - Completed
+58. More - Completed
+59. NearbyOffers - Completed
 
 Start with these high-priority pages and then proceed with the rest in any order.
 
