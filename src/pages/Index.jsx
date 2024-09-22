@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { Bell, Gift, MapPin, Star, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Heart } from "lucide-react";
+import { Bell, Gift, MapPin, Star, Calendar, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Heart, Target } from "lucide-react";
 
 const LazyComponents = {
   RewardOverview: lazy(() => import('../components/RewardOverview')),
@@ -19,6 +19,7 @@ const LazyComponents = {
   FeaturedOffers: lazy(() => import('../components/FeaturedOffers')),
   NearbyShops: lazy(() => import('../components/NearbyShops')),
   RewardGifting: lazy(() => import('../components/RewardGifting')),
+  RewardPlanner: lazy(() => import('../components/RewardPlanner')),
 };
 
 const Index = () => {
@@ -128,6 +129,7 @@ const MainContent = React.memo(({ state, user }) => (
               <TabsTrigger value="redeem">Redeem</TabsTrigger>
               <TabsTrigger value="activity">Activity</TabsTrigger>
               <TabsTrigger value="gift">Gift</TabsTrigger>
+              <TabsTrigger value="planner">Planner</TabsTrigger>
             </TabsList>
           </Tabs>
         </CardHeader>
@@ -148,6 +150,11 @@ const MainContent = React.memo(({ state, user }) => (
           <TabsContent value="gift">
             <Suspense fallback={<div>Loading...</div>}>
               <LazyComponents.RewardGifting />
+            </Suspense>
+          </TabsContent>
+          <TabsContent value="planner">
+            <Suspense fallback={<div>Loading...</div>}>
+              <LazyComponents.RewardPlanner />
             </Suspense>
           </TabsContent>
         </CardContent>
@@ -183,6 +190,7 @@ const QuickActionsSection = React.memo(() => (
       <Button className="w-full"><Gift className="mr-2 h-4 w-4" /> Surprise Rewards</Button>
       <Button className="w-full"><Handshake className="mr-2 h-4 w-4" /> Partner Rewards</Button>
       <Button className="w-full"><Heart className="mr-2 h-4 w-4" /> Point Donation</Button>
+      <Button className="w-full"><Target className="mr-2 h-4 w-4" /> Reward Planner</Button>
       <EarnPoints />
     </CardContent>
   </Card>
