@@ -70,9 +70,14 @@ const ShopListing = () => {
                   <MapPin className="inline-block h-4 w-4 mr-1" />
                   {shop.distance}
                 </p>
-                <Link to={`/shops/${shop.id}`}>
-                  <Button className="w-full">View Shop</Button>
-                </Link>
+                <div className="space-y-2">
+                  <Link to={`/shops/${shop.id}`}>
+                    <Button className="w-full">View Shop</Button>
+                  </Link>
+                  <Link to={`/shops/${shop.id}#reward-levels`}>
+                    <Button variant="outline" className="w-full">View Reward Levels</Button>
+                  </Link>
+                </div>
               </CardContent>
             </Card>
           ))}
