@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Clock, Repeat, Star as StarFilled, BarChart2, Target, Trophy, MoreHorizontal, Settings, Info, FileText } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Clock, Repeat, Star as StarFilled, BarChart2, Target, Trophy, MoreHorizontal, Settings as SettingsIcon, Info, FileText } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -39,7 +39,7 @@ import RewardComparison from "./pages/RewardComparison.jsx";
 import RewardPlanner from "./components/RewardPlanner.jsx";
 import RewardShowcase from "./pages/RewardShowcase.jsx";
 import More from "./pages/More.jsx";
-import Settings from "./pages/Settings.jsx";
+import SettingsPage from "./pages/Settings.jsx";
 import AboutUs from "./pages/AboutUs.jsx";
 import TermsAndConditions from "./pages/TermsAndConditions.jsx";
 
@@ -91,7 +91,7 @@ export const navItems = [
   createNavItem("Reward Planner", "/reward-planner", Target, <RewardPlanner />),
   createNavItem("Reward Showcase", "/reward-showcase", Trophy, <RewardShowcase />),
   createNavItem("More", "/more", MoreHorizontal, <More />),
-  createNavItem("Settings", "/settings", Settings, <Settings />),
+  createNavItem("Settings", "/settings", SettingsIcon, <SettingsPage />),
   createNavItem("About Us", "/about-us", Info, <AboutUs />),
   createNavItem("Terms & Conditions", "/terms-and-conditions", FileText, <TermsAndConditions />),
 ];
