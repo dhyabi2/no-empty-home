@@ -135,6 +135,9 @@ const MainContent = React.memo(({ state, user }) => (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       <Card className="col-span-2">
         <CardHeader>
+          <CardTitle>Rewards Overview</CardTitle>
+        </CardHeader>
+        <CardContent>
           <Tabs defaultValue="overview">
             <TabsList>
               <TabsTrigger value="overview">Overview</TabsTrigger>
@@ -143,32 +146,30 @@ const MainContent = React.memo(({ state, user }) => (
               <TabsTrigger value="gift">Gift</TabsTrigger>
               <TabsTrigger value="planner">Planner</TabsTrigger>
             </TabsList>
+            <TabsContent value="overview">
+              <Suspense fallback={<div>Loading...</div>}>
+                <LazyComponents.RewardOverview isLoading={state.isLoading} user={user} handleEarnReward={() => {}} />
+              </Suspense>
+            </TabsContent>
+            <TabsContent value="redeem">
+              <Suspense fallback={<div>Loading...</div>}>
+                <LazyComponents.RewardRedemption />
+              </Suspense>
+            </TabsContent>
+            <TabsContent value="activity">
+              <ActivityFeed activities={state.recentActivity} />
+            </TabsContent>
+            <TabsContent value="gift">
+              <Suspense fallback={<div>Loading...</div>}>
+                <LazyComponents.RewardGifting />
+              </Suspense>
+            </TabsContent>
+            <TabsContent value="planner">
+              <Suspense fallback={<div>Loading...</div>}>
+                <LazyComponents.RewardPlanner />
+              </Suspense>
+            </TabsContent>
           </Tabs>
-        </CardHeader>
-        <CardContent>
-          <TabsContent value="overview">
-            <Suspense fallback={<div>Loading...</div>}>
-              <LazyComponents.RewardOverview isLoading={state.isLoading} user={user} handleEarnReward={() => {}} />
-            </Suspense>
-          </TabsContent>
-          <TabsContent value="redeem">
-            <Suspense fallback={<div>Loading...</div>}>
-              <LazyComponents.RewardRedemption />
-            </Suspense>
-          </TabsContent>
-          <TabsContent value="activity">
-            <ActivityFeed activities={state.recentActivity} />
-          </TabsContent>
-          <TabsContent value="gift">
-            <Suspense fallback={<div>Loading...</div>}>
-              <LazyComponents.RewardGifting />
-            </Suspense>
-          </TabsContent>
-          <TabsContent value="planner">
-            <Suspense fallback={<div>Loading...</div>}>
-              <LazyComponents.RewardPlanner />
-            </Suspense>
-          </TabsContent>
         </CardContent>
       </Card>
       <QuickActionsSection />
