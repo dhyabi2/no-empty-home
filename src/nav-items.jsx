@@ -1,4 +1,4 @@
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Clock, Repeat } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ShoppingBagIcon, TagIcon, HistoryIcon, MessageSquare, Heart, Award, Gift, Calendar, MapPin, Camera, Bookmark, Edit, Zap, Cake, Share2, Grid, Bolt, Package, ArrowRightLeft, Gavel, Handshake, Clock, Repeat, Star as StarFilled } from "lucide-react";
 import Index from "./pages/Index.jsx";
 import Notifications from "./pages/Notifications.jsx";
 import Search from "./pages/Search.jsx";
@@ -34,6 +34,7 @@ import PointDonation from "./pages/PointDonation.jsx";
 import WishlistSharing from "./pages/WishlistSharing.jsx";
 import LastMinuteDeals from "./pages/LastMinuteDeals.jsx";
 import RewardSubscription from "./pages/RewardSubscription.jsx";
+import RewardRatings from "./pages/RewardRatings.jsx";
 
 const createNavItem = (title, path, icon, component) => ({
   title,
@@ -78,4 +79,5 @@ export const navItems = [
   createNavItem("Wishlist Sharing", "/wishlist-sharing", Share2, <WishlistSharing />),
   createNavItem("Last-Minute Deals", "/last-minute-deals", Clock, <LastMinuteDeals />),
   createNavItem("Reward Subscription", "/reward-subscription", Repeat, <RewardSubscription />),
+  createNavItem("Reward Ratings", "/reward-ratings", StarFilled, <RewardRatings />),
 ];
