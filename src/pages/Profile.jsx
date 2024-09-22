@@ -9,6 +9,22 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Profile = () => {
+  const handleEditProfile = () => {
+    alert('Profile updated successfully!');
+  };
+
+  const handleChangePassword = () => {
+    alert('Password changed successfully!');
+  };
+
+  const handleUpdateNotifications = () => {
+    alert('Notification preferences updated!');
+  };
+
+  const handleDeleteAccount = () => {
+    alert('Account deletion process initiated. Please check your email for further instructions.');
+  };
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
@@ -28,7 +44,7 @@ const Profile = () => {
               <Label htmlFor="email">Email</Label>
               <Input id="email" type="email" defaultValue="john@example.com" />
             </div>
-            <Button onClick={() => alert("Profile updated!")}>
+            <Button onClick={handleEditProfile}>
               <User className="mr-2 h-4 w-4" />
               Update Profile
             </Button>
@@ -48,7 +64,7 @@ const Profile = () => {
               <Label htmlFor="new-password">New Password</Label>
               <Input id="new-password" type="password" />
             </div>
-            <Button onClick={() => alert("Password changed!")}>
+            <Button onClick={handleChangePassword}>
               <Lock className="mr-2 h-4 w-4" />
               Change Password
             </Button>
@@ -68,7 +84,7 @@ const Profile = () => {
               <Label htmlFor="push-notifications">Push Notifications</Label>
               <Switch id="push-notifications" />
             </div>
-            <Button onClick={() => alert("Notification preferences updated!")}>
+            <Button onClick={handleUpdateNotifications}>
               <Bell className="mr-2 h-4 w-4" />
               Update Preferences
             </Button>
@@ -81,7 +97,7 @@ const Profile = () => {
           </CardHeader>
           <CardContent>
             <p className="mb-4 text-red-600">Warning: This action cannot be undone.</p>
-            <Button variant="destructive" onClick={() => alert("Account deletion process initiated.")}>
+            <Button variant="destructive" onClick={handleDeleteAccount}>
               <Trash2 className="mr-2 h-4 w-4" />
               Delete Account
             </Button>
