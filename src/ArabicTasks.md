@@ -83,7 +83,7 @@
 13. HelpSupport - Completed
 14. LastMinuteDeals - Completed
 15. Leaderboard - Completed
-16. More - Completed
+16. More -Completed
 17. NearbyOffers - Completed
 18. Notifications - Completed
 19. OfferDetail - Completed
