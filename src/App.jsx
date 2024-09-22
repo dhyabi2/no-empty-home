@@ -73,10 +73,12 @@ const App = () => {
               <Onboarding onComplete={handleOnboardingComplete} />
             ) : (
               <BrowserRouter>
-                <div className="pb-16">
-                  <AnimatedRoutes />
+                <div className="flex flex-col min-h-screen">
+                  <div className="flex-grow pb-16">
+                    <AnimatedRoutes />
+                  </div>
+                  <BottomNavigation />
                 </div>
-                <BottomNavigation />
               </BrowserRouter>
             )}
           </AuthProvider>
