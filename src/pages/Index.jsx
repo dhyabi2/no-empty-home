@@ -8,7 +8,6 @@ import Confetti from '../components/Confetti';
 import EarnPoints from '../components/EarnPoints';
 import { useAuth } from '../contexts/AuthContext';
 import { calculateDistance } from '../utils/distanceCalculator';
-import PullToRefresh from 'react-pull-to-refresh';
 import FloatingActionButton from '../components/FloatingActionButton';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -20,7 +19,6 @@ import { Calendar } from "@/components/ui/calendar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Bell, Gift, MapPin, Star, Zap, Activity, Award, TrendingUp } from "lucide-react";
 
-// Lazy load components
 const RewardOverview = lazy(() => import('../components/RewardOverview'));
 const RewardRedemption = lazy(() => import('../components/RewardRedemption'));
 const FeaturedOffers = lazy(() => import('../components/FeaturedOffers'));
@@ -42,11 +40,6 @@ const Index = () => {
   const handleEarnReward = useCallback(() => {
     setShowConfetti(true);
     setTimeout(() => setShowConfetti(false), 5000);
-  }, []);
-
-  const handleRefresh = useCallback(() => {
-    setIsLoading(true);
-    setTimeout(() => setIsLoading(false), 1000);
   }, []);
 
   const toggleSideNav = useCallback(() => {
@@ -136,8 +129,8 @@ const Index = () => {
       <Header onMenuClick={toggleSideNav} />
       <div className="flex flex-1 overflow-hidden">
         <SideNav isOpen={isSideNavOpen} onClose={() => setIsSideNavOpen(false)} />
-        <PullToRefresh onRefresh={handleRefresh} className="flex-1 overflow-y-auto">
-          <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+        <main className="flex-1 overflow-y-auto">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
             <WelcomeSection user={user} quickStats={quickStats} />
             <Separator />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -155,10 +148,9 @@ const Index = () => {
             <OffersAndShopsSection isLoading={isLoading} nearbyShops={nearbyShops} />
             <Separator />
             <EventsAndLeaderboardSection upcomingEvents={upcomingEvents} leaderboard={leaderboard} />
-          </main>
-        </PullToRefresh>
+          </div>
+        </main>
       </div>
-      <Footer />
       <FloatingActionButton />
     </div>
   );
