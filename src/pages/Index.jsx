@@ -22,6 +22,18 @@ const LazyComponents = {
   RewardPlanner: lazy(() => import('../components/RewardPlanner')),
 };
 
+const ActivityFeed = ({ activities }) => (
+  <div className="space-y-4">
+    {activities.map((activity, index) => (
+      <div key={index} className="bg-white p-4 rounded-lg shadow">
+        <h3 className="font-semibold">{activity.title}</h3>
+        <p className="text-sm text-gray-600">{activity.description}</p>
+        <span className="text-xs text-gray-400">{activity.time}</span>
+      </div>
+    ))}
+  </div>
+);
+
 const Index = () => {
   const [state, setState] = useState({
     showConfetti: false,
@@ -195,5 +207,87 @@ const QuickActionsSection = React.memo(() => (
     </CardContent>
   </Card>
 ));
+
+const OffersAndShopsSection = ({ isLoading, nearbyShops }) => (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <Card>
+      <CardHeader>
+        <CardTitle>Featured Offers</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyComponents.FeaturedOffers isLoading={isLoading} />
+        </Suspense>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardHeader>
+        <CardTitle>Nearby Shops</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyComponents.NearbyShops isLoading={isLoading} shops={nearbyShops} />
+        </Suspense>
+      </CardContent>
+    </Card>
+  </div>
+);
+
+const EventsAndLeaderboardSection = ({ upcomingEvents, leaderboard }) => (
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <Card>
+      <CardHeader>
+        <CardTitle>Upcoming Events</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ScrollArea className="h-[200px]">
+          {upcomingEvents.map((event, index) => (
+            <div key={index} className="mb-4">
+              <h3 className="font-semibold">{event.title}</h3>
+              <p className="text-sm text-gray-600">{event.date}</p>
+            </div>
+          ))}
+        </ScrollArea>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardHeader>
+        <CardTitle>Leaderboard</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <ScrollArea className="h-[200px]">
+          {leaderboard.map((user, index) => (
+            <div key={index} className="flex items-center mb-4">
+              <img src={user.avatar} alt={user.name} className="w-10 h-10 rounded-full mr-4" />
+              <div>
+                <h3 className="font-semibold">{user.name}</h3>
+                <p className="text-sm text-gray-600">{user.points} points</p>
+              </div>
+            </div>
+          ))}
+        </ScrollArea>
+      </CardContent>
+    </Card>
+  </div>
+);
+
+const FlashSalesSection = ({ flashSales }) => (
+  <Card>
+    <CardHeader>
+      <CardTitle>Flash Sales</CardTitle>
+    </CardHeader>
+    <CardContent>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {flashSales.map((sale) => (
+          <div key={sale.id} className="bg-white p-4 rounded-lg shadow">
+            <h3 className="font-semibold">{sale.title}</h3>
+            <p className="text-sm text-gray-600">{sale.shop}</p>
+            <p className="text-xs text-gray-400">Ends: {new Date(sale.endTime).toLocaleString()}</p>
+          </div>
+        ))}
+      </div>
+    </CardContent>
+  </Card>
+);
 
 export default Index;
