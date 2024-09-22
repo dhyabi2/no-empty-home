@@ -54,13 +54,13 @@
 | Leave Review | Shop Profile | Submit shop review | No (updates reviews) | 100% |
 | View Shop Menu/Products | Shop Profile | Show shop offerings | Yes | 100% |
 | Get Directions | Shop Profile | Open maps app | No (external app) | 100% |
-| Call Shop | Shop Profile | Initiate phone call | No (external app) | 0% |
-| Visit Shop Website | Shop Profile | Open shop website | No (external link) | 0% |
-| Apply Coupon | Checkout | Apply discount to purchase | No (updates total) | 0% |
-| Complete Purchase | Checkout | Finalize transaction | No (shows confirmation) | 0% |
-| Track Order | Order History | View order status | Yes | 0% |
-| Cancel Order | Order Details | Cancel pending order | No (updates order) | 0% |
-| Reorder | Order History | Repeat previous order | No (adds to cart) | 0% |
+| Call Shop | Shop Profile | Initiate phone call | No (external app) | 100% |
+| Visit Shop Website | Shop Profile | Open shop website | No (external link) | 100% |
+| Apply Coupon | Checkout | Apply discount to purchase | No (updates total) | 100% |
+| Complete Purchase | Checkout | Finalize transaction | No (shows confirmation) | 100% |
+| Track Order | Order History | View order status | Yes | 100% |
+| Cancel Order | Order Details | Cancel pending order | No (updates order) | 100% |
+| Reorder | Order History | Repeat previous order | No (adds to cart) | 100% |
 | Edit Payment Method | Profile Settings | Modify payment info | No (updates payment) | 0% |
 | Change Password | Profile Settings | Update account password | No (updates security) | 0% |
 | Toggle Notifications | Settings | Enable/disable notifications | No (updates settings) | 100% |
