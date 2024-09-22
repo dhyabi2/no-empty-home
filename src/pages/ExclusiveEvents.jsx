@@ -9,36 +9,36 @@ const ExclusiveEvents = () => {
   const events = [
     {
       id: 1,
-      title: "VIP Shopping Night",
+      title: "ليلة التسوق الحصرية",
       date: "2023-05-15",
-      location: "Luxury Mall",
+      location: "مول الفخامة",
       attendees: 50,
     },
     {
       id: 2,
-      title: "Gourmet Tasting Experience",
+      title: "تجربة تذوق الطعام الفاخر",
       date: "2023-06-01",
-      location: "Fine Dining Restaurant",
+      location: "مطعم الذواقة",
       attendees: 30,
     },
     {
       id: 3,
-      title: "Tech Gadget Preview",
+      title: "معاينة أحدث التقنيات",
       date: "2023-06-15",
-      location: "Innovation Center",
+      location: "مركز الابتكار",
       attendees: 100,
     },
   ];
 
   const handleJoinEvent = (eventId) => {
-    alert(`You have joined the event with ID: ${eventId}`);
+    alert(`لقد انضممت إلى الفعالية رقم: ${eventId}`);
   };
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
       <main className="flex-grow max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-3xl font-bold mb-6">Exclusive Events</h1>
+        <h1 className="text-3xl font-bold mb-6">الفعاليات الحصرية</h1>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {events.map((event) => (
             <Card key={event.id}>
@@ -48,23 +48,23 @@ const ExclusiveEvents = () => {
               <CardContent>
                 <div className="space-y-2">
                   <div className="flex items-center">
-                    <Calendar className="mr-2 h-4 w-4" />
+                    <Calendar className="ml-2 h-4 w-4" />
                     <span>{event.date}</span>
                   </div>
                   <div className="flex items-center">
-                    <MapPin className="mr-2 h-4 w-4" />
+                    <MapPin className="ml-2 h-4 w-4" />
                     <span>{event.location}</span>
                   </div>
                   <div className="flex items-center">
-                    <Users className="mr-2 h-4 w-4" />
-                    <span>{event.attendees} attendees</span>
+                    <Users className="ml-2 h-4 w-4" />
+                    <span>{event.attendees} مشارك</span>
                   </div>
                 </div>
                 <Button
                   className="w-full mt-4"
                   onClick={() => handleJoinEvent(event.id)}
                 >
-                  Join Event
+                  الانضمام للفعالية
                 </Button>
               </CardContent>
             </Card>

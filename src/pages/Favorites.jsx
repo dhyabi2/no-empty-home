@@ -1,84 +1,50 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Heart, MapPin, Tag } from "lucide-react";
+import { Star, MapPin, Phone } from "lucide-react";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 const Favorites = () => {
+  const favoriteShops = [
+    { id: 1, name: "كوفي هافن", category: "مقهى", address: "123 شارع الرئيسي، المدينة", phone: "+1 234 567 8900" },
+    { id: 2, name: "تك جادجتس", category: "إلكترونيات", address: "456 شارع الشجر، المدينة", phone: "+1 234 567 8901" },
+    { id: 3, name: "جنة القراء", category: "مكتبة", address: "789 شارع البلوط، المدينة", phone: "+1 234 567 8902" },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header />
-
       <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Favorites</h1>
-
-        <div className="space-y-4">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span>Coffee Shop XYZ</span>
-                <Button variant="ghost" size="icon">
-                  <Heart className="h-5 w-5 text-red-500" fill="currentColor" />
-                </Button>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-500 mb-2">
-                <MapPin className="inline-block h-4 w-4 mr-1" />
-                123 Main St, City, Country
-              </p>
-              <p className="text-sm mb-2">
-                Your favorite coffee shop with amazing lattes.
-              </p>
-              <Button variant="outline" size="sm">View Details</Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span>50% Off at Restaurant ABC</span>
-                <Button variant="ghost" size="icon">
-                  <Heart className="h-5 w-5 text-red-500" fill="currentColor" />
-                </Button>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-500 mb-2">
-                <Tag className="inline-block h-4 w-4 mr-1" />
-                50% off on all main courses
-              </p>
-              <p className="text-sm mb-2">
-                Valid until: 31 Dec 2023
-              </p>
-              <Button variant="outline" size="sm">View Offer</Button>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center justify-between">
-                <span>Bookstore DEF</span>
-                <Button variant="ghost" size="icon">
-                  <Heart className="h-5 w-5 text-red-500" fill="currentColor" />
-                </Button>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-gray-500 mb-2">
-                <MapPin className="inline-block h-4 w-4 mr-1" />
-                456 Book Lane, City, Country
-              </p>
-              <p className="text-sm mb-2">
-                Your go-to place for the latest bestsellers.
-              </p>
-              <Button variant="outline" size="sm">View Details</Button>
-            </CardContent>
-          </Card>
+        <h1 className="text-3xl font-bold text-gray-900 mb-6">المتاجر المفضلة</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {favoriteShops.map((shop) => (
+            <Card key={shop.id}>
+              <CardHeader>
+                <CardTitle className="flex items-center justify-between">
+                  <span>{shop.name}</span>
+                  <Star className="h-5 w-5 text-yellow-400 fill-current" />
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-500 mb-2">{shop.category}</p>
+                <p className="text-sm mb-2 flex items-center">
+                  <MapPin className="h-4 w-4 ml-1" />
+                  {shop.address}
+                </p>
+                <p className="text-sm mb-4 flex items-center">
+                  <Phone className="h-4 w-4 ml-1" />
+                  {shop.phone}
+                </p>
+                <Link to={`/shops/${shop.id}`}>
+                  <Button className="w-full">عرض المتجر</Button>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </main>
-
       <Footer />
     </div>
   );
