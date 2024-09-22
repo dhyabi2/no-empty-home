@@ -8,4 +8,9 @@
 | Apply Coupon | Checkout | Apply discount to purchase | No (updates total) | 100% |
 | Complete Purchase | Checkout | Finalize transaction | No (shows confirmation) | 100% |
 | Track Order | Order History | View order status | Yes | 100% |
+| Rate Product | Order History | Open rating interface | Yes | 100% |
+| Cancel Order | Order History | Initiate cancellation process | Yes | 100% |
+| Reorder | Order History | Add items to cart | No (updates cart) | 100% |
+| Contact Support | Help/Support | Open support chat/call | Yes | 100% |
+| Edit Profile | Settings | Open profile editor | Yes | 100% |
 [... remaining content ...]
