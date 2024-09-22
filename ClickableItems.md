@@ -13,4 +13,7 @@
 | Reorder | Order History | Add items to cart | No (updates cart) | 100% |
 | Contact Support | Help/Support | Open support chat/call | Yes | 100% |
 | Edit Profile | Settings | Open profile editor | Yes | 100% |
+| Change Password | Profile | Update user password | No (shows confirmation) | 100% |
+| Update Notification Preferences | Profile | Modify notification settings | No (updates preferences) | 100% |
+| Delete Account | Profile | Initiate account deletion | No (shows confirmation) | 100% |
 [... remaining content ...]
