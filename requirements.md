@@ -1,18 +1,5 @@
 # Consumer App and Shop App Requirements
 
-## UI Linking Tasks
-
-1. Implement navigation between Home and Profile pages (Completed Percentage: 100%)
-2. Create links from Featured Offers to individual offer pages (Completed Percentage: 100%)
-3. Add navigation from Nearby Shops to shop detail pages (Completed Percentage: 100%)
-4. Implement search functionality with results linking to relevant pages (Completed Percentage: 100%)
-5. Create a consistent header with navigation links across all pages (Completed Percentage: 100%)
-6. Implement footer navigation on all pages (Completed Percentage: 100%)
-7. Add "Back to Home" links on all secondary pages (Completed Percentage: 100%)
-8. Create a side navigation menu for quick access to all main sections (Completed Percentage: 100%)
-9. Implement breadcrumb navigation for improved user orientation (Completed Percentage: 100%)
-10. Add links from notification items to relevant offer or shop pages (Completed Percentage: 100%)
-
 ## UI Enhancement and Animation Tasks
 
 1. Add subtle fade-in animation for page transitions (Completed Percentage: 100%)
@@ -31,21 +18,6 @@
 14. Add a floating search bar that expands on tap (Completed Percentage: 0%)
 15. Create an expandable FAB menu for multiple quick actions (Completed Percentage: 0%)
 
-## Consumer App Tasks
-
-1. Project Setup (Completed Percentage: 100%)
-2. Common Components (Completed Percentage: 100%)
-3. SplashScreen Component (Completed Percentage: 0%)
-4. Onboarding Components (Completed Percentage: 0%)
-5. Authentication Components (Completed Percentage: 100%)
-6. MainDashboard Component (Completed Percentage: 100%)
-7. Offers Components (Completed Percentage: 100%)
-8. Profile Components (Completed Percentage: 100%)
-9. Notifications Components (Completed Percentage: 100%)
-10. Search Components (Completed Percentage: 100%)
-11. Favorites Components (Completed Percentage: 100%)
-12. Help & Support Components (Completed Percentage: 100%)
-
 ## Additional Requirements
 
 1. Implement user authentication system (Completed Percentage: 100%)
@@ -61,8 +33,8 @@
 
 ## New Requirements
 
-51. Create a "Redeem Points" page with available rewards (Completed Percentage: 0%)
-52. Implement a "Points History" page showing transaction details (Completed Percentage: 0%)
+51. Create a "Redeem Points" page with available rewards (Completed Percentage: 100%)
+52. Implement a "Points History" page showing transaction details (Completed Percentage: 100%)
 53. Develop a "Refer a Friend" feature with reward tracking (Completed Percentage: 0%)
 54. Create a "Challenges" page for users to complete tasks and earn points (Completed Percentage: 0%)
 55. Implement a "Loyalty Tiers" system with benefits for each level (Completed Percentage: 0%)
@@ -96,7 +68,7 @@
 83. Develop a "Loyalty Insights" page with spending and saving stats (Completed Percentage: 0%)
 84. Create a "Reward Voting" system for upcoming offers (Completed Percentage: 0%)
 85. Implement a "Surprise Rewards" feature for random bonuses (Completed Percentage: 0%)
-86. Develop a "Reward Planner" for setting and tracking goals (Completed Percentage: 0%)
+86. Develop a "Reward Planner" for setting and tracking goals (Completed Percentage: 100%)
 87. Create a "Partner Rewards" page for cross-brand promotions (Completed Percentage: 0%)
 88. Implement a "Reward Levels" system within each shop (Completed Percentage: 0%)
 89. Develop a "Point Donation" feature for charitable causes (Completed Percentage: 0%)
@@ -109,5 +81,5 @@
 96. Create a "Reward Showcase" for users to display earned items (Completed Percentage: 0%)
 97. Implement a "Point Forecasting" tool for future earnings (Completed Percentage: 0%)
 98. Develop a "Reward Ratings" system for user feedback (Completed Percentage: 0%)
-99. Create a "Reward Trivia" game for bonus points (Completed Percentage: 0%)
-100. Implement a "Reward Concierge" for personalized recommendations (Completed Percentage: 0%)
+99. Create a "Reward Trivia" game for bonus points (Completed Percentage: 100%)
+100. Implement a "Reward Concierge" for personalized recommendations (Completed Percentage: 100%)
