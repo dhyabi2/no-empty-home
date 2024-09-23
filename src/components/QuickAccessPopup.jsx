@@ -135,9 +135,12 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
                 <Tabs defaultValue="العروض">
                   <TabsList className="mb-4 flex justify-between w-full">
                     {quickLinkSections.map((section) => (
-                      <TabsTrigger key={section.title} value={section.title} className="flex-1">
-                        <section.icon className="h-5 w-5 mr-2" />
-                        {section.title}
+                      <TabsTrigger 
+                        key={section.title} 
+                        value={section.title} 
+                        className="flex-1 p-2"
+                      >
+                        <section.icon className="h-6 w-6" />
                       </TabsTrigger>
                     ))}
                   </TabsList>
