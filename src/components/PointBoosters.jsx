@@ -2,8 +2,10 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Zap } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 const PointBoosters = () => {
+  const navigate = useNavigate();
   const boosters = [
     { id: 1, name: "مضاعفة النقاط", description: "اكسب ضعف النقاط على كل عملية شراء لمدة ساعة", duration: "1 ساعة" },
     { id: 2, name: "زيادة النقاط بنسبة 50%", description: "زيادة بنسبة 50% على النقاط المكتسبة لمدة 3 ساعات", duration: "3 ساعات" },
@@ -25,7 +27,7 @@ const PointBoosters = () => {
             <p className="text-sm text-gray-600 mb-2">{booster.description}</p>
             <div className="flex justify-between items-center">
               <span className="text-sm text-gray-500">المدة: {booster.duration}</span>
-              <Button size="sm">تفعيل</Button>
+              <Button size="sm" onClick={() => navigate(`/point-boosters/${booster.id}`)}>تفعيل</Button>
             </div>
           </div>
         ))}

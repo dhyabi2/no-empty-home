@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 const RewardTrivia = () => {
+  const navigate = useNavigate();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
@@ -74,7 +76,8 @@ const RewardTrivia = () => {
           <div className="text-center">
             <h3 className="font-semibold mb-4">النتيجة النهائية</h3>
             <p className="text-xl mb-4">لقد أجبت على {score} من {questions.length} أسئلة بشكل صحيح!</p>
-            <Button onClick={resetTrivia}>حاول مرة أخرى</Button>
+            <Button onClick={resetTrivia} className="mr-2">حاول مرة أخرى</Button>
+            <Button onClick={() => navigate('/rewards')} variant="outline">عرض المكافآت</Button>
           </div>
         )}
       </CardContent>

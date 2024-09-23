@@ -2,8 +2,10 @@ import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { StarIcon, MapPinIcon } from "lucide-react";
+import { useNavigate } from 'react-router-dom';
 
 const PersonalizedShopRecommendations = () => {
+  const navigate = useNavigate();
   const recommendations = [
     { id: 1, name: "كوفي هافن", category: "مقهى", rating: 4.5, distance: "0.5 كم" },
     { id: 2, name: "تك جادجتس", category: "إلكترونيات", rating: 4.2, distance: "1.2 كم" },
@@ -30,7 +32,7 @@ const PersonalizedShopRecommendations = () => {
                     <span className="text-sm">{shop.distance}</span>
                   </div>
                 </div>
-                <Button size="sm">زيارة</Button>
+                <Button size="sm" onClick={() => navigate(`/shops/${shop.id}`)}>زيارة</Button>
               </CardContent>
             </Card>
           ))}
