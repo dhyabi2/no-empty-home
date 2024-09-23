@@ -13,7 +13,7 @@ const WelcomeReward = () => {
   };
 
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Gift className="ml-2" />
@@ -22,7 +22,7 @@ const WelcomeReward = () => {
       </CardHeader>
       <CardContent>
         <p className="mb-4">احصل على مكافأة الترحيب الخاصة بك: 100 نقطة!</p>
-        <div className="flex space-x-2">
+        <div className="flex space-x-2 space-x-reverse">
           <Button onClick={handleClaim}>المطالبة بالمكافأة</Button>
           <Button variant="outline" onClick={handleShare}>
             <Share2 className="ml-2 h-4 w-4" />

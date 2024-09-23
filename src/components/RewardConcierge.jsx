@@ -5,7 +5,7 @@ import { Gift } from "lucide-react";
 
 const RewardConcierge = () => {
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Gift className="ml-2" />

@@ -10,7 +10,7 @@ const PointBoosters = () => {
   ];
 
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Zap className="ml-2" />

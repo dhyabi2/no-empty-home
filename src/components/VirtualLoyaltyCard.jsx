@@ -5,7 +5,7 @@ import { CreditCard } from "lucide-react";
 
 const VirtualLoyaltyCard = () => {
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <CreditCard className="ml-2" />

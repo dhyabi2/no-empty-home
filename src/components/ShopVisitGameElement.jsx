@@ -5,7 +5,7 @@ import { MapPin } from "lucide-react";
 
 const ShopVisitGameElement = () => {
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <MapPin className="ml-2" />

@@ -5,7 +5,7 @@ import { Share2 } from "lucide-react";
 
 const SocialSharing = () => {
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Share2 className="ml-2" />

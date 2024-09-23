@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { StarIcon, MapPinIcon } from "lucide-react";
 
 const PersonalizedShopRecommendations = () => {
-  // بيانات وهمية للعرض
   const recommendations = [
     { id: 1, name: "كوفي هافن", category: "مقهى", rating: 4.5, distance: "0.5 كم" },
     { id: 2, name: "تك جادجتس", category: "إلكترونيات", rating: 4.2, distance: "1.2 كم" },
@@ -12,7 +11,7 @@ const PersonalizedShopRecommendations = () => {
   ];
 
   return (
-    <Card className="w-full max-w-2xl mx-auto mb-6">
+    <Card className="w-full max-w-2xl mx-auto mb-6" dir="rtl">
       <CardHeader>
         <CardTitle>توصيات المتاجر الشخصية</CardTitle>
       </CardHeader>

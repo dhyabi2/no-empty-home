@@ -10,7 +10,7 @@ const GamifiedChallenges = () => {
   ];
 
   return (
-    <Card className="mb-6">
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
           <Trophy className="ml-2" />
