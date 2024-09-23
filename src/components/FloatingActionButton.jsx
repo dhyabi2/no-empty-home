@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { Plus, QrCode, Camera, Gift, MapPin, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const FloatingActionButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
   const actions = [
-    { icon: <QrCode className="h-4 w-4" />, label: "مسح رمز QR", onClick: () => console.log("جاري مسح رمز QR...") },
-    { icon: <Camera className="h-4 w-4" />, label: "التقاط صورة", onClick: () => console.log("جاري التقاط صورة...") },
-    { icon: <Gift className="h-4 w-4" />, label: "استبدال", onClick: () => console.log("جاري استبدال المكافأة...") },
-    { icon: <MapPin className="h-4 w-4" />, label: "تسجيل الدخول", onClick: () => console.log("جاري تسجيل الدخول...") },
+    { icon: <QrCode className="h-4 w-4" />, label: "مسح رمز QR", onClick: () => navigate('/scan-qr') },
+    { icon: <Camera className="h-4 w-4" />, label: "التقاط صورة", onClick: () => navigate('/capture-photo') },
+    { icon: <Gift className="h-4 w-4" />, label: "استبدال", onClick: () => navigate('/redeem') },
+    { icon: <MapPin className="h-4 w-4" />, label: "تسجيل الدخول", onClick: () => navigate('/check-in') },
   ];
 
   return (
@@ -36,7 +38,10 @@ const FloatingActionButton = () => {
                 <Button
                   className="w-full flex justify-start items-center space-x-2"
                   variant="secondary"
-                  onClick={action.onClick}
+                  onClick={() => {
+                    action.onClick();
+                    setIsOpen(false);
+                  }}
                 >
                   {action.icon}
                   <span>{action.label}</span>

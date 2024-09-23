@@ -11,6 +11,10 @@ import Onboarding from "./components/Onboarding";
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Login from './components/Login';
+import ScanQR from './pages/ScanQR';
+import CapturePhoto from './pages/CapturePhoto';
+import Redeem from './pages/Redeem';
+import CheckIn from './pages/CheckIn';
 
 const queryClient = new QueryClient();
 
@@ -29,6 +33,10 @@ const AnimatedRoutes = () => {
           {navItems.map(({ to, page }) => (
             <Route key={to} path={to} element={page} />
           ))}
+          <Route path="/scan-qr" element={<ScanQR />} />
+          <Route path="/capture-photo" element={<CapturePhoto />} />
+          <Route path="/redeem" element={<Redeem />} />
+          <Route path="/check-in" element={<CheckIn />} />
         </Routes>
       </PageTransition>
     </AnimatePresence>
