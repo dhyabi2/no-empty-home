@@ -15,7 +15,7 @@ import ScanQR from './pages/ScanQR';
 import CapturePhoto from './pages/CapturePhoto';
 import Redeem from './pages/Redeem';
 import CheckIn from './pages/CheckIn';
-import BottomNavigation from './components/BottomNavigation';
+import QuickActions from './pages/QuickActions';
 
 const queryClient = new QueryClient();
 
@@ -39,10 +39,10 @@ const AnimatedRoutes = () => {
             <Route path="/capture-photo" element={<CapturePhoto />} />
             <Route path="/redeem" element={<Redeem />} />
             <Route path="/check-in" element={<CheckIn />} />
+            <Route path="/quick-actions" element={<QuickActions />} />
           </Routes>
         </PageTransition>
       </AnimatePresence>
-      <BottomNavigation />
     </>
   );
 };
