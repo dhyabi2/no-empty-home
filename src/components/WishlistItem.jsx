@@ -5,7 +5,7 @@ import { Heart, Trash2 } from "lucide-react";
 
 const WishlistItem = ({ item, onRemove }) => {
   return (
-    <Card className="mb-4">
+    <Card className="mb-4" dir="rtl">
       <CardHeader>
         <CardTitle className="flex justify-between items-center">
           <span>{item.name}</span>
@@ -14,12 +14,12 @@ const WishlistItem = ({ item, onRemove }) => {
       </CardHeader>
       <CardContent>
         <p className="text-sm text-gray-600 mb-2">{item.description}</p>
-        <p className="font-semibold mb-4">{item.points} points</p>
+        <p className="font-semibold mb-4">{item.points} نقطة</p>
         <div className="flex justify-between">
-          <Button variant="outline">View Details</Button>
+          <Button variant="outline">عرض التفاصيل</Button>
           <Button variant="ghost" onClick={() => onRemove(item.id)}>
-            <Trash2 className="h-4 w-4 mr-2" />
-            Remove
+            <Trash2 className="h-4 w-4 ml-2" />
+            إزالة
           </Button>
         </div>
       </CardContent>

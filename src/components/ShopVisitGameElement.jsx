@@ -15,7 +15,7 @@ const ShopVisitGameElement = () => {
       <CardContent>
         <p className="mb-4">قم بزيارة 5 متاجر مختلفة هذا الأسبوع واربح 500 نقطة إضافية!</p>
         <p className="mb-4">التقدم الحالي: 2/5 متاجر</p>
-        <Button>عرض المتاجر القريبة</Button>
+        <Button className="w-full">عرض المتاجر القريبة</Button>
       </CardContent>
     </Card>
   );

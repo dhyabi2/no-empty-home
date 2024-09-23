@@ -7,7 +7,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
-import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ChevronRight, X, Sun, Moon, Menu } from "lucide-react";
+import { HomeIcon, BellIcon, SearchIcon, StarIcon, UserIcon, HelpCircleIcon, ChevronLeft, X, Sun, Moon } from "lucide-react";
 
 const SideNav = ({ isOpen, onClose }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -17,41 +17,41 @@ const SideNav = ({ isOpen, onClose }) => {
 
   const navItems = [
     { 
-      icon: <HomeIcon className="h-4 w-4 mr-2" />, 
-      label: 'Home', 
+      icon: <HomeIcon className="h-4 w-4 ml-2" />, 
+      label: 'الرئيسية', 
       to: '/',
       subItems: []
     },
     { 
-      icon: <SearchIcon className="h-4 w-4 mr-2" />, 
-      label: 'Search', 
+      icon: <SearchIcon className="h-4 w-4 ml-2" />, 
+      label: 'البحث', 
       to: '/search',
       subItems: [
-        { label: 'Shops', to: '/search/shops' },
-        { label: 'Offers', to: '/search/offers' }
+        { label: 'المتاجر', to: '/search/shops' },
+        { label: 'العروض', to: '/search/offers' }
       ]
     },
     { 
-      icon: <BellIcon className="h-4 w-4 mr-2" />, 
-      label: 'Notifications', 
+      icon: <BellIcon className="h-4 w-4 ml-2" />, 
+      label: 'الإشعارات', 
       to: '/notifications',
       subItems: []
     },
     { 
-      icon: <StarIcon className="h-4 w-4 mr-2" />, 
-      label: 'Favorites', 
+      icon: <StarIcon className="h-4 w-4 ml-2" />, 
+      label: 'المفضلة', 
       to: '/favorites',
       subItems: []
     },
     { 
-      icon: <UserIcon className="h-4 w-4 mr-2" />, 
-      label: 'Profile', 
+      icon: <UserIcon className="h-4 w-4 ml-2" />, 
+      label: 'الملف الشخصي', 
       to: '/profile',
       subItems: []
     },
     { 
-      icon: <HelpCircleIcon className="h-4 w-4 mr-2" />, 
-      label: 'Help', 
+      icon: <HelpCircleIcon className="h-4 w-4 ml-2" />, 
+      label: 'المساعدة', 
       to: '/help-support',
       subItems: []
     },
@@ -96,7 +96,7 @@ const SideNav = ({ isOpen, onClose }) => {
 
   const sideNavVariants = {
     open: { x: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
-    closed: { x: '-100%', transition: { type: 'spring', stiffness: 300, damping: 30 } },
+    closed: { x: '100%', transition: { type: 'spring', stiffness: 300, damping: 30 } },
   };
 
   const overlayVariants = {
@@ -117,34 +117,35 @@ const SideNav = ({ isOpen, onClose }) => {
             onClick={onClose}
           />
           <motion.nav
-            className="bg-white dark:bg-gray-800 shadow-sm w-64 h-screen fixed left-0 top-0 overflow-y-auto z-50"
+            className="bg-white dark:bg-gray-800 shadow-sm w-64 h-screen fixed right-0 top-0 overflow-y-auto z-50"
             initial="closed"
             animate="open"
             exit="closed"
             variants={sideNavVariants}
+            dir="rtl"
           >
             <div className="p-4">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-xl font-bold">Loyalty App</h2>
+                <h2 className="text-xl font-bold">تطبيق الولاء</h2>
                 <Button variant="ghost" size="icon" onClick={onClose}>
                   <X className="h-4 w-4" />
                 </Button>
               </div>
               
-              <div className="flex items-center space-x-4 mb-6">
+              <div className="flex items-center space-x-4 space-x-reverse mb-6">
                 <Avatar>
                   <AvatarImage src={user?.avatarUrl} alt={user?.name} />
-                  <AvatarFallback>{user?.name?.charAt(0) || 'U'}</AvatarFallback>
+                  <AvatarFallback>{user?.name?.charAt(0) || 'م'}</AvatarFallback>
                 </Avatar>
                 <div>
-                  <p className="font-semibold">{user?.name || 'User'}</p>
+                  <p className="font-semibold">{user?.name || 'المستخدم'}</p>
                   <p className="text-sm text-gray-500">{user?.email || 'user@example.com'}</p>
                 </div>
               </div>
 
               <Input
                 type="text"
-                placeholder="Search menu..."
+                placeholder="البحث في القائمة..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="mb-4"
@@ -161,7 +162,7 @@ const SideNav = ({ isOpen, onClose }) => {
                     </AccordionTrigger>
                     {item.subItems.length > 0 && (
                       <AccordionContent>
-                        <ul className="ml-6 space-y-2">
+                        <ul className="mr-6 space-y-2">
                           {item.subItems.map((subItem, subIndex) => (
                             <li key={subIndex}>
                               <Link
@@ -169,7 +170,7 @@ const SideNav = ({ isOpen, onClose }) => {
                                 className="flex items-center hover:bg-gray-100 dark:hover:bg-gray-700 rounded-md p-2 transition-colors"
                                 onClick={onClose}
                               >
-                                <ChevronRight className="h-3 w-3 mr-2" />
+                                <ChevronLeft className="h-3 w-3 ml-2" />
                                 {subItem.label}
                               </Link>
                             </li>
@@ -183,8 +184,8 @@ const SideNav = ({ isOpen, onClose }) => {
 
               <div className="mt-6">
                 <Button variant="outline" onClick={toggleTheme} className="w-full">
-                  {theme === 'light' ? <Moon className="h-4 w-4 mr-2" /> : <Sun className="h-4 w-4 mr-2" />}
-                  {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+                  {theme === 'light' ? <Moon className="h-4 w-4 ml-2" /> : <Sun className="h-4 w-4 ml-2" />}
+                  {theme === 'light' ? 'الوضع الداكن' : 'الوضع الفاتح'}
                 </Button>
               </div>
             </div>
