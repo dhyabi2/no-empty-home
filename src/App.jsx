@@ -15,6 +15,7 @@ import ScanQR from './pages/ScanQR';
 import CapturePhoto from './pages/CapturePhoto';
 import Redeem from './pages/Redeem';
 import CheckIn from './pages/CheckIn';
+import BottomNavigation from './components/BottomNavigation';
 
 const queryClient = new QueryClient();
 
@@ -27,19 +28,22 @@ const AnimatedRoutes = () => {
   }
 
   return (
-    <AnimatePresence mode="wait">
-      <PageTransition key={location.pathname}>
-        <Routes location={location}>
-          {navItems.map(({ to, page }) => (
-            <Route key={to} path={to} element={page} />
-          ))}
-          <Route path="/scan-qr" element={<ScanQR />} />
-          <Route path="/capture-photo" element={<CapturePhoto />} />
-          <Route path="/redeem" element={<Redeem />} />
-          <Route path="/check-in" element={<CheckIn />} />
-        </Routes>
-      </PageTransition>
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait">
+        <PageTransition key={location.pathname}>
+          <Routes location={location}>
+            {navItems.map(({ to, page }) => (
+              <Route key={to} path={to} element={page} />
+            ))}
+            <Route path="/scan-qr" element={<ScanQR />} />
+            <Route path="/capture-photo" element={<CapturePhoto />} />
+            <Route path="/redeem" element={<Redeem />} />
+            <Route path="/check-in" element={<CheckIn />} />
+          </Routes>
+        </PageTransition>
+      </AnimatePresence>
+      <BottomNavigation />
+    </>
   );
 };
 
