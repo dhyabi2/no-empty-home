@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Search, User, MoreHorizontal, Grid } from 'lucide-react';
+import { Home, Search, Bell, User, MoreHorizontal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const BottomNavigation = () => {
@@ -9,7 +9,7 @@ const BottomNavigation = () => {
   const navItems = [
     { icon: Home, path: '/' },
     { icon: Search, path: '/search' },
-    { icon: Grid, path: '/quick-actions' },
+    { icon: Bell, path: '/notifications' },
     { icon: User, path: '/profile' },
     { icon: MoreHorizontal, path: '/more' },
   ];
