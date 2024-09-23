@@ -61,6 +61,11 @@ const Header = ({ onMenuClick }) => {
             </Link>
           </div>
           <div className="flex items-center space-x-4">
+            <Link to="/notifications">
+              <Button variant="ghost" size="icon">
+                <BellIcon className="h-6 w-6" />
+              </Button>
+            </Link>
             <ThemeToggle />
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
