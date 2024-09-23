@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Search, Bell, User, MoreHorizontal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const BottomNavigation = () => {
   const location = useLocation();
+  const bottomNavRef = useRef(null);
 
   const navItems = [
     { icon: Home, path: '/', label: 'الرئيسية' },
@@ -14,8 +15,29 @@ const BottomNavigation = () => {
     { icon: MoreHorizontal, path: '/more', label: 'المزيد' },
   ];
 
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(entries => {
+      for (let entry of entries) {
+        if (entry.target === bottomNavRef.current) {
+          // Handle the resize here if needed
+          console.log('Bottom navigation resized');
+        }
+      }
+    });
+
+    if (bottomNavRef.current) {
+      resizeObserver.observe(bottomNavRef.current);
+    }
+
+    return () => {
+      if (bottomNavRef.current) {
+        resizeObserver.unobserve(bottomNavRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <nav className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 z-50" dir="rtl">
+    <nav className="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 fixed bottom-0 left-0 right-0 z-50" dir="rtl" ref={bottomNavRef}>
       <div className="flex justify-around items-center h-16">
         {navItems.map(({ icon: Icon, path, label }) => (
           <Link

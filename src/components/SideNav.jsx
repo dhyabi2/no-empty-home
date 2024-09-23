@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ const SideNav = ({ isOpen, onClose }) => {
   const { theme, setTheme } = useTheme();
   const { user } = useAuth();
   const location = useLocation();
+  const sideNavRef = useRef(null);
 
   const navItems = [
     { 
@@ -73,26 +74,24 @@ const SideNav = ({ isOpen, onClose }) => {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (sideNavRef.current && !sideNavRef.current.contains(event.target)) {
+        onClose();
+      }
+    };
+
     if (isOpen) {
       document.addEventListener('keydown', handleEscKey);
+      document.addEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscKey);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
-
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
 
   const sideNavVariants = {
     open: { x: 0, transition: { type: 'spring', stiffness: 300, damping: 30 } },
@@ -117,6 +116,7 @@ const SideNav = ({ isOpen, onClose }) => {
             onClick={onClose}
           />
           <motion.nav
+            ref={sideNavRef}
             className="bg-white dark:bg-gray-800 shadow-sm w-64 h-screen fixed right-0 top-0 overflow-y-auto z-50"
             initial="closed"
             animate="open"

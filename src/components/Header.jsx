@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import {
@@ -30,15 +30,15 @@ const Header = ({ onMenuClick }) => {
   const isHomePage = location.pathname === '/';
   const { user } = useAuth();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsCollapsed(scrollPosition > 50);
-    };
+  const handleScroll = useCallback(() => {
+    const scrollPosition = window.scrollY;
+    setIsCollapsed(scrollPosition > 50);
+  }, []);
 
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const handleBackClick = () => {
     navigate(-1);
