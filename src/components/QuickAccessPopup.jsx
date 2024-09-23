@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { X, Gift, ShoppingBag, Tag, User } from 'lucide-react';
+import { X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Gift, MapPin, Scan } from "lucide-react";
 
 const QuickAccessLink = ({ to, icon: Icon, label }) => (
   <motion.div
@@ -26,8 +27,8 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
     // Simulating fetching recent links from local storage or API
     const fetchedRecentLinks = [
       { to: "/redeem-points", icon: Gift, label: "استبدال النقاط" },
-      { to: "/nearby-offers", icon: Tag, label: "العروض القريبة" },
-      { to: "/scan-receipt", icon: ShoppingBag, label: "مسح الإيصال" },
+      { to: "/nearby-offers", icon: MapPin, label: "العروض القريبة" },
+      { to: "/scan-receipt", icon: Scan, label: "مسح الإيصال" },
     ];
     setRecentLinks(fetchedRecentLinks);
   }, []);
@@ -35,7 +36,6 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
   const quickLinkSections = [
     {
       title: "المكافآت",
-      icon: Gift,
       links: [
         { to: "/redeem-points", icon: Gift, label: "استبدال النقاط" },
         { to: "/birthday-rewards", icon: Gift, label: "مكافآت عيد الميلاد" },
@@ -57,42 +57,39 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
     },
     {
       title: "المتاجر",
-      icon: ShoppingBag,
       links: [
-        { to: "/favorite-shops", icon: ShoppingBag, label: "المتاجر المفضلة" },
-        { to: "/first-shop-visit", icon: ShoppingBag, label: "أول زيارة للمتجر" },
-        { to: "/shop-profile", icon: ShoppingBag, label: "ملف المتجر" },
-        { to: "/shop-authentication", icon: ShoppingBag, label: "مصادقة المتجر" },
-        { to: "/shop-dashboard", icon: ShoppingBag, label: "لوحة تحكم المتجر" },
-        { to: "/shop-registration", icon: ShoppingBag, label: "تسجيل المتجر" },
-        { to: "/shop-settings", icon: ShoppingBag, label: "إعدادات المتجر" },
+        { to: "/favorite-shops", icon: Gift, label: "المتاجر المفضلة" },
+        { to: "/first-shop-visit", icon: Gift, label: "أول زيارة للمتجر" },
+        { to: "/shop-profile", icon: Gift, label: "ملف المتجر" },
+        { to: "/shop-authentication", icon: Gift, label: "مصادقة المتجر" },
+        { to: "/shop-dashboard", icon: Gift, label: "لوحة تحكم المتجر" },
+        { to: "/shop-registration", icon: Gift, label: "تسجيل المتجر" },
+        { to: "/shop-settings", icon: Gift, label: "إعدادات المتجر" },
       ]
     },
     {
       title: "العروض",
-      icon: Tag,
       links: [
-        { to: "/nearby-offers", icon: Tag, label: "العروض القريبة" },
-        { to: "/offer-detail", icon: Tag, label: "تفاصيل العرض" },
-        { to: "/offer-management", icon: Tag, label: "إدارة العروض" },
-        { to: "/flash-sales", icon: Tag, label: "التخفيضات السريعة" },
-        { to: "/last-minute-deals", icon: Tag, label: "صفقات اللحظة الأخيرة" },
-        { to: "/partner-rewards", icon: Tag, label: "مكافآت الشركاء" },
-        { to: "/point-boosters", icon: Tag, label: "معززات النقاط" },
+        { to: "/nearby-offers", icon: Gift, label: "العروض القريبة" },
+        { to: "/offer-detail", icon: Gift, label: "تفاصيل العرض" },
+        { to: "/offer-management", icon: Gift, label: "إدارة العروض" },
+        { to: "/flash-sales", icon: Gift, label: "التخفيضات السريعة" },
+        { to: "/last-minute-deals", icon: Gift, label: "صفقات اللحظة الأخيرة" },
+        { to: "/partner-rewards", icon: Gift, label: "مكافآت الشركاء" },
+        { to: "/point-boosters", icon: Gift, label: "معززات النقاط" },
       ]
     },
     {
       title: "الحساب",
-      icon: User,
       links: [
-        { to: "/about-us", icon: User, label: "من نحن" },
-        { to: "/checkout", icon: User, label: "الدفع" },
-        { to: "/customer-management", icon: User, label: "إدارة العملاء" },
-        { to: "/order-history", icon: User, label: "سجل الطلبات" },
-        { to: "/point-donation", icon: User, label: "التبرع بالنقاط" },
-        { to: "/point-transfer", icon: User, label: "تحويل النقاط" },
-        { to: "/reward-and-scan-system", icon: User, label: "نظام المكافآت والمسح" },
-        { to: "/scan-receipt", icon: User, label: "مسح الإيصال" },
+        { to: "/about-us", icon: Gift, label: "من نحن" },
+        { to: "/checkout", icon: Gift, label: "الدفع" },
+        { to: "/customer-management", icon: Gift, label: "إدارة العملاء" },
+        { to: "/order-history", icon: Gift, label: "سجل الطلبات" },
+        { to: "/point-donation", icon: Gift, label: "التبرع بالنقاط" },
+        { to: "/point-transfer", icon: Gift, label: "تحويل النقاط" },
+        { to: "/reward-and-scan-system", icon: Gift, label: "نظام المكافآت والمسح" },
+        { to: "/scan-receipt", icon: Gift, label: "مسح الإيصال" },
       ]
     },
   ];
@@ -136,7 +133,7 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
                   <TabsList className="mb-4 flex flex-wrap">
                     {quickLinkSections.map((section) => (
                       <TabsTrigger key={section.title} value={section.title.toLowerCase()}>
-                        <section.icon className="h-5 w-5" />
+                        {section.title}
                       </TabsTrigger>
                     ))}
                   </TabsList>
