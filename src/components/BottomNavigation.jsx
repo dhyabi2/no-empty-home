@@ -33,6 +33,7 @@ const BottomNavigation = () => {
       if (bottomNavRef.current) {
         resizeObserver.unobserve(bottomNavRef.current);
       }
+      resizeObserver.disconnect();
     };
   }, []);
 
