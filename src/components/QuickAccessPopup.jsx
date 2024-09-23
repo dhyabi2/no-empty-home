@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { X } from 'lucide-react';
+import { X, Gift, Store, Award, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Gift, MapPin, Scan } from "lucide-react";
 
 const QuickAccessLink = ({ to, icon: Icon, label }) => (
   <motion.div
@@ -27,48 +26,16 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
     // Simulating fetching recent links from local storage or API
     const fetchedRecentLinks = [
       { to: "/redeem-points", icon: Gift, label: "استبدال النقاط" },
-      { to: "/nearby-offers", icon: MapPin, label: "العروض القريبة" },
-      { to: "/scan-receipt", icon: Scan, label: "مسح الإيصال" },
+      { to: "/nearby-offers", icon: Store, label: "العروض القريبة" },
+      { to: "/scan-receipt", icon: Award, label: "مسح الإيصال" },
     ];
     setRecentLinks(fetchedRecentLinks);
   }, []);
 
   const quickLinkSections = [
     {
-      title: "المكافآت",
-      links: [
-        { to: "/redeem-points", icon: Gift, label: "استبدال النقاط" },
-        { to: "/birthday-rewards", icon: Gift, label: "مكافآت عيد الميلاد" },
-        { to: "/exclusive-events", icon: Gift, label: "الفعاليات الحصرية" },
-        { to: "/reward-auctions", icon: Gift, label: "مزادات المكافآت" },
-        { to: "/reward-bundles", icon: Gift, label: "حزم المكافآت" },
-        { to: "/reward-categories", icon: Gift, label: "فئات المكافآت" },
-        { to: "/reward-comparison", icon: Gift, label: "مقارنة المكافآت" },
-        { to: "/reward-customization", icon: Gift, label: "تخصيص المكافآت" },
-        { to: "/reward-gifting", icon: Gift, label: "إهداء المكافآت" },
-        { to: "/reward-ratings", icon: Gift, label: "تقييم المكافآت" },
-        { to: "/reward-sharing", icon: Gift, label: "مشاركة المكافآت" },
-        { to: "/reward-showcase", icon: Gift, label: "عرض المكافآت" },
-        { to: "/reward-subscription", icon: Gift, label: "اشتراكات المكافآت" },
-        { to: "/surprise-rewards", icon: Gift, label: "مكافآت مفاجئة" },
-        { to: "/reward-planner", icon: Gift, label: "مخطط المكافآت" },
-        { to: "/augmented-reality-rewards", icon: Gift, label: "مكافآت الواقع المعزز" },
-      ]
-    },
-    {
-      title: "المتاجر",
-      links: [
-        { to: "/favorite-shops", icon: Gift, label: "المتاجر المفضلة" },
-        { to: "/first-shop-visit", icon: Gift, label: "أول زيارة للمتجر" },
-        { to: "/shop-profile", icon: Gift, label: "ملف المتجر" },
-        { to: "/shop-authentication", icon: Gift, label: "مصادقة المتجر" },
-        { to: "/shop-dashboard", icon: Gift, label: "لوحة تحكم المتجر" },
-        { to: "/shop-registration", icon: Gift, label: "تسجيل المتجر" },
-        { to: "/shop-settings", icon: Gift, label: "إعدادات المتجر" },
-      ]
-    },
-    {
       title: "العروض",
+      icon: Gift,
       links: [
         { to: "/nearby-offers", icon: Gift, label: "العروض القريبة" },
         { to: "/offer-detail", icon: Gift, label: "تفاصيل العرض" },
@@ -80,16 +47,52 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
       ]
     },
     {
-      title: "الحساب",
+      title: "المتاجر",
+      icon: Store,
       links: [
-        { to: "/about-us", icon: Gift, label: "من نحن" },
-        { to: "/checkout", icon: Gift, label: "الدفع" },
-        { to: "/customer-management", icon: Gift, label: "إدارة العملاء" },
-        { to: "/order-history", icon: Gift, label: "سجل الطلبات" },
-        { to: "/point-donation", icon: Gift, label: "التبرع بالنقاط" },
-        { to: "/point-transfer", icon: Gift, label: "تحويل النقاط" },
-        { to: "/reward-and-scan-system", icon: Gift, label: "نظام المكافآت والمسح" },
-        { to: "/scan-receipt", icon: Gift, label: "مسح الإيصال" },
+        { to: "/favorite-shops", icon: Store, label: "المتاجر المفضلة" },
+        { to: "/first-shop-visit", icon: Store, label: "أول زيارة للمتجر" },
+        { to: "/shop-profile", icon: Store, label: "ملف المتجر" },
+        { to: "/shop-authentication", icon: Store, label: "مصادقة المتجر" },
+        { to: "/shop-dashboard", icon: Store, label: "لوحة تحكم المتجر" },
+        { to: "/shop-registration", icon: Store, label: "تسجيل المتجر" },
+        { to: "/shop-settings", icon: Store, label: "إعدادات المتجر" },
+      ]
+    },
+    {
+      title: "المكافآت",
+      icon: Award,
+      links: [
+        { to: "/redeem-points", icon: Award, label: "استبدال النقاط" },
+        { to: "/birthday-rewards", icon: Award, label: "مكافآت عيد الميلاد" },
+        { to: "/exclusive-events", icon: Award, label: "الفعاليات الحصرية" },
+        { to: "/reward-auctions", icon: Award, label: "مزادات المكافآت" },
+        { to: "/reward-bundles", icon: Award, label: "حزم المكافآت" },
+        { to: "/reward-categories", icon: Award, label: "فئات المكافآت" },
+        { to: "/reward-comparison", icon: Award, label: "مقارنة المكافآت" },
+        { to: "/reward-customization", icon: Award, label: "تخصيص المكافآت" },
+        { to: "/reward-gifting", icon: Award, label: "إهداء المكافآت" },
+        { to: "/reward-ratings", icon: Award, label: "تقييم المكافآت" },
+        { to: "/reward-sharing", icon: Award, label: "مشاركة المكافآت" },
+        { to: "/reward-showcase", icon: Award, label: "عرض المكافآت" },
+        { to: "/reward-subscription", icon: Award, label: "اشتراكات المكافآت" },
+        { to: "/surprise-rewards", icon: Award, label: "مكافآت مفاجئة" },
+        { to: "/reward-planner", icon: Award, label: "مخطط المكافآت" },
+        { to: "/augmented-reality-rewards", icon: Award, label: "مكافآت الواقع المعزز" },
+      ]
+    },
+    {
+      title: "الحساب",
+      icon: User,
+      links: [
+        { to: "/about-us", icon: User, label: "من نحن" },
+        { to: "/checkout", icon: User, label: "الدفع" },
+        { to: "/customer-management", icon: User, label: "إدارة العملاء" },
+        { to: "/order-history", icon: User, label: "سجل الطلبات" },
+        { to: "/point-donation", icon: User, label: "التبرع بالنقاط" },
+        { to: "/point-transfer", icon: User, label: "تحويل النقاط" },
+        { to: "/reward-and-scan-system", icon: User, label: "نظام المكافآت والمسح" },
+        { to: "/scan-receipt", icon: User, label: "مسح الإيصال" },
       ]
     },
   ];
@@ -129,16 +132,17 @@ const QuickAccessPopup = ({ isOpen, onClose }) => {
                   </div>
                 </div>
 
-                <Tabs defaultValue="rewards">
-                  <TabsList className="mb-4 flex flex-wrap">
+                <Tabs defaultValue="العروض">
+                  <TabsList className="mb-4 flex justify-between w-full">
                     {quickLinkSections.map((section) => (
-                      <TabsTrigger key={section.title} value={section.title.toLowerCase()}>
+                      <TabsTrigger key={section.title} value={section.title} className="flex-1">
+                        <section.icon className="h-5 w-5 mr-2" />
                         {section.title}
                       </TabsTrigger>
                     ))}
                   </TabsList>
                   {quickLinkSections.map((section) => (
-                    <TabsContent key={section.title} value={section.title.toLowerCase()}>
+                    <TabsContent key={section.title} value={section.title}>
                       <ScrollArea className="h-72">
                         <div className="grid grid-cols-3 gap-4">
                           {section.links.map((link, index) => (
