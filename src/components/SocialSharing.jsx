@@ -1,102 +1,20 @@
 import React from 'react';
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Share2, Facebook, Twitter, Linkedin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Share2 } from "lucide-react";
 
 const SocialSharing = () => {
-  const dummyReward = {
-    name: "50% Off Coffee",
-    points: 500,
-    description: "Get 50% off your next coffee purchase!",
-  };
-
-  const dummyAchievement = {
-    name: "Coffee Connoisseur",
-    description: "Visited 10 different coffee shops",
-    badge: "☕",
-  };
-
-  const handleShare = (platform) => {
-    const message = `Check out my latest reward on the Loyalty App: ${dummyReward.name}!`;
-    let url;
-
-    switch (platform) {
-      case 'facebook':
-        url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(message)}`;
-        break;
-      case 'twitter':
-        url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}&url=${encodeURIComponent(window.location.href)}`;
-        break;
-      case 'linkedin':
-        url = `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(window.location.href)}&title=${encodeURIComponent(dummyReward.name)}&summary=${encodeURIComponent(message)}`;
-        break;
-      default:
-        console.error('Invalid platform');
-        return;
-    }
-
-    window.open(url, '_blank');
-  };
-
   return (
-    <Card>
+    <Card className="mb-6">
       <CardHeader>
         <CardTitle className="flex items-center">
-          <Share2 className="mr-2" />
-          Share Your Rewards and Achievements
+          <Share2 className="ml-2" />
+          شارك مكافآتك وإنجازاتك
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="space-y-4">
-          <div>
-            <h3 className="font-semibold mb-2">Share Your Latest Reward</h3>
-            <Card>
-              <CardContent className="p-4">
-                <h4 className="font-medium">{dummyReward.name}</h4>
-                <p className="text-sm text-gray-500">{dummyReward.description}</p>
-                <p className="text-sm font-semibold mt-2">{dummyReward.points} points</p>
-              </CardContent>
-            </Card>
-            <div className="flex space-x-2 mt-2">
-              <Button size="sm" onClick={() => handleShare('facebook')}>
-                <Facebook className="mr-2 h-4 w-4" />
-                Share
-              </Button>
-              <Button size="sm" onClick={() => handleShare('twitter')}>
-                <Twitter className="mr-2 h-4 w-4" />
-                Tweet
-              </Button>
-              <Button size="sm" onClick={() => handleShare('linkedin')}>
-                <Linkedin className="mr-2 h-4 w-4" />
-                Share
-              </Button>
-            </div>
-          </div>
-          <div>
-            <h3 className="font-semibold mb-2">Share Your Latest Achievement</h3>
-            <Card>
-              <CardContent className="p-4">
-                <h4 className="font-medium">{dummyAchievement.name}</h4>
-                <p className="text-sm text-gray-500">{dummyAchievement.description}</p>
-                <p className="text-2xl mt-2">{dummyAchievement.badge}</p>
-              </CardContent>
-            </Card>
-            <div className="flex space-x-2 mt-2">
-              <Button size="sm" onClick={() => handleShare('facebook')}>
-                <Facebook className="mr-2 h-4 w-4" />
-                Share
-              </Button>
-              <Button size="sm" onClick={() => handleShare('twitter')}>
-                <Twitter className="mr-2 h-4 w-4" />
-                Tweet
-              </Button>
-              <Button size="sm" onClick={() => handleShare('linkedin')}>
-                <Linkedin className="mr-2 h-4 w-4" />
-                Share
-              </Button>
-            </div>
-          </div>
-        </div>
+        <p className="mb-4">شارك نجاحاتك مع أصدقائك واكسب نقاطًا إضافية!</p>
+        <Button className="w-full">مشاركة الآن</Button>
       </CardContent>
     </Card>
   );

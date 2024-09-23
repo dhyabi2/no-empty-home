@@ -7,7 +7,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Progress } from "@/components/ui/progress";
 
-const Onboarding = () => {
+const Onboarding = ({ onComplete }) => {
   const [step, setStep] = useState(1);
   const [userData, setUserData] = useState({
     name: '',
@@ -26,6 +26,8 @@ const Onboarding = () => {
   const handleNext = () => {
     if (step < totalSteps) {
       setStep(step + 1);
+    } else {
+      onComplete();
     }
   };
 
@@ -62,31 +64,31 @@ const Onboarding = () => {
   return (
     <Card className="w-full max-w-lg mx-auto">
       <CardHeader>
-        <CardTitle>Welcome to Loyalty App</CardTitle>
+        <CardTitle>مرحبًا بك في تطبيق الولاء</CardTitle>
         <Progress value={(step / totalSteps) * 100} className="mt-2" />
       </CardHeader>
       <CardContent>
         {step === 1 && (
           <div className="space-y-4">
             <div>
-              <Label htmlFor="name">Name</Label>
+              <Label htmlFor="name">الاسم</Label>
               <Input
                 id="name"
                 name="name"
                 value={userData.name}
                 onChange={handleInputChange}
-                placeholder="Enter your name"
+                placeholder="أدخل اسمك"
               />
             </div>
             <div>
-              <Label htmlFor="email">Email</Label>
+              <Label htmlFor="email">البريد الإلكتروني</Label>
               <Input
                 id="email"
                 name="email"
                 type="email"
                 value={userData.email}
                 onChange={handleInputChange}
-                placeholder="Enter your email"
+                placeholder="أدخل بريدك الإلكتروني"
               />
             </div>
           </div>
@@ -94,22 +96,22 @@ const Onboarding = () => {
 
         {step === 2 && (
           <div className="space-y-4">
-            <Label>Preferred Rewards</Label>
+            <Label>المكافآت المفضلة</Label>
             <RadioGroup
               value={userData.preferredRewards}
               onValueChange={(value) => setUserData({...userData, preferredRewards: value})}
             >
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="cashback" id="cashback" />
-                <Label htmlFor="cashback">Cashback</Label>
+                <Label htmlFor="cashback">استرداد نقدي</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="points" id="points" />
-                <Label htmlFor="points">Points</Label>
+                <Label htmlFor="points">نقاط</Label>
               </div>
               <div className="flex items-center space-x-2">
                 <RadioGroupItem value="discounts" id="discounts" />
-                <Label htmlFor="discounts">Discounts</Label>
+                <Label htmlFor="discounts">خصومات</Label>
               </div>
             </RadioGroup>
           </div>
@@ -117,8 +119,8 @@ const Onboarding = () => {
 
         {step === 3 && (
           <div className="space-y-4">
-            <Label>Interests</Label>
-            {['Shopping', 'Dining', 'Travel', 'Entertainment'].map((interest) => (
+            <Label>الاهتمامات</Label>
+            {['التسوق', 'المطاعم', 'السفر', 'الترفيه'].map((interest) => (
               <div key={interest} className="flex items-center space-x-2">
                 <Checkbox
                   id={interest}
@@ -133,14 +135,14 @@ const Onboarding = () => {
 
         {step === 4 && (
           <div className="space-y-4">
-            <Label>Notification Preferences</Label>
+            <Label>تفضيلات الإشعارات</Label>
             <div className="flex items-center space-x-2">
               <Checkbox
                 id="emailNotifications"
                 checked={userData.notificationPreferences.email}
                 onCheckedChange={() => handleNotificationPreferenceChange('email')}
               />
-              <Label htmlFor="emailNotifications">Email Notifications</Label>
+              <Label htmlFor="emailNotifications">إشعارات البريد الإلكتروني</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox
@@ -148,7 +150,7 @@ const Onboarding = () => {
                 checked={userData.notificationPreferences.push}
                 onCheckedChange={() => handleNotificationPreferenceChange('push')}
               />
-              <Label htmlFor="pushNotifications">Push Notifications</Label>
+              <Label htmlFor="pushNotifications">الإشعارات الفورية</Label>
             </div>
             <div className="flex items-center space-x-2">
               <Checkbox
@@ -156,7 +158,7 @@ const Onboarding = () => {
                 checked={userData.notificationPreferences.sms}
                 onCheckedChange={() => handleNotificationPreferenceChange('sms')}
               />
-              <Label htmlFor="smsNotifications">SMS Notifications</Label>
+              <Label htmlFor="smsNotifications">إشعارات الرسائل النصية</Label>
             </div>
           </div>
         )}
@@ -164,11 +166,11 @@ const Onboarding = () => {
         <div className="flex justify-between mt-6">
           {step > 1 && (
             <Button onClick={handlePrevious} variant="outline">
-              Previous
+              السابق
             </Button>
           )}
           <Button onClick={handleNext}>
-            {step === totalSteps ? 'Finish' : 'Next'}
+            {step === totalSteps ? 'إنهاء' : 'التالي'}
           </Button>
         </div>
       </CardContent>

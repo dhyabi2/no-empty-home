@@ -5,28 +5,28 @@ import { Gift, Share2 } from "lucide-react";
 
 const WelcomeReward = () => {
   const handleClaim = () => {
-    alert("Welcome reward claimed!");
+    alert("تم المطالبة بمكافأة الترحيب!");
   };
 
   const handleShare = () => {
-    alert("Sharing welcome reward!");
+    alert("جاري مشاركة مكافأة الترحيب!");
   };
 
   return (
     <Card className="mb-6">
       <CardHeader>
         <CardTitle className="flex items-center">
-          <Gift className="mr-2" />
-          Welcome Reward
+          <Gift className="ml-2" />
+          مكافأة الترحيب
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="mb-4">Claim your welcome bonus of 100 points!</p>
+        <p className="mb-4">احصل على مكافأة الترحيب الخاصة بك: 100 نقطة!</p>
         <div className="flex space-x-2">
-          <Button onClick={handleClaim}>Claim Reward</Button>
+          <Button onClick={handleClaim}>المطالبة بالمكافأة</Button>
           <Button variant="outline" onClick={handleShare}>
-            <Share2 className="mr-2 h-4 w-4" />
-            Share
+            <Share2 className="ml-2 h-4 w-4" />
+            مشاركة
           </Button>
         </div>
       </CardContent>
