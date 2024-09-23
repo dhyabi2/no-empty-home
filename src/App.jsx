@@ -16,6 +16,7 @@ import CapturePhoto from './pages/CapturePhoto';
 import Redeem from './pages/Redeem';
 import CheckIn from './pages/CheckIn';
 import BottomNavigation from './components/BottomNavigation';
+import FloatingActionButton from './components/FloatingActionButton';
 
 const queryClient = new QueryClient();
 
@@ -43,6 +44,7 @@ const AnimatedRoutes = () => {
         </PageTransition>
       </AnimatePresence>
       <BottomNavigation />
+      <FloatingActionButton />
     </>
   );
 };
