@@ -16,6 +16,7 @@ import SocialSharing from '../components/SocialSharing';
 import GamifiedChallenges from '../components/GamifiedChallenges';
 import VirtualLoyaltyCard from '../components/VirtualLoyaltyCard';
 import FloatingActionButton from '../components/FloatingActionButton';
+import NearbyShops from '../components/NearbyShops';
 import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake, Heart, Glasses, ArrowRightLeft } from "lucide-react";
 
 const QuickAccessLink = ({ to, icon: Icon, label }) => (
@@ -116,6 +117,7 @@ const Index = () => {
         <div className="mt-8 space-y-8">
           <ShopVisitGameElement />
           <PersonalizedShopRecommendations />
+          <NearbyShops />
           <PointBoosters />
           <RewardConcierge />
           <SocialSharing />
