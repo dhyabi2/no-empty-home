@@ -1,69 +1,80 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { HelpCircle } from "lucide-react";
 
 const RewardTrivia = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
   const [score, setScore] = useState(0);
+  const [showResult, setShowResult] = useState(false);
 
-  const triviaQuestions = [
+  const questions = [
     {
-      question: "What's the maximum number of points you can earn in a single purchase?",
-      options: ["100", "500", "1000", "No limit"],
-      correctAnswer: "No limit"
+      question: "كم عدد النقاط التي تحصل عليها عند إنفاق 100 ريال في متاجرنا الشريكة؟",
+      options: ["5 نقاط", "10 نقاط", "15 نقاط", "20 نقاط"],
+      correctAnswer: 1
     },
     {
-      question: "How often do reward points expire?",
-      options: ["Never", "Every month", "Every year", "Every 2 years"],
-      correctAnswer: "Every year"
+      question: "ما هو الحد الأدنى من النقاط المطلوبة لاستبدال قسيمة خصم 10%؟",
+      options: ["100 نقطة", "250 نقطة", "500 نقطة", "1000 نقطة"],
+      correctAnswer: 2
     },
     {
-      question: "What's the minimum points required for a free coffee?",
-      options: ["50", "100", "200", "500"],
-      correctAnswer: "100"
+      question: "كم مرة يمكنك مضاعفة نقاطك في الشهر؟",
+      options: ["مرة واحدة", "مرتين", "ثلاث مرات", "أربع مرات"],
+      correctAnswer: 1
     }
   ];
 
-  const handleAnswer = () => {
-    if (selectedAnswer === triviaQuestions[currentQuestion].correctAnswer) {
-      setScore(score + 10);
+  const handleAnswer = (selectedAnswer) => {
+    if (selectedAnswer === questions[currentQuestion].correctAnswer) {
+      setScore(score + 1);
     }
-    if (currentQuestion < triviaQuestions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-      setSelectedAnswer('');
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowResult(true);
     }
   };
 
+  const resetTrivia = () => {
+    setCurrentQuestion(0);
+    setScore(0);
+    setShowResult(false);
+  };
+
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Reward Trivia</CardTitle>
+        <CardTitle className="flex items-center">
+          <HelpCircle className="ml-2" />
+          مسابقة المكافآت
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        {currentQuestion < triviaQuestions.length ? (
+        {!showResult ? (
           <>
-            <p className="mb-4">{triviaQuestions[currentQuestion].question}</p>
-            <RadioGroup value={selectedAnswer} onValueChange={setSelectedAnswer}>
-              {triviaQuestions[currentQuestion].options.map((option, index) => (
-                <div key={index} className="flex items-center space-x-2">
-                  <RadioGroupItem value={option} id={`option-${index}`} />
-                  <Label htmlFor={`option-${index}`}>{option}</Label>
-                </div>
+            <h3 className="font-semibold mb-4">{questions[currentQuestion].question}</h3>
+            <div className="space-y-2">
+              {questions[currentQuestion].options.map((option, index) => (
+                <Button
+                  key={index}
+                  className="w-full text-right"
+                  onClick={() => handleAnswer(index)}
+                >
+                  {option}
+                </Button>
               ))}
-            </RadioGroup>
-            <Button onClick={handleAnswer} className="mt-4" disabled={!selectedAnswer}>
-              {currentQuestion === triviaQuestions.length - 1 ? "Finish" : "Next"}
-            </Button>
+            </div>
+            <p className="mt-4 text-sm text-gray-600">السؤال {currentQuestion + 1} من {questions.length}</p>
           </>
         ) : (
-          <div>
-            <p>Game Over! Your score: {score} points</p>
-            <Button onClick={() => {setCurrentQuestion(0); setScore(0);}} className="mt-4">
-              Play Again
-            </Button>
+          <div className="text-center">
+            <h3 className="font-semibold mb-4">النتيجة النهائية</h3>
+            <p className="text-xl mb-4">لقد أجبت على {score} من {questions.length} أسئلة بشكل صحيح!</p>
+            <Button onClick={resetTrivia}>حاول مرة أخرى</Button>
           </div>
         )}
       </CardContent>

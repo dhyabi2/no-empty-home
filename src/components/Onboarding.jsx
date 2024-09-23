@@ -62,7 +62,7 @@ const Onboarding = ({ onComplete }) => {
   };
 
   return (
-    <Card className="w-full max-w-lg mx-auto">
+    <Card className="w-full max-w-lg mx-auto" dir="rtl">
       <CardHeader>
         <CardTitle>مرحبًا بك في تطبيق الولاء</CardTitle>
         <Progress value={(step / totalSteps) * 100} className="mt-2" />
@@ -101,15 +101,15 @@ const Onboarding = ({ onComplete }) => {
               value={userData.preferredRewards}
               onValueChange={(value) => setUserData({...userData, preferredRewards: value})}
             >
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 space-x-reverse">
                 <RadioGroupItem value="cashback" id="cashback" />
                 <Label htmlFor="cashback">استرداد نقدي</Label>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 space-x-reverse">
                 <RadioGroupItem value="points" id="points" />
                 <Label htmlFor="points">نقاط</Label>
               </div>
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-2 space-x-reverse">
                 <RadioGroupItem value="discounts" id="discounts" />
                 <Label htmlFor="discounts">خصومات</Label>
               </div>
@@ -121,7 +121,7 @@ const Onboarding = ({ onComplete }) => {
           <div className="space-y-4">
             <Label>الاهتمامات</Label>
             {['التسوق', 'المطاعم', 'السفر', 'الترفيه'].map((interest) => (
-              <div key={interest} className="flex items-center space-x-2">
+              <div key={interest} className="flex items-center space-x-2 space-x-reverse">
                 <Checkbox
                   id={interest}
                   checked={userData.interests.includes(interest)}
@@ -136,7 +136,7 @@ const Onboarding = ({ onComplete }) => {
         {step === 4 && (
           <div className="space-y-4">
             <Label>تفضيلات الإشعارات</Label>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 space-x-reverse">
               <Checkbox
                 id="emailNotifications"
                 checked={userData.notificationPreferences.email}
@@ -144,7 +144,7 @@ const Onboarding = ({ onComplete }) => {
               />
               <Label htmlFor="emailNotifications">إشعارات البريد الإلكتروني</Label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 space-x-reverse">
               <Checkbox
                 id="pushNotifications"
                 checked={userData.notificationPreferences.push}
@@ -152,7 +152,7 @@ const Onboarding = ({ onComplete }) => {
               />
               <Label htmlFor="pushNotifications">الإشعارات الفورية</Label>
             </div>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 space-x-reverse">
               <Checkbox
                 id="smsNotifications"
                 checked={userData.notificationPreferences.sms}

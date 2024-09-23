@@ -1,68 +1,81 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Progress } from "@/components/ui/progress";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "@/components/ui/button";
+import { Calendar } from "lucide-react";
 
 const RewardPlanner = () => {
-  const [goal, setGoal] = useState('');
-  const [pointsNeeded, setPointsNeeded] = useState('');
+  const [targetPoints, setTargetPoints] = useState('');
+  const [currentPoints, setCurrentPoints] = useState('');
+  const [dailyEarning, setDailyEarning] = useState('');
+  const [daysToGoal, setDaysToGoal] = useState(null);
 
-  // Dummy data
-  const currentPoints = 500;
-  const estimatedTimeToReach = '2 months';
+  const calculateDaysToGoal = () => {
+    const target = parseInt(targetPoints);
+    const current = parseInt(currentPoints);
+    const daily = parseInt(dailyEarning);
+
+    if (target && current !== undefined && daily) {
+      const days = Math.ceil((target - current) / daily);
+      setDaysToGoal(days);
+    }
+  };
 
   return (
-    <Card>
+    <Card dir="rtl">
       <CardHeader>
-        <CardTitle>Reward Planner</CardTitle>
+        <CardTitle className="flex items-center">
+          <Calendar className="ml-2" />
+          مخطط المكافآت
+        </CardTitle>
       </CardHeader>
       <CardContent>
-        <Tabs defaultValue="set-goal">
-          <TabsList>
-            <TabsTrigger value="set-goal">Set Goal</TabsTrigger>
-            <TabsTrigger value="progress">Progress</TabsTrigger>
-          </TabsList>
-          <TabsContent value="set-goal">
-            <form className="space-y-4">
-              <div>
-                <Label htmlFor="rewardGoal">Reward Goal</Label>
-                <Input
-                  id="rewardGoal"
-                  value={goal}
-                  onChange={(e) => setGoal(e.target.value)}
-                  placeholder="e.g., Free Coffee for a Month"
-                />
-              </div>
-              <div>
-                <Label htmlFor="pointsNeeded">Points Needed</Label>
-                <Input
-                  id="pointsNeeded"
-                  type="number"
-                  value={pointsNeeded}
-                  onChange={(e) => setPointsNeeded(e.target.value)}
-                  placeholder="Enter points needed"
-                />
-              </div>
-              <Button type="submit">Set Goal</Button>
-            </form>
-          </TabsContent>
-          <TabsContent value="progress">
-            <div>
-              <Label>Progress</Label>
-              <Progress value={(currentPoints / parseInt(pointsNeeded || '1')) * 100} className="mt-2" />
-              <p className="text-sm text-gray-500 mt-1">
-                {currentPoints} / {pointsNeeded || '0'} points
-              </p>
-            </div>
-            <div className="mt-4">
-              <Label>Estimated Time to Reach Goal</Label>
-              <p className="text-sm font-medium">{estimatedTimeToReach}</p>
-            </div>
-          </TabsContent>
-        </Tabs>
+        <div className="space-y-4">
+          <div>
+            <label htmlFor="targetPoints" className="block text-sm font-medium text-gray-700 mb-1">
+              الهدف (بالنقاط)
+            </label>
+            <Input
+              id="targetPoints"
+              type="number"
+              value={targetPoints}
+              onChange={(e) => setTargetPoints(e.target.value)}
+              placeholder="أدخل هدف النقاط"
+            />
+          </div>
+          <div>
+            <label htmlFor="currentPoints" className="block text-sm font-medium text-gray-700 mb-1">
+              النقاط الحالية
+            </label>
+            <Input
+              id="currentPoints"
+              type="number"
+              value={currentPoints}
+              onChange={(e) => setCurrentPoints(e.target.value)}
+              placeholder="أدخل نقاطك الحالية"
+            />
+          </div>
+          <div>
+            <label htmlFor="dailyEarning" className="block text-sm font-medium text-gray-700 mb-1">
+              متوسط الكسب اليومي
+            </label>
+            <Input
+              id="dailyEarning"
+              type="number"
+              value={dailyEarning}
+              onChange={(e) => setDailyEarning(e.target.value)}
+              placeholder="أدخل متوسط الكسب اليومي"
+            />
+          </div>
+          <Button onClick={calculateDaysToGoal} className="w-full">
+            حساب
+          </Button>
+          {daysToGoal !== null && (
+            <p className="text-center font-semibold mt-4">
+              ستصل إلى هدفك في حوالي {daysToGoal} يوم
+            </p>
+          )}
+        </div>
       </CardContent>
     </Card>
   );

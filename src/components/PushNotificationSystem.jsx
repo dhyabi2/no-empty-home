@@ -1,57 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import React, { useState, useEffect } from 'react';
+import { Toast } from "@/components/ui/toast";
 import { Bell } from "lucide-react";
 
 const PushNotificationSystem = () => {
-  const [permission, setPermission] = useState('default');
+  const [notifications, setNotifications] = useState([]);
 
   useEffect(() => {
-    if ('Notification' in window) {
-      setPermission(Notification.permission);
-    }
+    // Simulating receiving notifications
+    const interval = setInterval(() => {
+      const newNotification = {
+        id: Date.now(),
+        title: 'إشعار جديد',
+        message: 'لديك عرض جديد متاح!',
+      };
+      setNotifications(prev => [...prev, newNotification]);
+    }, 10000); // New notification every 10 seconds
+
+    return () => clearInterval(interval);
   }, []);
 
-  const requestPermission = async () => {
-    if ('Notification' in window) {
-      const result = await Notification.requestPermission();
-      setPermission(result);
-      if (result === 'granted') {
-        toast.success("Push notifications enabled!");
-      } else {
-        toast.error("Push notifications not allowed.");
-      }
-    }
-  };
-
-  const sendTestNotification = () => {
-    if (permission === 'granted') {
-      new Notification('Test Notification', {
-        body: 'This is a test push notification.',
-        icon: '/favicon.ico'
-      });
-    } else {
-      toast.error("Push notifications are not enabled.");
-    }
+  const removeNotification = (id) => {
+    setNotifications(prev => prev.filter(notification => notification.id !== id));
   };
 
   return (
-    <div className="space-y-4">
-      <h2 className="text-xl font-semibold">Push Notifications</h2>
-      {permission === 'default' && (
-        <Button onClick={requestPermission}>
-          <Bell className="mr-2 h-4 w-4" />
-          Enable Push Notifications
-        </Button>
-      )}
-      {permission === 'granted' && (
-        <Button onClick={sendTestNotification}>Send Test Notification</Button>
-      )}
-      {permission === 'denied' && (
-        <p className="text-sm text-red-500">
-          Push notifications are blocked. Please enable them in your browser settings.
-        </p>
-      )}
+    <div className="fixed bottom-4 right-4 z-50" dir="rtl">
+      {notifications.map((notification) => (
+        <Toast
+          key={notification.id}
+          title={notification.title}
+          description={notification.message}
+          icon={<Bell className="h-4 w-4" />}
+          onClose={() => removeNotification(notification.id)}
+        />
+      ))}
     </div>
   );
 };

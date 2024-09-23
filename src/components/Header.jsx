@@ -6,8 +6,8 @@ import {
   BellIcon,
   UserIcon,
   HelpCircleIcon,
-  ArrowLeft,
-  ChevronRight,
+  ArrowRight,
+  ChevronLeft,
   Menu,
   X,
 } from "lucide-react";
@@ -45,7 +45,7 @@ const Header = ({ onMenuClick }) => {
   };
 
   return (
-    <header className={`bg-background text-foreground shadow-sm sticky top-0 z-50 transition-all duration-300 ${isCollapsed ? 'py-2' : 'py-4'}`}>
+    <header className={`bg-background text-foreground shadow-sm sticky top-0 z-50 transition-all duration-300 ${isCollapsed ? 'py-2' : 'py-4'}`} dir="rtl">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
@@ -54,13 +54,13 @@ const Header = ({ onMenuClick }) => {
                 variant="ghost"
                 size="icon"
                 onClick={handleBackClick}
-                className="mr-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+                className="ml-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
               >
-                <ArrowLeft className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" />
               </Button>
             )}
             <Link to="/" className={`text-2xl font-bold text-foreground transition-all duration-300 ${isCollapsed ? 'text-xl' : 'text-2xl'}`}>
-              Loyalty App
+              تطبيق الولاء
             </Link>
           </div>
           <div className="flex items-center space-x-4">
@@ -70,27 +70,27 @@ const Header = ({ onMenuClick }) => {
                 <Button variant="ghost" size="icon">
                   <Avatar>
                     <AvatarImage src={user?.avatarUrl} alt={user?.name} />
-                    <AvatarFallback>{user?.name?.charAt(0) || 'U'}</AvatarFallback>
+                    <AvatarFallback>{user?.name?.charAt(0) || 'م'}</AvatarFallback>
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 <DropdownMenuItem>
                   <Link to="/profile" className="flex items-center">
-                    <UserIcon className="h-4 w-4 mr-2" />
-                    Profile
+                    <UserIcon className="h-4 w-4 ml-2" />
+                    الملف الشخصي
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Link to="/settings" className="flex items-center">
-                    <HelpCircleIcon className="h-4 w-4 mr-2" />
-                    Settings
+                    <HelpCircleIcon className="h-4 w-4 ml-2" />
+                    الإعدادات
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem>
                   <Button variant="ghost" className="w-full justify-start text-red-500">
-                    <X className="h-4 w-4 mr-2" />
-                    Logout
+                    <X className="h-4 w-4 ml-2" />
+                    تسجيل الخروج
                   </Button>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -103,8 +103,8 @@ const Header = ({ onMenuClick }) => {
               <ol className="inline-flex items-center space-x-1 md:space-x-3">
                 <li className="inline-flex items-center">
                   <Link to="/" className="text-foreground hover:text-foreground/80">
-                    <HomeIcon className="h-4 w-4 mr-2" />
-                    Home
+                    <HomeIcon className="h-4 w-4 ml-2" />
+                    الرئيسية
                   </Link>
                 </li>
                 {pathnames.map((name, index) => {
@@ -113,10 +113,10 @@ const Header = ({ onMenuClick }) => {
                   return (
                     <li key={name}>
                       <div className="flex items-center">
-                        <ChevronRight className="h-4 w-4 text-foreground/60" />
+                        <ChevronLeft className="h-4 w-4 text-foreground/60" />
                         <Link
                           to={routeTo}
-                          className={`ml-1 md:ml-2 text-sm font-medium ${
+                          className={`mr-1 md:mr-2 text-sm font-medium ${
                             isLast ? 'text-foreground/60 cursor-default' : 'text-foreground hover:text-foreground/80'
                           }`}
                           aria-current={isLast ? 'page' : undefined}

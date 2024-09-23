@@ -1,33 +1,21 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { AlertTriangle } from "lucide-react";
+import { Clock } from "lucide-react";
 
-const PointExpirationReminder = () => {
-  // Dummy data for point expiration
-  const expiringPoints = [
-    { amount: 500, expiryDate: '2024-05-15' },
-    { amount: 250, expiryDate: '2024-06-01' },
-    { amount: 1000, expiryDate: '2024-06-30' },
-  ];
-
+const PointExpirationReminder = ({ points, expirationDate }) => {
   return (
-    <Card>
+    <Card className="mb-6" dir="rtl">
       <CardHeader>
         <CardTitle className="flex items-center">
-          <AlertTriangle className="mr-2 h-5 w-5 text-yellow-500" />
-          Points Expiring Soon
+          <Clock className="ml-2" />
+          تذكير بانتهاء صلاحية النقاط
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <ul className="space-y-2">
-          {expiringPoints.map((item, index) => (
-            <li key={index} className="flex justify-between items-center">
-              <span>{item.amount} points expiring on {item.expiryDate}</span>
-              <Button variant="outline" size="sm">Use Points</Button>
-            </li>
-          ))}
-        </ul>
+        <p className="mb-2">لديك <strong>{points} نقطة</strong> ستنتهي صلاحيتها في:</p>
+        <p className="text-lg font-bold mb-4">{expirationDate}</p>
+        <Button className="w-full">استخدم نقاطك الآن</Button>
       </CardContent>
     </Card>
   );

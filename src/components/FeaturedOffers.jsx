@@ -8,16 +8,16 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 
 const FeaturedOffers = ({ isLoading }) => {
   const offers = [
-    { id: 1, title: "50% Off Coffee", shop: "Cafe Delight", expires: "3 days left" },
-    { id: 2, title: "Buy 1 Get 1 Free", shop: "Burger Haven", expires: "1 week left" },
-    { id: 3, title: "20% Off Books", shop: "Bookworm's Paradise", expires: "5 days left" },
-    { id: 4, title: "Free Dessert", shop: "Sweet Treats", expires: "2 days left" },
-    { id: 5, title: "30% Off Electronics", shop: "Tech World", expires: "4 days left" }
+    { id: 1, title: "خصم 50% على القهوة", shop: "كافيه ديلايت", expires: "باقي 3 أيام" },
+    { id: 2, title: "اشتر واحدة واحصل على الثانية مجانًا", shop: "برجر هافن", expires: "باقي أسبوع واحد" },
+    { id: 3, title: "خصم 20% على الكتب", shop: "جنة القراء", expires: "باقي 5 أيام" },
+    { id: 4, title: "حلوى مجانية", shop: "حلويات لذيذة", expires: "باقي يومان" },
+    { id: 5, title: "خصم 30% على الإلكترونيات", shop: "عالم التقنية", expires: "باقي 4 أيام" }
   ];
 
   return (
-    <section className="mb-8">
-      <h2 className="text-xl font-semibold mb-4">Featured Offers</h2>
+    <section className="mb-8" dir="rtl">
+      <h2 className="text-xl font-semibold mb-4">العروض المميزة</h2>
       {isLoading ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {[...Array(3)].map((_, index) => (
@@ -46,7 +46,7 @@ const FeaturedOffers = ({ isLoading }) => {
                     <p className="text-sm text-gray-500">{offer.shop}</p>
                     <p className="text-xs text-red-500 mt-2">{offer.expires}</p>
                     <Link to={`/offers/${offer.id}`}>
-                      <Button className="mt-4 w-full">View Offer</Button>
+                      <Button className="mt-4 w-full">عرض العرض</Button>
                     </Link>
                   </CardContent>
                 </Card>
@@ -60,8 +60,8 @@ const FeaturedOffers = ({ isLoading }) => {
       <div className="mt-4 text-center">
         <Link to="/offers">
           <Button variant="outline">
-            <Tag className="mr-2 h-4 w-4" />
-            View All Offers
+            <Tag className="ml-2 h-4 w-4" />
+            عرض جميع العروض
           </Button>
         </Link>
       </div>

@@ -1,11 +1,12 @@
 import React from 'react';
 
-const Shimmer = ({ width = '100%', height = '20px' }) => {
+const Shimmer = ({ width = '100%', height = '20px', className = '' }) => {
   return (
-    <div 
-      className="animate-pulse bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200 bg-[length:200%_100%]"
+    <div
+      className={`animate-pulse bg-gray-200 rounded ${className}`}
       style={{ width, height }}
-    />
+      dir="rtl"
+    ></div>
   );
 };
 
