@@ -7,12 +7,10 @@ import {
   UserIcon,
   HelpCircleIcon,
   ArrowRight,
-  ChevronLeft,
   Menu,
   X,
 } from "lucide-react";
 import ThemeToggle from './ThemeToggle';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -26,7 +24,6 @@ const Header = ({ onMenuClick }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const pathnames = location.pathname.split('/').filter((x) => x);
   const isHomePage = location.pathname === '/';
   const { user } = useAuth();
 
@@ -97,40 +94,6 @@ const Header = ({ onMenuClick }) => {
             </DropdownMenu>
           </div>
         </div>
-        {!isCollapsed && !isHomePage && (
-          <div className="mt-2">
-            <nav className="flex" aria-label="Breadcrumb">
-              <ol className="inline-flex items-center space-x-1 md:space-x-3">
-                <li className="inline-flex items-center">
-                  <Link to="/" className="text-foreground hover:text-foreground/80">
-                    <HomeIcon className="h-4 w-4 ml-2" />
-                    الرئيسية
-                  </Link>
-                </li>
-                {pathnames.map((name, index) => {
-                  const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
-                  const isLast = index === pathnames.length - 1;
-                  return (
-                    <li key={name}>
-                      <div className="flex items-center">
-                        <ChevronLeft className="h-4 w-4 text-foreground/60" />
-                        <Link
-                          to={routeTo}
-                          className={`mr-1 md:mr-2 text-sm font-medium ${
-                            isLast ? 'text-foreground/60 cursor-default' : 'text-foreground hover:text-foreground/80'
-                          }`}
-                          aria-current={isLast ? 'page' : undefined}
-                        >
-                          {name.charAt(0).toUpperCase() + name.slice(1)}
-                        </Link>
-                      </div>
-                    </li>
-                  );
-                })}
-              </ol>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );
