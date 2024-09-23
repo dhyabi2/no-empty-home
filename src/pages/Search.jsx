@@ -12,27 +12,27 @@ const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState({ shops: [], offers: [] });
 
+  // Dummy data for initial display
+  const dummyShops = [
+    { id: 1, name: "كوفي هافن", address: "123 الشارع الرئيسي، المدينة", description: "أفضل قهوة في المدينة" },
+    { id: 2, name: "تك جادجتس", address: "456 شارع الدردار، المدينة", description: "أحدث الإلكترونيات والأجهزة" },
+    { id: 3, name: "سوبر ماركت الطازج", address: "789 شارع البلوط، المدينة", description: "منتجات طازجة وبقالة" }
+  ];
+
+  const dummyOffers = [
+    { id: 1, title: "خصم 50٪ على القهوة", shop: "كوفي هافن", expiry: "31 مارس 2024" },
+    { id: 2, title: "اشترِ واحدة واحصل على الثانية مجانًا", shop: "تك جادجتس", expiry: "15 أبريل 2024" },
+    { id: 3, title: "خصم 20٪ على البقالة", shop: "سوبر ماركت الطازج", expiry: "30 أبريل 2024" }
+  ];
+
   const handleSearch = () => {
-    // نتائج بحث وهمية
-    const mockShops = [
-      { id: 1, name: "كوفي هافن", address: "123 الشارع الرئيسي، المدينة", description: "أفضل قهوة في المدينة" },
-      { id: 2, name: "تك جادجتس", address: "456 شارع الدردار، المدينة", description: "أحدث الإلكترونيات والأجهزة" },
-      { id: 3, name: "سوبر ماركت الطازج", address: "789 شارع البلوط، المدينة", description: "منتجات طازجة وبقالة" }
-    ];
-
-    const mockOffers = [
-      { id: 1, title: "خصم 50٪ على القهوة", shop: "كوفي هافن", expiry: "31 مارس 2024" },
-      { id: 2, title: "اشترِ واحدة واحصل على الثانية مجانًا", shop: "تك جادجتس", expiry: "15 أبريل 2024" },
-      { id: 3, title: "خصم 20٪ على البقالة", shop: "سوبر ماركت الطازج", expiry: "30 أبريل 2024" }
-    ];
-
-    // تصفية النتائج بناءً على مصطلح البحث
-    const filteredShops = mockShops.filter(shop => 
+    // Filter dummy data based on search term
+    const filteredShops = dummyShops.filter(shop => 
       shop.name.includes(searchTerm) ||
       shop.description.includes(searchTerm)
     );
 
-    const filteredOffers = mockOffers.filter(offer => 
+    const filteredOffers = dummyOffers.filter(offer => 
       offer.title.includes(searchTerm) ||
       offer.shop.includes(searchTerm)
     );
@@ -66,7 +66,7 @@ const Search = () => {
           </TabsList>
           <TabsContent value="shops">
             <div className="space-y-4">
-              {searchResults.shops.map((shop) => (
+              {(searchResults.shops.length > 0 ? searchResults.shops : dummyShops).map((shop) => (
                 <Card key={shop.id}>
                   <CardHeader>
                     <CardTitle className="text-lg">{shop.name}</CardTitle>
@@ -87,7 +87,7 @@ const Search = () => {
           </TabsContent>
           <TabsContent value="offers">
             <div className="space-y-4">
-              {searchResults.offers.map((offer) => (
+              {(searchResults.offers.length > 0 ? searchResults.offers : dummyOffers).map((offer) => (
                 <Card key={offer.id}>
                   <CardHeader>
                     <CardTitle className="text-lg">{offer.title}</CardTitle>

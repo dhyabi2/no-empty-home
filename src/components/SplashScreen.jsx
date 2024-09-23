@@ -31,7 +31,7 @@ const SplashScreen = ({ onFinish }) => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        Loyalty App
+        تطبيق الولاء
       </motion.h1>
     </div>
   );
