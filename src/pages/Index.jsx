@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { motion } from "framer-motion";
@@ -19,17 +19,21 @@ import FloatingActionButton from '../components/FloatingActionButton';
 import NearbyShops from '../components/NearbyShops';
 import { MapPin, Gift, Coffee, Zap, Share2, Trophy, CreditCard, Info, Cake, ShoppingCart, Users, Calendar, Star, Flame, Clock, Tag, Package, Repeat, BarChart2, Edit, ThumbsUp, Scan, Key, LayoutDashboard, Settings, Sparkles, Handshake, Heart, Glasses, ArrowRightLeft } from "lucide-react";
 
-const QuickAccessLink = ({ to, icon: Icon, label }) => (
-  <motion.div
-    whileHover={{ scale: 1.05 }}
-    whileTap={{ scale: 0.95 }}
-  >
-    <Link to={to} className="flex flex-col items-center p-3 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors">
-      <Icon className="h-6 w-6 mb-2 text-primary" />
-      <span className="text-sm text-center">{label}</span>
-    </Link>
-  </motion.div>
-);
+const QuickAccessLink = ({ to, icon: Icon, label }) => {
+  const navigate = useNavigate();
+  return (
+    <motion.div
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => navigate(to)}
+    >
+      <div className="flex flex-col items-center p-3 bg-white rounded-lg shadow-sm hover:bg-gray-50 transition-colors cursor-pointer">
+        <Icon className="h-6 w-6 mb-2 text-primary" />
+        <span className="text-sm text-center">{label}</span>
+      </div>
+    </motion.div>
+  );
+};
 
 const Index = () => {
   const [recentLinks, setRecentLinks] = useState([]);
